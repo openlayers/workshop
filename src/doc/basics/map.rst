@@ -35,6 +35,7 @@ Let's take a look at a fully working example of an ol3 map.
             target: 'map',
             renderer: ol.RendererHint.CANVAS,
             layers: [
+              title: "Global Imagery",
               new ol.layer.Tile({
                 source: new ol.source.TileWMS({
                   url: 'http://maps.opengeo.org/geowebcache/service/wms',
