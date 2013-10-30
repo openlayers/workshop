@@ -3,27 +3,27 @@
 Cached Tiles
 ============
 
-By default, the WMS layer makes requests for 256 x 256 (pixel) images to fill your map viewport and beyond. As you pan and zoom around your map, more requests for images go out to fill the areas you haven't yet visited. While your browser will cache some requested images, a lot of processing work is typically required for the server to dynamically render images.
+By default, the Tile layer makes requests for 256 x 256 (pixel) images to fill your map viewport and beyond. As you pan and zoom around your map, more requests for images go out to fill the areas you haven't yet visited. While your browser will cache some requested images, a lot of processing work is typically required for the server to dynamically render images.
 
-Since tiled layers (such as the WMS layer) make requests for images on a regular grid, it is possible for the server to cache these image requests and return the cached result next time you (or someone else) visits the same area - resulting in better performance all around.
+Since tiled layers make requests for images on a regular grid, it is possible for the server to cache these image requests and return the cached result next time you (or someone else) visits the same area - resulting in better performance all around.
 
 
 .. _openlayers.layers.cached.xyz:
 
-OpenLayers.Layer.XYZ
+ol.source.XYZ
 --------------------
 
 The Web Map Service specification allows a lot of flexibility in terms of what a client can request. Without constraints, this makes caching difficult or impossible in practice.
 
-At the opposite extreme, a service might offer tiles only at a fixed set of zoom levels and only for a regular grid. These can be generalized as XYZ layers - you can consider X and Y to indicate the column and row of the grid and Z to represent the zoom level.
+At the opposite extreme, a service might offer tiles only at a fixed set of zoom levels and only for a regular grid. These can be generalized as tiled layers with an XYZ source - you can consider X and Y to indicate the column and row of the grid and Z to represent the zoom level.
 
 
 .. _openlayers.layers.cached.osm:
 
-OpenLayers.Layer.OSM
+ol.source.OSM
 --------------------
 
-The `OpenStreetMap (OSM) <http://www.openstreetmap.org/>`_ project is an effort to collect and make freely available map data for the world. OSM provides a few different renderings of their data as cached tile sets. These renderings conform to the basic :ref:`XYZ grid <openlayers.layers.cached.xyz>` arrangement and can be used in an OpenLayers map. The ``OpenLayers.Layer.OSM`` constructor accesses OpenStreetMap tiles.
+The `OpenStreetMap (OSM) <http://www.openstreetmap.org/>`_ project is an effort to collect and make freely available map data for the world. OSM provides a few different renderings of their data as cached tile sets. These renderings conform to the basic :ref:`XYZ grid <openlayers.layers.cached.xyz>` arrangement and can be used in an OpenLayers map. The ``ol.source.OSM`` layer source accesses OpenStreetMap tiles.
 
 .. _openlayers.layers.cached.example:
 
@@ -34,16 +34,19 @@ The `OpenStreetMap (OSM) <http://www.openstreetmap.org/>`_ project is an effort 
     .. code-block:: html
 
         <script>
-            var center = new OpenLayers.LonLat(-93.27, 44.98).transform(
-                'EPSG:4326', 'EPSG:3857'
-            );
-
-            var map = new OpenLayers.Map("map-id", {projection: 'EPSG:3857'});
-
-            var osm = new OpenLayers.Layer.OSM();
-            map.addLayer(osm);
-
-            map.setCenter(center, 9);
+          var map = new ol.Map({
+            target: 'map',
+            renderer: ol.RendererHint.CANVAS,
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              })
+            ],
+            view: new ol.View2D({
+              center: ol.proj.transform([-93.27, 44.98], 'EPSG:4326', 'EPSG:3857'),
+              zoom: 9
+            })
+          });
         </script>
 
 #.  In the ``<head>`` of the same document, add a few style declarations for the layer attribution.
@@ -51,14 +54,12 @@ The `OpenStreetMap (OSM) <http://www.openstreetmap.org/>`_ project is an effort 
     .. code-block:: html
     
         <style>
-            #map-id {
+            .map {
                 width: 512px;
                 height: 256px;
             }
-            .olControlAttribution {
-                font-size: 10px;
-                bottom: 5px;
-                left: 5px;
+            .ol-attribution ul, .ol-attribution a {
+                color: black;
             }
         </style>
 
@@ -66,7 +67,7 @@ The `OpenStreetMap (OSM) <http://www.openstreetmap.org/>`_ project is an effort 
 
 .. figure:: cached1.png
    
-    A map with an OpenStreetMap layer.
+    A map with a tiled layer with an OpenStreetMap source.
 
 
 A Closer Look
@@ -74,68 +75,72 @@ A Closer Look
 
 Projections
 ```````````
-Review the first 3 lines of the initialization script:
+Review the view definition of the map:
 
 .. code-block:: javascript
 
-    var center = new OpenLayers.LonLat(-93.27, 44.98).transform(
-        'EPSG:4326', 'EPSG:3857'
-    );
+    view: new ol.View2D({
+      center: ol.proj.transform([-93.27, 44.98], 'EPSG:4326', 'EPSG:3857'),
+      zoom: 9
+    })
 
 Geospatial data can come in any number of coordinate reference systems. One data set might use geographic coordinates (longitude and latitude) in degrees, and another might have coordinates in a local projection with units in meters. A full discussion of coordinate reference systems is beyond the scope of this module, but it is important to understand the basic concept.
 
-OpenLayers needs to know the coordinate system for your data. Internally, this
-is represented with an ``OpenLayers.Projection`` object. The ``transform`` function also takes strings that represent the coordinate reference system (``"EPSG:4326"`` and ``"EPSG:3857"`` above).
+ol3 needs to know the coordinate system for your data. Internally, this
+is represented with an ``ol.proj.Projection`` object. The ``transform`` function in the ``ol.proj`` namespace also takes strings that represent the coordinate reference system (``"EPSG:4326"`` and ``"EPSG:3857"`` above).
 
 Locations Transformed
 `````````````````````
 
-The OpenStreetMap tiles that we will be using are in a Mercator projection. Because of this, we need to set the initial center using Mercator coordinates. Since it is relatively easy to find out the coordinates for a place of interest in geographic coordinates, we use the ``transform`` method to turn geographic coordinates (``"EPSG:4326"``) into Mercator coordinates (``"EPSG:3857"``).
+The OpenStreetMap tiles that we will be using are in a Mercator projection. Because of this, we need to set the initial center using Mercator coordinates. Since it is relatively easy to find out the coordinates for a place of interest in geographic coordinates, we use the ``ol.proj.transform`` method to turn geographic coordinates (``"EPSG:4326"``) into Mercator coordinates (``"EPSG:3857"``).
 
 Custom Map Options
 ``````````````````
 
-.. code-block:: javascript
-
-    var map = new OpenLayers.Map("map-id", {projection: 'EPSG:3857'});
-
-In the :ref:`previous example <openlayers.layers.wms.example>` we used the default options for our map. In this example, we set a custom map projection.
-
 .. note::
 
-    The projections we used here are the only projections that OpenLayers knows
-    about. For other projections, the map options need to contain two more
-    properties: ``maxExtent`` and ``units``. This information can be looked up
-    at http://spatialreference.org/, using the EPSG code.
+    The projections we used here are the only projections that ol3 knows
+    about. For other projections, we need to configure the projection:
+
+.. code-block:: javascript
+
+    var projection = ol.proj.configureProj4jsProjection({
+      code: 'EPSG:21781',
+      extent: [485869.5728, 76443.1884, 837076.5648, 299941.7864]
+    });
+
+And we need to include two additional script tags:
+
+.. code-block:: html
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/defs/EPSG21781.js" type="text/javascript"></script>
+
+    This information can be looked up at http://spatialreference.org/, using the EPSG code.
 
 Layer Creation and Map Location
 ```````````````````````````````
 
 .. code-block:: javascript
 
-    var osm = new OpenLayers.Layer.OSM();
-    map.addLayer(osm);
+    layers: [
+      new ol.layer.Tile({
+        source: new ol.source.OSM()
+      })
+    ],
 
-As before, we create a layer and add it to our map. This time, we accept all the default options for the layer.
-
-.. code-block:: javascript
-
-    map.setCenter(center, 9);
-    
-Finally, we give our map a center (in Mercator coordinates) and set the zoom level to ``9``.
+As before, we create a layer and add it to the layers array of our map config object. This time, we accept all the default options for the source.
 
 Style
 `````
 
 .. code-block:: html
 
-    .olControlAttribution {
-        font-size: 10px;
-        bottom: 5px;
-        left: 5px;
+    .ol-attribution ul, .ol-attribution a {
+      color: black;
     }
 
-A treatment of map controls is also outside the scope of this module, but these style declarations give you a sneak preview. By default, an ``OpenLayers.Control.Attribution`` control is added to all maps. This lets layers display attribution information in the map viewport. The declarations above alter the style of this attribution for our map (notice the small Copyright line at the bottom left of the map).
+A treatment of map controls is also outside the scope of this module, but these style declarations give you a sneak preview. By default, an ``ol.control.Attribution`` control is added to all maps. This lets layer sources display attribution information in the map viewport. The declarations above alter the style of this attribution for our map (notice the small Copyright line at the bottom left of the map).
 
 Having mastered layers with publicly available cached tile sets, let's move on to working with :ref:`proprietary layers <openlayers.layers.proprietary>`.
 
