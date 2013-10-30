@@ -116,10 +116,10 @@ And we need to include two additional script tags:
     <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js" type="text/javascript"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/defs/EPSG21781.js" type="text/javascript"></script>
 
-    This information can be looked up at http://spatialreference.org/, using the EPSG code.
+This information can be looked up at http://spatialreference.org/, using the EPSG code.
 
-Layer Creation and Map Location
-```````````````````````````````
+Layer Creation
+``````````````
 
 .. code-block:: javascript
 
