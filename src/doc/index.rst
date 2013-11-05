@@ -30,8 +30,6 @@ The following modules will be covered in this workshop:
 :ref:`openlayers.vector`
   Explore vector layers in depth.
 
-:ref:`openlayers.integration`
-  Learn how to use OpenLayers with other JavaScript libraries.
 
 
 .. toctree::
@@ -42,6 +40,5 @@ The following modules will be covered in this workshop:
     layers/index
     controls/index
     vector/index
-    integration/index
 
     
