@@ -26,13 +26,13 @@ In this case, we give the container a ``class`` attribute so we can reference it
 Map Style
 ---------
 
-OpenLayers comes with a default stylesheet that specifies how map-related elements should be styled. We've explicitly included this stylesheet in the ``map.html`` page (``http://ol3js.org/en/master/build/ol.css" type="text/css">``).
+OpenLayers comes with a default stylesheet that specifies how map-related elements should be styled. We've explicitly included this stylesheet in the ``map.html`` page (``ol3/ol.css" type="text/css">``).
 
 OpenLayers doesn't make any guesses about the size of your map. Because of this, following the default stylesheet, we need to include at least one custom style declaration to give the map some room on the page. 
 
 .. code-block:: html
 
-    <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+    <link rel="stylesheet" href="ol3/ol.css" type="text/css">
     <style>
       .map {
         height: 256px;
@@ -80,7 +80,7 @@ The next step in generating your map is to include some initialization code. In 
 
 .. note::
 
-    The order of these steps is important. Before the our custom script can be executed, the OpenLayers library must be loaded. In our example, the OpenLayers library is loaded in the ``<head>`` of our document with ``<script src="http://ol3js.org/en/master/build/ol.js"></script>``.
+    The order of these steps is important. Before the our custom script can be executed, the OpenLayers library must be loaded. In our example, the OpenLayers library is loaded in the ``<head>`` of our document with ``<script src="ol3/ol.js"></script>``.
     
     Similarly, our custom map initialization code (above) cannot run until the document element that serves as the viewport container, in this case ``<div class="map"></div>``, is ready. By including the initialization code at the end of the document ``<body>``, we ensure that the library is loaded and the viewport container is ready before generating our map.
 
