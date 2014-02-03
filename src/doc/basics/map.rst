@@ -3,7 +3,7 @@
 Creating a Map
 ==============
 
-In OpenLayers, a map is a collection of layers and various controls for dealing with user interaction. A map is generated with three basic ingredients: :ref:`markup <openlayers.basics.dissect.markup>`, :ref:`style declarations <openlayers.basics.dissect.style>`, and :ref:`initialization code <openlayers.basics.dissect.code>`.
+In OpenLayers, a map is a collection of layers and various interactions and controls for dealing with user interaction. A map is generated with three basic ingredients: :ref:`markup <openlayers.basics.dissect.markup>`, :ref:`style declarations <openlayers.basics.dissect.style>`, and :ref:`initialization code <openlayers.basics.dissect.code>`.
 
 .. _openlayers.basics.map.example:
 
@@ -46,7 +46,8 @@ Let's take a look at a fully working example of an ol3 map.
             view: new ol.View2D({
               projection: 'EPSG:4326',
               center: [0, 0],
-              zoom: 1
+              zoom: 1,
+              maxResolution: 0.703125
             })
           });
         </script>
