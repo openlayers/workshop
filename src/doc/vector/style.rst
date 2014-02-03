@@ -10,7 +10,7 @@ Styling Vector Layers
         <!doctype html>
         <html lang="en">
           <head>
-            <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+            <link rel="stylesheet" href="ol3/ol.css" type="text/css">
             <style>
               .map {
                 height: 256px;
@@ -18,7 +18,7 @@ Styling Vector Layers
                 background-color: gray;
               }
             </style>
-            <script src="http://ol3js.org/en/master/build/ol.js" type="text/javascript"></script>
+            <script src="ol3/ol.js" type="text/javascript"></script>
             <title>OpenLayers 3 example</title>
           </head>
           <body>

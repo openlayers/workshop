@@ -42,7 +42,7 @@ Your revised ``map.html`` file should look something like this:
   <!doctype html>
   <html lang="en">
     <head>
-      <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+      <link rel="stylesheet" href="ol3/ol.css" type="text/css">
       <style>
         .map {
           height: 256px;

@@ -74,15 +74,15 @@
     </target>
     
     <target name="resources" depends="init" description="shuffle resources">
-<!--        <echo>Copying resources.</echo>
-        <copy todir="${dest}" file="README.txt"/>
+        <echo>Copying resources.</echo>
+<!--        <copy todir="${dest}" file="README.txt"/>
         <copy todir="${dest}/data">
             <fileset dir="${src}/data"></fileset>
+        </copy> -->
+        <copy todir="${dest}/ol3">
+            <fileset dir="${src}/ol3"></fileset>
         </copy>
-        <copy todir="${dest}/openlayers">
-            <fileset dir="${src}/openlayers"></fileset>
-        </copy>
-        <copy todir="${dest}/jquery-ui">
+<!--        <copy todir="${dest}/jquery-ui">
             <fileset dir="${src}/jquery-ui"></fileset>
         </copy>
         <copy todir="${dest}/ext">
