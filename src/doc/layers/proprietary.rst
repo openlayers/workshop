@@ -6,6 +6,7 @@ Proprietary Layers
 In previous sections, we displayed layers based on a standards compliant :abbr:`WMS (OGC Web Map Service)` and a custom tile cache. Online mapping (or at least the tiled map client) was largely popularized by the availability of proprietary map tile services. OpenLayers provides layer types that work with these proprietary services through their APIs.
 
 In this section, we'll build on the example developed in the :ref:`previous section <openlayers.layers.cached.example>` by adding a layer using tiles from Bing.
+
 .. _openlayers.layer.proprietary.bing:
 
 Bing!
@@ -20,7 +21,7 @@ Let's add a Bing layer.
     .. code-block:: javascript
 
         source: new ol.source.BingMaps({
-          style: 'Road',
+          imagerySet: 'Road',
           key: 'Ak-dzM4wZjSqTlzveKz5u0d4IQ4bRzVI309GxmkgSVr1ewS6iPSrOvOKhA-CJlm3'
         })
 
@@ -52,7 +53,7 @@ Your revised ``map.html`` file should look something like this:
           color: black;
         }
       </style>
-      <script src="http://ol3js.org/en/master/build/ol-simple.js" type="text/javascript"></script>
+      <script src="ol3/ol.js" type="text/javascript"></script>
       <title>OpenLayers 3 example</title>
     </head>
     <body>
@@ -65,7 +66,7 @@ Your revised ``map.html`` file should look something like this:
           layers: [
             new ol.layer.Tile({
               source: new ol.source.BingMaps({
-                style: 'Road',
+                imagerySet: 'Road',
                 key: 'Ak-dzM4wZjSqTlzveKz5u0d4IQ4bRzVI309GxmkgSVr1ewS6iPSrOvOKhA-CJlm3'
               })
             })

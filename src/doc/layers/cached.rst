@@ -140,7 +140,7 @@ Style
       color: black;
     }
 
-A treatment of map controls is also outside the scope of this module, but these style declarations give you a sneak preview. By default, an ``ol.control.Attribution`` control is added to all maps. This lets layer sources display attribution information in the map viewport. The declarations above alter the style of this attribution for our map (notice the small Copyright line at the bottom left of the map).
+A treatment of map controls is also outside of the scope of this module, but these style declarations give you a sneak preview. By default, an ``ol.control.Attribution`` control is added to all maps. This lets layer sources display attribution information in the map viewport. The declarations above alter the style of this attribution for our map (notice the Copyright line at the bottom left of the map).
 
 Having mastered layers with publicly available cached tile sets, let's move on to working with :ref:`proprietary layers <openlayers.layers.proprietary>`.
 

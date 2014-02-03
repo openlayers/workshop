@@ -58,7 +58,8 @@ Let's take a look at the following code:
             view: new ol.View2D({
               projection: 'EPSG:4326',
               center: [0, 0],
-              zoom: 1
+              zoom: 0,
+              maxResolution: 0.703125
             })
           });
         </script>
@@ -77,14 +78,14 @@ Let's take a look at the following code:
 The ol.layer.Tile Constructor
 ------------------------------------
 
-The ``ol.layer.Tile`` constructor gets an object literal of type ``ol.layer.TileOptions`` see: http://ol3js.org/en/master/apidoc/ol.layer.html#TileOptions
+The ``ol.layer.Tile`` constructor gets an object literal of type ``olx.layer.TileOptions`` see: http://ol3js.org/en/master/apidoc/olx.layer.html#TileOptions
 In this case we are providing the source key of the options with a ``ol.source.TileWMS``.
 A human-readable title for the layer can be provided with the title key, but basically any arbitrary name for the key can be used here.
 In ol3 there is a separation between layers and sources, in OpenLayers 2 this was all part of the layer.
 
 The ol.source.TileWMS Constructor
 ------------------------------------
-The ``ol.source.TileWMS`` constructor has a single argument which is defined by: http://ol3js.org/en/master/apidoc/ol.source.html#TileWMSOptions
+The ``ol.source.TileWMS`` constructor has a single argument which is defined by: http://ol3js.org/en/master/apidoc/olx.source.html#TileWMSOptions
 The url is the online resource of the WMS service, and params is an object literal with the parameter names and their values. Make sure to put quotes around the parameter names.
 Also, since the default WMS version is 1.3.0 now, you might need to provide a lower version in the params if your WMS does not support WMS 1.3.0.
 
@@ -102,6 +103,9 @@ Also, since the default WMS version is 1.3.0 now, you might need to provide a lo
 
 
 .. rubric:: Tasks
+
+#.  Change your layer and source to have a single image instead of tiles. Look at the following API doc pages for hints: http://ol3js.org/en/master/apidoc/ol.layer.Image.html
+    and http://ol3js.org/en/master/apidoc/ol.source.ImageWMS.html
 
 #.  This same WMS offers a layer named ``"openstreetmap"``. Change the value of 
     the ``LAYERS`` parameter from ``"bluemarble"`` to ``"openstreetmap"``. 
