@@ -3,7 +3,7 @@
 OpenLayers Resources
 ====================
 
-The OpenLayers library contains a wealth of functionality. Though the developers have worked hard to provide examples of that functionality and have organized the code in a way that allows other experienced developers to find their way around, may users find it a challenge to get started from scratch.
+The OpenLayers library contains a wealth of functionality. Though the developers have worked hard to provide examples of that functionality and have organized the code in a way that allows other experienced developers to find their way around, many users find it a challenge to get started from scratch.
 
 Learn by Example
 ----------------

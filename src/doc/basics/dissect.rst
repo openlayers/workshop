@@ -44,11 +44,6 @@ In this case, we're using the map container's ``class`` value as a selector, and
 
 The style declarations are directly included in the ``<head>`` of our document. In most cases, your map related style declarations will be a part of a larger website theme linked in external stylesheets.
 
-.. note::
-
-    OpenLayers enforces zero margin and padding on the element that you use for the viewport container. If you want your map to be surrounded by some margin, wrap the viewport container in another element with margin or padding.
-    
-
 .. _openlayers.basics.dissect.code:
 
 Map Initialization
@@ -73,14 +68,15 @@ The next step in generating your map is to include some initialization code. In 
         view: new ol.View2D({
           projection: 'EPSG:4326',
           center: [0, 0],
-          zoom: 1
+          zoom: 0,
+          maxResolution: 0.703125
         })
       });
     </script>
 
 .. note::
 
-    The order of these steps is important. Before the our custom script can be executed, the OpenLayers library must be loaded. In our example, the OpenLayers library is loaded in the ``<head>`` of our document with ``<script src="ol3/ol.js"></script>``.
+    The order of these steps is important. Before our custom script can be executed, the OpenLayers library must be loaded. In our example, the OpenLayers library is loaded in the ``<head>`` of our document with ``<script src="ol3/ol.js"></script>``.
     
     Similarly, our custom map initialization code (above) cannot run until the document element that serves as the viewport container, in this case ``<div class="map"></div>``, is ready. By including the initialization code at the end of the document ``<body>``, we ensure that the library is loaded and the viewport container is ready before generating our map.
 
@@ -113,14 +109,15 @@ The layers config creates a layer to be displayed in our map:
 
 Don't worry about the syntax here if this part is new to you. Layer creation will be covered in another module. The important part to understand is that our map view is a collection of layers. In order to see a map, we need to include at least one layer.
 
-The final step is definining the view. We specify a projection, a center and a zoom level.
+The final step is definining the view. We specify a projection, a center and a zoom level. Also we specify a maxResolution to make sure we don't request boundingboxes that GeoWebCache cannot handle.
 
 .. code-block:: javascript
 
     view: new ol.View2D({
        projection: 'EPSG:4326',
        center: [0, 0],
-       zoom: 1
+       zoom: 0,
+       maxResolution: 0.703125
     })
 
 You've successfully dissected your first map! Next let's :ref:`learn more <openlayers.basics.resources>` about developing with OpenLayers.

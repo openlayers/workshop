@@ -46,7 +46,7 @@ Let's take a look at a fully working example of an ol3 map.
             view: new ol.View2D({
               projection: 'EPSG:4326',
               center: [0, 0],
-              zoom: 1,
+              zoom: 0,
               maxResolution: 0.703125
             })
           });
