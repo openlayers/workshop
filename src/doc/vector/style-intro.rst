@@ -39,6 +39,24 @@ The equivalent of a declaration block in CSS is a `symbolizer` in ol3 (these are
       width: 1
     })
 
+Depending on the geometry type, different symbolizers can be applied. Lines work like polygons, but they cannot have a fill. Points can be styled with ``ol.style.Shape`` or ``ol.style.Icon``. The former is used to render predefined shapes (e.g. a circle), and the latter uses graphics from file (e.g. png images). Here is an example for a shape style with a circle:
+
+.. code-block:: javascript
+
+    new ol.style.Shape({
+      type: ol.style.ShapeType.CIRCLE,
+      size: 20,
+      fill: new ol.style.Fill({
+        color: '#ff9900',
+        opacity: 0.6
+      }),
+      stroke: new ol.style.Stroke({
+        color: '#ffcc00',
+        opacity: 0.4
+      })
+    });
+
+
 ol.style.Rule
 ---------------
 
@@ -59,10 +77,14 @@ To combine a filter with a symbolizer, we use an ``ol.style.Rule`` object. As su
       ]
     })
 
+Note that the ``symbolizers`` property is an array. So it is also possible to
+render features with multiple symbolizers. This can e.g. be used to get roads with a thick outline and a thick inner line. Also note that if multiple rules apply for a feature, the symbolizers for all rules will be rendered.
+
+
 ol.style.Style
 ----------------
 
-As in CSS page, where you may have many rules-- selectors and associated declaration blocks--you are likely to have more than one rule for styling the features of a given map layer. You group ``ol.style.Rule`` objects together in an ``ol.style.Style`` object. A style object is typically constructed with base symbolizers. When a feature is rendered, the base symbolizers are extended with symbolizers from all rules that apply to the feature.
+As in CSS page, where you may have many rules -- selectors and associated declaration blocks -- you are likely to have more than one rule for styling the features of a given map layer. You group ``ol.style.Rule`` objects together in an ``ol.style.Style`` object. A style object is typically constructed with base symbolizers. When a feature is rendered, the base symbolizers are extended with symbolizers from all rules that apply to the feature.
 
 So, if you want all features to be colored red except for those that have a ``class`` attribute with the value of ``"someClass"`` (and you want those features colored blue with an 1px olive stroke), you would create a style that looked like the following:
 
