@@ -7,12 +7,12 @@ The base ``ol.layer.Vector`` constructor provides a fairly flexible layer type. 
 
 .. _openlayers.vector.basics.format:
 
-ol.parser
+ol.format
 ---------
 
-The ``ol.parser`` classes in ol3 are responsible for parsing data from the server representing vector features. The parser turns raw feature data into ``ol.Feature`` objects.  Typically, the parser is also responsible for reversing this operation.
+The ``ol.format`` classes in ol3 are responsible for parsing data from the server representing vector features. Most of the times you won't be using them directly, but you'll be using their corresponding source (e.g. ``ol.source.KML``). The format turns raw feature data into ``ol.Feature`` objects.  Typically, the format is also responsible for reversing this operation.
 
-Consider the two blocks of data below. Both represent the same ``ol.Feature`` object (a point in Barcelona, Spain). The first is serialized as `GeoJSON <http://geojson.org>`_ (using the ``ol.parser.GeoJSON`` parser). The second is serialized as :abbr:`GML (OGC Geography Markup Language)` (using the ``ol.parser.ogc.GML_v3`` parser).
+Consider the two blocks of data below. Both represent the same ``ol.Feature`` object (a point in Barcelona, Spain). The first is serialized as `GeoJSON <http://geojson.org>`_ (using the ``ol.format.GeoJSON`` parser). The second is serialized as :abbr:`KML (OGC Keyhole Markup Language)` (using the ``ol.format.KML`` parser).
 
 GeoJSON Example
 ```````````````
@@ -29,22 +29,16 @@ GeoJSON Example
         }
     }
 
-GML Example
+KML Example
 ```````````
 
 .. code-block:: xml
 
-    <?xml version="1.0" encoding="utf-16"?>
-    <gml:featureMember 
-        xsi:schemaLocation="http://www.opengis.net/gml http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd" 
-        xmlns:gml="http://www.opengis.net/gml" 
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <feature:feature fid="OpenLayers.Feature.Vector_107" xmlns:feature="http://example.com/feature">
-            <feature:geometry>
-                <gml:Point>
-                    <gml:pos>-104.98, 39.76</gml:pos>
-                </gml:Point>
-            </feature:geometry>
-        </feature:feature>
-    </gml:featureMember>
-
+    <?xml version="1.0" encoding="utf-8"?>
+    <kml xmlns="http://earth.google.com/kml/2.2">
+      <Placemark>
+        <Point>
+          <coordinates>-104.98,39.76</coordinates>
+        </Point>
+      </Placemark>
+    </kml>

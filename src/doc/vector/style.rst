@@ -12,11 +12,11 @@ Styling Vector Layers
           <head>
             <link rel="stylesheet" href="ol3/ol.css" type="text/css">
             <style>
-              .map {
-                height: 256px;
-                width: 512px;
-                background-color: gray;
-              }
+            .map {
+              background-color: gray;
+              height: 256px;
+              width: 512px;
+            }
             </style>
             <script src="ol3/ol.js" type="text/javascript"></script>
             <title>OpenLayers 3 example</title>
@@ -25,21 +25,22 @@ Styling Vector Layers
             <h1>My Map</h1>
             <div id="map" class="map"></div>
             <script type="text/javascript">
+              var style = [new ol.style.Style({
+                stroke: new ol.style.Stroke({color: 'red', width: 2})
+              })];
               var map = new ol.Map({
                 target: 'map',
                 renderer: ol.RendererHint.CANVAS,
                 layers: [
                   new ol.layer.Vector({
                     title: 'Buildings',
-                    source: new ol.source.Vector({
-                      parser: new ol.parser.ogc.GML_v3(),
-                      url: 'data/layers/buildings.gml'
+                    source: new ol.source.KML({
+                    reprojectTo: 'EPSG:4326',
+                      url: 'data/layers/buildings.kml'
                     }),
-                    style: new ol.style.Style({
-                      symbolizers: [
-                        new ol.style.Stroke({color: 'red', width: 2})
-                      ]
-                    })
+                    styleFunction: function(feature, resolution) {
+                      return style;
+                    }
                   })
                 ],
                 view: new ol.View2D({
@@ -51,35 +52,31 @@ Styling Vector Layers
             </script>
           </body>
         </html>
-    
+
 #.  Open this ``map.html`` file in your browser to see buildings with a red outline:  @workshop_url@/map.html
 
-#.  With a basic understanding of :ref:`styling in OpenLayers <openlayers.vector.style-intro>`, we can create an ``ol.style.Style`` that displays buildings in different colors based on the size of their footprint. In your map initialization code, replace the constructor for the ``Buildings`` layer with the following:
+#.  With a basic understanding of :ref:`styling in OpenLayers <openlayers.vector.style-intro>`, we can create a ``styleFunction`` that displays buildings in different colors based on the size of their footprint. In your map initialization code, replace the styleFunction for the ``Buildings`` layer with the following:
     
     .. code-block:: javascript
 
-            new ol.layer.Vector({
-              title: 'Buildings',
-              source: new ol.source.Vector({
-                parser: new ol.parser.ogc.GML_v3(),
-                url: 'data/layers/buildings.gml'
-              }),
-              style: new ol.style.Style({
-                symbolizers: [
-                  new ol.style.Stroke({color: 'black', width: 1}),
-                  new ol.style.Fill({color: 'navy'})
-                ],
-                rules: [
-                  new ol.style.Rule({
-                    filter: ol.expr.parse('shape_area < 3000'),
-                    symbolizers: [
-                      new ol.style.Stroke({color: 'black', width: 1}),
-                      new ol.style.Fill({color: 'olive'})
-                    ]
-                  })
-                ]
-              })
-            })
+            // define this before the ol.Map is constructed
+            var defaultStyle = [new ol.style.Style({
+              fill: new ol.style.Fill({color: 'navy'}),
+              stroke: ol.style.Stroke({color: 'black', width: 1})
+            })];
+            var ruleStyle = [new ol.style.Style({
+              fill: new ol.style.Fill({color: 'olive'}),
+              stroke: new ol.style.Stroke({color: 'black', width: 1})
+            })];
+
+            // new styleFunction
+            styleFunction: function(feature, resolution) {
+              if (feature.get('shape_area') < 3000) {
+                return ruleStyle;
+              } else {
+                return defaultStyle;
+              }
+            }
 
 #.  Save your changes and open ``map.html`` in your browser: @workshop_url@/map.html
 
