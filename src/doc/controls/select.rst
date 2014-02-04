@@ -15,14 +15,14 @@ Create a Vector Layer and a Select Interaction
     .. code-block:: html
 
         <!doctype html>
-          <html lang="en">
-            <head>
+        <html lang="en">
+          <head>
             <link rel="stylesheet" href="ol3/ol.css" type="text/css">
             <style>
-              .map {
-                height: 256px;
-                width: 512px;
-              }
+            .map {
+              height: 256px;
+              width: 512px;
+            }
             </style>
             <script src="ol3/ol.js" type="text/javascript"></script>
             <title>OpenLayers 3 example</title>
@@ -31,12 +31,36 @@ Create a Vector Layer and a Select Interaction
             <h1>My Map</h1>
             <div id="map" class="map"></div>
             <script type="text/javascript">
+              var style = [new ol.style.Style({
+                image: new ol.style.Circle({
+                  radius: 5,
+                  fill: new ol.style.Fill({
+                    color: '#0000FF'
+                  }),
+                  stroke: new ol.style.Stroke({
+                    color: '#000000'
+                  })
+                })
+              })];
+              var selectedStyle = [new ol.style.Style({
+                image: new ol.style.Circle({
+                  radius: 5,
+                  fill: new ol.style.Fill({
+                    color: '#FF0000'
+                  }),
+                  stroke: new ol.style.Stroke({
+                    color: '#000000'
+                  })
+                })
+              })];
               var map = new ol.Map({
                 interactions: ol.interaction.defaults().extend([
                   new ol.interaction.Select({
-                    layerFilter: function(layer) {
-                      return layer.get('id') == 'vector';
-                    }
+                    featuresOverlay: new ol.render.FeaturesOverlay({
+                      styleFunction: function(feature, layer) {
+                        return selectedStyle;
+                      }
+                    })
                   })
                 ]),
                 target: 'map',
@@ -50,41 +74,14 @@ Create a Vector Layer and a Select Interaction
                     })
                   }),
                   new ol.layer.Vector({
-                    id: 'vector',
                     title: 'Earthquakes',
-                    source: new ol.source.Vector({
-                      parser: new ol.parser.GeoJSON(),
-                      url: 'data/layers/7day-M2.5.json'
+                    source: new ol.source.GeoJSON({
+                      url: 'data/layers/7day-M2.5.json',
+                      reprojectTo: 'EPSG:4326'
                     }),
-                    style: new ol.style.Style({
-                      rules: [
-                        new ol.style.Rule({
-                          filter: 'renderIntent("selected")',
-                          symbolizers: [
-                            new ol.style.Shape({
-                              fill: new ol.style.Fill({
-                                color: '#FF0000'
-                              }),
-                              size: 10,
-                              stroke: new ol.style.Stroke({
-                                color: '#000000'
-                              })
-                            })
-                          ]
-                        })
-                      ],
-                      symbolizers: [
-                        new ol.style.Shape({
-                          fill: new ol.style.Fill({
-                            color: '#0000FF'
-                          }),
-                          size: 10,
-                          stroke: new ol.style.Stroke({
-                            color: '#000000'
-                          })
-                        })
-                      ]
-                    })
+                    styleFunction: function(feature, resolution) {
+                      return style;
+                    }
                   })
                 ],
                 view: new ol.View2D({
@@ -97,7 +94,7 @@ Create a Vector Layer and a Select Interaction
           </body>
         </html>
         
-#.  Save your changes to ``map.html`` and open the page in your browser:  @workshop_url@/map.html. To see feature selection in action, use the mouse-click to select a building:
+#.  Save your changes to ``map.html`` and open the page in your browser:  @workshop_url@/map.html. To see feature selection in action, use the mouse-click to select an earth quake:
     
     .. figure:: select1.png
    

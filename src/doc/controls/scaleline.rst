@@ -57,7 +57,7 @@ However, for the sake of this exercise, let's say you think the map viewport is 
     .. code-block:: javascript
    
         controls: ol.control.defaults().extend([
-          new ol.control.ScaleLine({target: document.getElementById('scale-line')})
+          new ol.control.ScaleLine({className: 'ol-scale-line', target: document.getElementById('scale-line')})
         ]),
 
 #.  Save your changes and open ``map.html`` in your browser: @workshop_url@/map.html    
@@ -68,6 +68,7 @@ However, for the sake of this exercise, let's say you think the map viewport is 
     
         .scale-line {
           position: absolute;
+          top: 350px;
         }
         .ol-scale-line { 
           position: relative;
