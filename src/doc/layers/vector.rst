@@ -5,7 +5,7 @@ Vector Layers
 
 Previous sections in this module have covered the basics of raster layers with ol3. This section deals with vector layers - where the data is rendered for viewing in your browser.
 
-ol3 provides facilities to read existing vector data from the server and  determine how features should be styled in the map.
+ol3 provides facilities to read existing vector data from the server and determine how features should be styled in the map.
 
 Though browsers are steadily improving in terms of JavaScript execution speed (which helps in parsing data), there are still serious rendering bottlenecks which limit the quantity of data you'll want to use in practice. The best advice is to try your application in all the browsers you plan to support, to limit the data rendered client side until performance is acceptable, and to consider strategies for effectively conveying information without swamping your browser with too many vector features (the technical vector rendering limits of your browser often match the very real limitations of your users to absorb information).
 
@@ -25,10 +25,19 @@ Let's go back to the :ref:`WMS example <openlayers.layers.wms.example>` to get a
 
         new ol.layer.Vector({
           title: 'Earthquakes',
-          source: new ol.source.Vector({
-            parser: new ol.parser.GeoJSON(),
-            url: 'data/layers/7day-M2.5.json'
-          })
+          source: new ol.source.GeoJSON({
+            url: 'data/layers/7day-M2.5.json',
+            reprojectTo: "EPSG:4326"
+          }),
+          styleFunction: function(feature, resolution) {
+            // style defined inline for brevity, but should be done outside of styleFunction for performance
+            return [new ol.style.Style({
+              image: new ol.style.Circle({
+                radius: 3,
+                fill: new ol.style.Fill({color: 'white'})
+              })
+            })];
+          }
         })
     
 .. figure:: vector1.png
@@ -44,10 +53,19 @@ Let's examine that vector layer creation to get an idea of what is going on.
 
     new ol.layer.Vector({
        title: 'Earthquakes',
-       source: new ol.source.Vector({
-        parser: new ol.parser.GeoJSON(),
-        url: 'data/layers/7day-M2.5.json'
-      })
+       source: new ol.source.GeoJSON({
+        url: 'data/layers/7day-M2.5.json',
+        reprojectTo: "EPSG:4326"
+      }),
+      styleFunction: function(feature, resolution) {
+        // style defined inline for brevity, but should be done outside of styleFunction for performance
+        return [new ol.style.Style({
+          image: new ol.style.Circle({
+            radius: 3,
+            fill: new ol.style.Fill({color: 'white'})
+          })
+        })];
+      }
     })
 
 The layer is given the title ``"Earthquakes"`` and some custom options. In the options object, we've included a ``source`` of type ``ol.source.Vector`` which points to a url and a parser to parse the returned document.

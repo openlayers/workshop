@@ -18,24 +18,23 @@ Styling Vector Layers
               width: 512px;
             }
             </style>
-            <script src="ol3/ol.js" type="text/javascript"></script>
             <title>OpenLayers 3 example</title>
           </head>
           <body>
             <h1>My Map</h1>
             <div id="map" class="map"></div>
+            <script src="ol3/ol.js" type="text/javascript"></script>
             <script type="text/javascript">
               var style = [new ol.style.Style({
                 stroke: new ol.style.Stroke({color: 'red', width: 2})
               })];
               var map = new ol.Map({
                 target: 'map',
-                renderer: ol.RendererHint.CANVAS,
+                renderer: 'canvas',
                 layers: [
                   new ol.layer.Vector({
                     title: 'Buildings',
                     source: new ol.source.KML({
-                    reprojectTo: 'EPSG:4326',
                       url: 'data/layers/buildings.kml'
                     }),
                     styleFunction: function(feature, resolution) {

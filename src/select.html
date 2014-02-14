@@ -8,12 +8,12 @@
         width: 512px;
       }
     </style>
-    <script src="ol3/ol.js" type="text/javascript"></script>
     <title>OpenLayers 3 example</title>
   </head>
   <body>
     <h1>My Map</h1>
     <div id="map" class="map"></div>
+    <script src="ol3/ol.js" type="text/javascript"></script>
     <script type="text/javascript">
       var style = [new ol.style.Style({
         image: new ol.style.Circle({
@@ -40,7 +40,7 @@
       var map = new ol.Map({
         interactions: ol.interaction.defaults().extend([
           new ol.interaction.Select({
-            featuresOverlay: new ol.render.FeaturesOverlay({
+            featureOverlay: new ol.FeatureOverlay({
               styleFunction: function(feature, layer) {
                 return selectedStyle;
               }
@@ -48,7 +48,7 @@
           })
         ]),
         target: 'map',
-        renderer: ol.RendererHint.CANVAS,
+        renderer: 'canvas',
         layers: [
           new ol.layer.Tile({
             title: "Global Imagery",

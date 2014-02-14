@@ -8,16 +8,16 @@
         width: 512px;
       }
     </style>
-    <script src="ol3/ol.js" type="text/javascript"></script>
     <title>OpenLayers 3 example</title>
   </head>
   <body>
     <h1>My Map</h1>
     <div id="map" class="map"></div>
+    <script src="ol3/ol.js" type="text/javascript"></script>
     <script type="text/javascript">
       var map = new ol.Map({
         target: 'map',
-        renderer: ol.RendererHint.CANVAS,
+        renderer: 'canvas',
         layers: [
           new ol.layer.Tile({
             title: "Global Imagery",
