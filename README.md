@@ -1,8 +1,8 @@
 ol3-workshop
 ============
 
-Generate with
+Based on http://sphinx-doc.org. Generate with
 
 ```
-ant doc
+ant
 ```

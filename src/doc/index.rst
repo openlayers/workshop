@@ -15,19 +15,19 @@ The following modules will be covered in this workshop:
 
 .. rubric:: Fundamentals
 
-:ref:`openlayers.basics`
+:ref:`config`
   Learn how to add a map to a webpage with ol3.
 
-:ref:`openlayers.layers`
+:ref:`layers`
   Learn about raster and vector layers.
  
-:ref:`openlayers.controls`
+:ref:`controls`
   Learn about using map controls.
 
     
 .. rubric:: Advanced Topics
 
-:ref:`openlayers.vector`
+:ref:`styling`
   Explore vector layers in depth.
 
 
@@ -39,6 +39,6 @@ The following modules will be covered in this workshop:
     basics/index
     layers/index
     controls/index
-    vector/index
+    vector-style/index
 
     

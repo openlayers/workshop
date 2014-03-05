@@ -3,7 +3,7 @@
 Web Map Service Layers
 ======================
 
-When you add a layer to your map, the layer is typically responsible for
+When you add a layer to your map, the layer's source is typically responsible for
 fetching the data to be displayed. The data requested can be either raster or
 vector data. You can think of raster data as information rendered as an image on
 the server side. Vector data is delivered as structured information from the
@@ -31,7 +31,7 @@ Let's take a look at the following code:
       <head>
         <link rel="stylesheet" href="ol3/ol.css" type="text/css">
         <style>
-          .map {
+          #map {
             height: 256px;
             width: 512px;
           }
@@ -41,17 +41,17 @@ Let's take a look at the following code:
       </head>
       <body>
         <h1>My Map</h1>
-        <div id="map" class="map"></div>
+        <div id="map"></div>
         <script type="text/javascript">
           var map = new ol.Map({
             target: 'map',
-            renderer: ol.RendererHint.CANVAS,
+            renderer: 'canvas',
             layers: [
               new ol.layer.Tile({
                 title: "Global Imagery",
                 source: new ol.source.TileWMS({
                   url: 'http://maps.opengeo.org/geowebcache/service/wms',
-                  params: {'LAYERS': 'bluemarble', 'VERSION': '1.1.1'}
+                  params: {LAYERS: 'bluemarble', VERSION: '1.1.1'}
                 })
               })
             ],
@@ -79,15 +79,16 @@ The ol.layer.Tile Constructor
 ------------------------------------
 
 The ``ol.layer.Tile`` constructor gets an object literal of type ``olx.layer.TileOptions`` see: http://ol3js.org/en/master/apidoc/olx.layer.html#TileOptions
-In this case we are providing the source key of the options with a ``ol.source.TileWMS``.
+In this case we are providing the source key of the options with an ``ol.source.TileWMS``.
 A human-readable title for the layer can be provided with the title key, but basically any arbitrary name for the key can be used here.
-In ol3 there is a separation between layers and sources, in OpenLayers 2 this was all part of the layer.
+In OpenLayers 3 there is a separation between layers and sources, whereas in OpenLayers 2 this was all part of the layer.
+
+``ol.layer.Tile`` represents a regular grid of images, ``ol.layer.Image`` represents a single image. Depending on the layer type, you would use a different source (``ol.source.TileWMS`` versus ``ol.source.ImageWMS``) as well.
 
 The ol.source.TileWMS Constructor
 ------------------------------------
-The ``ol.source.TileWMS`` constructor has a single argument which is defined by: http://ol3js.org/en/master/apidoc/olx.source.html#TileWMSOptions
-The url is the online resource of the WMS service, and params is an object literal with the parameter names and their values. Make sure to put quotes around the parameter names.
-Also, since the default WMS version is 1.3.0 now, you might need to provide a lower version in the params if your WMS does not support WMS 1.3.0.
+The ``ol.source.TileWMS`` constructor has a single argument which is defined by: http://ol3js.org/en/master/apidoc/olx.source.html#TileWMSOptions.
+The url is the online resource of the WMS service, and params is an object literal with the parameter names and their values. Since the default WMS version is 1.3.0 now in OpenLayers, you might need to provide a lower version in the params if your WMS does not support WMS 1.3.0.
 
 .. code-block:: javascript
 
@@ -96,16 +97,13 @@ Also, since the default WMS version is 1.3.0 now, you might need to provide a lo
         title: "Global Imagery",
         source: new ol.source.TileWMS({
           url: 'http://maps.opengeo.org/geowebcache/service/wms',
-          params: {'LAYERS': 'bluemarble', 'VERSION': '1.1.1'}
+          params: {LAYERS: 'bluemarble', VERSION: '1.1.1'}
         })
       })
     ]
 
 
 .. rubric:: Tasks
-
-#.  Change your layer and source to have a single image instead of tiles. Look at the following API doc pages for hints: http://ol3js.org/en/master/apidoc/ol.layer.Image.html
-    and http://ol3js.org/en/master/apidoc/ol.source.ImageWMS.html
 
 #.  This same WMS offers a layer named ``"openstreetmap"``. Change the value of 
     the ``LAYERS`` parameter from ``"bluemarble"`` to ``"openstreetmap"``. 
@@ -118,16 +116,16 @@ Also, since the default WMS version is 1.3.0 now, you might need to provide a lo
           title: "Global Imagery",
           source: new ol.source.TileWMS({
             url: 'http://maps.opengeo.org/geowebcache/service/wms',
-            params: {'LAYERS': 'openstreetmap', 'VERSION': '1.1.1'}
+            params: {LAYERS: 'openstreetmap', VERSION: '1.1.1'}
           })
         })
 
-
-#.  Save your changes and reload the map:
-    @workshop_url@/map.html
+#.  Change your layer and source to have a single image instead of tiles. Look at the following API doc pages for hints: http://ol3js.org/en/master/apidoc/ol.layer.Image.html
+    and http://ol3js.org/en/master/apidoc/ol.source.ImageWMS.html. During this process you will need to change the url (into http://suite.opengeo.org/geoserver/wms) and the layer name
+    (into ``opengeo:countries``) as well. Use the Network tab of your browser's developer tools to make sure a single image is requested and not 256x256 pixel tiles.
 
 .. figure:: wms1.png
-   
+
     A map displaying the ``"openstreetmap"`` layer as ``"image/png"``.
 
 Having worked with dynamically rendered data from a Web Map Service, let's move

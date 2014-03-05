@@ -1,11 +1,13 @@
 .. _openlayers.layers.proprietary:
 
-Proprietary Layers
-==================
+Proprietary Raster Layers
+=========================
 
 In previous sections, we displayed layers based on a standards compliant :abbr:`WMS (OGC Web Map Service)` and a custom tile cache. Online mapping (or at least the tiled map client) was largely popularized by the availability of proprietary map tile services. OpenLayers provides layer types that work with these proprietary services through their APIs.
 
 In this section, we'll build on the example developed in the :ref:`previous section <openlayers.layers.cached.example>` by adding a layer using tiles from Bing.
+
+To see how OpenLayers 3 and Google Maps can be integrated check out: http://ol3js.org/en/master/examples/google-map.html.
 
 .. _openlayers.layer.proprietary.bing:
 
@@ -16,7 +18,7 @@ Let's add a Bing layer.
 
 .. rubric:: Tasks
 
-#.  In your ``map.html`` file, find where the :abbr:`OSM (OpenStreetMap)` source is configured and change it into an ```ol.source.BingMaps```
+#.  In your ``map.html`` file, find where the :abbr:`OSM (OpenStreetMap)` source is configured and change it into an ``ol.source.BingMaps``
 
     .. code-block:: javascript
 
@@ -31,7 +33,7 @@ Let's add a Bing layer.
     
 .. figure:: proprietary1.png
    
-    A map with a tile with a Bing Maps source.
+    A map with tiles from a Bing Maps source.
 
 Complete Working Example
 ````````````````````````
@@ -45,11 +47,11 @@ Your revised ``map.html`` file should look something like this:
     <head>
       <link rel="stylesheet" href="ol3/ol.css" type="text/css">
       <style>
-        .map {
+        #map {
           height: 256px;
           width: 512px;
         }
-        .ol-attribution ul, .ol-attribution a {
+        .ol-attribution ul, .ol-attribution a, .ol-attribution a:not([ie8andbelow]) {
           color: black;
         }
       </style>
@@ -62,7 +64,7 @@ Your revised ``map.html`` file should look something like this:
       <script type="text/javascript">
         var map = new ol.Map({
           target: 'map',
-          renderer: ol.RendererHint.CANVAS,
+          renderer: 'canvas',
           layers: [
             new ol.layer.Tile({
               source: new ol.source.BingMaps({
@@ -80,5 +82,3 @@ Your revised ``map.html`` file should look something like this:
     </body>
   </html>
 
-Next we'll move on from raster layers and begin working with :ref:`vector layers
-<openlayers.layers.vector>`.

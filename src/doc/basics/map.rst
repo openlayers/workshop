@@ -1,16 +1,16 @@
-.. _openlayers.basics.map:
+.. _config.map:
 
 Creating a Map
 ==============
 
-In OpenLayers, a map is a collection of layers and various interactions and controls for dealing with user interaction. A map is generated with three basic ingredients: :ref:`markup <openlayers.basics.dissect.markup>`, :ref:`style declarations <openlayers.basics.dissect.style>`, and :ref:`initialization code <openlayers.basics.dissect.code>`.
+In OpenLayers, a map is a collection of layers and various interactions and controls for dealing with user interaction. A map is generated with three basic ingredients: :ref:`markup <config.dissect.markup>`, :ref:`style declarations <config.dissect.style>`, and :ref:`initialization code <config.dissect.code>`.
 
-.. _openlayers.basics.map.example:
+.. _config.map.example:
 
 Working Example
 ---------------
 
-Let's take a look at a fully working example of an ol3 map.
+Let's take a look at a fully working example of an OpenLayers 3 map.
 
 .. code-block:: html
 
@@ -19,27 +19,27 @@ Let's take a look at a fully working example of an ol3 map.
       <head>
         <link rel="stylesheet" href="ol3/ol.css" type="text/css">
         <style>
-          .map {
+          #map {
             height: 256px;
             width: 512px;
           }
         </style>
-        <script src="ol3/ol.js" type="text/javascript"></script>
         <title>OpenLayers 3 example</title>
+        <script src="ol3/ol.js" type="text/javascript"></script>
       </head>
       <body>
         <h1>My Map</h1>
-        <div id="map" class="map"></div>
+        <div id="map"></div>
         <script type="text/javascript">
           var map = new ol.Map({
             target: 'map',
-            renderer: ol.RendererHint.CANVAS,
+            renderer: 'canvas',
             layers: [
-              title: "Global Imagery",
               new ol.layer.Tile({
+                title: "Global Imagery",
                 source: new ol.source.TileWMS({
                   url: 'http://maps.opengeo.org/geowebcache/service/wms',
-                  params: {'LAYERS': 'bluemarble', 'VERSION': '1.1.1'}
+                  params: {LAYERS: 'bluemarble', VERSION: '1.1.1'}
                 })
               })
             ],
@@ -56,12 +56,14 @@ Let's take a look at a fully working example of an ol3 map.
 
 .. rubric:: Tasks
 
-#.  Copy the text above into a new file called :file:`map.html`, and save it in the root of the workshop folder.
+#.  Download https://github.com/bartvde/ol3-training/archive/master.zip and save the folder in the root of your web server.
+
+#.  Copy the text above into a new file called :file:`map.html`, and save it in the root of the downloaded folder.
 
 #.  Open the working map in your web browser: @workshop_url@/map.html
 
 .. figure:: map1.png
    
-    A working map of displaying imagery of the world.
+    A working map displaying imagery of the world.
 
-Having successfully created our first map, we'll continue by looking more closely at :ref:`the parts <openlayers.basics.dissect>`.
+Having successfully created our first map, we'll continue by looking more closely at :ref:`the parts <config.dissect>`.

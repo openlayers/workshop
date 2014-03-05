@@ -3,7 +3,7 @@
 Displaying a Scale Line
 =======================
 
-Another typical widget to display on maps is a scale bar.  ol3 provides an ``ol.control.SaleLine`` for just this.  
+Another typical widget to display on maps is a scale bar.  OpenLayers 3 provides an ``ol.control.SaleLine`` for just this.  
 
 Creating a ScaleLine Control
 ----------------------------
@@ -36,7 +36,7 @@ You may find the scale bar a bit hard to read over the imagery. There are a few 
 
     .. code-block:: html
 
-        .ol-scale-line {
+        .ol-scale-line, .ol-scale-line:not([ie8andbelow]) {
           background: black;
           padding: 5px;
         }
@@ -52,7 +52,7 @@ However, for the sake of this exercise, let's say you think the map viewport is 
     
         <div id="scale-line" class="scale-line"></div>
 
-#.  Now modify the code creating the scale control so that it refers to the ``scaleline`` element:
+#.  Now modify the code creating the scale control so that it refers to the ``scale-line`` element:
     
     .. code-block:: javascript
    
@@ -62,8 +62,6 @@ However, for the sake of this exercise, let's say you think the map viewport is 
 
 #.  Save your changes and open ``map.html`` in your browser: @workshop_url@/map.html    
     
-#.  You also need a bit of css for the scale line to show up in the right place:
-
     .. code-block:: html
     
         .scale-line {
@@ -72,6 +70,8 @@ However, for the sake of this exercise, let's say you think the map viewport is 
         }
         .ol-scale-line { 
           position: relative;
+          bottom: 0px;
+          left: 0px;
         }
 
 #.  Now save your changes and view ``map.html`` again in your browser: @workshop_url@/map.html
@@ -79,4 +79,8 @@ However, for the sake of this exercise, let's say you think the map viewport is 
     .. figure:: scaleline2.png
    
        A scale line control outside the map viewport.
+
+.. note::
+
+    To create a custom control you can inherit (by using ``ol.inherits``) from ``ol.control.Control``. To see an example of this check out: http://ol3js.org/en/master/examples/custom-controls.html.
 

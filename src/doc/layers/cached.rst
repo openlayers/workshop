@@ -36,7 +36,7 @@ The `OpenStreetMap (OSM) <http://www.openstreetmap.org/>`_ project is an effort 
         <script>
           var map = new ol.Map({
             target: 'map',
-            renderer: ol.RendererHint.CANVAS,
+            renderer: 'canvas',
             layers: [
               new ol.layer.Tile({
                 source: new ol.source.OSM()
@@ -54,12 +54,12 @@ The `OpenStreetMap (OSM) <http://www.openstreetmap.org/>`_ project is an effort 
     .. code-block:: html
     
         <style>
-            .map {
+            #map {
                 width: 512px;
                 height: 256px;
             }
-            .ol-attribution ul, .ol-attribution a {
-                color: black;
+            .ol-attribution ul, .ol-attribution a, .ol-attribution a:not([ie8andbelow]) {
+                color: black !important;
             }
         </style>
 
@@ -86,7 +86,7 @@ Review the view definition of the map:
 
 Geospatial data can come in any number of coordinate reference systems. One data set might use geographic coordinates (longitude and latitude) in degrees, and another might have coordinates in a local projection with units in meters. A full discussion of coordinate reference systems is beyond the scope of this module, but it is important to understand the basic concept.
 
-ol3 needs to know the coordinate system for your data. Internally, this
+OpenLayers 3 needs to know the coordinate system for your data. Internally, this
 is represented with an ``ol.proj.Projection`` object. The ``transform`` function in the ``ol.proj`` namespace also takes strings that represent the coordinate reference system (``"EPSG:4326"`` and ``"EPSG:3857"`` above).
 
 Locations Transformed
@@ -99,7 +99,7 @@ Custom Map Options
 
 .. note::
 
-    The projections we used here are the only projections that ol3 knows
+    The projections we used here are the only projections that OpenLayers 3 knows
     about. For other projections, we need to configure the projection:
 
 .. code-block:: javascript
@@ -136,11 +136,11 @@ Style
 
 .. code-block:: html
 
-    .ol-attribution ul, .ol-attribution a {
+    .ol-attribution ul, .ol-attribution a, .ol-attribution a:not([ie8andbelow]) {
       color: black;
     }
 
-A treatment of map controls is also outside of the scope of this module, but these style declarations give you a sneak preview. By default, an ``ol.control.Attribution`` control is added to all maps. This lets layer sources display attribution information in the map viewport. The declarations above alter the style of this attribution for our map (notice the Copyright line at the bottom left of the map).
+A treatment of map controls is also outside of the scope of this module, but these style declarations give you a sneak preview. By default, an ``ol.control.Attribution`` control is added to all maps. This lets layer sources display attribution information in the map viewport. The declarations above alter the style of this attribution for our map (notice the Copyright line at the bottom right of the map).
 
-Having mastered layers with publicly available cached tile sets, let's move on to working with :ref:`proprietary layers <openlayers.layers.proprietary>`.
+Having mastered layers with publicly available cached tile sets, let's move on to working with :ref:`proprietary raster layers <openlayers.layers.proprietary>`.
 
