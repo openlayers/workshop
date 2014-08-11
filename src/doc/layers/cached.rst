@@ -42,7 +42,7 @@ The `OpenStreetMap (OSM) <http://www.openstreetmap.org/>`_ project is an effort 
                 source: new ol.source.OSM()
               })
             ],
-            view: new ol.View2D({
+            view: new ol.View({
               center: ol.proj.transform([-93.27, 44.98], 'EPSG:4326', 'EPSG:3857'),
               zoom: 9
             })
@@ -79,7 +79,7 @@ Review the view definition of the map:
 
 .. code-block:: javascript
 
-    view: new ol.View2D({
+    view: new ol.View({
       center: ol.proj.transform([-93.27, 44.98], 'EPSG:4326', 'EPSG:3857'),
       zoom: 9
     })

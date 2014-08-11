@@ -39,7 +39,7 @@ Styling Vector Layers
                     })
                   })
                 ],
-                view: new ol.View2D({
+                view: new ol.View({
                   projection: 'EPSG:4326',
                   center: [-122.791859392, 42.3099154789],
                   zoom: 16

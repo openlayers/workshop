@@ -51,7 +51,7 @@ Let's go back to the vector layer example to get earthquake data on top of a wor
                 })
               })
             })],
-            view: new ol.View2D({
+            view: new ol.View({
               projection: 'EPSG:4326',
               center: [0, 0],
               zoom: 0,
