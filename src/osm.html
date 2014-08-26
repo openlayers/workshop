@@ -29,6 +29,11 @@
         view: new ol.View({
           center: ol.proj.transform([-93.27, 44.98], 'EPSG:4326', 'EPSG:3857'),
           zoom: 9
+        }),
+        controls: ol.control.defaults({
+          attributionOptions: {
+            collapsible: false
+          }
         })
       });
     </script>

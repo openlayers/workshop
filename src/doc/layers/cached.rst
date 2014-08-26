@@ -45,6 +45,11 @@ The `OpenStreetMap (OSM) <http://www.openstreetmap.org/>`_ project is an effort 
             view: new ol.View({
               center: ol.proj.transform([-93.27, 44.98], 'EPSG:4326', 'EPSG:3857'),
               zoom: 9
+            }),
+            controls: ol.control.defaults({
+              attributionOptions: {
+                collapsible: false
+              }
             })
           });
         </script>
@@ -144,3 +149,17 @@ A treatment of map controls is also outside of the scope of this module, but the
 
 Having mastered layers with publicly available cached tile sets, let's move on to working with :ref:`proprietary raster layers <openlayers.layers.proprietary>`.
 
+Attribution Control Configuration
+`````````````````````````````````
+
+By default the ``ol.control.Attribution`` adds an ``i`` (information) button that can be pressed to actually displays the attribution information. To comply to `OpenStreetMap's Terms Of Use <http://wiki.openstreetmap.org/wiki/Legal_FAQ>`_, and always displays the OpenStreetMap attribution information, the following is used in the options object passed to the ``ol.Map`` constructor:
+
+.. code-block:: javascript
+
+    controls: ol.control.defaults({
+      attributionOptions: {
+        collapsible: false
+      }
+    })
+
+This removes the ``i`` button, and makes the attribution information always visible.
