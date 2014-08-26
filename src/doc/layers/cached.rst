@@ -63,8 +63,8 @@ The `OpenStreetMap (OSM) <http://www.openstreetmap.org/>`_ project is an effort 
                 width: 512px;
                 height: 256px;
             }
-            .ol-attribution ul, .ol-attribution a, .ol-attribution a:not([ie8andbelow]) {
-                color: black !important;
+            .ol-attribution a {
+                color: black;
             }
         </style>
 
@@ -139,9 +139,9 @@ As before, we create a layer and add it to the layers array of our map config ob
 Style
 `````
 
-.. code-block:: html
+.. code-block:: css
 
-    .ol-attribution ul, .ol-attribution a, .ol-attribution a:not([ie8andbelow]) {
+    .ol-attribution a {
       color: black;
     }
 
