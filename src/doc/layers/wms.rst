@@ -78,7 +78,7 @@ Let's take a look at the following code:
 The ol.layer.Tile Constructor
 ------------------------------------
 
-The ``ol.layer.Tile`` constructor gets an object literal of type ``olx.layer.TileOptions`` see: http://ol3js.org/en/master/apidoc/olx.layer.html#TileOptions
+The ``ol.layer.Tile`` constructor gets an object literal of type ``olx.layer.TileOptions`` see: http://ol3js.org/en/master/apidoc/ol.layer.Tile.html
 In this case we are providing the source key of the options with an ``ol.source.TileWMS``.
 A human-readable title for the layer can be provided with the title key, but basically any arbitrary name for the key can be used here.
 In OpenLayers 3 there is a separation between layers and sources, whereas in OpenLayers 2 this was all part of the layer.
@@ -87,7 +87,7 @@ In OpenLayers 3 there is a separation between layers and sources, whereas in Ope
 
 The ol.source.TileWMS Constructor
 ------------------------------------
-The ``ol.source.TileWMS`` constructor has a single argument which is defined by: http://ol3js.org/en/master/apidoc/olx.source.html#TileWMSOptions.
+The ``ol.source.TileWMS`` constructor has a single argument which is defined by: http://ol3js.org/en/master/apidoc/ol.source.TileWMS.html.
 The url is the online resource of the WMS service, and params is an object literal with the parameter names and their values. Since the default WMS version is 1.3.0 now in OpenLayers, you might need to provide a lower version in the params if your WMS does not support WMS 1.3.0.
 
 .. code-block:: javascript
@@ -120,9 +120,7 @@ The url is the online resource of the WMS service, and params is an object liter
           })
         })
 
-#.  Change your layer and source to have a single image instead of tiles. Look at the following API doc pages for hints: http://ol3js.org/en/master/apidoc/ol.layer.Image.html
-    and http://ol3js.org/en/master/apidoc/ol.source.ImageWMS.html. During this process you will need to change the url (into http://suite.opengeo.org/geoserver/wms) and the layer name
-    (into ``opengeo:countries``) as well. Use the Network tab of your browser's developer tools to make sure a single image is requested and not 256x256 pixel tiles.
+#.  Change your layer and source to have a single image instead of tiles. Look at the following API doc pages for hints: http://ol3js.org/en/master/apidoc/ol.layer.Image.html and http://ol3js.org/en/master/apidoc/ol.source.ImageWMS.html. During this process you will need to change the url (into http://suite.opengeo.org/geoserver/wms) and the layer name (into ``opengeo:countries``) as well. Use the Network tab of your browser's developer tools to make sure a single image is requested and not 256x256 pixel tiles.
 
 .. figure:: wms1.png
 
