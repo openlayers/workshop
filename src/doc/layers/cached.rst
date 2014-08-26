@@ -121,7 +121,7 @@ And we need to include two additional script tags:
     <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.2.1/proj4.js" type="text/javascript"></script>
     <script src="http://epsg.io/21781-1753.js" type="text/javascript"></script>
 
-This information can be looked up at http://epsh.io/, using the EPSG code.
+This information can be looked up at http://epsg.io/, using the EPSG code.
 
 Layer Creation
 ``````````````
@@ -152,7 +152,7 @@ Having mastered layers with publicly available cached tile sets, let's move on t
 Attribution Control Configuration
 `````````````````````````````````
 
-By default the ``ol.control.Attribution`` adds an ``i`` (information) button that can be pressed to actually displays the attribution information. To comply to `OpenStreetMap's Terms Of Use <http://wiki.openstreetmap.org/wiki/Legal_FAQ>`_, and always displays the OpenStreetMap attribution information, the following is used in the options object passed to the ``ol.Map`` constructor:
+By default the ``ol.control.Attribution`` adds an ``i`` (information) button that can be pressed to actually displays the attribution information. To comply to `OpenStreetMap's Terms Of Use <http://wiki.openstreetmap.org/wiki/Legal_FAQ>`_, and always display the OpenStreetMap attribution information, the following is used in the options object passed to the ``ol.Map`` constructor:
 
 .. code-block:: javascript
 
