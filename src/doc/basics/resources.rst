@@ -41,11 +41,10 @@ Reporting issues
 ----------------
 For reporting issues it is important to understand the several flavours in which the OpenLayers library is distributed:
 
- * ``ol.js`` - the script which is built using the Google Closure Compiler in advanced mode (not human readable)
- * ``ol-simple.js`` - the script which is built using the Google Closure compiler in simple mode (for more details see: https://developers.google.com/closure/compiler/faq)
- * ``ol-whitespace.js`` - human readable version which can be used for debugging issues
+ * ``ol.js`` - the script which is built using the Closure Compiler in advanced mode (not human readable)
+ * ``ol-debug.js`` - human readable version to be used during development
 
-When you encounter an issue, it is important to report the issue using ``ol-whitespace.js``. Also include the full stack trace which you can find using Web Developer tools such as Chrome's Developer Tools. To test this out we are going to make a mistake in map.html by changing ``ol.layer.Tile`` into ``ol.layer.Image``. The error you will see is: ``Uncaught TypeError: Object #<yc> has no method 'tb'``. If you report this to the mailing list, nobody will know what it means. So first, we are going to change the script tag which points to ``ol.js`` to point to ``ol-whitespace.js`` instead. Reload the page. The debugger will now stop on the error, and we can see the full stack trace:
+When you encounter an issue, it is important to report the issue using ``ol-debug.js``. Also include the full stack trace which you can find using Web Developer tools such as Chrome's Developer Tools. To test this out we are going to make a mistake in map.html by changing ``ol.layer.Tile`` into ``ol.layer.Image``. The error you will see is: ``Uncaught TypeError: Object #<yc> has no method 'tb'``. If you report this to the mailing list, nobody will know what it means. So first, we are going to change the script tag which points to ``ol.js`` to point to ``ol-debug.js`` instead. Reload the page. The debugger will now stop on the error, and we can see the full stack trace:
 
 .. figure:: debugger.png
 
