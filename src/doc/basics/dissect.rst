@@ -65,7 +65,7 @@ The next step in generating your map is to include some initialization code. In 
             })
           })
         ],
-        view: new ol.View2D({
+        view: new ol.View({
           projection: 'EPSG:4326',
           center: [0, 0],
           zoom: 0,
@@ -113,7 +113,7 @@ The final step is defining the view. We specify a projection, a center and a zoo
 
 .. code-block:: javascript
 
-    view: new ol.View2D({
+    view: new ol.View({
        projection: 'EPSG:4326',
        center: [0, 0],
        zoom: 0,
