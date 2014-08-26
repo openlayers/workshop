@@ -109,19 +109,19 @@ Custom Map Options
 
 .. code-block:: javascript
 
-    var projection = ol.proj.configureProj4jsProjection({
-      code: 'EPSG:21781',
-      extent: [485869.5728, 76443.1884, 837076.5648, 299941.7864]
-    });
+    // This creates a projection object for the EPSG:21781 projection
+    // and sets a "validity extent" in that projection object.
+    var projection = ol.proj.get('EPSG:21781');
+    projection.setExtent([485869.5728, 76443.1884, 837076.5648, 299941.7864]);
 
 And we need to include two additional script tags:
 
 .. code-block:: html
 
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js" type="text/javascript"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/defs/EPSG21781.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.2.1/proj4.js" type="text/javascript"></script>
+    <script src="http://epsg.io/21781-1753.js" type="text/javascript"></script>
 
-This information can be looked up at http://spatialreference.org/, using the EPSG code.
+This information can be looked up at http://epsh.io/, using the EPSG code.
 
 Layer Creation
 ``````````````
