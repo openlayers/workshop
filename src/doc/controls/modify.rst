@@ -3,7 +3,7 @@
 Modifying Features
 ==================
 
-Modifying features works by using an ``ol.interaction.Select`` in combination with an ``ol.interaction.Modify``. They share a common ``ol.FeatureOverlay``.
+Modifying features works by using an ``ol.interaction.Select`` in combination with an ``ol.interaction.Modify``. They share a common collection (``ol.Collection``) of features. Features selected with the ``ol.interaction.Select`` become candidates for modifications with the ``ol.interaction.Modify``.
 
 Create a Vector Layer and a Modify Interaction
 ``````````````````````````````````````````````
@@ -34,23 +34,23 @@ Create a Vector Layer and a Modify Interaction
               var source = new ol.source.GeoJSON({
                 url: 'data/layers/7day-M2.5.json'
               });
-              var overlay = new ol.FeatureOverlay({
-                style: new ol.style.Style({
-                  image: new ol.style.Circle({
-                    radius: 7,
-                      fill: new ol.style.Fill({
-                      color: [0, 153, 255, 1]
-                    }),
-                    stroke: new ol.style.Stroke({
-                      color: [255, 255, 255, 0.75],
-                      width: 1.5
-                    })
+              var style = new ol.style.Style({
+                image: new ol.style.Circle({
+                  radius: 7,
+                    fill: new ol.style.Fill({
+                    color: [0, 153, 255, 1]
                   }),
-                  zIndex: 100000
-                })
+                  stroke: new ol.style.Stroke({
+                    color: [255, 255, 255, 0.75],
+                    width: 1.5
+                  })
+                }),
+                zIndex: 100000
               });
-              var modify = new ol.interaction.Modify({ featureOverlay: overlay });
-              var select = new ol.interaction.Select({ featureOverlay: overlay });
+              var select = new ol.interaction.Select({style: style});
+              var modify = new ol.interaction.Modify({
+                features: select.getFeatures()
+              });
               var map = new ol.Map({
                 interactions: ol.interaction.defaults().extend([select, modify]),
                 target: 'map',
@@ -98,22 +98,22 @@ Let's examine how modifying features works.
 
 .. code-block:: javascript
 
-    var overlay = new ol.FeatureOverlay({
-      style: new ol.style.Style({
-        image: new ol.style.Circle({
-          radius: 7,
+    var style = new ol.style.Style({
+      image: new ol.style.Circle({
+        radius: 7,
           fill: new ol.style.Fill({
-            color: [0, 153, 255, 1]
-          }),
-          stroke: new ol.style.Stroke({
-            color: [255, 255, 255, 0.75],
-            width: 1.5
-          })
+          color: [0, 153, 255, 1]
         }),
-        zIndex: 100000
-      })
+        stroke: new ol.style.Stroke({
+          color: [255, 255, 255, 0.75],
+          width: 1.5
+        })
+      }),
+      zIndex: 100000
     });
-    var modify = new ol.interaction.Modify({ featureOverlay: overlay });
-    var select = new ol.interaction.Select({ featureOverlay: overlay });
+    var select = new ol.interaction.Select({style: style});
+    var modify = new ol.interaction.Modify({
+      features: select.getFeatures()
+    });
 
-We create 2 interactions, an ``ol.interaction.Select`` to select the features before modifying them, and an ``ol.interaction.Modify`` to actually modify the geometries. They share an instance of ``ol.FeatureOverlay`` which is given a style to be used when the feature is selected and dragged for modification. When the user clicks in the map again, the feature will be drawn using the layer's style.
+We create 2 interactions, an ``ol.interaction.Select`` to select the features before modifying them, and an ``ol.interaction.Modify`` to actually modify the geometries. They share the same ``ol.Collection`` of features. Features selected using ``ol.interaction.Modify`` become candidates for modification with the ``ol.interaction.Modify``. As previously, the ``ol.interaction.Select`` is configured with a style object, which effectively defines the style used for drawing selected features. When the user clicks in the map again, the feature will be drawn using the layer's style.

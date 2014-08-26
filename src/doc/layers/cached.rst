@@ -45,6 +45,11 @@ The `OpenStreetMap (OSM) <http://www.openstreetmap.org/>`_ project is an effort 
             view: new ol.View({
               center: ol.proj.transform([-93.27, 44.98], 'EPSG:4326', 'EPSG:3857'),
               zoom: 9
+            }),
+            controls: ol.control.defaults({
+              attributionOptions: {
+                collapsible: false
+              }
             })
           });
         </script>
@@ -58,8 +63,8 @@ The `OpenStreetMap (OSM) <http://www.openstreetmap.org/>`_ project is an effort 
                 width: 512px;
                 height: 256px;
             }
-            .ol-attribution ul, .ol-attribution a, .ol-attribution a:not([ie8andbelow]) {
-                color: black !important;
+            .ol-attribution a {
+                color: black;
             }
         </style>
 
@@ -104,19 +109,19 @@ Custom Map Options
 
 .. code-block:: javascript
 
-    var projection = ol.proj.configureProj4jsProjection({
-      code: 'EPSG:21781',
-      extent: [485869.5728, 76443.1884, 837076.5648, 299941.7864]
-    });
+    // This creates a projection object for the EPSG:21781 projection
+    // and sets a "validity extent" in that projection object.
+    var projection = ol.proj.get('EPSG:21781');
+    projection.setExtent([485869.5728, 76443.1884, 837076.5648, 299941.7864]);
 
 And we need to include two additional script tags:
 
 .. code-block:: html
 
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js" type="text/javascript"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/defs/EPSG21781.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.2.1/proj4.js" type="text/javascript"></script>
+    <script src="http://epsg.io/21781-1753.js" type="text/javascript"></script>
 
-This information can be looked up at http://spatialreference.org/, using the EPSG code.
+This information can be looked up at http://epsh.io/, using the EPSG code.
 
 Layer Creation
 ``````````````
@@ -134,9 +139,9 @@ As before, we create a layer and add it to the layers array of our map config ob
 Style
 `````
 
-.. code-block:: html
+.. code-block:: css
 
-    .ol-attribution ul, .ol-attribution a, .ol-attribution a:not([ie8andbelow]) {
+    .ol-attribution a {
       color: black;
     }
 
@@ -144,3 +149,17 @@ A treatment of map controls is also outside of the scope of this module, but the
 
 Having mastered layers with publicly available cached tile sets, let's move on to working with :ref:`proprietary raster layers <openlayers.layers.proprietary>`.
 
+Attribution Control Configuration
+`````````````````````````````````
+
+By default the ``ol.control.Attribution`` adds an ``i`` (information) button that can be pressed to actually displays the attribution information. To comply to `OpenStreetMap's Terms Of Use <http://wiki.openstreetmap.org/wiki/Legal_FAQ>`_, and always displays the OpenStreetMap attribution information, the following is used in the options object passed to the ``ol.Map`` constructor:
+
+.. code-block:: javascript
+
+    controls: ol.control.defaults({
+      attributionOptions: {
+        collapsible: false
+      }
+    })
+
+This removes the ``i`` button, and makes the attribution information always visible.

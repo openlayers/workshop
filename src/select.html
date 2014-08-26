@@ -15,35 +15,19 @@
     <div id="map" class="map"></div>
     <script src="ol3/ol.js" type="text/javascript"></script>
     <script type="text/javascript">
-      var style = [new ol.style.Style({
-        image: new ol.style.Circle({
-          radius: 5,
-          fill: new ol.style.Fill({
-            color: '#0000FF'
-          }),
-          stroke: new ol.style.Stroke({
-            color: '#000000'
-          })
-        })
-      })];
-      var selectedStyle = [new ol.style.Style({
-        image: new ol.style.Circle({
-          radius: 5,
-          fill: new ol.style.Fill({
-            color: '#FF0000'
-          }),
-          stroke: new ol.style.Stroke({
-            color: '#000000'
-          })
-        })
-      })];
       var map = new ol.Map({
         interactions: ol.interaction.defaults().extend([
           new ol.interaction.Select({
-            featureOverlay: new ol.FeatureOverlay({
-              styleFunction: function(feature, layer) {
-                return selectedStyle;
-              }
+            style: new ol.style.Style({
+                image: new ol.style.Circle({
+                  radius: 5,
+                  fill: new ol.style.Fill({
+                    color: '#FF0000'
+                  }),
+                  stroke: new ol.style.Stroke({
+                    color: '#000000'
+                  })
+                })
             })
           })
         ]),
@@ -64,9 +48,17 @@
               url: 'data/layers/7day-M2.5.json',
               reprojectTo: 'EPSG:4326'
             }),
-            styleFunction: function(feature, resolution) {
-              return style;
-            }
+            style: new ol.style.Style({
+              image: new ol.style.Circle({
+                radius: 5,
+                fill: new ol.style.Fill({
+                  color: '#0000FF'
+                }),
+                stroke: new ol.style.Stroke({
+                  color: '#000000'
+                })
+              })
+            })
           })
         ],
         view: new ol.View({

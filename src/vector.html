@@ -18,12 +18,12 @@
     <div id="info" class="info"></div>
     <script src="ol3/ol.js" type="text/javascript"></script>
     <script type="text/javascript">
-      var style = [new ol.style.Style({
+      var style = new ol.style.Style({
         image: new ol.style.Circle({
           radius: 3,
           fill: new ol.style.Fill({color: 'white'})
         })
-      })];
+      });
       var map = new ol.Map({
         target: 'map',
         renderer: 'canvas',
@@ -40,9 +40,7 @@
             source: new ol.source.GeoJSON({
               url: 'data/layers/7day-M2.5.json'
             }),
-            styleFunction: function(feature, resolution) {
-              return style;
-            }
+            style: style
           })
         ],
         view: new ol.View({

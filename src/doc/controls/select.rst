@@ -34,16 +34,14 @@ Create a Vector Layer and a Select Interaction
               var map = new ol.Map({
                 interactions: ol.interaction.defaults().extend([
                   new ol.interaction.Select({
-                    featureOverlay: new ol.FeatureOverlay({
-                      style: new ol.style.Style({
-                        image: new ol.style.Circle({
-                          radius: 5,
-                          fill: new ol.style.Fill({
-                            color: '#FF0000'
-                          }),
-                          stroke: new ol.style.Stroke({
-                            color: '#000000'
-                          })
+                    style: new ol.style.Style({
+                      image: new ol.style.Circle({
+                        radius: 5,
+                        fill: new ol.style.Fill({
+                          color: '#FF0000'
+                        }),
+                        stroke: new ol.style.Stroke({
+                          color: '#000000'
                         })
                       })
                     })
