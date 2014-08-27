@@ -32,7 +32,8 @@ Styling Vector Layers
                   new ol.layer.Vector({
                     title: 'Buildings',
                     source: new ol.source.KML({
-                      url: 'data/layers/buildings.kml'
+                      url: 'data/layers/buildings.kml',
+                      extractStyles: false
                     }),
                     style: new ol.style.Style({
                       stroke: new ol.style.Stroke({color: 'red', width: 2})
@@ -58,7 +59,7 @@ Styling Vector Layers
             style: (function() {
               var defaultStyle = [new ol.style.Style({
                 fill: new ol.style.Fill({color: 'navy'}),
-                stroke: ol.style.Stroke({color: 'black', width: 1})
+                stroke: new ol.style.Stroke({color: 'black', width: 1})
               })];
               var ruleStyle = [new ol.style.Style({
                 fill: new ol.style.Fill({color: 'olive'}),
