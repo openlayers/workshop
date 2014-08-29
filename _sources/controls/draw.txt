@@ -66,7 +66,7 @@ Create a Vector Layer and a Draw Interaction
                     })
                   })
                 ],
-                view: new ol.View2D({
+                view: new ol.View({
                   projection: 'EPSG:4326',
                   center: [0, 0],
                   zoom: 1

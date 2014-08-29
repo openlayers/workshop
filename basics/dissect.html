@@ -94,7 +94,7 @@
         <span class="p">})</span>
       <span class="p">})</span>
     <span class="p">],</span>
-    <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
+    <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
       <span class="nx">projection</span><span class="o">:</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span>
       <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
       <span class="nx">zoom</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -130,8 +130,8 @@
 </pre></div>
 </div>
 <p>Don&#8217;t worry about the syntax here if this part is new to you. Layer creation will be covered in another module. The important part to understand is that our map view is a collection of layers. In order to see a map, we need to include at least one layer.</p>
-<p>The final step is defining the view. We specify a projection, a center and a zoom level. We also specify a maxResolution to make sure we don&#8217;t request boundingboxes that GeoWebCache cannot handle.</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
+<p>The final step is defining the view. We specify a projection, a center and a zoom level. We also specify a <cite>maxResolution</cite> to make sure we don&#8217;t request bounding boxes that GeoWebCache cannot handle.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
    <span class="nx">projection</span><span class="o">:</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span>
    <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
    <span class="nx">zoom</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>

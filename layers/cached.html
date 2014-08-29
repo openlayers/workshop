@@ -75,9 +75,14 @@
         <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
       <span class="p">})</span>
     <span class="p">],</span>
-    <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
+    <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
       <span class="nx">center</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">transform</span><span class="p">([</span><span class="o">-</span><span class="mf">93.27</span><span class="p">,</span> <span class="mf">44.98</span><span class="p">],</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span> <span class="s1">&#39;EPSG:3857&#39;</span><span class="p">),</span>
       <span class="nx">zoom</span><span class="o">:</span> <span class="mi">9</span>
+    <span class="p">}),</span>
+    <span class="nx">controls</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">control</span><span class="p">.</span><span class="nx">defaults</span><span class="p">({</span>
+      <span class="nx">attributionOptions</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">collapsible</span><span class="o">:</span> <span class="kc">false</span>
+      <span class="p">}</span>
     <span class="p">})</span>
   <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span>
@@ -90,8 +95,8 @@
         <span class="k">width</span><span class="o">:</span> <span class="m">512px</span><span class="p">;</span>
         <span class="k">height</span><span class="o">:</span> <span class="m">256px</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="nc">.ol-attribution</span> <span class="nt">ul</span><span class="o">,</span> <span class="nc">.ol-attribution</span> <span class="nt">a</span><span class="o">,</span> <span class="nc">.ol-attribution</span> <span class="nt">a</span><span class="nd">:not</span><span class="o">([</span><span class="nt">ie8andbelow</span><span class="o">])</span> <span class="p">{</span>
-        <span class="k">color</span><span class="o">:</span> <span class="nb">black</span> <span class="cp">!important</span><span class="p">;</span>
+    <span class="nc">.ol-attribution</span> <span class="nt">a</span> <span class="p">{</span>
+        <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="nt">&lt;/style&gt;</span>
 </pre></div>
@@ -109,7 +114,7 @@
 <div class="section" id="projections">
 <h4>2.2.2.1.1. Projections<a class="headerlink" href="#projections" title="Permalink to this headline">¶</a></h4>
 <p>Review the view definition of the map:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
   <span class="nx">center</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">transform</span><span class="p">([</span><span class="o">-</span><span class="mf">93.27</span><span class="p">,</span> <span class="mf">44.98</span><span class="p">],</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span> <span class="s1">&#39;EPSG:3857&#39;</span><span class="p">),</span>
   <span class="nx">zoom</span><span class="o">:</span> <span class="mi">9</span>
 <span class="p">})</span>
@@ -130,18 +135,18 @@ is represented with an <tt class="docutils literal"><span class="pre">ol.proj.Pr
 <p class="last">The projections we used here are the only projections that OpenLayers 3 knows
 about. For other projections, we need to configure the projection:</p>
 </div>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">projection</span> <span class="o">=</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">configureProj4jsProjection</span><span class="p">({</span>
-  <span class="nx">code</span><span class="o">:</span> <span class="s1">&#39;EPSG:21781&#39;</span><span class="p">,</span>
-  <span class="nx">extent</span><span class="o">:</span> <span class="p">[</span><span class="mf">485869.5728</span><span class="p">,</span> <span class="mf">76443.1884</span><span class="p">,</span> <span class="mf">837076.5648</span><span class="p">,</span> <span class="mf">299941.7864</span><span class="p">]</span>
-<span class="p">});</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// This creates a projection object for the EPSG:21781 projection</span>
+<span class="c1">// and sets a &quot;validity extent&quot; in that projection object.</span>
+<span class="kd">var</span> <span class="nx">projection</span> <span class="o">=</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;EPSG:21781&#39;</span><span class="p">);</span>
+<span class="nx">projection</span><span class="p">.</span><span class="nx">setExtent</span><span class="p">([</span><span class="mf">485869.5728</span><span class="p">,</span> <span class="mf">76443.1884</span><span class="p">,</span> <span class="mf">837076.5648</span><span class="p">,</span> <span class="mf">299941.7864</span><span class="p">]);</span>
 </pre></div>
 </div>
 <p>And we need to include two additional script tags:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/defs/EPSG21781.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.2.1/proj4.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://epsg.io/21781-1753.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </pre></div>
 </div>
-<p>This information can be looked up at <a class="reference external" href="http://spatialreference.org/">http://spatialreference.org/</a>, using the EPSG code.</p>
+<p>This information can be looked up at <a class="reference external" href="http://epsg.io/">http://epsg.io/</a>, using the EPSG code.</p>
 </div>
 <div class="section" id="layer-creation">
 <h4>2.2.2.1.4. Layer Creation<a class="headerlink" href="#layer-creation" title="Permalink to this headline">¶</a></h4>
@@ -156,13 +161,25 @@ about. For other projections, we need to configure the projection:</p>
 </div>
 <div class="section" id="style">
 <h4>2.2.2.1.5. Style<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-html"><div class="highlight"><pre>.ol-attribution ul, .ol-attribution a, .ol-attribution a:not([ie8andbelow]) {
-  color: black;
-}
+<div class="highlight-css"><div class="highlight"><pre><span class="nc">.ol-attribution</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>A treatment of map controls is also outside of the scope of this module, but these style declarations give you a sneak preview. By default, an <tt class="docutils literal"><span class="pre">ol.control.Attribution</span></tt> control is added to all maps. This lets layer sources display attribution information in the map viewport. The declarations above alter the style of this attribution for our map (notice the Copyright line at the bottom right of the map).</p>
 <p>Having mastered layers with publicly available cached tile sets, let&#8217;s move on to working with <a class="reference internal" href="proprietary.html#openlayers-layers-proprietary"><em>proprietary raster layers</em></a>.</p>
+</div>
+<div class="section" id="attribution-control-configuration">
+<h4>2.2.2.1.6. Attribution Control&nbsp;Configuration<a class="headerlink" href="#attribution-control-configuration" title="Permalink to this headline">¶</a></h4>
+<p>By default the <tt class="docutils literal"><span class="pre">ol.control.Attribution</span></tt> adds an <tt class="docutils literal"><span class="pre">i</span></tt> (information) button that can be pressed to actually displays the attribution information. To comply to <a class="reference external" href="http://wiki.openstreetmap.org/wiki/Legal_FAQ">OpenStreetMap&#8217;s Terms Of Use</a>, and always display the OpenStreetMap attribution information, the following is used in the options object passed to the <tt class="docutils literal"><span class="pre">ol.Map</span></tt> constructor:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">controls</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">control</span><span class="p">.</span><span class="nx">defaults</span><span class="p">({</span>
+  <span class="nx">attributionOptions</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">collapsible</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>This removes the <tt class="docutils literal"><span class="pre">i</span></tt> button, and makes the attribution information always visible.</p>
 </div>
 </div>
 </div>
@@ -185,6 +202,7 @@ about. For other projections, we need to configure the projection:</p>
 <li><a class="reference internal" href="#custom-map-options">2.2.2.1.3. Custom Map Options</a></li>
 <li><a class="reference internal" href="#layer-creation">2.2.2.1.4. Layer Creation</a></li>
 <li><a class="reference internal" href="#style">2.2.2.1.5. Style</a></li>
+<li><a class="reference internal" href="#attribution-control-configuration">2.2.2.1.6. Attribution Control&nbsp;Configuration</a></li>
 </ul>
 </li>
 </ul>

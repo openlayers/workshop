@@ -53,7 +53,7 @@
             
   <div class="section" id="modifying-features">
 <span id="openlayers-controls-modify"></span><h1>3.4. Modifying Features<a class="headerlink" href="#modifying-features" title="Permalink to this headline">¶</a></h1>
-<p>Modifying features works by using an <tt class="docutils literal"><span class="pre">ol.interaction.Select</span></tt> in combination with an <tt class="docutils literal"><span class="pre">ol.interaction.Modify</span></tt>. They share a common <tt class="docutils literal"><span class="pre">ol.FeatureOverlay</span></tt>.</p>
+<p>Modifying features works by using an <tt class="docutils literal"><span class="pre">ol.interaction.Select</span></tt> in combination with an <tt class="docutils literal"><span class="pre">ol.interaction.Modify</span></tt>. They share a common collection (<tt class="docutils literal"><span class="pre">ol.Collection</span></tt>) of features. Features selected with the <tt class="docutils literal"><span class="pre">ol.interaction.Select</span></tt> become candidates for modifications with the <tt class="docutils literal"><span class="pre">ol.interaction.Modify</span></tt>.</p>
 <div class="section" id="create-a-vector-layer-and-a-modify-interaction">
 <h2>3.4.1. Create a Vector Layer and a Modify Interaction<a class="headerlink" href="#create-a-vector-layer-and-a-modify-interaction" title="Permalink to this headline">¶</a></h2>
 <p class="rubric">Tasks</p>
@@ -79,23 +79,23 @@
       <span class="kd">var</span> <span class="nx">source</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">({</span>
         <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;data/layers/7day-M2.5.json&#39;</span>
       <span class="p">});</span>
-      <span class="kd">var</span> <span class="nx">overlay</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">FeatureOverlay</span><span class="p">({</span>
-        <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
-          <span class="nx">image</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Circle</span><span class="p">({</span>
-            <span class="nx">radius</span><span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
-              <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
-              <span class="nx">color</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">153</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-            <span class="p">}),</span>
-            <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
-              <span class="nx">color</span><span class="o">:</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">],</span>
-              <span class="nx">width</span><span class="o">:</span> <span class="mf">1.5</span>
-            <span class="p">})</span>
+      <span class="kd">var</span> <span class="nx">style</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+        <span class="nx">image</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Circle</span><span class="p">({</span>
+          <span class="nx">radius</span><span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
+            <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+            <span class="nx">color</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">153</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
           <span class="p">}),</span>
-          <span class="nx">zIndex</span><span class="o">:</span> <span class="mi">100000</span>
-        <span class="p">})</span>
+          <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+            <span class="nx">color</span><span class="o">:</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">],</span>
+            <span class="nx">width</span><span class="o">:</span> <span class="mf">1.5</span>
+          <span class="p">})</span>
+        <span class="p">}),</span>
+        <span class="nx">zIndex</span><span class="o">:</span> <span class="mi">100000</span>
       <span class="p">});</span>
-      <span class="kd">var</span> <span class="nx">modify</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">Modify</span><span class="p">({</span> <span class="nx">featureOverlay</span><span class="o">:</span> <span class="nx">overlay</span> <span class="p">});</span>
-      <span class="kd">var</span> <span class="nx">select</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">Select</span><span class="p">({</span> <span class="nx">featureOverlay</span><span class="o">:</span> <span class="nx">overlay</span> <span class="p">});</span>
+      <span class="kd">var</span> <span class="nx">select</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">Select</span><span class="p">({</span><span class="nx">style</span><span class="o">:</span> <span class="nx">style</span><span class="p">});</span>
+      <span class="kd">var</span> <span class="nx">modify</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">Modify</span><span class="p">({</span>
+        <span class="nx">features</span><span class="o">:</span> <span class="nx">select</span><span class="p">.</span><span class="nx">getFeatures</span><span class="p">()</span>
+      <span class="p">});</span>
       <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
         <span class="nx">interactions</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">defaults</span><span class="p">().</span><span class="nx">extend</span><span class="p">([</span><span class="nx">select</span><span class="p">,</span> <span class="nx">modify</span><span class="p">]),</span>
         <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
@@ -124,7 +124,7 @@
             <span class="p">})</span>
           <span class="p">})</span>
         <span class="p">],</span>
-        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
+        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
           <span class="nx">projection</span><span class="o">:</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span>
           <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
           <span class="nx">zoom</span><span class="o">:</span> <span class="mi">1</span>
@@ -143,26 +143,26 @@
 <div class="section" id="a-closer-look">
 <h2>3.4.2. A Closer Look<a class="headerlink" href="#a-closer-look" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s examine how modifying features works.</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">overlay</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">FeatureOverlay</span><span class="p">({</span>
-  <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
-    <span class="nx">image</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Circle</span><span class="p">({</span>
-      <span class="nx">radius</span><span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">style</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+  <span class="nx">image</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Circle</span><span class="p">({</span>
+    <span class="nx">radius</span><span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
       <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
-        <span class="nx">color</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">153</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-      <span class="p">}),</span>
-      <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
-        <span class="nx">color</span><span class="o">:</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">],</span>
-        <span class="nx">width</span><span class="o">:</span> <span class="mf">1.5</span>
-      <span class="p">})</span>
+      <span class="nx">color</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">153</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
     <span class="p">}),</span>
-    <span class="nx">zIndex</span><span class="o">:</span> <span class="mi">100000</span>
-  <span class="p">})</span>
+    <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+      <span class="nx">color</span><span class="o">:</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">],</span>
+      <span class="nx">width</span><span class="o">:</span> <span class="mf">1.5</span>
+    <span class="p">})</span>
+  <span class="p">}),</span>
+  <span class="nx">zIndex</span><span class="o">:</span> <span class="mi">100000</span>
 <span class="p">});</span>
-<span class="kd">var</span> <span class="nx">modify</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">Modify</span><span class="p">({</span> <span class="nx">featureOverlay</span><span class="o">:</span> <span class="nx">overlay</span> <span class="p">});</span>
-<span class="kd">var</span> <span class="nx">select</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">Select</span><span class="p">({</span> <span class="nx">featureOverlay</span><span class="o">:</span> <span class="nx">overlay</span> <span class="p">});</span>
+<span class="kd">var</span> <span class="nx">select</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">Select</span><span class="p">({</span><span class="nx">style</span><span class="o">:</span> <span class="nx">style</span><span class="p">});</span>
+<span class="kd">var</span> <span class="nx">modify</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">Modify</span><span class="p">({</span>
+  <span class="nx">features</span><span class="o">:</span> <span class="nx">select</span><span class="p">.</span><span class="nx">getFeatures</span><span class="p">()</span>
+<span class="p">});</span>
 </pre></div>
 </div>
-<p>We create 2 interactions, an <tt class="docutils literal"><span class="pre">ol.interaction.Select</span></tt> to select the features before modifying them, and an <tt class="docutils literal"><span class="pre">ol.interaction.Modify</span></tt> to actually modify the geometries. They share an instance of <tt class="docutils literal"><span class="pre">ol.FeatureOverlay</span></tt> which is given a style to be used when the feature is selected and dragged for modification. When the user clicks in the map again, the feature will be drawn using the layer&#8217;s style.</p>
+<p>We create 2 interactions, an <tt class="docutils literal"><span class="pre">ol.interaction.Select</span></tt> to select the features before modifying them, and an <tt class="docutils literal"><span class="pre">ol.interaction.Modify</span></tt> to actually modify the geometries. They share the same <tt class="docutils literal"><span class="pre">ol.Collection</span></tt> of features. Features selected using <tt class="docutils literal"><span class="pre">ol.interaction.Modify</span></tt> become candidates for modification with the <tt class="docutils literal"><span class="pre">ol.interaction.Modify</span></tt>. As previously, the <tt class="docutils literal"><span class="pre">ol.interaction.Select</span></tt> is configured with a style object, which effectively defines the style used for drawing selected features. When the user clicks in the map again, the feature will be drawn using the layer&#8217;s style.</p>
 </div>
 </div>
 

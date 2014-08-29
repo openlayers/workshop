@@ -62,14 +62,28 @@
 </pre></div>
 </div>
 <p>The <tt class="docutils literal"><span class="pre">.someClass</span></tt> text is a selector (in this case it selects all elements that include the class name <tt class="docutils literal"><span class="pre">&quot;someClass&quot;</span></tt>) and the block that follows is a group of named properties and values, otherwise known as style declarations.</p>
-<div class="section" id="ol-feature-stylefunction">
-<h2>4.2.1. ol.feature.StyleFunction<a class="headerlink" href="#ol-feature-stylefunction" title="Permalink to this headline">¶</a></h2>
-<p>A vector layer can have a function for the <tt class="docutils literal"><span class="pre">style</span></tt> config in which a different style will be chosen based on some attribute of a feature. The style function gets two arguments: the <tt class="docutils literal"><span class="pre">feature</span></tt> and the <tt class="docutils literal"><span class="pre">resolution</span></tt>. Assuming you want to apply a style to all features that have an attribute named <tt class="docutils literal"><span class="pre">class</span></tt> with a value of <tt class="docutils literal"><span class="pre">&quot;someClass&quot;</span></tt>, you would start your style function with the following:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">style</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span> <span class="nx">resolution</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">feature</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;someClass&#39;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// return the style</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<div class="section" id="layer-style">
+<h2>4.2.1. Layer style<a class="headerlink" href="#layer-style" title="Permalink to this headline">¶</a></h2>
+<p>A vector layer can have styles. More specifically, a vector layer can be configured with an <tt class="docutils literal"><span class="pre">ol.style.Style</span></tt> object, an array of <tt class="docutils literal"><span class="pre">ol.style.Style</span></tt> objects, or a function that takes an <tt class="docutils literal"><span class="pre">ol.Feature</span></tt> instance and a resolution and returns an array of <tt class="docutils literal"><span class="pre">ol.style.Style</span></tt> objects.</p>
+<p>Here&#8217;s an example of a vector layer configured with a static style:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+  <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">(),</span>
+  <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+    <span class="c1">// ...</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>And here&#8217;s an example of a vector layer configured with a style function that applies a style to all features that have an attribute named <tt class="docutils literal"><span class="pre">class</span></tt> with a value of <tt class="docutils literal"><span class="pre">'someClass'</span></tt>:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+  <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">(),</span>
+  <span class="nx">style</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span> <span class="nx">resolution</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">feature</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;someClass&#39;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// create styles...</span>
+      <span class="k">return</span> <span class="nx">styles</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+<span class="p">});</span>
 </pre></div>
 </div>
 </div>
@@ -104,8 +118,8 @@
 </div>
 <div class="section" id="ol-style-style">
 <h2>4.2.3. ol.style.Style<a class="headerlink" href="#ol-style-style" title="Permalink to this headline">¶</a></h2>
-<p>An <tt class="docutils literal"><span class="pre">ol.style.Style</span></tt> object has 4 keys: <tt class="docutils literal"><span class="pre">fill</span></tt>, <tt class="docutils literal"><span class="pre">image</span></tt>, <tt class="docutils literal"><span class="pre">stroke</span></tt> and <tt class="docutils literal"><span class="pre">text</span></tt>. It also has an optional <tt class="docutils literal"><span class="pre">zIndex</span></tt> property. The style function will return an array of <tt class="docutils literal"><span class="pre">ol.style.Style</span></tt> objects.
-If you want all features to be colored red except for those that have a <tt class="docutils literal"><span class="pre">class</span></tt> attribute with the value of <tt class="docutils literal"><span class="pre">&quot;someClass&quot;</span></tt> (and you want those features colored blue with an 1px wide olive stroke), you would create a style function that looked like the following (by the way, it is important to create objects outside of the style function so they can be reused, but for simplicity reasons the objects are created inline in the example below):</p>
+<p>An <tt class="docutils literal"><span class="pre">ol.style.Style</span></tt> object has 4 keys: <tt class="docutils literal"><span class="pre">fill</span></tt>, <tt class="docutils literal"><span class="pre">image</span></tt>, <tt class="docutils literal"><span class="pre">stroke</span></tt> and <tt class="docutils literal"><span class="pre">text</span></tt>. It also has an optional <tt class="docutils literal"><span class="pre">zIndex</span></tt> property. The style function will return an array of <tt class="docutils literal"><span class="pre">ol.style.Style</span></tt> objects.</p>
+<p>If you want all features to be colored red except for those that have a <tt class="docutils literal"><span class="pre">class</span></tt> attribute with the value of <tt class="docutils literal"><span class="pre">&quot;someClass&quot;</span></tt> (and you want those features colored blue with an 1px wide olive stroke), you would create a style function that looked like the following (by the way, it is important to create objects outside of the style function so they can be reused, but for simplicity reasons the objects are created inline in the example below):</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="nx">style</span><span class="o">:</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">someStyle</span> <span class="o">=</span> <span class="p">[</span><span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
     <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
@@ -133,7 +147,7 @@ If you want all features to be colored red except for those that have a <tt clas
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">It is important to create the style arrays outside of the actual function. This can be done with a closure as done in the example above.</p>
+<p class="last">It is important to create the style arrays outside of the actual function. This can be done with a JavaScript closure as done in the example above.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -142,14 +156,12 @@ If you want all features to be colored red except for those that have a <tt clas
 </div>
 <div class="section" id="pseudo-classes">
 <h2>4.2.4. Pseudo-classes<a class="headerlink" href="#pseudo-classes" title="Permalink to this headline">¶</a></h2>
-<p>CSS allows for pseudo-classes on selectors. These basically limit the application of style declarations based on contexts that are not easily represented in the selector, such as mouse position, neighboring elements, or browser history. In OpenLayers 3, a somewhat similar concept is having a style config option on a feature overlay. The feature overlay is used to show the selected feature of an <tt class="docutils literal"><span class="pre">ol.interaction.Select</span></tt> and gets its own style config option.</p>
+<p>CSS allows for pseudo-classes on selectors. These basically limit the application of style declarations based on contexts that are not easily represented in the selector, such as mouse position, neighboring elements, or browser history. In OpenLayers 3, a somewhat similar concept is having a style config option on an <tt class="docutils literal"><span class="pre">ol.interaction.Select</span></tt>.</p>
 <p>An example is:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">select</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">Select</span><span class="p">({</span>
-  <span class="nx">featureOverlay</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">FeatureOverlay</span><span class="p">({</span>
-    <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
-      <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
-        <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;rgba(255,255,255,0.5)&#39;</span>
-      <span class="p">})</span>
+  <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+    <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+      <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;rgba(255,255,255,0.5)&#39;</span>
     <span class="p">})</span>
   <span class="p">})</span>
 <span class="p">});</span>
@@ -168,7 +180,7 @@ If you want all features to be colored red except for those that have a <tt clas
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">4.2. Understanding Style</a><ul>
-<li><a class="reference internal" href="#ol-feature-stylefunction">4.2.1. ol.feature.StyleFunction</a></li>
+<li><a class="reference internal" href="#layer-style">4.2.1. Layer style</a></li>
 <li><a class="reference internal" href="#symbolizers">4.2.2. Symbolizers</a></li>
 <li><a class="reference internal" href="#ol-style-style">4.2.3. ol.style.Style</a></li>
 <li><a class="reference internal" href="#pseudo-classes">4.2.4. Pseudo-classes</a></li>

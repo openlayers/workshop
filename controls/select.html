@@ -79,16 +79,14 @@
       <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
         <span class="nx">interactions</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">defaults</span><span class="p">().</span><span class="nx">extend</span><span class="p">([</span>
           <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">Select</span><span class="p">({</span>
-            <span class="nx">featureOverlay</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">FeatureOverlay</span><span class="p">({</span>
-              <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
-                <span class="nx">image</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Circle</span><span class="p">({</span>
-                  <span class="nx">radius</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
-                  <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
-                    <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#FF0000&#39;</span>
-                  <span class="p">}),</span>
-                  <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
-                    <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#000000&#39;</span>
-                  <span class="p">})</span>
+            <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+              <span class="nx">image</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Circle</span><span class="p">({</span>
+                <span class="nx">radius</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+                <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+                  <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#FF0000&#39;</span>
+                <span class="p">}),</span>
+                <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+                  <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#000000&#39;</span>
                 <span class="p">})</span>
               <span class="p">})</span>
             <span class="p">})</span>
@@ -122,7 +120,7 @@
             <span class="p">})</span>
           <span class="p">})</span>
         <span class="p">],</span>
-        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View2D</span><span class="p">({</span>
+        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
           <span class="nx">projection</span><span class="o">:</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span>
           <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
           <span class="nx">zoom</span><span class="o">:</span> <span class="mi">1</span>

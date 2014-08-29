@@ -43,7 +43,7 @@ Let's take a look at a fully working example of an OpenLayers 3 map.
                 })
               })
             ],
-            view: new ol.View2D({
+            view: new ol.View({
               projection: 'EPSG:4326',
               center: [0, 0],
               zoom: 0,
@@ -56,7 +56,7 @@ Let's take a look at a fully working example of an OpenLayers 3 map.
 
 .. rubric:: Tasks
 
-#.  Download https://github.com/bartvde/ol3-training/archive/master.zip and save the folder in the root of your web server.
+#.  Download https://github.com/openlayers/ol3-workshop/archive/resources.zip and save the folder in the root of your web server.
 
 #.  Copy the text above into a new file called :file:`map.html`, and save it in the root of the downloaded folder.
 

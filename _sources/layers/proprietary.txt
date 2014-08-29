@@ -51,7 +51,7 @@ Your revised ``map.html`` file should look something like this:
           height: 256px;
           width: 512px;
         }
-        .ol-attribution ul, .ol-attribution a, .ol-attribution a:not([ie8andbelow]) {
+        .ol-attribution a {
           color: black;
         }
       </style>
@@ -73,7 +73,7 @@ Your revised ``map.html`` file should look something like this:
               })
             })
           ],
-          view: new ol.View2D({
+          view: new ol.View({
             center: ol.proj.transform([-93.27, 44.98], 'EPSG:4326', 'EPSG:3857'),
             zoom: 9
           })
@@ -81,4 +81,3 @@ Your revised ``map.html`` file should look something like this:
       </script>
     </body>
   </html>
-

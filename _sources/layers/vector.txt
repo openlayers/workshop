@@ -41,7 +41,7 @@ Let's go back to the WMS example to get a basic world map.  We'll add some featu
                 })
               })
             ],
-            view: new ol.View2D({
+            view: new ol.View({
               projection: 'EPSG:4326',
               center: [0, 0],
               zoom: 0,

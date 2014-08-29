@@ -65,7 +65,7 @@ The next step in generating your map is to include some initialization code. In 
             })
           })
         ],
-        view: new ol.View2D({
+        view: new ol.View({
           projection: 'EPSG:4326',
           center: [0, 0],
           zoom: 0,
@@ -109,11 +109,11 @@ The layers config creates a layer to be displayed in our map:
 
 Don't worry about the syntax here if this part is new to you. Layer creation will be covered in another module. The important part to understand is that our map view is a collection of layers. In order to see a map, we need to include at least one layer.
 
-The final step is defining the view. We specify a projection, a center and a zoom level. We also specify a maxResolution to make sure we don't request boundingboxes that GeoWebCache cannot handle.
+The final step is defining the view. We specify a projection, a center and a zoom level. We also specify a `maxResolution` to make sure we don't request bounding boxes that GeoWebCache cannot handle.
 
 .. code-block:: javascript
 
-    view: new ol.View2D({
+    view: new ol.View({
        projection: 'EPSG:4326',
        center: [0, 0],
        zoom: 0,
