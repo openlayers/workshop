@@ -1,5 +1,5 @@
-2013 OpenLayers 3 Workshop
-==========================
+OpenLayers 3 Workshop
+=====================
 
 Welcome to the **OpenLayers 3 Workshop**. This workshop is designed to
 give you a comprehensive overview of ol3 as a web mapping solution.  The
