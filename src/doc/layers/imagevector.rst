@@ -30,7 +30,6 @@ Let's go back to the vector layer example to get earthquake data on top of a wor
         <script type="text/javascript">
           var map = new ol.Map({
             target: 'map',
-            renderer: 'canvas',
             layers: [
               new ol.layer.Tile({
                 title: "Global Imagery",

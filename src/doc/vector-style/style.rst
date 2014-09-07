@@ -27,7 +27,6 @@ Styling Vector Layers
             <script type="text/javascript">
               var map = new ol.Map({
                 target: 'map',
-                renderer: 'canvas',
                 layers: [
                   new ol.layer.Vector({
                     title: 'Buildings',

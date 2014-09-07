@@ -33,7 +33,6 @@ Let's take a look at a fully working example of an OpenLayers 3 map.
         <script type="text/javascript">
           var map = new ol.Map({
             target: 'map',
-            renderer: 'canvas',
             layers: [
               new ol.layer.Tile({
                 title: "Global Imagery",

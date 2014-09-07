@@ -64,7 +64,6 @@ Your revised ``map.html`` file should look something like this:
       <script type="text/javascript">
         var map = new ol.Map({
           target: 'map',
-          renderer: 'canvas',
           layers: [
             new ol.layer.Tile({
               source: new ol.source.BingMaps({

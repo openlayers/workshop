@@ -31,7 +31,6 @@ Let's go back to the WMS example to get a basic world map.  We'll add some featu
         <script type="text/javascript">
           var map = new ol.Map({
             target: 'map',
-            renderer: 'canvas',
             layers: [
               new ol.layer.Tile({
                 title: "Global Imagery",

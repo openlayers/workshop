@@ -54,7 +54,6 @@ Create a Vector Layer and a Modify Interaction
               var map = new ol.Map({
                 interactions: ol.interaction.defaults().extend([select, modify]),
                 target: 'map',
-                renderer: 'canvas',
                 layers: [
                   new ol.layer.Tile({
                     title: "Global Imagery",

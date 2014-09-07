@@ -45,7 +45,6 @@ Let's take a look at the following code:
         <script type="text/javascript">
           var map = new ol.Map({
             target: 'map',
-            renderer: 'canvas',
             layers: [
               new ol.layer.Tile({
                 title: "Global Imagery",
