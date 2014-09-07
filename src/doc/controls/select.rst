@@ -48,7 +48,6 @@ Create a Vector Layer and a Select Interaction
                   })
                 ]),
                 target: 'map',
-                renderer: 'canvas',
                 layers: [
                   new ol.layer.Tile({
                     title: "Global Imagery",

@@ -36,7 +36,6 @@ The `OpenStreetMap (OSM) <http://www.openstreetmap.org/>`_ project is an effort 
         <script>
           var map = new ol.Map({
             target: 'map',
-            renderer: 'canvas',
             layers: [
               new ol.layer.Tile({
                 source: new ol.source.OSM()

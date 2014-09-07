@@ -56,7 +56,6 @@ The next step in generating your map is to include some initialization code. In 
     <script>
       var map = new ol.Map({
         target: 'map',
-        renderer: 'canvas',
         layers: [
           new ol.layer.Tile({
             source: new ol.source.TileWMS({
@@ -88,11 +87,6 @@ Let's look in more detail at what the map initialization script is doing. Our sc
 
 We use the viewport container's ``id`` attribute value to tell the map constructor where to render the map. In this case, we pass the string value ``"map"`` as the target to the map constructor. This syntax is a shortcut for convenience. We could be more explicit and provide a direct reference to the element (e.g. ``document.getElementById("map")``).
 
-The renderer config option specifies which renderer to use. OpenLayers 3 comes with 3 renderers: the DOM renderer, the Canvas renderer and the WebGL renderer. In this case we're telling our map to use the Canvas renderer. Since our image comes from a different domain, it will not work with the WebGL renderer because of the same origin policy.
-
-.. code-block:: javascript
-
-    renderer: 'canvas'
 
 The layers config creates a layer to be displayed in our map:
 

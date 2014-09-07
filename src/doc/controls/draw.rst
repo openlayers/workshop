@@ -41,7 +41,6 @@ Create a Vector Layer and a Draw Interaction
               var map = new ol.Map({
                 interactions: ol.interaction.defaults().extend([draw]),
                 target: 'map',
-                renderer: 'canvas',
                 layers: [
                   new ol.layer.Tile({
                     title: "Global Imagery",
