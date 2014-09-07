@@ -40,16 +40,17 @@ Let's go back to the vector layer example to get earthquake data on top of a wor
               }),
               new ol.layer.Vector({
                 title: 'Earthquakes',
-                  source: new ol.source.GeoJSON({
+                source: new ol.source.GeoJSON({
                   url: 'data/layers/7day-M2.5.json'
                 }),
                 style: new ol.style.Style({
                   image: new ol.style.Circle({
-                  radius: 3,
-                  fill: new ol.style.Fill({color: 'white'})
+                    radius: 3,
+                    fill: new ol.style.Fill({color: 'white'})
+                  })
                 })
               })
-            })],
+            ],
             view: new ol.View({
               projection: 'EPSG:4326',
               center: [0, 0],
