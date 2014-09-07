@@ -93,18 +93,21 @@ Geospatial data can come in any number of coordinate reference systems. One data
 OpenLayers 3 needs to know the coordinate system for your data. Internally, this
 is represented with an ``ol.proj.Projection`` object. The ``transform`` function in the ``ol.proj`` namespace also takes strings that represent the coordinate reference system (``"EPSG:4326"`` and ``"EPSG:3857"`` above).
 
-Locations Transformed
-`````````````````````
-
 The OpenStreetMap tiles that we will be using are in a Mercator projection. Because of this, we need to set the initial center using Mercator coordinates. Since it is relatively easy to find out the coordinates for a place of interest in geographic coordinates, we use the ``ol.proj.transform`` method to turn geographic coordinates (``"EPSG:4326"``) into Mercator coordinates (``"EPSG:3857"``).
 
-Custom Map Options
-``````````````````
+Alternative Projections
+#######################
 
-.. note::
+OpenLayers 3 includes transforms between Geographic (``"EPSG:4326"``) and Web Mercator (``"EPSG:3857"``) coordinate reference systems.  Because of this, we can use the ``ol.proj.transform`` function above without any extra work.  If you want to work with data in a different projection, you need to include some additional information before using the ``ol.proj.transform`` function.
 
-    The projections we used here are the only projections that OpenLayers 3 knows
-    about. For other projections, we need to configure the projection:
+For example, if you wanted to work with data in the ``"EPSG:21781"`` coordinate reference system, you would include the following two script tags in your page:
+
+.. code-block:: html
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.2.1/proj4.js" type="text/javascript"></script>
+    <script src="http://epsg.io/21781-1753.js" type="text/javascript"></script>
+
+Then in your application code, you could register this projection and set its validity extent as follows:
 
 .. code-block:: javascript
 
@@ -113,14 +116,7 @@ Custom Map Options
     var projection = ol.proj.get('EPSG:21781');
     projection.setExtent([485869.5728, 76443.1884, 837076.5648, 299941.7864]);
 
-And we need to include two additional script tags:
-
-.. code-block:: html
-
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.2.1/proj4.js" type="text/javascript"></script>
-    <script src="http://epsg.io/21781-1753.js" type="text/javascript"></script>
-
-This information can be looked up at http://epsg.io/, using the EPSG code.
+The extent information can be looked up at http://epsg.io/, using the EPSG code.
 
 Layer Creation
 ``````````````
