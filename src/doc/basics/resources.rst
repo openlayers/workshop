@@ -10,7 +10,7 @@ Learn by Example
 
 New users will most likely find diving into the OpenLayer's example code and experimenting with the library's possible functionality the most useful way to begin.
 
- * http://ol3js.org/en/master/examples/
+ * http://openlayers.org/en/master/examples/
 
 
 Browse the Documentation
@@ -18,8 +18,8 @@ Browse the Documentation
 
 For further information on specific topics, browse the growing collection of OpenLayers  documentation.
 
- * http://ol3js.org/en/master/doc/quickstart.html
- * http://ol3js.org/en/master/doc/tutorials
+ * http://openlayers.org/en/master/doc/quickstart.html
+ * http://openlayers.org/en/master/doc/tutorials
  
 
 Find the API Reference
@@ -27,7 +27,7 @@ Find the API Reference
 
 After understanding the basic components that make-up and control a map, search the API reference documentation for details on method signatures and object properties.
 
- * http://ol3js.org/en/master/apidoc/
+ * http://openlayers.org/en/master/apidoc/
 
 
 Join the Community

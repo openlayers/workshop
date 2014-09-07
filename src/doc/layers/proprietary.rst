@@ -7,7 +7,7 @@ In previous sections, we displayed layers based on a standards compliant :abbr:`
 
 In this section, we'll build on the example developed in the :ref:`previous section <openlayers.layers.cached.example>` by adding a layer using tiles from Bing.
 
-To see how OpenLayers 3 and Google Maps can be integrated check out: http://ol3js.org/en/master/examples/google-map.html.
+To see how OpenLayers 3 and Google Maps can be integrated check out: http://openlayers.org/en/master/examples/google-map.html.
 
 .. _openlayers.layer.proprietary.bing:
 

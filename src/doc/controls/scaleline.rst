@@ -82,5 +82,5 @@ However, for the sake of this exercise, let's say you think the map viewport is 
 
 .. note::
 
-    To create a custom control you can inherit (by using ``ol.inherits``) from ``ol.control.Control``. To see an example of this check out: http://ol3js.org/en/master/examples/custom-controls.html.
+    To create a custom control you can inherit (by using ``ol.inherits``) from ``ol.control.Control``. To see an example of this check out: http://openlayers.org/en/master/examples/custom-controls.html.
 
