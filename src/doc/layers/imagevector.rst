@@ -2,7 +2,12 @@
 
 Image Vector
 ============
-When data and styling are relatively stable, it might make sense to have OpenLayers generate an image from the vector data for performance reasons.
+
+In the previous example using an ``ol.layer.Vector`` you can see that the features are re-rendered continuously during animated zooming (the size of the point symbolizers remains fixed).  With a vector layer, OpenLayers will re-render the source data with each animation frame.  This provides consistent rendering of line strokes, point symbolizers, and labels with changes in the view resolution.
+
+An alternative rendering strategy is to avoid re-rendering data during view transitions and instead reposition and scale the rendered output from the previous view state.  This can be accomplished by using an ``ol.layer.Image`` with an ``ol.source.ImageVector``.  With this combination, "snapshots" of your data are rendered when the view is not animating, and these snapshots are reused during view transitions.
+
+The example below uses an ``ol.layer.Image`` with an ``ol.source.ImageVector``.  Though this example only renders a small quantity of data, this combination would be appropriate for applications that render large quantities of relatively static data.
 
 ol.source.ImageVector
 ---------------------
@@ -40,16 +45,17 @@ Let's go back to the vector layer example to get earthquake data on top of a wor
               }),
               new ol.layer.Vector({
                 title: 'Earthquakes',
-                  source: new ol.source.GeoJSON({
+                source: new ol.source.GeoJSON({
                   url: 'data/layers/7day-M2.5.json'
                 }),
                 style: new ol.style.Style({
                   image: new ol.style.Circle({
-                  radius: 3,
-                  fill: new ol.style.Fill({color: 'white'})
+                    radius: 3,
+                    fill: new ol.style.Fill({color: 'white'})
+                  })
                 })
               })
-            })],
+            ],
             view: new ol.View({
               projection: 'EPSG:4326',
               center: [0, 0],
