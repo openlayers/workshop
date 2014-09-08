@@ -8,7 +8,7 @@
     <property name="src" location="src"/>
     <property name="build" location="build"/>
     <property name="dest" location="${build}/${ant.project.name}"/>
-    <property name="host" value="http://localhost:8080"/>
+    <property name="host" value="http://localhost:8000"/>
     
     <target name="init">
         <mkdir dir="${dest}"/>
