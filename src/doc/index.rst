@@ -3,8 +3,8 @@ OpenLayers 3 Workshop
 
 Welcome to the **OpenLayers 3 Workshop**. This workshop is designed to
 give you a comprehensive overview of ol3 as a web mapping solution.  The
-exercises assume that you have set up a local GeoServer with the workshop 
-data as described in the :doc:`setup` page.
+exercises assume that you have an HTTP server running locally and can edit text
+files.
 
 This workshop is presented as a set of modules. In each module the reader will
 perform a set of tasks designed to achieve a specific goal for that module. Each
