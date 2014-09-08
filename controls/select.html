@@ -54,11 +54,12 @@
   <div class="section" id="selecting-features">
 <span id="openlayers-controls-select"></span><h1>3.2. Selecting Features<a class="headerlink" href="#selecting-features" title="Permalink to this headline">¶</a></h1>
 <p>As we&#8217;ve seen in the layers module, we can pull features as vectors and draw them on top of a base map. One of the advantages of serving vector data is that users can interact with the data. In this example, we create a vector layer where users can select and view feature information.</p>
+<p>The previous example demonstrated the use of an <tt class="docutils literal"><span class="pre">ol.control.Control</span></tt> on the map.  Controls have a visual representation on the map or add DOM elements to the document.  An <tt class="docutils literal"><span class="pre">ol.interaction.Interaction</span></tt> is responsible for handling user interaction, but typically has no visual representation.  This example demonstrates the use of the <tt class="docutils literal"><span class="pre">ol.interaction.Select</span></tt> for interacting with features from vector layers.</p>
 <div class="section" id="create-a-vector-layer-and-a-select-interaction">
 <h2>3.2.1. Create a Vector Layer and a Select Interaction<a class="headerlink" href="#create-a-vector-layer-and-a-select-interaction" title="Permalink to this headline">¶</a></h2>
 <p class="rubric">Tasks</p>
 <ol class="arabic">
-<li><p class="first">Let&#8217;s start with the working example from a <a class="reference internal" href="../layers/vector.html#openlayers-layers-vector"><em>previous section</em></a>.  Open <tt class="docutils literal"><span class="pre">map.html</span></tt> in your text editor and make sure it looks something like the following:</p>
+<li><p class="first">Let&#8217;s start with the vector layer example from a <a class="reference internal" href="../layers/vector.html#openlayers-layers-vector"><em>previous section</em></a>.  Open <tt class="docutils literal"><span class="pre">map.html</span></tt> in your text editor and make sure it looks something like the following:</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!doctype html&gt;</span>
 <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;head&gt;</span>

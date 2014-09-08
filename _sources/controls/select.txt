@@ -5,12 +5,14 @@ Selecting Features
 
 As we've seen in the layers module, we can pull features as vectors and draw them on top of a base map. One of the advantages of serving vector data is that users can interact with the data. In this example, we create a vector layer where users can select and view feature information.
 
+The previous example demonstrated the use of an ``ol.control.Control`` on the map.  Controls have a visual representation on the map or add DOM elements to the document.  An ``ol.interaction.Interaction`` is responsible for handling user interaction, but typically has no visual representation.  This example demonstrates the use of the ``ol.interaction.Select`` for interacting with features from vector layers.
+
 Create a Vector Layer and a Select Interaction
 ``````````````````````````````````````````````
 
 .. rubric:: Tasks
 
-#.  Let's start with the working example from a :ref:`previous section <openlayers.layers.vector>`.  Open ``map.html`` in your text editor and make sure it looks something like the following:
+#.  Let's start with the vector layer example from a :ref:`previous section <openlayers.layers.vector>`.  Open ``map.html`` in your text editor and make sure it looks something like the following:
     
     .. code-block:: html
 
