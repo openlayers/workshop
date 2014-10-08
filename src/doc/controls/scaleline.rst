@@ -3,7 +3,7 @@
 Displaying a Scale Line
 =======================
 
-Another typical widget to display on maps is a scale bar.  OpenLayers 3 provides an ``ol.control.SaleLine`` for just this.  
+Another typical widget to display on maps is a scale bar.  OpenLayers 3 provides an ``ol.control.ScaleLine`` for just this.  
 
 Creating a ScaleLine Control
 ----------------------------
