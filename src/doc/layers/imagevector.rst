@@ -45,8 +45,9 @@ Let's go back to the vector layer example to get earthquake data on top of a wor
               }),
               new ol.layer.Vector({
                 title: 'Earthquakes',
-                source: new ol.source.GeoJSON({
-                  url: 'data/layers/7day-M2.5.json'
+                source: new ol.source.Vector({
+                  url: 'data/layers/7day-M2.5.json',
+                  format: new ol.format.GeoJSON()
                 }),
                 style: new ol.style.Style({
                   image: new ol.style.Circle({
@@ -79,8 +80,9 @@ Let's go back to the vector layer example to get earthquake data on top of a wor
         new ol.layer.Image({
           title: 'Earthquakes',
           source: new ol.source.ImageVector({
-            source: new ol.source.GeoJSON({
-              url: 'data/layers/7day-M2.5.json'
+            source: new ol.source.Vector({
+              url: 'data/layers/7day-M2.5.json',
+              format: new ol.format.GeoJSON()
             }),
             style: new ol.style.Style({
               image: new ol.style.Circle({
@@ -107,8 +109,9 @@ Let's examine the layer creation to get an idea of what is going on.
     new ol.layer.Image({
       title: 'Earthquakes',
       source: new ol.source.ImageVector({
-        source: new ol.source.GeoJSON({
-          url: 'data/layers/7day-M2.5.json'
+        source: new ol.source.Vector({
+          url: 'data/layers/7day-M2.5.json',
+          format: new ol.format.GeoJSON()
         }),
         style: new ol.style.Style({
           image: new ol.style.Circle({
@@ -119,7 +122,7 @@ Let's examine the layer creation to get an idea of what is going on.
       })
     })
 
-We are using an ``ol.layer.Image`` instead of an ``ol.layer.Vector``. However, we can still use vector data here through ``ol.source.ImageVector`` that connects to our original ``ol.source.GeoJSON`` vector source. The style is provided as config of ``ol.source.ImageVector`` and not on the layer.
+We are using an ``ol.layer.Image`` instead of an ``ol.layer.Vector``. However, we can still use vector data here through ``ol.source.ImageVector`` that connects to our original ``ol.source.Vector`` vector source. The style is provided as config of ``ol.source.ImageVector`` and not on the layer.
 
 .. rubric:: Bonus Tasks
 

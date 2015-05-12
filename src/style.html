@@ -29,8 +29,9 @@
         layers: [
           new ol.layer.Vector({
             title: 'Buildings',
-            source: new ol.source.KML({
-              url: 'data/layers/buildings.kml'
+            source: new ol.source.Vector({
+              url: 'data/layers/buildings.kml',
+              format: new ol.format.KML()
             }),
             styleFunction: function(feature, resolution) {
               if (feature.get('shape_area') < 3000) {
