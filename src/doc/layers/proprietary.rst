@@ -73,7 +73,7 @@ Your revised ``map.html`` file should look something like this:
             })
           ],
           view: new ol.View({
-            center: ol.proj.transform([-93.27, 44.98], 'EPSG:4326', 'EPSG:3857'),
+            center: ol.proj.fromLonLat([-93.27, 44.98]),
             zoom: 9
           })
         });

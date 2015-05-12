@@ -10,7 +10,7 @@ The base ``ol.layer.Vector`` constructor provides a fairly flexible layer type. 
 ol.format
 ---------
 
-The ``ol.format`` classes in OpenLayers 3 are responsible for parsing data from the server representing vector features. Most of the times you won't be using them directly, but you'll be using their corresponding source (e.g. ``ol.source.KML``). The format turns raw feature data into ``ol.Feature`` objects.
+The ``ol.format`` classes in OpenLayers 3 are responsible for parsing data from the server representing vector features. The format turns raw feature data into ``ol.Feature`` objects.
 
 Consider the two blocks of data below. Both represent the same ``ol.Feature`` object (a point in Barcelona, Spain). The first is serialized as `GeoJSON <http://geojson.org>`_ (using the ``ol.format.GeoJSON`` parser). The second is serialized as :abbr:`KML (OGC Keyhole Markup Language)` (using the ``ol.format.KML`` parser).
 
