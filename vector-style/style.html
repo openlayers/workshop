@@ -74,9 +74,11 @@
         <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
           <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
             <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Buildings&#39;</span><span class="p">,</span>
-            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">KML</span><span class="p">({</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
               <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;data/layers/buildings.kml&#39;</span><span class="p">,</span>
-              <span class="nx">extractStyles</span><span class="o">:</span> <span class="kc">false</span>
+              <span class="nx">format</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">KML</span><span class="p">({</span>
+                <span class="nx">extractStyles</span><span class="o">:</span> <span class="kc">false</span>
+              <span class="p">})</span>
             <span class="p">}),</span>
             <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
               <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span><span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span> <span class="mi">2</span><span class="p">})</span>
@@ -201,7 +203,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2014, OpenLayers Contributors.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
     </div>
   </body>
 </html>

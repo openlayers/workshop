@@ -30,9 +30,11 @@ Styling Vector Layers
                 layers: [
                   new ol.layer.Vector({
                     title: 'Buildings',
-                    source: new ol.source.KML({
+                    source: new ol.source.Vector({
                       url: 'data/layers/buildings.kml',
-                      extractStyles: false
+                      format: new ol.format.KML({
+                        extractStyles: false
+                      })
                     }),
                     style: new ol.style.Style({
                       stroke: new ol.style.Stroke({color: 'red', width: 2})

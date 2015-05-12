@@ -56,7 +56,7 @@
 <p>The base <tt class="docutils literal"><span class="pre">ol.layer.Vector</span></tt> constructor provides a fairly flexible layer type. By default, when you create a new vector layer, no assumptions are made about where the features for the layer will come from, since this is the domain of <tt class="docutils literal"><span class="pre">ol.source.Vector</span></tt>. Customizing the rendering style is addressed in an <a class="reference internal" href="style-intro.html#openlayers-vector-style-intro"><em>upcoming section</em></a>. This section introduces the basics of vector data <a class="reference internal" href="#openlayers-vector-basics-format"><em>formats</em></a>.</p>
 <div class="section" id="ol-format">
 <span id="openlayers-vector-basics-format"></span><h2>4.1.1. ol.format<a class="headerlink" href="#ol-format" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="docutils literal"><span class="pre">ol.format</span></tt> classes in OpenLayers 3 are responsible for parsing data from the server representing vector features. Most of the times you won&#8217;t be using them directly, but you&#8217;ll be using their corresponding source (e.g. <tt class="docutils literal"><span class="pre">ol.source.KML</span></tt>). The format turns raw feature data into <tt class="docutils literal"><span class="pre">ol.Feature</span></tt> objects.</p>
+<p>The <tt class="docutils literal"><span class="pre">ol.format</span></tt> classes in OpenLayers 3 are responsible for parsing data from the server representing vector features. The format turns raw feature data into <tt class="docutils literal"><span class="pre">ol.Feature</span></tt> objects.</p>
 <p>Consider the two blocks of data below. Both represent the same <tt class="docutils literal"><span class="pre">ol.Feature</span></tt> object (a point in Barcelona, Spain). The first is serialized as <a class="reference external" href="http://geojson.org">GeoJSON</a> (using the <tt class="docutils literal"><span class="pre">ol.format.GeoJSON</span></tt> parser). The second is serialized as <abbr title="OGC Keyhole Markup Language">KML</abbr> (using the <tt class="docutils literal"><span class="pre">ol.format.KML</span></tt> parser).</p>
 <div class="section" id="geojson-example">
 <h3>4.1.1.1. GeoJSON Example<a class="headerlink" href="#geojson-example" title="Permalink to this headline">¶</a></h3>
@@ -147,7 +147,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2014, OpenLayers Contributors.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
     </div>
   </body>
 </html>

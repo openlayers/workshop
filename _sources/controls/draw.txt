@@ -31,8 +31,9 @@ Create a Vector Layer and a Draw Interaction
             <h1>My Map</h1>
             <div id="map"></div>
             <script type="text/javascript">
-              var source = new ol.source.GeoJSON({
-                url: 'data/layers/7day-M2.5.json'
+              var source = new ol.source.Vector({
+                url: 'data/layers/7day-M2.5.json',
+                format: new ol.format.GeoJSON()
               });
               var draw = new ol.interaction.Draw({
                 source: source,

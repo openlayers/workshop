@@ -75,7 +75,7 @@
       <span class="p">})</span>
     <span class="p">],</span>
     <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
-      <span class="nx">center</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">transform</span><span class="p">([</span><span class="o">-</span><span class="mf">93.27</span><span class="p">,</span> <span class="mf">44.98</span><span class="p">],</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span> <span class="s1">&#39;EPSG:3857&#39;</span><span class="p">),</span>
+      <span class="nx">center</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">fromLonLat</span><span class="p">([</span><span class="o">-</span><span class="mf">93.27</span><span class="p">,</span> <span class="mf">44.98</span><span class="p">]),</span>
       <span class="nx">zoom</span><span class="o">:</span> <span class="mi">9</span>
     <span class="p">}),</span>
     <span class="nx">controls</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">control</span><span class="p">.</span><span class="nx">defaults</span><span class="p">({</span>
@@ -114,20 +114,19 @@
 <h4>2.2.2.1.1. Projections<a class="headerlink" href="#projections" title="Permalink to this headline">¶</a></h4>
 <p>Review the view definition of the map:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
-  <span class="nx">center</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">transform</span><span class="p">([</span><span class="o">-</span><span class="mf">93.27</span><span class="p">,</span> <span class="mf">44.98</span><span class="p">],</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span> <span class="s1">&#39;EPSG:3857&#39;</span><span class="p">),</span>
+  <span class="nx">center</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">fromLonLat</span><span class="p">([</span><span class="o">-</span><span class="mf">93.27</span><span class="p">,</span> <span class="mf">44.98</span><span class="p">]),</span>
   <span class="nx">zoom</span><span class="o">:</span> <span class="mi">9</span>
 <span class="p">})</span>
 </pre></div>
 </div>
 <p>Geospatial data can come in any number of coordinate reference systems. One data set might use geographic coordinates (longitude and latitude) in degrees, and another might have coordinates in a local projection with units in meters. A full discussion of coordinate reference systems is beyond the scope of this module, but it is important to understand the basic concept.</p>
-<p>OpenLayers 3 needs to know the coordinate system for your data. Internally, this
-is represented with an <tt class="docutils literal"><span class="pre">ol.proj.Projection</span></tt> object. The <tt class="docutils literal"><span class="pre">transform</span></tt> function in the <tt class="docutils literal"><span class="pre">ol.proj</span></tt> namespace also takes strings that represent the coordinate reference system (<tt class="docutils literal"><span class="pre">&quot;EPSG:4326&quot;</span></tt> and <tt class="docutils literal"><span class="pre">&quot;EPSG:3857&quot;</span></tt> above).</p>
-<p>The OpenStreetMap tiles that we will be using are in a Mercator projection. Because of this, we need to set the initial center using Mercator coordinates. Since it is relatively easy to find out the coordinates for a place of interest in geographic coordinates, we use the <tt class="docutils literal"><span class="pre">ol.proj.transform</span></tt> method to turn geographic coordinates (<tt class="docutils literal"><span class="pre">&quot;EPSG:4326&quot;</span></tt>) into Mercator coordinates (<tt class="docutils literal"><span class="pre">&quot;EPSG:3857&quot;</span></tt>).</p>
+<p>OpenLayers 3 needs to know the coordinate system for your data. Internally, this is represented with an <tt class="docutils literal"><span class="pre">ol.proj.Projection</span></tt> object but strings can also be supplied.</p>
+<p>The OpenStreetMap tiles that we will be using are in a Mercator projection. Because of this, we need to set the initial center using Mercator coordinates. Since it is relatively easy to find out the coordinates for a place of interest in geographic coordinates, we use the <tt class="docutils literal"><span class="pre">ol.proj.fromLonLat</span></tt> method to turn geographic coordinates (<tt class="docutils literal"><span class="pre">&quot;EPSG:4326&quot;</span></tt>) into Mercator coordinates (<tt class="docutils literal"><span class="pre">&quot;EPSG:3857&quot;</span></tt>).</p>
 <div class="section" id="alternative-projections">
 <h5>2.2.2.1.1.1. Alternative Projections<a class="headerlink" href="#alternative-projections" title="Permalink to this headline">¶</a></h5>
-<p>OpenLayers 3 includes transforms between Geographic (<tt class="docutils literal"><span class="pre">&quot;EPSG:4326&quot;</span></tt>) and Web Mercator (<tt class="docutils literal"><span class="pre">&quot;EPSG:3857&quot;</span></tt>) coordinate reference systems.  Because of this, we can use the <tt class="docutils literal"><span class="pre">ol.proj.transform</span></tt> function above without any extra work.  If you want to work with data in a different projection, you need to include some additional information before using the <tt class="docutils literal"><span class="pre">ol.proj.transform</span></tt> function.</p>
+<p>OpenLayers 3 includes transforms between Geographic (<tt class="docutils literal"><span class="pre">&quot;EPSG:4326&quot;</span></tt>) and Web Mercator (<tt class="docutils literal"><span class="pre">&quot;EPSG:3857&quot;</span></tt>) coordinate reference systems.  Because of this, we can use the <tt class="docutils literal"><span class="pre">ol.proj.fromLonLat</span></tt> function above without any extra work.  If you want to work with data in a different projection, you need to include some additional information before using the <tt class="docutils literal"><span class="pre">ol.proj.*</span></tt> functions.</p>
 <p>For example, if you wanted to work with data in the <tt class="docutils literal"><span class="pre">&quot;EPSG:21781&quot;</span></tt> coordinate reference system, you would include the following two script tags in your page:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.2.1/proj4.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://epsg.io/21781-1753.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </pre></div>
 </div>
@@ -246,7 +245,7 @@ is represented with an <tt class="docutils literal"><span class="pre">ol.proj.Pr
     </div>
     <div class="footer">
         &copy; Copyright 2014, OpenLayers Contributors.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
     </div>
   </body>
 </html>

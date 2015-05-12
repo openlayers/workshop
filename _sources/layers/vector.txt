@@ -2,7 +2,7 @@
 
 Vector Layers
 =============
-Vector Layers are represented by ``ol.layer.Vector`` and handle the client-side display of vector data. Currently OpenLayers 3 only supports vector rendering in the Canvas renderer.
+Vector Layers are represented by ``ol.layer.Vector`` and handle the client-side display of vector data. Currently OpenLayers 3 supports full vector rendering in the Canvas renderer, but only point geometries in the WebGL renderer.
 
 
 Rendering Features Client-Side
@@ -62,8 +62,9 @@ Let's go back to the WMS example to get a basic world map.  We'll add some featu
 
         new ol.layer.Vector({
           title: 'Earthquakes',
-          source: new ol.source.GeoJSON({
-            url: 'data/layers/7day-M2.5.json'
+          source: new ol.source.Vector({
+            url: 'data/layers/7day-M2.5.json',
+            format: new ol.format.GeoJSON()
           }),
           style: new ol.style.Style({
             image: new ol.style.Circle({
@@ -77,10 +78,6 @@ Let's go back to the WMS example to get a basic world map.  We'll add some featu
    
     World map with white circles representing earthquake locations.
 
-.. note::
-
-    Since the GeoJSON data is in ``EPSG:4326`` and the map's view is also in ``EPSG:4326``, no reprojection is needed. In the case that the source projection differs from the view's projection, a ``projection`` property should be specified on the source which indicates the projection of the feature cache, this would mean you would specify the view's projection here normally.
-    
 A Closer Look
 `````````````
 
@@ -89,9 +86,10 @@ Let's examine that vector layer creation to get an idea of what is going on.
 .. code-block:: javascript
 
     new ol.layer.Vector({
-       title: 'Earthquakes',
-       source: new ol.source.GeoJSON({
-        url: 'data/layers/7day-M2.5.json'
+      title: 'Earthquakes',
+      source: new ol.source.Vector({
+        url: 'data/layers/7day-M2.5.json',
+        format: new ol.format.GeoJSON()
       }),
       style: new ol.style.Style({
         image: new ol.style.Circle({
@@ -101,7 +99,7 @@ Let's examine that vector layer creation to get an idea of what is going on.
       })
     })
 
-The layer is given the title ``"Earthquakes"`` and some custom options. In the options object, we've included a ``source`` of type ``ol.source.GeoJSON`` which points to a url.
+The layer is given the title ``"Earthquakes"`` and some custom options. In the options object, we've included a ``source`` of type ``ol.source.Vector`` which points to a url. We've given the source a ``format`` that will be used for parsing the data.
 
 .. note::
 

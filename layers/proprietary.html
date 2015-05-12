@@ -114,7 +114,7 @@
           <span class="p">})</span>
         <span class="p">],</span>
         <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
-          <span class="nx">center</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">transform</span><span class="p">([</span><span class="o">-</span><span class="mf">93.27</span><span class="p">,</span> <span class="mf">44.98</span><span class="p">],</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span> <span class="s1">&#39;EPSG:3857&#39;</span><span class="p">),</span>
+          <span class="nx">center</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">fromLonLat</span><span class="p">([</span><span class="o">-</span><span class="mf">93.27</span><span class="p">,</span> <span class="mf">44.98</span><span class="p">]),</span>
           <span class="nx">zoom</span><span class="o">:</span> <span class="mi">9</span>
         <span class="p">})</span>
       <span class="p">});</span>
@@ -185,7 +185,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2014, OpenLayers Contributors.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
     </div>
   </body>
 </html>

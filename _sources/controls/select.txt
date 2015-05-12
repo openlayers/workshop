@@ -60,8 +60,9 @@ Create a Vector Layer and a Select Interaction
                   }),
                   new ol.layer.Vector({
                     title: 'Earthquakes',
-                    source: new ol.source.GeoJSON({
-                      url: 'data/layers/7day-M2.5.json'
+                    source: new ol.source.Vector({
+                      url: 'data/layers/7day-M2.5.json',
+                      format: new ol.format.GeoJSON()
                     }),
                     style: new ol.style.Style({
                       image: new ol.style.Circle({

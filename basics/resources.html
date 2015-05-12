@@ -75,7 +75,7 @@
 </div>
 <div class="section" id="find-the-api-reference">
 <h2>1.3.3. Find the API Reference<a class="headerlink" href="#find-the-api-reference" title="Permalink to this headline">¶</a></h2>
-<p>After understanding the basic components that make-up and control a map, search the API reference documentation for details on method signatures and object properties.</p>
+<p>After understanding the basic components that make-up and control a map, search the API reference documentation for details on method signatures and object properties. If you only want to see the stable part of the API, make sure to check the <tt class="docutils literal"><span class="pre">Stable</span> <span class="pre">Only</span></tt> checkbox.</p>
 <blockquote>
 <div><ul class="simple">
 <li><a class="reference external" href="http://openlayers.org/en/master/apidoc/">http://openlayers.org/en/master/apidoc/</a></li>
@@ -84,9 +84,10 @@
 </div>
 <div class="section" id="join-the-community">
 <h2>1.3.4. Join the Community<a class="headerlink" href="#join-the-community" title="Permalink to this headline">¶</a></h2>
-<p>OpenLayers is supported and maintained by a community of developers and users like you. Whether you have questions to ask or code to contribute, you can get involved by signing up for the mailing list.</p>
+<p>OpenLayers is supported and maintained by a community of developers and users like you. Whether you have questions to ask or code to contribute, you can get involved by using the <tt class="docutils literal"><span class="pre">openlayers-3</span></tt> tag on stackoverfow for usage questions or signing up for the developers mailing list.</p>
 <blockquote>
 <div><ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/tagged/openlayers-3">http://stackoverflow.com/questions/tagged/openlayers-3</a></li>
 <li><a class="reference external" href="https://groups.google.com/forum/#!forum/ol3-dev">https://groups.google.com/forum/#!forum/ol3-dev</a></li>
 </ul>
 </div></blockquote>
@@ -100,7 +101,7 @@
 <li><tt class="docutils literal"><span class="pre">ol-debug.js</span></tt> - human readable version to be used during development</li>
 </ul>
 </div></blockquote>
-<p>When you encounter an issue, it is important to report the issue using <tt class="docutils literal"><span class="pre">ol-debug.js</span></tt>. Also include the full stack trace which you can find using Web Developer tools such as Chrome&#8217;s Developer Tools. To test this out we are going to make a mistake in map.html by changing <tt class="docutils literal"><span class="pre">ol.layer.Tile</span></tt> into <tt class="docutils literal"><span class="pre">ol.layer.Image</span></tt>. The error you will see is: <tt class="docutils literal"><span class="pre">Uncaught</span> <span class="pre">TypeError:</span> <span class="pre">Object</span> <span class="pre">#&lt;yc&gt;</span> <span class="pre">has</span> <span class="pre">no</span> <span class="pre">method</span> <span class="pre">'tb'</span></tt>. If you report this to the mailing list, nobody will know what it means. So first, we are going to change the script tag which points to <tt class="docutils literal"><span class="pre">ol.js</span></tt> to point to <tt class="docutils literal"><span class="pre">ol-debug.js</span></tt> instead. Reload the page. The debugger will now stop on the error, and we can see the full stack trace:</p>
+<p>When you encounter an issue, it is important to report the issue using <tt class="docutils literal"><span class="pre">ol-debug.js</span></tt>. Also include the full stack trace which you can find using Web Developer tools such as Chrome&#8217;s Developer Tools. To test this out we are going to make a mistake in map.html by changing <tt class="docutils literal"><span class="pre">ol.layer.Tile</span></tt> into <tt class="docutils literal"><span class="pre">ol.layer.Image</span></tt>. The error you will see is: <tt class="docutils literal"><span class="pre">Uncaught</span> <span class="pre">TypeError:</span> <span class="pre">undefined</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">a</span> <span class="pre">function</span></tt>. If you report this to the mailing list, nobody will know what it means. So first, we are going to change the script tag which points to <tt class="docutils literal"><span class="pre">ol.js</span></tt> to point to <tt class="docutils literal"><span class="pre">ol-debug.js</span></tt> instead. Reload the page. The debugger will now stop on the error, and we can see the full stack trace:</p>
 <div class="figure">
 <img alt="../_images/debugger.png" src="../_images/debugger.png" />
 <p class="caption">The debugger showing the stack trace. Using the right mouse button we can copy the call stack to clipboard.</p>
@@ -167,7 +168,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2014, OpenLayers Contributors.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
     </div>
   </body>
 </html>

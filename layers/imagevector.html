@@ -88,8 +88,9 @@
           <span class="p">}),</span>
           <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
             <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Earthquakes&#39;</span><span class="p">,</span>
-            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">({</span>
-              <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;data/layers/7day-M2.5.json&#39;</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+              <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;data/layers/7day-M2.5.json&#39;</span><span class="p">,</span>
+              <span class="nx">format</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">()</span>
             <span class="p">}),</span>
             <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
               <span class="nx">image</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Circle</span><span class="p">({</span>
@@ -119,8 +120,9 @@
 <div class="highlight-javascript"><div class="highlight"><pre><span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Image</span><span class="p">({</span>
   <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Earthquakes&#39;</span><span class="p">,</span>
   <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">ImageVector</span><span class="p">({</span>
-    <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">({</span>
-      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;data/layers/7day-M2.5.json&#39;</span>
+    <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;data/layers/7day-M2.5.json&#39;</span><span class="p">,</span>
+      <span class="nx">format</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">()</span>
     <span class="p">}),</span>
     <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
       <span class="nx">image</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Circle</span><span class="p">({</span>
@@ -146,8 +148,9 @@
 <div class="highlight-javascript"><div class="highlight"><pre><span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Image</span><span class="p">({</span>
   <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Earthquakes&#39;</span><span class="p">,</span>
   <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">ImageVector</span><span class="p">({</span>
-    <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">({</span>
-      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;data/layers/7day-M2.5.json&#39;</span>
+    <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;data/layers/7day-M2.5.json&#39;</span><span class="p">,</span>
+      <span class="nx">format</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">()</span>
     <span class="p">}),</span>
     <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
       <span class="nx">image</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Circle</span><span class="p">({</span>
@@ -159,7 +162,7 @@
 <span class="p">})</span>
 </pre></div>
 </div>
-<p>We are using an <tt class="docutils literal"><span class="pre">ol.layer.Image</span></tt> instead of an <tt class="docutils literal"><span class="pre">ol.layer.Vector</span></tt>. However, we can still use vector data here through <tt class="docutils literal"><span class="pre">ol.source.ImageVector</span></tt> that connects to our original <tt class="docutils literal"><span class="pre">ol.source.GeoJSON</span></tt> vector source. The style is provided as config of <tt class="docutils literal"><span class="pre">ol.source.ImageVector</span></tt> and not on the layer.</p>
+<p>We are using an <tt class="docutils literal"><span class="pre">ol.layer.Image</span></tt> instead of an <tt class="docutils literal"><span class="pre">ol.layer.Vector</span></tt>. However, we can still use vector data here through <tt class="docutils literal"><span class="pre">ol.source.ImageVector</span></tt> that connects to our original <tt class="docutils literal"><span class="pre">ol.source.Vector</span></tt> vector source. The style is provided as config of <tt class="docutils literal"><span class="pre">ol.source.ImageVector</span></tt> and not on the layer.</p>
 <p class="rubric">Bonus Tasks</p>
 <ol class="arabic simple">
 <li>Verify that feature detection still works by registering a singleclick listener on your map that calls <tt class="docutils literal"><span class="pre">forEachFeatureAtPixel</span></tt> on the map, and displays earthquake information below the map viewport.</li>
@@ -226,7 +229,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2014, OpenLayers Contributors.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
     </div>
   </body>
 </html>
