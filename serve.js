@@ -7,10 +7,10 @@
 var fork = require('child_process').fork;
 var path = require('path');
 
-var distDir = path.join(__dirname, 'dist');
-var debugServer = path.join(__dirname, 'node_modules', 'openlayers', 'tasks', 'serve-lib.js');
-
-var child = fork(debugServer, {cwd: distDir});
+var child = fork(
+  path.join(__dirname, 'node_modules', 'openlayers', 'tasks', 'serve-lib.js'),
+  {cwd: path.join(__dirname, 'dist')}
+);
 
 child.on('close', function(code) {
   if (code !== 0) {

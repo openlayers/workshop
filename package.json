@@ -17,7 +17,7 @@
     "prepublish": "in-publish && make || not-in-publish"
   },
   "dependencies": {
-    "openlayers": "^3.8.2"
+    "openlayers": "https://github.com/tschaub/ol3/tarball/debug-server"
   },
   "devDependencies": {
     "in-publish": "^2.0.0"

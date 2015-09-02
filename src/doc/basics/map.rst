@@ -25,7 +25,7 @@ Let's take a look at a fully working example of an OpenLayers 3 map.
           }
         </style>
         <title>OpenLayers 3 example</title>
-        <script src="ol3/ol.js" type="text/javascript"></script>
+        <script src="/loader.js" type="text/javascript"></script>
       </head>
       <body>
         <h1>My Map</h1>

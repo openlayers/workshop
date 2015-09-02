@@ -36,7 +36,7 @@ Let's take a look at the following code:
             width: 512px;
           }
         </style>
-        <script src="ol3/ol.js" type="text/javascript"></script>
+        <script src="/loader.js" type="text/javascript"></script>
         <title>OpenLayers 3 example</title>
       </head>
       <body>
