@@ -15,7 +15,7 @@
   "scripts": {
     "start": "node serve.js",
     "prepublish": "in-publish && make || not-in-publish",
-    "postpublish": "gh-pages --dist dist"
+    "postpublish": "gh-pages --dist dist/doc"
   },
   "dependencies": {
     "openlayers": "https://github.com/openlayers/ol3/tarball/4dddf4c3d97ee3453b31dd3057937621e7ed7698"
