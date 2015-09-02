@@ -63,7 +63,7 @@ Let's go back to the WMS example to get a basic world map.  We'll add some featu
         new ol.layer.Vector({
           title: 'Earthquakes',
           source: new ol.source.Vector({
-            url: 'data/layers/7day-M2.5.json',
+            url: '/data/layers/7day-M2.5.json',
             format: new ol.format.GeoJSON()
           }),
           style: new ol.style.Style({
@@ -88,7 +88,7 @@ Let's examine that vector layer creation to get an idea of what is going on.
     new ol.layer.Vector({
       title: 'Earthquakes',
       source: new ol.source.Vector({
-        url: 'data/layers/7day-M2.5.json',
+        url: '/data/layers/7day-M2.5.json',
         format: new ol.format.GeoJSON()
       }),
       style: new ol.style.Style({

@@ -40,7 +40,9 @@ $(BUILD_DIR)/npm-install.time: package.json
 .PHONY: resources
 resources: $(DIST_DIR)/ol.css
 	@mkdir -p $(DIST_DIR)/data
+	@mkdir -p $(DIST_DIR)/examples
 	@cp -r $(SRC_DIR)/data/* $(DIST_DIR)/data/
+	@cp -r $(SRC_DIR)/examples/* $(DIST_DIR)/examples/
 
 $(DIST_DIR)/ol.css: $(NODE_MODULES)/openlayers/css/ol.css
 	@cp $< $@

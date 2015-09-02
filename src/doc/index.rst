@@ -34,8 +34,8 @@ The following modules will be covered in this workshop:
 
 .. toctree::
     :hidden:
-    :numbered:
 
+    setup
     basics/index
     layers/index
     controls/index

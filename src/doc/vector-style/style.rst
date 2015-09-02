@@ -31,7 +31,7 @@ Styling Vector Layers
                   new ol.layer.Vector({
                     title: 'Buildings',
                     source: new ol.source.Vector({
-                      url: 'data/layers/buildings.kml',
+                      url: '/data/layers/buildings.kml',
                       format: new ol.format.KML({
                         extractStyles: false
                       })
