@@ -13,6 +13,7 @@
   },
   "homepage": "https://github.com/openlayers/ol3-workshop#readme",
   "scripts": {
+    "start": "node serve.js",
     "prepublish": "in-publish && make || not-in-publish"
   },
   "dependencies": {

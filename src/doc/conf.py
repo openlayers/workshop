@@ -87,7 +87,7 @@ pygments_style = 'sphinx'
 modindex_common_prefix = ['openlayers.']
 
 # Variable replacement
-workshop_url = os.getenv('WORKSHOP_URL', 'http://localhost:3000/ol3-workshop/')
+workshop_url = os.getenv('WORKSHOP_URL', 'http://localhost:3000/')
 
 extlinks = {'workshop_url': (workshop_url + '%s', None)}
 
