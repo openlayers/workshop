@@ -19,7 +19,7 @@ Let's go back to the vector layer example to get earthquake data on top of a wor
     <!doctype html>
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="ol3/ol.css" type="text/css">
+        <link rel="stylesheet" href="/ol.css" type="text/css">
         <style>
           #map {
             height: 256px;

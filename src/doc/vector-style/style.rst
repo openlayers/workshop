@@ -10,7 +10,7 @@ Styling Vector Layers
         <!doctype html>
         <html lang="en">
           <head>
-            <link rel="stylesheet" href="ol3/ol.css" type="text/css">
+            <link rel="stylesheet" href="/ol.css" type="text/css">
             <style>
             #map {
               background-color: gray;

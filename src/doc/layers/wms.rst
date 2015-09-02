@@ -29,7 +29,7 @@ Let's take a look at the following code:
     <!doctype html>
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="ol3/ol.css" type="text/css">
+        <link rel="stylesheet" href="/ol.css" type="text/css">
         <style>
           #map {
             height: 256px;
@@ -104,11 +104,11 @@ The url is the online resource of the WMS service, and params is an object liter
 
 .. rubric:: Tasks
 
-#.  This same WMS offers a layer named ``"openstreetmap"``. Change the value of 
-    the ``LAYERS`` parameter from ``"bluemarble"`` to ``"openstreetmap"``. 
+#.  This same WMS offers a layer named ``"openstreetmap"``. Change the value of
+    the ``LAYERS`` parameter from ``"bluemarble"`` to ``"openstreetmap"``.
 
     Your revised ol.layer.Tile Constructor should look like:
-    
+
     .. code-block:: javascript
 
         new ol.layer.Tile({

@@ -1,23 +1,23 @@
 {
-  "name": "ol3-workshop",
+  "name": "openlayers-workshop",
   "version": "1.0.0",
   "description": "OpenLayers workshop",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openlayers/ol3-workshop.git"
+    "url": "git+https://github.com/openlayers/workshop.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/openlayers/ol3-workshop/issues"
+    "url": "https://github.com/openlayers/workshop/issues"
   },
-  "homepage": "https://github.com/openlayers/ol3-workshop#readme",
+  "homepage": "https://github.com/openlayers/workshop#readme",
   "scripts": {
     "start": "node serve.js",
     "prepublish": "in-publish && make || not-in-publish"
   },
   "dependencies": {
-    "openlayers": "https://github.com/tschaub/ol3/tarball/debug-server"
+    "openlayers": "https://github.com/openlayers/ol3/tarball/4dddf4c3d97ee3453b31dd3057937621e7ed7698"
   },
   "devDependencies": {
     "in-publish": "^2.0.0"

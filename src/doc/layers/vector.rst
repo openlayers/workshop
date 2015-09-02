@@ -15,7 +15,7 @@ Let's go back to the WMS example to get a basic world map.  We'll add some featu
     <!doctype html>
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="ol3/ol.css" type="text/css">
+        <link rel="stylesheet" href="/ol.css" type="text/css">
         <style>
           #map {
             height: 256px;

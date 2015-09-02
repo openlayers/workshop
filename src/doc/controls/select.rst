@@ -19,7 +19,7 @@ Create a Vector Layer and a Select Interaction
         <!doctype html>
         <html lang="en">
           <head>
-            <link rel="stylesheet" href="ol3/ol.css" type="text/css">
+            <link rel="stylesheet" href="/ol.css" type="text/css">
             <style>
             #map {
               height: 256px;

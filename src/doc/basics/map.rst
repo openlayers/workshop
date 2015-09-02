@@ -17,7 +17,7 @@ Let's take a look at a fully working example of an OpenLayers 3 map.
     <!doctype html>
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="ol3/ol.css" type="text/css">
+        <link rel="stylesheet" href="/ol.css" type="text/css">
         <style>
           #map {
             height: 256px;
@@ -55,9 +55,9 @@ Let's take a look at a fully working example of an OpenLayers 3 map.
 
 .. rubric:: Tasks
 
-#.  Download https://github.com/openlayers/ol3-workshop/archive/resources.zip and save the folder in the root of your web server.
+#.  Make sure you've completed the :ref:`setup instructions <setup>` to install dependencies and get the debug server running.
 
-#.  Copy the text above into a new file called :file:`map.html`, and save it in the root of the downloaded folder.
+#.  Copy the text above into a new file called :file:`map.html`, and save it in the workshop :file:`dist` directory.
 
 #.  Open the working map in your web browser: :workshop_url:`map.html`
 
