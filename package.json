@@ -1,6 +1,6 @@
 {
   "name": "openlayers-workshop",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "OpenLayers workshop",
   "main": "index.js",
   "repository": {
@@ -14,12 +14,14 @@
   "homepage": "https://github.com/openlayers/workshop#readme",
   "scripts": {
     "start": "node serve.js",
-    "prepublish": "in-publish && make || not-in-publish"
+    "prepublish": "in-publish && make || not-in-publish",
+    "postpublish": "gh-pages --dist dist"
   },
   "dependencies": {
     "openlayers": "https://github.com/openlayers/ol3/tarball/4dddf4c3d97ee3453b31dd3057937621e7ed7698"
   },
   "devDependencies": {
+    "gh-pages": "^0.3.1",
     "in-publish": "^2.0.0"
   }
 }

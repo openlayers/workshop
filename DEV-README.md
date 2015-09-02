@@ -14,9 +14,13 @@ Install Node dependencies:
 
     npm install
 
-Generate the workshop HTML:
+Generate the workshop resources:
 
-    make doc
+    make
+
+Start the development server:
+
+    npm start
 
 ## Publishing the workshop
 

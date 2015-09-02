@@ -1,12 +1,20 @@
 .DELETE_ON_ERROR:
 
 NODE_MODULES := ./node_modules
-export PATH := $(NODE_MODULES)/.bin:$(PATH)
 
 BUILD_DIR := ./build
 DIST_DIR := ./dist
 SRC_DIR := ./src
 SRC_DOC := $(shell find $(SRC_DIR)/doc -type f)
+
+# Build all artifacts for distribution
+.PHONY: dist
+dist: clean doc resources
+
+.PHONY: clean
+clean:
+	@rm -rf $(BUILD_DIR)
+	@rm -rf $(DIST_DIR)
 
 # Build the workshop HTML documentation
 .PHONY: doc
