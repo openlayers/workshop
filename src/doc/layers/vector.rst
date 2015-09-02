@@ -53,7 +53,7 @@ Let's go back to the WMS example to get a basic world map.  We'll add some featu
 
 .. rubric:: Tasks
 
-#.  Open ``map.html`` in your text editor and copy in the contents of the initial WMS example. Save your changes and confirm that things look good in your browser: @workshop_url@/map.html
+#.  Open ``map.html`` in your text editor and copy in the contents of the initial WMS example. Save your changes and confirm that things look good in your browser: |workshop_url|/map.html
 
 
 #.  In your map initialization code add another layer after the Tile layer (paste the following). This adds a new vector layer to your map that requests a set of features stored in GeoJSON:

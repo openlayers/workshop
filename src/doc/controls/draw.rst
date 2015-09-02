@@ -76,7 +76,7 @@ Create a Vector Layer and a Draw Interaction
           </body>
         </html>
         
-#.  Save your changes to ``map.html`` and open the page in your browser:  @workshop_url@/map.html. To see drawing of point geometries in action, click in the map to add a new feature:
+#.  Save your changes to ``map.html`` and open the page in your browser:  |workshop_url|/map.html. To see drawing of point geometries in action, click in the map to add a new feature:
     
     .. figure:: draw1.png
    

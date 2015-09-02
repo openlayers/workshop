@@ -59,10 +59,10 @@ Let's take a look at a fully working example of an OpenLayers 3 map.
 
 #.  Copy the text above into a new file called :file:`map.html`, and save it in the root of the downloaded folder.
 
-#.  Open the working map in your web browser: @workshop_url@/map.html
+#.  Open the working map in your web browser: |workshop_url|/map.html
 
 .. figure:: map1.png
-   
+
     A working map displaying imagery of the world.
 
 Having successfully created our first map, we'll continue by looking more closely at :ref:`the parts <config.dissect>`.

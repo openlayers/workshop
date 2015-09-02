@@ -89,7 +89,7 @@ Create a Vector Layer and a Modify Interaction
           </body>
         </html>
         
-#.  Save your changes to ``map.html`` and open the page in your browser:  @workshop_url@/map.html. To see feature modification in action, use the mouse-click to select an earth quake and then drag to move the point.
+#.  Save your changes to ``map.html`` and open the page in your browser:  |workshop_url|/map.html. To see feature modification in action, use the mouse-click to select an earth quake and then drag to move the point.
 
 A Closer Look
 `````````````

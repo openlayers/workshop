@@ -29,7 +29,7 @@ Let's add a Bing layer.
 
     .. note:: The Bing tiles API requires that you register for an API key to use with your mapping application.  The example here uses an API key that you should not use in production.  To use the Bing layer in production, register for an API key at https://www.bingmapsportal.com/.
     
-#.  Save your changes and reload ``map.html`` in your browser: @workshop_url@/map.html
+#.  Save your changes and reload ``map.html`` in your browser: |workshop_url|/map.html
     
 .. figure:: proprietary1.png
    

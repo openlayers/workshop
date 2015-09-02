@@ -20,11 +20,11 @@ The following modules will be covered in this workshop:
 
 :ref:`layers`
   Learn about raster and vector layers.
- 
+
 :ref:`controls`
   Learn about using map controls.
 
-    
+
 .. rubric:: Advanced Topics
 
 :ref:`styling`
@@ -40,5 +40,3 @@ The following modules will be covered in this workshop:
     layers/index
     controls/index
     vector-style/index
-
-    

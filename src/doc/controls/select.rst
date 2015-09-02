@@ -87,7 +87,7 @@ Create a Vector Layer and a Select Interaction
           </body>
         </html>
         
-#.  Save your changes to ``map.html`` and open the page in your browser:  @workshop_url@/map.html. To see feature selection in action, use the mouse-click to select an earthquake:
+#.  Save your changes to ``map.html`` and open the page in your browser:  |workshop_url|/map.html. To see feature selection in action, use the mouse-click to select an earthquake:
     
     .. figure:: select1.png
    

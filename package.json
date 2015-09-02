@@ -1,0 +1,24 @@
+{
+  "name": "ol3-workshop",
+  "version": "1.0.0",
+  "description": "OpenLayers workshop",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openlayers/ol3-workshop.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/openlayers/ol3-workshop/issues"
+  },
+  "homepage": "https://github.com/openlayers/ol3-workshop#readme",
+  "scripts": {
+    "prepublish": "in-publish && make || not-in-publish"
+  },
+  "dependencies": {
+    "openlayers": "^3.8.2"
+  },
+  "devDependencies": {
+    "in-publish": "^2.0.0"
+  }
+}
