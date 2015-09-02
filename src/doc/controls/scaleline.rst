@@ -20,7 +20,7 @@ Creating a ScaleLine Control
           new ol.control.ScaleLine()
         ]),
     
-#.  Save your changes and open ``map.html`` in your browser: |workshop_url|/map.html
+#.  Save your changes and open ``map.html`` in your browser: :workshop_url:`map.html`
     
     .. figure:: scaleline1.png
     
@@ -60,7 +60,7 @@ However, for the sake of this exercise, let's say you think the map viewport is 
           new ol.control.ScaleLine({className: 'ol-scale-line', target: document.getElementById('scale-line')})
         ]),
 
-#.  Save your changes and open ``map.html`` in your browser: |workshop_url|/map.html    
+#.  Save your changes and open ``map.html`` in your browser: :workshop_url:`map.html`    
     
     .. code-block:: html
     
@@ -74,7 +74,7 @@ However, for the sake of this exercise, let's say you think the map viewport is 
           left: 0px;
         }
 
-#.  Now save your changes and view ``map.html`` again in your browser: |workshop_url|/map.html
+#.  Now save your changes and view ``map.html`` again in your browser: :workshop_url:`map.html`
 
     .. figure:: scaleline2.png
    

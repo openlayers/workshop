@@ -70,7 +70,7 @@ Let's go back to the vector layer example to get earthquake data on top of a wor
 
 .. rubric:: Tasks
 
-#.  Open ``map.html`` in your text editor and copy in the contents of the vector example from above. Save your changes and confirm that things look good in your browser: |workshop_url|/map.html
+#.  Open ``map.html`` in your text editor and copy in the contents of the vector example from above. Save your changes and confirm that things look good in your browser: :workshop_url:`map.html`
 
 
 #.  Change the vector layer into:
@@ -93,7 +93,7 @@ Let's go back to the vector layer example to get earthquake data on top of a wor
           })
         })
 
-#.    Reload |workshop_url|/map.html in the browser
+#.    Reload :workshop_url:`map.html` in the browser
 
 .. note::
 

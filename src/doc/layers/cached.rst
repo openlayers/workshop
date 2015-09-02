@@ -67,7 +67,7 @@ The `OpenStreetMap (OSM) <http://www.openstreetmap.org/>`_ project is an effort 
             }
         </style>
 
-#.  Save your changes, and refresh the page in your browser: |workshop_url|/map.html
+#.  Save your changes, and refresh the page in your browser: :workshop_url:`map.html`
 
 .. figure:: cached1.png
    

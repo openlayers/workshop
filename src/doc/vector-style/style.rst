@@ -51,7 +51,7 @@ Styling Vector Layers
           </body>
         </html>
 
-#.  Open this ``map.html`` file in your browser to see buildings with a red outline:  |workshop_url|/map.html
+#.  Open this ``map.html`` file in your browser to see buildings with a red outline:  :workshop_url:`map.html`
 
 #.  With a basic understanding of :ref:`styling in OpenLayers <openlayers.vector.style-intro>`, we can create a style function that displays buildings in different colors based on the size of their footprint. In your map initialization code, replace the style config option for the ``Buildings`` layer with the following:
     
@@ -75,7 +75,7 @@ Styling Vector Layers
               };
             })()
 
-#.  Save your changes and open ``map.html`` in your browser: |workshop_url|/map.html
+#.  Save your changes and open ``map.html`` in your browser: :workshop_url:`map.html`
 
     .. figure:: style1.png
 
@@ -109,7 +109,7 @@ Styling Vector Layers
               };
             })()
 
-#.  Save your changes and open ``map.html`` in your browser: |workshop_url|/map.html
+#.  Save your changes and open ``map.html`` in your browser: :workshop_url:`map.html`
 
     .. figure:: style2.png
 

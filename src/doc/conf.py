@@ -22,7 +22,7 @@ import sys, os
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = []
+extensions = ['sphinx.ext.extlinks']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -87,11 +87,9 @@ pygments_style = 'sphinx'
 modindex_common_prefix = ['openlayers.']
 
 # Variable replacement
-workshop_url = os.getenv('WORKSHOP_URL', 'http://localhost:8000/ol3-workshop')
+workshop_url = os.getenv('WORKSHOP_URL', 'http://localhost:3000/ol3-workshop/')
 
-rst_epilog = """
-.. |workshop_url| replace:: {0}
-""".format(workshop_url)
+extlinks = {'workshop_url': (workshop_url + '%s', None)}
 
 # -- Options for HTML output ---------------------------------------------------
 
@@ -156,6 +154,8 @@ html_title = project
 
 # If true, links to the reST sources are added to the pages.
 html_show_sourcelink = False
+
+html_copy_source = False
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the

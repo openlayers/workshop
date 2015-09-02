@@ -11,7 +11,7 @@ Create a Vector Layer and a Draw Interaction
 .. rubric:: Tasks
 
 #.  Let's start with the example below. Open ``map.html`` in your text editor and make sure it looks something like the following:
-    
+
     .. code-block:: html
 
         <!doctype html>
@@ -75,11 +75,11 @@ Create a Vector Layer and a Draw Interaction
             </script>
           </body>
         </html>
-        
-#.  Save your changes to ``map.html`` and open the page in your browser:  |workshop_url|/map.html. To see drawing of point geometries in action, click in the map to add a new feature:
-    
+
+#.  Save your changes to ``map.html`` and open the page in your browser:  :workshop_url:`map.html`. To see drawing of point geometries in action, click in the map to add a new feature:
+
     .. figure:: draw1.png
-   
+
        Using a draw interaction to add features to a vector source.
 
 .. rubric:: Bonus Tasks
@@ -93,4 +93,3 @@ Create a Vector Layer and a Draw Interaction
         draw.on('drawend', function(evt) {
           window.console.log(evt.feature.getGeometry().getCoordinates());
         });
-

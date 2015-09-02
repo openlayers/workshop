@@ -72,7 +72,7 @@ Let's take a look at the following code:
     root of your workshop directory.
 
 #.  Open the page in your browser to confirm things work:
-    |workshop_url|/map.html
+    :workshop_url:`map.html`
 
 The ol.layer.Tile Constructor
 ------------------------------------
