@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.4. Vector Layers &mdash; OpenLayers Workshop</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.8.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="OpenLayers Workshop" href="../index.html" />
+    <link rel="up" title="3. Layers and sources" href="index.html" />
+    <link rel="next" title="3.5. Image Vector" href="imagevector.html" />
+    <link rel="prev" title="3.3. Proprietary Raster Layers" href="proprietary.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="vector-layers">
+<span id="openlayers-layers-vector"></span><h1>3.4. Vector Layers<a class="headerlink" href="#vector-layers" title="Permalink to this headline">¶</a></h1>
+<p>Vector Layers are represented by <code class="docutils literal"><span class="pre">ol.layer.Vector</span></code> and handle the client-side display of vector data. Currently OpenLayers 3 supports full vector rendering in the Canvas renderer, but only point geometries in the WebGL renderer.</p>
+<div class="section" id="rendering-features-client-side">
+<h2>3.4.1. Rendering Features Client-Side<a class="headerlink" href="#rendering-features-client-side" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s go back to the WMS example to get a basic world map.  We&#8217;ll add some feature data on top of this in a vector layer.</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+      <span class="nf">#map</span> <span class="p">{</span>
+        <span class="k">height</span><span class="o">:</span> <span class="m">256px</span><span class="p">;</span>
+        <span class="k">width</span><span class="o">:</span> <span class="m">512px</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+    <span class="nt">&lt;title&gt;</span>OpenLayers 3 example<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/loader.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>My Map<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+      <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+        <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+        <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+            <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Global Imagery&quot;</span><span class="p">,</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TileWMS</span><span class="p">({</span>
+              <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://maps.opengeo.org/geowebcache/service/wms&#39;</span><span class="p">,</span>
+              <span class="nx">params</span><span class="o">:</span> <span class="p">{</span><span class="nx">LAYERS</span><span class="o">:</span> <span class="s1">&#39;bluemarble&#39;</span><span class="p">,</span> <span class="nx">VERSION</span><span class="o">:</span> <span class="s1">&#39;1.1.1&#39;</span><span class="p">}</span>
+            <span class="p">})</span>
+          <span class="p">})</span>
+        <span class="p">],</span>
+        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
+          <span class="nx">projection</span><span class="o">:</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span>
+          <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nx">maxResolution</span><span class="o">:</span> <span class="mf">0.703125</span>
+        <span class="p">})</span>
+      <span class="p">});</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+<p class="rubric">Tasks</p>
+<ol class="arabic">
+<li><p class="first">Open <code class="docutils literal"><span class="pre">map.html</span></code> in your text editor and copy in the contents of the initial WMS example. Save your changes and confirm that things look good in your browser: <a class="reference external" href="http://localhost:3000/map.html">http://localhost:3000/map.html</a></p>
+</li>
+<li><p class="first">In your map initialization code add another layer after the Tile layer (paste the following). This adds a new vector layer to your map that requests a set of features stored in GeoJSON:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Earthquakes&#39;</span><span class="p">,</span>
+  <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/data/layers/7day-M2.5.json&#39;</span><span class="p">,</span>
+    <span class="nx">format</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">()</span>
+  <span class="p">}),</span>
+  <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+    <span class="nx">image</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Circle</span><span class="p">({</span>
+      <span class="nx">radius</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+      <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span><span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;white&#39;</span><span class="p">})</span>
+    <span class="p">})</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="figure" id="id1">
+<img alt="../_images/vector1.png" src="../_images/vector1.png" />
+<p class="caption"><span class="caption-text">World map with white circles representing earthquake locations.</span></p>
+</div>
+<div class="section" id="a-closer-look">
+<h3>3.4.1.1. A Closer Look<a class="headerlink" href="#a-closer-look" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s examine that vector layer creation to get an idea of what is going on.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Earthquakes&#39;</span><span class="p">,</span>
+  <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/data/layers/7day-M2.5.json&#39;</span><span class="p">,</span>
+    <span class="nx">format</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">()</span>
+  <span class="p">}),</span>
+  <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+    <span class="nx">image</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Circle</span><span class="p">({</span>
+      <span class="nx">radius</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+      <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span><span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;white&#39;</span><span class="p">})</span>
+    <span class="p">})</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>The layer is given the title <code class="docutils literal"><span class="pre">&quot;Earthquakes&quot;</span></code> and some custom options. In the options object, we&#8217;ve included a <code class="docutils literal"><span class="pre">source</span></code> of type <code class="docutils literal"><span class="pre">ol.source.Vector</span></code> which points to a url. We&#8217;ve given the source a <code class="docutils literal"><span class="pre">format</span></code> that will be used for parsing the data.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In the case where you want to style the features based on an attribute, you would use a style function instead of an <code class="docutils literal"><span class="pre">ol.style.Style</span></code> for the <code class="docutils literal"><span class="pre">style</span></code> config option of <code class="docutils literal"><span class="pre">ol.layer.Vector</span></code>.</p>
+</div>
+<p class="rubric">Bonus Tasks</p>
+<ol class="arabic simple">
+<li>The white circles on the map represent <code class="docutils literal"><span class="pre">ol.Feature</span></code> objects on your <code class="docutils literal"><span class="pre">ol.layer.Vector</span></code> layer. Each of these features has attribute data with <code class="docutils literal"><span class="pre">title</span></code> and <code class="docutils literal"><span class="pre">summary</span></code> properties. Register a singleclick listener on your map that calls <code class="docutils literal"><span class="pre">forEachFeatureAtPixel</span></code> on the map, and displays earthquake information below the map viewport.</li>
+<li>The data for the vector layer comes from an earthquake feed published by the USGS (<a class="reference external" href="http://earthquake.usgs.gov/earthquakes/catalogs/">http://earthquake.usgs.gov/earthquakes/catalogs/</a>).  See if you can find additional data with spatial information in a format supported by OpenLayers 3.  If you save another document representing spatial data in your <code class="docutils literal"><span class="pre">data</span></code> directory, you should be able to view it in a vector layer on your map.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">OpenLayers Workshop</a></h1>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">1. Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">2. Basics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">3. Layers and sources</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="wms.html">3.1. Web Map Service Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cached.html">3.2. Cached Tiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proprietary.html">3.3. Proprietary Raster Layers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">3.4. Vector Layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rendering-features-client-side">3.4.1. Rendering Features Client-Side</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#a-closer-look">3.4.1.1. A Closer Look</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="imagevector.html">3.5. Image Vector</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../controls/index.html">4. Controls and interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vector-style/index.html">5. Vector styling</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, OpenLayers Contributors.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>5.2. Understanding Style &mdash; OpenLayers Workshop</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.8.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="OpenLayers Workshop" href="../index.html" />
+    <link rel="up" title="5. Vector styling" href="index.html" />
+    <link rel="next" title="5.3. Styling Vector Layers" href="style.html" />
+    <link rel="prev" title="5.1. Working with Vector Layers" href="concepts.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="understanding-style">
+<span id="openlayers-vector-style-intro"></span><h1>5.2. Understanding Style<a class="headerlink" href="#understanding-style" title="Permalink to this headline">¶</a></h1>
+<p>When styling HTML elements, you might use CSS like the following:</p>
+<div class="highlight-html"><div class="highlight"><pre>.someClass {
+    background-color: blue;
+    border-width: 1px;
+    border-color: olive;
+}
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">.someClass</span></code> text is a selector (in this case it selects all elements that include the class name <code class="docutils literal"><span class="pre">&quot;someClass&quot;</span></code>) and the block that follows is a group of named properties and values, otherwise known as style declarations.</p>
+<div class="section" id="layer-style">
+<h2>5.2.1. Layer style<a class="headerlink" href="#layer-style" title="Permalink to this headline">¶</a></h2>
+<p>A vector layer can have styles. More specifically, a vector layer can be configured with an <code class="docutils literal"><span class="pre">ol.style.Style</span></code> object, an array of <code class="docutils literal"><span class="pre">ol.style.Style</span></code> objects, or a function that takes an <code class="docutils literal"><span class="pre">ol.Feature</span></code> instance and a resolution and returns an array of <code class="docutils literal"><span class="pre">ol.style.Style</span></code> objects.</p>
+<p>Here&#8217;s an example of a vector layer configured with a static style:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+  <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">(),</span>
+  <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+    <span class="c1">// ...</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>And here&#8217;s an example of a vector layer configured with a style function that applies a style to all features that have an attribute named <code class="docutils literal"><span class="pre">class</span></code> with a value of <code class="docutils literal"><span class="pre">'someClass'</span></code>:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+  <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">(),</span>
+  <span class="nx">style</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span> <span class="nx">resolution</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">feature</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;someClass&#39;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// create styles...</span>
+      <span class="k">return</span> <span class="nx">styles</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="symbolizers">
+<h2>5.2.2. Symbolizers<a class="headerlink" href="#symbolizers" title="Permalink to this headline">¶</a></h2>
+<p>The equivalent of a declaration block in CSS is a <cite>symbolizer</cite> in OpenLayers 3 (these are typically instances of ol.style.*). To paint polygon features with a blue background and a 1 pixel wide olive stroke, you would use two symbolizers like the following:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+  <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+    <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;blue&#39;</span>
+  <span class="p">}),</span>
+  <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+    <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;olive&#39;</span><span class="p">,</span>
+    <span class="nx">width</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Depending on the geometry type, different symbolizers can be applied. Lines work like polygons, but they cannot have a fill. Points can be styled with <code class="docutils literal"><span class="pre">ol.style.Circle</span></code> or <code class="docutils literal"><span class="pre">ol.style.Icon</span></code>. The former is used to render circle shapes, and the latter uses graphics from file (e.g. png images). Here is an example for a style with a circle:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Circle</span><span class="p">({</span>
+  <span class="nx">radius</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+  <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+    <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#ff9900&#39;</span><span class="p">,</span>
+    <span class="nx">opacity</span><span class="o">:</span> <span class="mf">0.6</span>
+  <span class="p">}),</span>
+  <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+    <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#ffcc00&#39;</span><span class="p">,</span>
+    <span class="nx">opacity</span><span class="o">:</span> <span class="mf">0.4</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ol-style-style">
+<h2>5.2.3. ol.style.Style<a class="headerlink" href="#ol-style-style" title="Permalink to this headline">¶</a></h2>
+<p>An <code class="docutils literal"><span class="pre">ol.style.Style</span></code> object has 4 keys: <code class="docutils literal"><span class="pre">fill</span></code>, <code class="docutils literal"><span class="pre">image</span></code>, <code class="docutils literal"><span class="pre">stroke</span></code> and <code class="docutils literal"><span class="pre">text</span></code>. It also has an optional <code class="docutils literal"><span class="pre">zIndex</span></code> property. The style function will return an array of <code class="docutils literal"><span class="pre">ol.style.Style</span></code> objects.</p>
+<p>If you want all features to be colored red except for those that have a <code class="docutils literal"><span class="pre">class</span></code> attribute with the value of <code class="docutils literal"><span class="pre">&quot;someClass&quot;</span></code> (and you want those features colored blue with an 1px wide olive stroke), you would create a style function that looked like the following (by the way, it is important to create objects outside of the style function so they can be reused, but for simplicity reasons the objects are created inline in the example below):</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">style</span><span class="o">:</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">someStyle</span> <span class="o">=</span> <span class="p">[</span><span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+    <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+      <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;blue&#39;</span>
+    <span class="p">}),</span>
+    <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
+      <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;olive&#39;</span><span class="p">,</span>
+      <span class="nx">width</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="p">})</span>
+  <span class="p">})];</span>
+  <span class="kd">var</span> <span class="nx">otherStyle</span> <span class="o">=</span> <span class="p">[</span><span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+    <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+      <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;red&#39;</span>
+    <span class="p">})</span>
+  <span class="p">})];</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span> <span class="nx">resolution</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">feature</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="s2">&quot;someClass&quot;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">someStyle</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">otherStyle</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">}())</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is important to create the style arrays outside of the actual function. This can be done with a JavaScript closure as done in the example above.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A feature also has a style config option that can take a function having only resolution as argument. This makes it possible to style individual features (based on resolution).</p>
+</div>
+</div>
+<div class="section" id="pseudo-classes">
+<h2>5.2.4. Pseudo-classes<a class="headerlink" href="#pseudo-classes" title="Permalink to this headline">¶</a></h2>
+<p>CSS allows for pseudo-classes on selectors. These basically limit the application of style declarations based on contexts that are not easily represented in the selector, such as mouse position, neighboring elements, or browser history. In OpenLayers 3, a somewhat similar concept is having a style config option on an <code class="docutils literal"><span class="pre">ol.interaction.Select</span></code>.</p>
+<p>An example is:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">select</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">Select</span><span class="p">({</span>
+  <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
+    <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
+      <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;rgba(255,255,255,0.5)&#39;</span>
+    <span class="p">})</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>With the basics of styling under your belt, it&#8217;s time to move on to <a class="reference internal" href="style.html#openlayers-style"><span>styling vector layers</span></a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">OpenLayers Workshop</a></h1>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">1. Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">2. Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../layers/index.html">3. Layers and sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controls/index.html">4. Controls and interactions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">5. Vector styling</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="concepts.html">5.1. Working with Vector Layers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">5.2. Understanding Style</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#layer-style">5.2.1. Layer style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#symbolizers">5.2.2. Symbolizers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ol-style-style">5.2.3. ol.style.Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pseudo-classes">5.2.4. Pseudo-classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="style.html">5.3. Styling Vector Layers</a></li>
+</ul>
+</li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, OpenLayers Contributors.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

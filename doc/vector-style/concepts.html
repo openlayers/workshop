@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>5.1. Working with Vector Layers &mdash; OpenLayers Workshop</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.8.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="OpenLayers Workshop" href="../index.html" />
+    <link rel="up" title="5. Vector styling" href="index.html" />
+    <link rel="next" title="5.2. Understanding Style" href="style-intro.html" />
+    <link rel="prev" title="5. Vector styling" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="working-with-vector-layers">
+<span id="openlayers-vector-basics"></span><h1>5.1. Working with Vector Layers<a class="headerlink" href="#working-with-vector-layers" title="Permalink to this headline">¶</a></h1>
+<p>The base <code class="docutils literal"><span class="pre">ol.layer.Vector</span></code> constructor provides a fairly flexible layer type. By default, when you create a new vector layer, no assumptions are made about where the features for the layer will come from, since this is the domain of <code class="docutils literal"><span class="pre">ol.source.Vector</span></code>. Customizing the rendering style is addressed in an <a class="reference internal" href="style-intro.html#openlayers-vector-style-intro"><span>upcoming section</span></a>. This section introduces the basics of vector data <a class="reference internal" href="#openlayers-vector-basics-format"><span>formats</span></a>.</p>
+<div class="section" id="ol-format">
+<span id="openlayers-vector-basics-format"></span><h2>5.1.1. ol.format<a class="headerlink" href="#ol-format" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">ol.format</span></code> classes in OpenLayers 3 are responsible for parsing data from the server representing vector features. The format turns raw feature data into <code class="docutils literal"><span class="pre">ol.Feature</span></code> objects.</p>
+<p>Consider the two blocks of data below. Both represent the same <code class="docutils literal"><span class="pre">ol.Feature</span></code> object (a point in Barcelona, Spain). The first is serialized as <a class="reference external" href="http://geojson.org">GeoJSON</a> (using the <code class="docutils literal"><span class="pre">ol.format.GeoJSON</span></code> parser). The second is serialized as <abbr title="OGC Keyhole Markup Language">KML</abbr> (using the <code class="docutils literal"><span class="pre">ol.format.KML</span></code> parser).</p>
+<div class="section" id="geojson-example">
+<h3>5.1.1.1. GeoJSON Example<a class="headerlink" href="#geojson-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;OpenLayers.Feature.Vector_107&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;geometry&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Point&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coordinates&quot;</span><span class="o">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">104.98</span><span class="p">,</span> <span class="mf">39.76</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="kml-example">
+<h3>5.1.1.2. KML Example<a class="headerlink" href="#kml-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;kml</span> <span class="na">xmlns=</span><span class="s">&quot;http://earth.google.com/kml/2.2&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Placemark&gt;</span>
+    <span class="nt">&lt;Point&gt;</span>
+      <span class="nt">&lt;coordinates&gt;</span>-104.98,39.76<span class="nt">&lt;/coordinates&gt;</span>
+    <span class="nt">&lt;/Point&gt;</span>
+  <span class="nt">&lt;/Placemark&gt;</span>
+<span class="nt">&lt;/kml&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">OpenLayers Workshop</a></h1>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">1. Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">2. Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../layers/index.html">3. Layers and sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controls/index.html">4. Controls and interactions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">5. Vector styling</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">5.1. Working with Vector Layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ol-format">5.1.1. ol.format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#geojson-example">5.1.1.1. GeoJSON Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kml-example">5.1.1.2. KML Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="style-intro.html">5.2. Understanding Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html">5.3. Styling Vector Layers</a></li>
+</ul>
+</li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, OpenLayers Contributors.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

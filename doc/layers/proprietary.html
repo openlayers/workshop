@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.3. Proprietary Raster Layers &mdash; OpenLayers Workshop</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.8.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="OpenLayers Workshop" href="../index.html" />
+    <link rel="up" title="3. Layers and sources" href="index.html" />
+    <link rel="next" title="3.4. Vector Layers" href="vector.html" />
+    <link rel="prev" title="3.2. Cached Tiles" href="cached.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="proprietary-raster-layers">
+<span id="openlayers-layers-proprietary"></span><h1>3.3. Proprietary Raster Layers<a class="headerlink" href="#proprietary-raster-layers" title="Permalink to this headline">¶</a></h1>
+<p>In previous sections, we displayed layers based on a standards compliant <abbr title="OGC Web Map Service">WMS</abbr> and a custom tile cache. Online mapping (or at least the tiled map client) was largely popularized by the availability of proprietary map tile services. OpenLayers provides layer types that work with these proprietary services through their APIs.</p>
+<p>In this section, we&#8217;ll build on the example developed in the <a class="reference internal" href="cached.html#openlayers-layers-cached-example"><span>previous section</span></a> by adding a layer using tiles from Bing.</p>
+<p>To see how OpenLayers 3 and Google Maps can be integrated check out: <a class="reference external" href="http://openlayers.org/en/master/examples/google-map.html">http://openlayers.org/en/master/examples/google-map.html</a>.</p>
+<div class="section" id="bing">
+<span id="openlayers-layer-proprietary-bing"></span><h2>3.3.1. Bing!<a class="headerlink" href="#bing" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s add a Bing layer.</p>
+<p class="rubric">Tasks</p>
+<ol class="arabic">
+<li><p class="first">In your <code class="docutils literal"><span class="pre">map.html</span></code> file, find where the <abbr title="OpenStreetMap">OSM</abbr> source is configured and change it into an <code class="docutils literal"><span class="pre">ol.source.BingMaps</span></code></p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">BingMaps</span><span class="p">({</span>
+  <span class="nx">imagerySet</span><span class="o">:</span> <span class="s1">&#39;Road&#39;</span><span class="p">,</span>
+  <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;Ak-dzM4wZjSqTlzveKz5u0d4IQ4bRzVI309GxmkgSVr1ewS6iPSrOvOKhA-CJlm3&#39;</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Bing tiles API requires that you register for an API key to use with your mapping application.  The example here uses an API key that you should not use in production.  To use the Bing layer in production, register for an API key at <a class="reference external" href="https://www.bingmapsportal.com/">https://www.bingmapsportal.com/</a>.</p>
+</div>
+</li>
+<li><p class="first">Save your changes and reload <code class="docutils literal"><span class="pre">map.html</span></code> in your browser: <a class="reference external" href="http://localhost:3000/map.html">http://localhost:3000/map.html</a></p>
+</li>
+</ol>
+<div class="figure" id="id1">
+<img alt="../_images/proprietary1.png" src="../_images/proprietary1.png" />
+<p class="caption"><span class="caption-text">A map with tiles from a Bing Maps source.</span></p>
+</div>
+<div class="section" id="complete-working-example">
+<h3>3.3.1.1. Complete Working Example<a class="headerlink" href="#complete-working-example" title="Permalink to this headline">¶</a></h3>
+<p>Your revised <code class="docutils literal"><span class="pre">map.html</span></code> file should look something like this:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+      <span class="nf">#map</span> <span class="p">{</span>
+        <span class="k">height</span><span class="o">:</span> <span class="m">256px</span><span class="p">;</span>
+        <span class="k">width</span><span class="o">:</span> <span class="m">512px</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nc">.ol-attribution</span> <span class="nt">a</span> <span class="p">{</span>
+        <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/loader.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;title&gt;</span>OpenLayers 3 example<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>My Map<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span> <span class="na">class=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+      <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
+        <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+        <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">BingMaps</span><span class="p">({</span>
+              <span class="nx">imagerySet</span><span class="o">:</span> <span class="s1">&#39;Road&#39;</span><span class="p">,</span>
+              <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;Ak-dzM4wZjSqTlzveKz5u0d4IQ4bRzVI309GxmkgSVr1ewS6iPSrOvOKhA-CJlm3&#39;</span>
+            <span class="p">})</span>
+          <span class="p">})</span>
+        <span class="p">],</span>
+        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
+          <span class="nx">center</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">fromLonLat</span><span class="p">([</span><span class="o">-</span><span class="mf">93.27</span><span class="p">,</span> <span class="mf">44.98</span><span class="p">]),</span>
+          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">9</span>
+        <span class="p">})</span>
+      <span class="p">});</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">OpenLayers Workshop</a></h1>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">1. Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">2. Basics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">3. Layers and sources</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="wms.html">3.1. Web Map Service Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cached.html">3.2. Cached Tiles</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">3.3. Proprietary Raster Layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bing">3.3.1. Bing!</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#complete-working-example">3.3.1.1. Complete Working Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vector.html">3.4. Vector Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imagevector.html">3.5. Image Vector</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../controls/index.html">4. Controls and interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vector-style/index.html">5. Vector styling</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, OpenLayers Contributors.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
