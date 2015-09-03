@@ -14,6 +14,7 @@
   "homepage": "https://github.com/openlayers/workshop#readme",
   "scripts": {
     "start": "node serve.js",
+    "test": "make",
     "prepublish": "in-publish && make || not-in-publish",
     "postpublish": "gh-pages --dist dist/doc --dotfiles"
   },
