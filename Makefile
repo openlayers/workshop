@@ -9,7 +9,7 @@ SRC_DOC := $(shell find $(SRC_DIR)/doc -type f)
 
 # Build all artifacts for distribution
 .PHONY: dist
-dist: clean doc resources
+dist: clean resources doc
 
 .PHONY: clean
 clean:
@@ -23,6 +23,7 @@ doc: $(BUILD_DIR)/doc.time
 $(BUILD_DIR)/doc.time: $(SRC_DOC)
 	@mkdir -p $(BUILD_DIR)
 	sphinx-build -d $(BUILD_DIR)/doctrees src/doc $(DIST_DIR)/doc
+	@touch $(DIST_DIR)/doc/.nojekyll
 	@touch $@
 
 # Build the workshop PDF (this requires pdflatex)
@@ -40,6 +41,7 @@ $(BUILD_DIR)/pdf.time: $(SRC_DOC)
 install: $(BUILD_DIR)/npm-install.time
 
 $(BUILD_DIR)/npm-install.time: package.json
+	@mkdir -p $(BUILD_DIR)
 	@npm prune
 	@npm install
 	@touch $@
@@ -51,9 +53,9 @@ resources: $(DIST_DIR)/ol.css
 	@mkdir -p $(DIST_DIR)/examples
 	@cp -r $(SRC_DIR)/data/* $(DIST_DIR)/data/
 	@cp -r $(SRC_DIR)/examples/* $(DIST_DIR)/examples/
-	@touch $(DIST_DIR)/doc/.nojekyll
 
 $(DIST_DIR)/ol.css: $(NODE_MODULES)/openlayers/css/ol.css
+	@mkdir -p $(DIST_DIR)
 	@cp $< $@
 
 $(NODE_MODULES)/openlayers/css/ol.css: install
