@@ -59,3 +59,7 @@ $(DIST_DIR)/ol.css: $(NODE_MODULES)/openlayers/css/ol.css
 	@cp $< $@
 
 $(NODE_MODULES)/openlayers/css/ol.css: install
+
+# Create an archive of the workshop
+openlayers-workshop.zip: dist
+	@zip -r $@ dist package.json serve.js README.md

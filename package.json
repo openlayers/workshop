@@ -2,7 +2,7 @@
   "name": "openlayers-workshop",
   "version": "1.3.0",
   "description": "OpenLayers workshop",
-  "main": "index.js",
+  "main": "serve.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/openlayers/workshop.git"
