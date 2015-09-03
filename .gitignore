@@ -1,4 +1,5 @@
 /build/
 /dist/
 /node_modules/
+/src/_book/
 /openlayers-workshop.zip

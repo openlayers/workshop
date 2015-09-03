@@ -1,0 +1,22 @@
+{
+  "gitbook": "^2.3.0",
+  "variables": {
+    "workshopUrl": "http://localhost:4000"
+  },
+  "links": {
+    "sidebar": {
+      "OpenLayers Workshop": "/"
+    }
+  },
+  "plugins": [
+    "image-captions"
+  ],
+  "pluginsConfig": {
+    "image-captions": {
+      "caption": "_CAPTION_"
+    }
+  },
+  "styles": {
+    "website": "style.css"
+  }
+}

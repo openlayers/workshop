@@ -16,13 +16,17 @@
     "start": "node serve.js",
     "test": "make",
     "prepublish": "in-publish && make || not-in-publish",
-    "postpublish": "gh-pages --dist dist/doc --dotfiles"
+    "postpublish": "gh-pages --dist dist/doc --dotfiles",
+    "doc:serve": "gitbook serve ./src",
+    "doc:build": "gitbook build ./src"
   },
   "dependencies": {
     "openlayers": "https://github.com/openlayers/ol3/tarball/4dddf4c3d97ee3453b31dd3057937621e7ed7698"
   },
   "devDependencies": {
     "gh-pages": "^0.4.0",
+    "gitbook-cli": "^0.3.6",
+    "gitbook-plugin-image-captions": "^0.1.0",
     "in-publish": "^2.0.0"
   }
 }

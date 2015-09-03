@@ -1,11 +1,33 @@
 # OpenLayers Workshop
 
-Welcome to the OpenLayers workshop.  You can find a hosted version of the documentation at http://openlayers.org/ol3-workshop/.  Alternatively, you can run through the workshop exercises with the setup below.
+This doc is for people developing the OpenLayers Workshop.  Workshop participants see the main README.md.
 
-## Install the dependencies
+## Prerequisites
+
+ * [Node](https://nodejs.org/)
+ * [GNU Make](https://www.gnu.org/software/make/)
+ * [Sphinx](http://sphinx-doc.org/)
+
+## Building the workshop
+
+Install Node dependencies:
 
     npm install
 
-## Start the development server
+Generate the workshop resources:
+
+    make
+
+Start the development server:
 
     npm start
+
+## Publishing the workshop
+
+Update the version number in `package.json`:
+
+    npm version minor
+
+Publish build artifacts to the npm registry (this will also run the default `make` target):
+
+    npm publish
