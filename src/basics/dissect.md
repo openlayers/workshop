@@ -60,7 +60,7 @@ The next step in generating your map is to include some initialization code. In 
   </script>
 ```
 
-The order of these steps is important. Before our custom script can be executed, the OpenLayers library must be loaded. In our example, the OpenLayers library is loaded in the `<head>` of our document with `<script src="/loader.js"></script>`.>
+The order of these steps is important. Before our custom script can be executed, the OpenLayers library must be loaded. In our example, the OpenLayers library is loaded in the `<head>` of our document with `<script src="/loader.js"></script>`.
 
 Similarly, our custom map initialization code (above) cannot run until the document element that serves as the viewport container, in this case `<div id="map"></div>`, is ready. By including the initialization code at the end of the document `<body>`, we ensure that the library is loaded and the viewport container is ready before generating our map.
 
