@@ -10,7 +10,7 @@ Let's add a Bing layer.
 
 ### Tasks
 
-1. In your `map.html` file, find where the :abbr:`OSM (OpenStreetMap)` source is configured and change it into an `ol.source.BingMaps`
+1. In your `map.html` file, find where the OSM (OpenStreetMap) source is configured and change it into an `ol.source.BingMaps`
 
   ```js
     source: new ol.source.BingMaps({
