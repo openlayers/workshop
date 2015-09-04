@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/openlayers/workshop#readme",
   "scripts": {
-    "start": "mkdir src/_book && cp node_modules/openlayers/css/ol.css src/_book && npm run doc:serve",
+    "start": "mkdir -p src/_book && cp node_modules/openlayers/css/ol.css src/_book && npm run doc:serve",
     "test": "npm run doc:build",
     "clean": "rm -rf src/_book build",
     "doc:serve": "gitbook serve src",
