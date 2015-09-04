@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 256px;
+        width: 512px;
+      }
+      .ol-attribution a {
+        color: black;
+      }
+    </style>
+    <title>OpenLayers 3 example</title>
+  </head>
+  <body>
+    <h1>My Map</h1>
+    <div id="map" class="map"></div>
+    <script src="/loader.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([-93.27, 44.98]),
+          zoom: 9
+        }),
+        controls: ol.control.defaults({
+          attributionOptions: {
+            collapsible: false
+          }
+        })
+      });
+    </script>
+  </body>
+</html>

@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Controls | OpenLayers Workshop</title>
+        <title>Formats | OpenLayers Workshop</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.3.0">
@@ -31,10 +31,10 @@
         
     
     
-    <link rel="next" href="../controls/scaleline.html" />
+    <link rel="next" href="../vector/style-intro.html" />
     
     
-    <link rel="prev" href="../layers/imagevector.html" />
+    <link rel="prev" href="../vector/index.html" />
     
 
         
@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="4" data-basepath=".." data-revision="Fri Sep 04 2015 13:05:08 GMT-0600 (MDT)">
+    <div class="book" data-level="5.1" data-basepath=".." data-revision="Fri Sep 04 2015 13:05:08 GMT-0600 (MDT)">
     
 
 <div class="book-summary">
@@ -256,7 +256,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4" data-path="controls/index.html">
+        <li class="chapter " data-level="4" data-path="controls/index.html">
             
                 
                     <a href="../controls/index.html">
@@ -353,7 +353,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1" data-path="vector/formats.html">
+        <li class="chapter active" data-level="5.1" data-path="vector/formats.html">
             
                 
                     <a href="../vector/formats.html">
@@ -508,13 +508,32 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="controls-and-interactions">Controls and interactions</h1>
-<ul>
-<li><a href="scaleline.html">Scale line control</a></li>
-<li><a href="select.html">Select interaction</a></li>
-<li><a href="draw.html">Draw interaction</a></li>
-<li><a href="modify.html">Modify interaction</a></li>
-</ul>
+                        <h1 id="working-with-vector-formats">Working with Vector Formats</h1>
+<p>The base <code>ol.layer.Vector</code> constructor provides a fairly flexible layer type. By default, when you create a new vector layer, no assumptions are made about where the features for the layer will come from, since this is the domain of <code>ol.source.Vector</code>.  Before getting into styling vector features, this section introduces the basics of vector formats.</p>
+<h2 id="-ol-format"><code>ol.format</code></h2>
+<p>The <code>ol.format</code> classes in OpenLayers 3 are responsible for parsing data from the server representing vector features. The format turns raw feature data into <code>ol.Feature</code> objects.</p>
+<p>Consider the two blocks of data below. Both represent the same <code>ol.Feature</code> object (a point in Barcelona, Spain). The first is serialized as <a href="http://geojson.org" target="_blank">GeoJSON</a> (using the <code>ol.format.GeoJSON</code> parser). The second is serialized as KML (OGC Keyhole Markup Language) (using the <code>ol.format.KML</code> parser).</p>
+<h3 id="geojson-example">GeoJSON Example</h3>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;Feature&quot;</span>,
+  <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;OpenLayers.Feature.Vector_107&quot;</span>,
+  <span class="hljs-string">&quot;properties&quot;</span>: {},
+  <span class="hljs-string">&quot;geometry&quot;</span>: {
+    <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;Point&quot;</span>,
+    <span class="hljs-string">&quot;coordinates&quot;</span>: [-<span class="hljs-number">104.98</span>, <span class="hljs-number">39.76</span>]
+  }
+}
+</code></pre>
+<h3 id="kml-example">KML Example</h3>
+<pre><code class="lang-xml"><span class="hljs-pi">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">kml</span> <span class="hljs-attribute">xmlns</span>=<span class="hljs-value">&quot;http://earth.google.com/kml/2.2&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">Placemark</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Point</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">coordinates</span>&gt;</span>-104.98,39.76<span class="hljs-tag">&lt;/<span class="hljs-title">coordinates</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">Point</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">Placemark</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">kml</span>&gt;</span>
+</code></pre>
 
                     
                     </section>
@@ -525,10 +544,10 @@
         </div>
 
         
-        <a href="../layers/imagevector.html" class="navigation navigation-prev " aria-label="Previous page: Image vector source"><i class="fa fa-angle-left"></i></a>
+        <a href="../vector/index.html" class="navigation navigation-prev " aria-label="Previous page: Vector Topics"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../controls/scaleline.html" class="navigation navigation-next " aria-label="Next page: Scale line control"><i class="fa fa-angle-right"></i></a>
+        <a href="../vector/style-intro.html" class="navigation navigation-next " aria-label="Next page: Styling concepts"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

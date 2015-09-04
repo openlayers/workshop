@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Controls | OpenLayers Workshop</title>
+        <title>Custom styles | OpenLayers Workshop</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.3.0">
@@ -31,10 +31,8 @@
         
     
     
-    <link rel="next" href="../controls/scaleline.html" />
     
-    
-    <link rel="prev" href="../layers/imagevector.html" />
+    <link rel="prev" href="../vector/style-intro.html" />
     
 
         
@@ -42,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="4" data-basepath=".." data-revision="Fri Sep 04 2015 13:05:08 GMT-0600 (MDT)">
+    <div class="book" data-level="5.3" data-basepath=".." data-revision="Fri Sep 04 2015 13:05:08 GMT-0600 (MDT)">
     
 
 <div class="book-summary">
@@ -256,7 +254,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4" data-path="controls/index.html">
+        <li class="chapter " data-level="4" data-path="controls/index.html">
             
                 
                     <a href="../controls/index.html">
@@ -383,7 +381,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="vector/style.html">
+        <li class="chapter active" data-level="5.3" data-path="vector/style.html">
             
                 
                     <a href="../vector/style.html">
@@ -508,13 +506,112 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="controls-and-interactions">Controls and interactions</h1>
-<ul>
-<li><a href="scaleline.html">Scale line control</a></li>
-<li><a href="select.html">Select interaction</a></li>
-<li><a href="draw.html">Draw interaction</a></li>
-<li><a href="modify.html">Modify interaction</a></li>
-</ul>
+                        <h1 id="styling-vector-layers">Styling Vector Layers</h1>
+<ol>
+<li><p>We&apos;ll start with a working example that displays building footprints in a vector layer.  Open your text editor and save the following as <code>map.html</code> in the root of your workshop directory:</p>
+<pre><code class="lang-html"><span class="hljs-doctype">&lt;!doctype html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">&quot;stylesheet&quot;</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;/ol.css&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/css&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+  <span class="hljs-id">#map</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> gray</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">256px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">512px</span></span></span>;
+  }</span>
+  </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>OpenLayers 3 example<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;/loader.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>My Map<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;map&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="processing">
+    var <span class="hljs-built_in">map</span> = <span class="hljs-keyword">new</span> ol.Map({
+      target: <span class="hljs-string">&apos;map&apos;</span>,
+      layers: [
+        <span class="hljs-keyword">new</span> ol.layer.Vector({
+          title: <span class="hljs-string">&apos;Buildings&apos;</span>,
+          source: <span class="hljs-keyword">new</span> ol.source.Vector({
+            url: <span class="hljs-string">&apos;/data/layers/buildings.kml&apos;</span>,
+            format: <span class="hljs-keyword">new</span> ol.format.KML({
+              extractStyles: <span class="hljs-keyword">false</span>
+            })
+          }),
+          style: <span class="hljs-keyword">new</span> ol.style.Style({
+            <span class="hljs-built_in">stroke</span>: <span class="hljs-keyword">new</span> ol.style.Stroke({<span class="hljs-built_in">color</span>: <span class="hljs-string">&apos;red&apos;</span>, <span class="hljs-variable">width</span>: <span class="hljs-number">2</span>})
+          })
+        })
+      ],
+      view: <span class="hljs-keyword">new</span> ol.View({
+        projection: <span class="hljs-string">&apos;EPSG:4326&apos;</span>,
+        center: [-<span class="hljs-number">122.791859392</span>, <span class="hljs-number">42.3099154789</span>],
+        zoom: <span class="hljs-number">16</span>
+      })
+    });
+  </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+</li>
+<li><p>Open this <code>map.html</code> file in your browser to see buildings with a red outline:  <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a></p>
+</li>
+<li><p>With a basic understanding of <a href="style-intro.html">styling in OpenLayers</a>, we can create a style function that displays buildings in different colors based on the size of their footprint. In your map initialization code, add the following two styles arrays and replace the <code>style</code> option for the <code>&apos;Buildings&apos;</code> layer with the style function below:</p>
+<pre><code class="lang-js"> <span class="hljs-keyword">var</span> defaultStyles = [
+   <span class="hljs-keyword">new</span> ol.style.Style({
+     fill: <span class="hljs-keyword">new</span> ol.style.Fill({color: <span class="hljs-string">&apos;navy&apos;</span>}),
+     stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({color: <span class="hljs-string">&apos;black&apos;</span>, width: <span class="hljs-number">1</span>})
+   })
+ ];
+ <span class="hljs-keyword">var</span> smallStyles = [
+   <span class="hljs-keyword">new</span> ol.style.Style({
+     fill: <span class="hljs-keyword">new</span> ol.style.Fill({color: <span class="hljs-string">&apos;olive&apos;</span>}),
+     stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({color: <span class="hljs-string">&apos;black&apos;</span>, width: <span class="hljs-number">1</span>})
+   })
+ ];
+
+ <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">style</span>(<span class="hljs-params">feature, resolution</span>) </span>{
+   <span class="hljs-keyword">if</span> (feature.get(<span class="hljs-string">&apos;shape_area&apos;</span>) &lt; <span class="hljs-number">3000</span>) {
+     <span class="hljs-keyword">return</span> smallStyles;
+   } <span class="hljs-keyword">else</span> {
+     <span class="hljs-keyword">return</span> defaultStyles;
+   }      
+ }
+</code></pre>
+</li>
+<li><p>Save your changes and open <code>map.html</code> in your browser: <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a></p>
+<p> <figure><img src="style1.png" alt="Buildings colored by footprint area"><figcaption>Buildings colored by footprint area</figcaption></figure></p>
+</li>
+<li><p>Now as a final step, let&apos;s add a label to the buildings. For simplicity we&apos;re only using a label and a black outline as the style.</p>
+<pre><code class="lang-js"> style: (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+   <span class="hljs-keyword">var</span> stroke = <span class="hljs-keyword">new</span> ol.style.Stroke({
+     color: <span class="hljs-string">&apos;black&apos;</span>
+   });
+   <span class="hljs-keyword">var</span> textStroke = <span class="hljs-keyword">new</span> ol.style.Stroke({
+     color: <span class="hljs-string">&apos;#fff&apos;</span>,
+     width: <span class="hljs-number">3</span>
+   });
+   <span class="hljs-keyword">var</span> textFill = <span class="hljs-keyword">new</span> ol.style.Fill({
+     color: <span class="hljs-string">&apos;#000&apos;</span>
+   });
+   <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">feature, resolution</span>) </span>{
+     <span class="hljs-keyword">return</span> [<span class="hljs-keyword">new</span> ol.style.Style({
+       stroke: stroke,
+       text: <span class="hljs-keyword">new</span> ol.style.Text({
+         font: <span class="hljs-string">&apos;12px Calibri,sans-serif&apos;</span>,
+         text: feature.get(<span class="hljs-string">&apos;key&apos;</span>),
+         fill: textFill,
+         stroke: textStroke
+       })
+     })];
+   };
+ })()
+</code></pre>
+</li>
+<li><p>Save your changes and open <code>map.html</code> in your browser: <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a></p>
+<p><figure><img src="style2.png" alt="Buildings labeled by the key field"><figcaption>Buildings labeled by the key field</figcaption></figure></p>
+</li>
+</ol>
 
                     
                     </section>
@@ -525,10 +622,8 @@
         </div>
 
         
-        <a href="../layers/imagevector.html" class="navigation navigation-prev " aria-label="Previous page: Image vector source"><i class="fa fa-angle-left"></i></a>
+        <a href="../vector/style-intro.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Styling concepts"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../controls/scaleline.html" class="navigation navigation-next " aria-label="Next page: Scale line control"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

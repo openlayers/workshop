@@ -1,181 +1,602 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE HTML>
+<html lang="en" >
     
-    <title>3.3. Proprietary Raster Layers &mdash; OpenLayers Workshop</title>
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Proprietary tile providers | OpenLayers Workshop</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.3.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
     
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '3.8.2',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  false
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="OpenLayers Workshop" href="../index.html" />
-    <link rel="up" title="3. Layers and sources" href="index.html" />
-    <link rel="next" title="3.4. Vector Layers" href="vector.html" />
-    <link rel="prev" title="3.2. Cached Tiles" href="cached.html" />
-   
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+    
+        <link rel="stylesheet" href="../style.css">
+    
 
-  </head>
-  <body role="document">  
+        
+    
+    
+    <link rel="next" href="../layers/vector.html" />
+    
+    
+    <link rel="prev" href="../layers/cached.html" />
+    
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="3.3" data-basepath=".." data-revision="Fri Sep 04 2015 13:05:08 GMT-0600 (MDT)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
             
-  <div class="section" id="proprietary-raster-layers">
-<span id="openlayers-layers-proprietary"></span><h1>3.3. Proprietary Raster Layers<a class="headerlink" href="#proprietary-raster-layers" title="Permalink to this headline">¶</a></h1>
-<p>In previous sections, we displayed layers based on a standards compliant <abbr title="OGC Web Map Service">WMS</abbr> and a custom tile cache. Online mapping (or at least the tiled map client) was largely popularized by the availability of proprietary map tile services. OpenLayers provides layer types that work with these proprietary services through their APIs.</p>
-<p>In this section, we&#8217;ll build on the example developed in the <a class="reference internal" href="cached.html#openlayers-layers-cached-example"><span>previous section</span></a> by adding a layer using tiles from Bing.</p>
-<p>To see how OpenLayers 3 and Google Maps can be integrated check out: <a class="reference external" href="http://openlayers.org/en/master/examples/google-map.html">http://openlayers.org/en/master/examples/google-map.html</a>.</p>
-<div class="section" id="bing">
-<span id="openlayers-layer-proprietary-bing"></span><h2>3.3.1. Bing!<a class="headerlink" href="#bing" title="Permalink to this headline">¶</a></h2>
-<p>Let&#8217;s add a Bing layer.</p>
-<p class="rubric">Tasks</p>
-<ol class="arabic">
-<li><p class="first">In your <code class="docutils literal"><span class="pre">map.html</span></code> file, find where the <abbr title="OpenStreetMap">OSM</abbr> source is configured and change it into an <code class="docutils literal"><span class="pre">ol.source.BingMaps</span></code></p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">BingMaps</span><span class="p">({</span>
-  <span class="nx">imagerySet</span><span class="o">:</span> <span class="s1">&#39;Road&#39;</span><span class="p">,</span>
-  <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;Ak-dzM4wZjSqTlzveKz5u0d4IQ4bRzVI309GxmkgSVr1ewS6iPSrOvOKhA-CJlm3&#39;</span>
-<span class="p">})</span>
-</pre></div>
+            <li>
+                <a href="/" target="blank" class="custom-link">OpenLayers Workshop</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="setup.html">
+            
+                
+                    <a href="../setup.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Setup
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="basics/index.html">
+            
+                
+                    <a href="../basics/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Basics
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="basics/map.html">
+            
+                
+                    <a href="../basics/map.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Creating a map
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="basics/dissect.html">
+            
+                
+                    <a href="../basics/dissect.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Dissecting your map
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="basics/resources.html">
+            
+                
+                    <a href="../basics/resources.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Resources
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="layers/index.html">
+            
+                
+                    <a href="../layers/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Layers and Sources
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="layers/wms.html">
+            
+                
+                    <a href="../layers/wms.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        WMS sources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="layers/cached.html">
+            
+                
+                    <a href="../layers/cached.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Tiled sources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.3" data-path="layers/proprietary.html">
+            
+                
+                    <a href="../layers/proprietary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        Proprietary tile providers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="layers/vector.html">
+            
+                
+                    <a href="../layers/vector.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Vector data
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="layers/imagevector.html">
+            
+                
+                    <a href="../layers/imagevector.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        Image vector source
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="controls/index.html">
+            
+                
+                    <a href="../controls/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Controls
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="controls/scaleline.html">
+            
+                
+                    <a href="../controls/scaleline.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Scale line control
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="controls/select.html">
+            
+                
+                    <a href="../controls/select.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Select interaction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="controls/draw.html">
+            
+                
+                    <a href="../controls/draw.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Draw interaction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="controls/modify.html">
+            
+                
+                    <a href="../controls/modify.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        Modify interaction
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="vector/index.html">
+            
+                
+                    <a href="../vector/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Vector Topics
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="vector/formats.html">
+            
+                
+                    <a href="../vector/formats.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Formats
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="vector/style-intro.html">
+            
+                
+                    <a href="../vector/style-intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Styling concepts
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="vector/style.html">
+            
+                
+                    <a href="../vector/style.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        Custom styles
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
 </div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The Bing tiles API requires that you register for an API key to use with your mapping application.  The example here uses an API key that you should not use in production.  To use the Bing layer in production, register for an API key at <a class="reference external" href="https://www.bingmapsportal.com/">https://www.bingmapsportal.com/</a>.</p>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
 </div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >OpenLayers Workshop</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="proprietary-raster-layers">Proprietary Raster Layers</h1>
+<p>In previous sections, we displayed layers based on a standards compliant WMS (OGC Web Map Service) and a custom tile cache. Online mapping (or at least the tiled map client) was largely popularized by the availability of proprietary map tile services. OpenLayers provides layer types that work with these proprietary services through their APIs.</p>
+<p>In this section, we&apos;ll build on the example developed in the <a href="cached.html">previous section</a> by adding a layer using tiles from Bing.</p>
+<h2 id="bing">Bing!</h2>
+<p>Let&apos;s add a Bing layer.</p>
+<h3 id="tasks">Tasks</h3>
+<ol>
+<li><p>In your <code>map.html</code> file, find where the :abbr:<code>OSM (OpenStreetMap)</code> source is configured and change it into an <code>ol.source.BingMaps</code></p>
+<pre><code class="lang-js"> source: <span class="hljs-keyword">new</span> ol.source.BingMaps({
+   imagerySet: <span class="hljs-string">&apos;Road&apos;</span>,
+   key: <span class="hljs-string">&apos;Ak-dzM4wZjSqTlzveKz5u0d4IQ4bRzVI309GxmkgSVr1ewS6iPSrOvOKhA-CJlm3&apos;</span>
+ })
+</code></pre>
+<p><em>Note</em> - The Bing tiles API requires that you register for an API key to use with your mapping application.  The example here uses an API key that you should not use in production.  To use the Bing layer in production, register for an API key at <a href="https://www.bingmapsportal.com/" target="_blank">https://www.bingmapsportal.com/</a>.</p>
 </li>
-<li><p class="first">Save your changes and reload <code class="docutils literal"><span class="pre">map.html</span></code> in your browser: <a class="reference external" href="http://localhost:3000/map.html">http://localhost:3000/map.html</a></p>
+<li><p>Save your changes and reload <code>map.html</code> in your browser: <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a></p>
+<p><figure><img src="proprietary1.png" alt="A map with tiles from a Bing Maps source"><figcaption>A map with tiles from a Bing Maps source</figcaption></figure></p>
 </li>
 </ol>
-<div class="figure" id="id1">
-<img alt="../_images/proprietary1.png" src="../_images/proprietary1.png" />
-<p class="caption"><span class="caption-text">A map with tiles from a Bing Maps source.</span></p>
-</div>
-<div class="section" id="complete-working-example">
-<h3>3.3.1.1. Complete Working Example<a class="headerlink" href="#complete-working-example" title="Permalink to this headline">¶</a></h3>
-<p>Your revised <code class="docutils literal"><span class="pre">map.html</span></code> file should look something like this:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!doctype html&gt;</span>
-<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;style&gt;</span>
-      <span class="nf">#map</span> <span class="p">{</span>
-        <span class="k">height</span><span class="o">:</span> <span class="m">256px</span><span class="p">;</span>
-        <span class="k">width</span><span class="o">:</span> <span class="m">512px</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="nc">.ol-attribution</span> <span class="nt">a</span> <span class="p">{</span>
-        <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
-      <span class="p">}</span>
-    <span class="nt">&lt;/style&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/loader.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-    <span class="nt">&lt;title&gt;</span>OpenLayers 3 example<span class="nt">&lt;/title&gt;</span>
-  <span class="nt">&lt;/head&gt;</span>
-  <span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>My Map<span class="nt">&lt;/h1&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span> <span class="na">class=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
-      <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
-        <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
-        <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
-          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
-            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">BingMaps</span><span class="p">({</span>
-              <span class="nx">imagerySet</span><span class="o">:</span> <span class="s1">&#39;Road&#39;</span><span class="p">,</span>
-              <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;Ak-dzM4wZjSqTlzveKz5u0d4IQ4bRzVI309GxmkgSVr1ewS6iPSrOvOKhA-CJlm3&#39;</span>
-            <span class="p">})</span>
-          <span class="p">})</span>
-        <span class="p">],</span>
-        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
-          <span class="nx">center</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">fromLonLat</span><span class="p">([</span><span class="o">-</span><span class="mf">93.27</span><span class="p">,</span> <span class="mf">44.98</span><span class="p">]),</span>
-          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">9</span>
-        <span class="p">})</span>
-      <span class="p">});</span>
-    <span class="nt">&lt;/script&gt;</span>
-  <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+<h2 id="complete-working-example">Complete Working Example</h2>
+<p>Your revised <code>map.html</code> file should look something like this:</p>
+<pre><code class="lang-html"><span class="hljs-doctype">&lt;!doctype html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;en&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">&quot;stylesheet&quot;</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;/ol.css&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/css&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+      <span class="hljs-id">#map</span> <span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">256px</span></span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">512px</span></span></span>;
+      }</span>
+      <span class="hljs-class">.ol-attribution</span> <span class="hljs-tag">a</span> <span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> black</span></span>;
+      }</span>
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;/loader.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>OpenLayers 3 example<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>My Map<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;map&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;map&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="dart">
+      <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.<span class="hljs-built_in">Map</span>({
+        target: <span class="hljs-string">&apos;map&apos;</span>,
+        layers: [
+          <span class="hljs-keyword">new</span> ol.layer.Tile({
+            source: <span class="hljs-keyword">new</span> ol.source.BingMaps({
+              imagerySet: <span class="hljs-string">&apos;Road&apos;</span>,
+              key: <span class="hljs-string">&apos;Ak-dzM4wZjSqTlzveKz5u0d4IQ4bRzVI309GxmkgSVr1ewS6iPSrOvOKhA-CJlm3&apos;</span>
+            })
+          })
+        ],
+        view: <span class="hljs-keyword">new</span> ol.View({
+          center: ol.proj.fromLonLat([-<span class="hljs-number">93.27</span>, <span class="hljs-number">44.98</span>]),
+          zoom: <span class="hljs-number">9</span>
+        })
+      });
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
 
-
-          </div>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">OpenLayers Workshop</a></h1>
 
-
-
-
-
-
-<h3>Navigation</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../setup.html">1. Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">2. Basics</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">3. Layers and sources</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="wms.html">3.1. Web Map Service Layers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cached.html">3.2. Cached Tiles</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">3.3. Proprietary Raster Layers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#bing">3.3.1. Bing!</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#complete-working-example">3.3.1.1. Complete Working Example</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="vector.html">3.4. Vector Layers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imagevector.html">3.5. Image Vector</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../controls/index.html">4. Controls and interactions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vector-style/index.html">5. Vector styling</a></li>
-</ul>
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+        
+        <a href="../layers/cached.html" class="navigation navigation-prev " aria-label="Previous page: Tiled sources"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../layers/vector.html" class="navigation navigation-next " aria-label="Next page: Vector data"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2015, OpenLayers Contributors.
-      
-    </div>
 
-    
+        
+<script src="../gitbook/app.js"></script>
 
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"image-captions":{"caption":"_CAPTION_"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
     
-  </body>
 </html>

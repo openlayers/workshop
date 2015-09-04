@@ -1,193 +1,625 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE HTML>
+<html lang="en" >
     
-    <title>4.2. Selecting Features &mdash; OpenLayers Workshop</title>
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Select interaction | OpenLayers Workshop</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.3.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
     
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '3.8.2',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  false
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="OpenLayers Workshop" href="../index.html" />
-    <link rel="up" title="4. Controls and interactions" href="index.html" />
-    <link rel="next" title="4.3. Drawing Features" href="draw.html" />
-    <link rel="prev" title="4.1. Displaying a Scale Line" href="scaleline.html" />
-   
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+    
+        <link rel="stylesheet" href="../style.css">
+    
 
-  </head>
-  <body role="document">  
+        
+    
+    
+    <link rel="next" href="../controls/draw.html" />
+    
+    
+    <link rel="prev" href="../controls/scaleline.html" />
+    
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="4.2" data-basepath=".." data-revision="Fri Sep 04 2015 13:05:08 GMT-0600 (MDT)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
             
-  <div class="section" id="selecting-features">
-<span id="openlayers-controls-select"></span><h1>4.2. Selecting Features<a class="headerlink" href="#selecting-features" title="Permalink to this headline">¶</a></h1>
-<p>As we&#8217;ve seen in the layers module, we can pull features as vectors and draw them on top of a base map. One of the advantages of serving vector data is that users can interact with the data. In this example, we create a vector layer where users can select and view feature information.</p>
-<p>The previous example demonstrated the use of an <code class="docutils literal"><span class="pre">ol.control.Control</span></code> on the map.  Controls have a visual representation on the map or add DOM elements to the document.  An <code class="docutils literal"><span class="pre">ol.interaction.Interaction</span></code> is responsible for handling user interaction, but typically has no visual representation.  This example demonstrates the use of the <code class="docutils literal"><span class="pre">ol.interaction.Select</span></code> for interacting with features from vector layers.</p>
-<div class="section" id="create-a-vector-layer-and-a-select-interaction">
-<h2>4.2.1. Create a Vector Layer and a Select Interaction<a class="headerlink" href="#create-a-vector-layer-and-a-select-interaction" title="Permalink to this headline">¶</a></h2>
-<p class="rubric">Tasks</p>
-<ol class="arabic">
-<li><p class="first">Let&#8217;s start with the vector layer example from a <a class="reference internal" href="../layers/vector.html#openlayers-layers-vector"><span>previous section</span></a>.  Open <code class="docutils literal"><span class="pre">map.html</span></code> in your text editor and make sure it looks something like the following:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="cp">&lt;!doctype html&gt;</span>
-<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/ol.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;style&gt;</span>
-    <span class="nf">#map</span> <span class="p">{</span>
-      <span class="k">height</span><span class="o">:</span> <span class="m">256px</span><span class="p">;</span>
-      <span class="k">width</span><span class="o">:</span> <span class="m">512px</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nt">&lt;/style&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/loader.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-    <span class="nt">&lt;title&gt;</span>OpenLayers 3 example<span class="nt">&lt;/title&gt;</span>
-  <span class="nt">&lt;/head&gt;</span>
-  <span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>My Map<span class="nt">&lt;/h1&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;map&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
-      <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Map</span><span class="p">({</span>
-        <span class="nx">interactions</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">defaults</span><span class="p">().</span><span class="nx">extend</span><span class="p">([</span>
-          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">interaction</span><span class="p">.</span><span class="nx">Select</span><span class="p">({</span>
-            <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
-              <span class="nx">image</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Circle</span><span class="p">({</span>
-                <span class="nx">radius</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
-                <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
-                  <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#FF0000&#39;</span>
-                <span class="p">}),</span>
-                <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
-                  <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#000000&#39;</span>
-                <span class="p">})</span>
-              <span class="p">})</span>
-            <span class="p">})</span>
-          <span class="p">})</span>
-        <span class="p">]),</span>
-        <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
-        <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
-          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
-            <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Global Imagery&quot;</span><span class="p">,</span>
-            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">TileWMS</span><span class="p">({</span>
-              <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://maps.opengeo.org/geowebcache/service/wms&#39;</span><span class="p">,</span>
-              <span class="nx">params</span><span class="o">:</span> <span class="p">{</span><span class="nx">LAYERS</span><span class="o">:</span> <span class="s1">&#39;bluemarble&#39;</span><span class="p">,</span> <span class="nx">VERSION</span><span class="o">:</span> <span class="s1">&#39;1.1.1&#39;</span><span class="p">}</span>
-            <span class="p">})</span>
-          <span class="p">}),</span>
-          <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
-            <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Earthquakes&#39;</span><span class="p">,</span>
-            <span class="nx">source</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
-              <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/data/layers/7day-M2.5.json&#39;</span><span class="p">,</span>
-              <span class="nx">format</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">()</span>
-            <span class="p">}),</span>
-            <span class="nx">style</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Style</span><span class="p">({</span>
-              <span class="nx">image</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Circle</span><span class="p">({</span>
-                <span class="nx">radius</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
-                <span class="nx">fill</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Fill</span><span class="p">({</span>
-                  <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#0000FF&#39;</span>
-                <span class="p">}),</span>
-                <span class="nx">stroke</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">Stroke</span><span class="p">({</span>
-                  <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#000000&#39;</span>
-                <span class="p">})</span>
-              <span class="p">})</span>
-            <span class="p">})</span>
-          <span class="p">})</span>
-        <span class="p">],</span>
-        <span class="nx">view</span><span class="o">:</span> <span class="k">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
-          <span class="nx">projection</span><span class="o">:</span> <span class="s1">&#39;EPSG:4326&#39;</span><span class="p">,</span>
-          <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">1</span>
-        <span class="p">})</span>
-      <span class="p">});</span>
-    <span class="nt">&lt;/script&gt;</span>
-  <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-</pre></div>
+            <li>
+                <a href="/" target="blank" class="custom-link">OpenLayers Workshop</a>
+            </li>
+        
+        
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="setup.html">
+            
+                
+                    <a href="../setup.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Setup
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="basics/index.html">
+            
+                
+                    <a href="../basics/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Basics
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="basics/map.html">
+            
+                
+                    <a href="../basics/map.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Creating a map
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="basics/dissect.html">
+            
+                
+                    <a href="../basics/dissect.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Dissecting your map
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="basics/resources.html">
+            
+                
+                    <a href="../basics/resources.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Resources
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="layers/index.html">
+            
+                
+                    <a href="../layers/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Layers and Sources
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="layers/wms.html">
+            
+                
+                    <a href="../layers/wms.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        WMS sources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="layers/cached.html">
+            
+                
+                    <a href="../layers/cached.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Tiled sources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="layers/proprietary.html">
+            
+                
+                    <a href="../layers/proprietary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        Proprietary tile providers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="layers/vector.html">
+            
+                
+                    <a href="../layers/vector.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Vector data
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="layers/imagevector.html">
+            
+                
+                    <a href="../layers/imagevector.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        Image vector source
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="controls/index.html">
+            
+                
+                    <a href="../controls/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Controls
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="controls/scaleline.html">
+            
+                
+                    <a href="../controls/scaleline.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Scale line control
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.2" data-path="controls/select.html">
+            
+                
+                    <a href="../controls/select.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Select interaction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="controls/draw.html">
+            
+                
+                    <a href="../controls/draw.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Draw interaction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="controls/modify.html">
+            
+                
+                    <a href="../controls/modify.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        Modify interaction
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="vector/index.html">
+            
+                
+                    <a href="../vector/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Vector Topics
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="vector/formats.html">
+            
+                
+                    <a href="../vector/formats.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Formats
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="vector/style-intro.html">
+            
+                
+                    <a href="../vector/style-intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Styling concepts
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="vector/style.html">
+            
+                
+                    <a href="../vector/style.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        Custom styles
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
 </div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >OpenLayers Workshop</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h2 id="selecting-features">Selecting Features</h2>
+<p>As we&apos;ve seen in the layers module, we can pull features as vectors and draw them on top of a base map. One of the advantages of serving vector data is that users can interact with the data. In this example, we create a vector layer where users can select and view feature information.</p>
+<p>The previous example demonstrated the use of an <code>ol.control.Control</code> on the map.  Controls have a visual representation on the map or add DOM elements to the document.  An <code>ol.interaction.Interaction</code> is responsible for handling user interaction, but typically has no visual representation.  This example demonstrates the use of the <code>ol.interaction.Select</code> for interacting with features from vector layers.</p>
+<h2 id="create-a-vector-layer-and-a-select-interaction">Create a Vector Layer and a Select Interaction</h2>
+<h3 id="tasks">Tasks</h3>
+<ol>
+<li><p>Let&apos;s start with the vector layer example from a <a href="../layers/vector.html">previous section</a>.  Open <code>map.html</code> in your text editor and make sure it looks something like the following:</p>
+<pre><code class="lang-html"><span class="hljs-doctype">&lt;!doctype html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;en&quot;</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">&quot;stylesheet&quot;</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;/ol.css&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/css&quot;</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+   <span class="hljs-id">#map</span> <span class="hljs-rules">{
+     <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">256px</span></span></span>;
+     <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">512px</span></span></span>;
+   }</span>
+   </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;/loader.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>OpenLayers 3 example<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>My Map<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;map&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="processing">
+     var <span class="hljs-built_in">map</span> = <span class="hljs-keyword">new</span> ol.Map({
+       interactions: ol.interaction.defaults().extend([
+         <span class="hljs-keyword">new</span> ol.interaction.Select({
+           style: <span class="hljs-keyword">new</span> ol.style.Style({
+             <span class="hljs-built_in">image</span>: <span class="hljs-keyword">new</span> ol.style.Circle({
+               radius: <span class="hljs-number">5</span>,
+               <span class="hljs-built_in">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({
+                 <span class="hljs-built_in">color</span>: <span class="hljs-string">&apos;#FF0000&apos;</span>
+               }),
+               <span class="hljs-built_in">stroke</span>: <span class="hljs-keyword">new</span> ol.style.Stroke({
+                 <span class="hljs-built_in">color</span>: <span class="hljs-string">&apos;#000000&apos;</span>
+               })
+             })
+           })
+         })
+       ]),
+       target: <span class="hljs-string">&apos;map&apos;</span>,
+       layers: [
+         <span class="hljs-keyword">new</span> ol.layer.Tile({
+           title: <span class="hljs-string">&apos;Global Imagery&apos;</span>,
+           source: <span class="hljs-keyword">new</span> ol.source.TileWMS({
+             url: <span class="hljs-string">&apos;http://maps.opengeo.org/geowebcache/service/wms&apos;</span>,
+             params: {LAYERS: <span class="hljs-string">&apos;bluemarble&apos;</span>, VERSION: <span class="hljs-string">&apos;1.1.1&apos;</span>}
+           })
+         }),
+         <span class="hljs-keyword">new</span> ol.layer.Vector({
+           title: <span class="hljs-string">&apos;Earthquakes&apos;</span>,
+           source: <span class="hljs-keyword">new</span> ol.source.Vector({
+             url: <span class="hljs-string">&apos;/data/layers/7day-M2.5.json&apos;</span>,
+             format: <span class="hljs-keyword">new</span> ol.format.GeoJSON()
+           }),
+           style: <span class="hljs-keyword">new</span> ol.style.Style({
+             <span class="hljs-built_in">image</span>: <span class="hljs-keyword">new</span> ol.style.Circle({
+               radius: <span class="hljs-number">5</span>,
+               <span class="hljs-built_in">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({
+                 <span class="hljs-built_in">color</span>: <span class="hljs-string">&apos;#0000FF&apos;</span>
+               }),
+               <span class="hljs-built_in">stroke</span>: <span class="hljs-keyword">new</span> ol.style.Stroke({
+                 <span class="hljs-built_in">color</span>: <span class="hljs-string">&apos;#000000&apos;</span>
+               })
+             })
+           })
+         })
+       ],
+       view: <span class="hljs-keyword">new</span> ol.View({
+         projection: <span class="hljs-string">&apos;EPSG:4326&apos;</span>,
+         center: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+         zoom: <span class="hljs-number">1</span>
+       })
+     });
+   </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
 </li>
-<li><p class="first">Save your changes to <code class="docutils literal"><span class="pre">map.html</span></code> and open the page in your browser:  <a class="reference external" href="http://localhost:3000/map.html">http://localhost:3000/map.html</a>. To see feature selection in action, use the mouse-click to select an earthquake:</p>
-<div class="figure" id="id1">
-<img alt="../_images/select1.png" src="../_images/select1.png" />
-<p class="caption"><span class="caption-text">Using an interaction to select features from a vector layer.</span></p>
-</div>
+<li><p>Save your changes to <code>map.html</code> and open the page in your browser:  <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a>. To see feature selection in action, use the mouse-click to select an earthquake:</p>
+<p><figure><img src="select1.png" alt="Using an interaction to select features from a vector layer"><figcaption>Using an interaction to select features from a vector layer</figcaption></figure></p>
 </li>
 </ol>
-</div>
-</div>
 
-
-          </div>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">OpenLayers Workshop</a></h1>
 
-
-
-
-
-
-<h3>Navigation</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../setup.html">1. Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">2. Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../layers/index.html">3. Layers and sources</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">4. Controls and interactions</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="scaleline.html">4.1. Displaying a Scale Line</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">4.2. Selecting Features</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-vector-layer-and-a-select-interaction">4.2.1. Create a Vector Layer and a Select Interaction</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="draw.html">4.3. Drawing Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modify.html">4.4. Modifying Features</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../vector-style/index.html">5. Vector styling</a></li>
-</ul>
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+        
+        <a href="../controls/scaleline.html" class="navigation navigation-prev " aria-label="Previous page: Scale line control"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../controls/draw.html" class="navigation navigation-next " aria-label="Next page: Draw interaction"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2015, OpenLayers Contributors.
-      
-    </div>
 
-    
+        
+<script src="../gitbook/app.js"></script>
 
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"image-captions":{"caption":"_CAPTION_"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
     
-  </body>
 </html>

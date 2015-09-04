@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Controls | OpenLayers Workshop</title>
+        <title>Styling concepts | OpenLayers Workshop</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.3.0">
@@ -31,10 +31,10 @@
         
     
     
-    <link rel="next" href="../controls/scaleline.html" />
+    <link rel="next" href="../vector/style.html" />
     
     
-    <link rel="prev" href="../layers/imagevector.html" />
+    <link rel="prev" href="../vector/formats.html" />
     
 
         
@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="4" data-basepath=".." data-revision="Fri Sep 04 2015 13:05:08 GMT-0600 (MDT)">
+    <div class="book" data-level="5.2" data-basepath=".." data-revision="Fri Sep 04 2015 13:05:08 GMT-0600 (MDT)">
     
 
 <div class="book-summary">
@@ -256,7 +256,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4" data-path="controls/index.html">
+        <li class="chapter " data-level="4" data-path="controls/index.html">
             
                 
                     <a href="../controls/index.html">
@@ -368,7 +368,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="vector/style-intro.html">
+        <li class="chapter active" data-level="5.2" data-path="vector/style-intro.html">
             
                 
                     <a href="../vector/style-intro.html">
@@ -508,13 +508,106 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="controls-and-interactions">Controls and interactions</h1>
-<ul>
-<li><a href="scaleline.html">Scale line control</a></li>
-<li><a href="select.html">Select interaction</a></li>
-<li><a href="draw.html">Draw interaction</a></li>
-<li><a href="modify.html">Modify interaction</a></li>
-</ul>
+                        <h1 id="understanding-style">Understanding Style</h1>
+<p>When styling HTML elements, you might use CSS like the following:</p>
+<pre><code class="lang-css">  <span class="hljs-class">.someClass</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> blue</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">border-width</span>:<span class="hljs-value"> <span class="hljs-number">1px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">border-color</span>:<span class="hljs-value"> olive</span></span>;
+  }</span>
+</code></pre>
+<p>The <code>.someClass</code> text is a selector (in this case it selects all elements that include the class name <code>&apos;someClass&apos;</code>) and the block that follows is a group of named properties and values, otherwise known as style declarations.</p>
+<h2 id="layer-style">Layer style</h2>
+<p>A vector layer can have styles. More specifically, a vector layer can be configured with an <code>ol.style.Style</code> object, an array of <code>ol.style.Style</code> objects, or a function that takes an <code>ol.Feature</code> instance and a resolution and returns an array of <code>ol.style.Style</code> objects.</p>
+<p>Here&apos;s an example of a vector layer configured with a static style:</p>
+<pre><code class="lang-js">  <span class="hljs-keyword">var</span> layer = <span class="hljs-keyword">new</span> ol.layer.Vector({
+    source: <span class="hljs-keyword">new</span> ol.source.Vector(),
+    style: <span class="hljs-keyword">new</span> ol.style.Style({
+      <span class="hljs-comment">// ...</span>
+    })
+  });
+</code></pre>
+<p>And here&apos;s an example of a vector layer configured with a style function that applies a style to all features that have an attribute named <code>class</code> with a value of <code>&apos;someClass&apos;</code>:</p>
+<pre><code class="lang-js">  <span class="hljs-keyword">var</span> layer = <span class="hljs-keyword">new</span> ol.layer.Vector({
+    source: <span class="hljs-keyword">new</span> ol.source.Vector(),
+    style: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">feature, resolution</span>) </span>{
+      <span class="hljs-keyword">if</span> (feature.get(<span class="hljs-string">&apos;class&apos;</span>) === <span class="hljs-string">&apos;someClass&apos;</span>) {
+        <span class="hljs-comment">// create styles...</span>
+        <span class="hljs-keyword">return</span> styles;
+      }
+    },
+  });
+</code></pre>
+<h2 id="symbolizers">Symbolizers</h2>
+<p>The equivalent of a declaration block in CSS is a <code>symbolizer</code> in OpenLayers 3 (these are typically instances of <code>ol.style</code> classes). To paint polygon features with a blue background and a 1 pixel wide olive stroke, you would use two symbolizers like the following:</p>
+<pre><code class="lang-js">  <span class="hljs-keyword">new</span> ol.style.Style({
+    fill: <span class="hljs-keyword">new</span> ol.style.Fill({
+      color: <span class="hljs-string">&apos;blue&apos;</span>
+    }),
+    stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
+      color: <span class="hljs-string">&apos;olive&apos;</span>,
+      width: <span class="hljs-number">1</span>
+    })
+  });
+</code></pre>
+<p>Depending on the geometry type, different symbolizers can be applied. Lines work like polygons, but they cannot have a fill. Points can be styled with <code>ol.style.Circle</code> or <code>ol.style.Icon</code>. The former is used to render circle shapes, and the latter uses graphics from file (e.g. png images). Here is an example for a style with a circle:</p>
+<pre><code class="lang-js">  <span class="hljs-keyword">new</span> ol.style.Circle({
+    radius: <span class="hljs-number">20</span>,
+    fill: <span class="hljs-keyword">new</span> ol.style.Fill({
+      color: <span class="hljs-string">&apos;#ff9900&apos;</span>,
+      opacity: <span class="hljs-number">0.6</span>
+    }),
+    stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
+      color: <span class="hljs-string">&apos;#ffcc00&apos;</span>,
+      opacity: <span class="hljs-number">0.4</span>
+    })
+  });
+</code></pre>
+<h2 id="-ol-style-style"><code>ol.style.Style</code></h2>
+<p>An <code>ol.style.Style</code> object has 4 keys: <code>fill</code>, <code>image</code>, <code>stroke</code> and <code>text</code>. It also has an optional <code>zIndex</code> property. The style function will return an array of <code>ol.style.Style</code> objects.</p>
+<p>If you want all features to be colored red except for those that have a <code>class</code> attribute with the value of <code>&quot;someClass&quot;</code> (and you want those features colored blue with an 1px wide olive stroke), you would create a style function that looked like the following (by the way, it is important to create objects outside of the style function so they can be reused, but for simplicity reasons the objects are created inline in the example below):</p>
+<pre><code class="lang-js">  <span class="hljs-keyword">var</span> primaryStyles = [
+    <span class="hljs-keyword">new</span> ol.style.Style({
+      fill: <span class="hljs-keyword">new</span> ol.style.Fill({
+        color: <span class="hljs-string">&apos;blue&apos;</span>
+      }),
+      stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
+        color: <span class="hljs-string">&apos;olive&apos;</span>,
+        width: <span class="hljs-number">1</span>
+      })
+    })];
+    <span class="hljs-keyword">var</span> otherStyle = [<span class="hljs-keyword">new</span> ol.style.Style({
+      fill: <span class="hljs-keyword">new</span> ol.style.Fill({
+        color: <span class="hljs-string">&apos;red&apos;</span>
+      })
+    })    
+  ];
+  <span class="hljs-keyword">var</span> otherStyles = [
+    <span class="hljs-comment">// define other styles here</span>
+  ]
+
+  layer.setStyle(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">feature, resolution</span>) </span>{
+    <span class="hljs-keyword">if</span> (feature.get(<span class="hljs-string">&apos;class&apos;</span>) === <span class="hljs-string">&apos;someClass&apos;</span>) {
+      <span class="hljs-keyword">return</span> primaryStyles;
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span> otherStyles;
+    }    
+  });
+</code></pre>
+<p><em>Note</em> - It is important to create the style arrays outside of the actual style function.  The style function is called many times during rendering, and you&apos;ll get smoother animation if your style functions don&apos;t create a lot of garbage.</p>
+<p>A feature also has a style config option that can take a function having only resolution as argument. This makes it possible to style individual features (based on resolution).</p>
+<h2 id="pseudo-classes">Pseudo-classes</h2>
+<p>CSS allows for pseudo-classes on selectors. These basically limit the application of style declarations based on contexts that are not easily represented in the selector, such as mouse position, neighboring elements, or browser history. In OpenLayers 3, a somewhat similar concept is having a style config option on an <code>ol.interaction.Select</code>.</p>
+<p>An example is:</p>
+<pre><code class="lang-js">  <span class="hljs-keyword">var</span> select = <span class="hljs-keyword">new</span> ol.interaction.Select({
+    style: <span class="hljs-keyword">new</span> ol.style.Style({
+      fill: <span class="hljs-keyword">new</span> ol.style.Fill({
+        color: <span class="hljs-string">&apos;rgba(255,255,255,0.5)&apos;</span>
+      })
+    })
+  });
+</code></pre>
+<p>With the basics of styling under your belt, it&apos;s time to move on to <a href="style.html">styling vector layers</a>.</p>
 
                     
                     </section>
@@ -525,10 +618,10 @@
         </div>
 
         
-        <a href="../layers/imagevector.html" class="navigation navigation-prev " aria-label="Previous page: Image vector source"><i class="fa fa-angle-left"></i></a>
+        <a href="../vector/formats.html" class="navigation navigation-prev " aria-label="Previous page: Formats"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../controls/scaleline.html" class="navigation navigation-next " aria-label="Next page: Scale line control"><i class="fa fa-angle-right"></i></a>
+        <a href="../vector/style.html" class="navigation navigation-next " aria-label="Next page: Custom styles"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
