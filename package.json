@@ -19,7 +19,7 @@
     "doc:serve": "gitbook serve src",
     "doc:build": "gitbook build src build/openlayers-workshop",
     "build": "npm run clean && npm run doc:build",
-    "archive": "npm run build && cd build && zip -r openlayers-workshop.zip openlayers-workshop",
+    "archive": "npm run build && cp src/README.md build/openlayers-workshop && cd build && zip -r openlayers-workshop.zip openlayers-workshop",
     "deploy": "npm run build && gh-pages --dist build/openlayers-workshop"
   },
   "dependencies": {
