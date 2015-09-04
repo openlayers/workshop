@@ -1,7 +1,5 @@
 # Summary
 
-* [Setup](setup.md)
-
 * [Basics](basics/README.md)
   * [Creating a map](basics/map.md)
   * [Dissecting your map](basics/dissect.md)
