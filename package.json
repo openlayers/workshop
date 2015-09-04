@@ -1,8 +1,8 @@
 {
   "name": "openlayers-workshop",
-  "version": "1.4.0",
+  "version": "0.0.0",
   "description": "OpenLayers workshop",
-  "main": "serve.js",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/openlayers/workshop.git"
@@ -13,16 +13,21 @@
   },
   "homepage": "https://github.com/openlayers/workshop#readme",
   "scripts": {
-    "start": "node serve.js",
-    "test": "make",
-    "prepublish": "in-publish && make || not-in-publish",
-    "postpublish": "gh-pages --dist dist/doc --dotfiles"
+    "start": "mkdir src/_book && cp node_modules/openlayers/css/ol.css src/_book && npm run doc:serve",
+    "test": "npm run doc:build",
+    "clean": "rm -rf src/_book build",
+    "doc:serve": "gitbook serve src",
+    "doc:build": "gitbook build src build/openlayers-workshop",
+    "build": "npm run clean && npm run doc:build",
+    "archive": "npm run build && cd build && zip -r openlayers-workshop.zip openlayers-workshop",
+    "deploy": "npm run build && gh-pages --dist build/openlayers-workshop"
   },
   "dependencies": {
     "openlayers": "https://github.com/openlayers/ol3/tarball/4dddf4c3d97ee3453b31dd3057937621e7ed7698"
   },
   "devDependencies": {
     "gh-pages": "^0.4.0",
-    "in-publish": "^2.0.0"
+    "gitbook-cli": "^0.3.6",
+    "gitbook-plugin-image-captions": "^0.1.0"
   }
 }
