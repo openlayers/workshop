@@ -1,12 +1,10 @@
 # OpenLayers Workshop
 
-This doc is for people developing the OpenLayers Workshop.  Workshop participants see the main README.md.
+This doc is for people developing the OpenLayers Workshop.  Workshop participants work with archives downloaded from the release pages.
 
 ## Prerequisites
 
  * [Node](https://nodejs.org/)
- * [GNU Make](https://www.gnu.org/software/make/)
- * [Sphinx](http://sphinx-doc.org/)
 
 ## Building the workshop
 
@@ -14,20 +12,20 @@ Install Node dependencies:
 
     npm install
 
-Generate the workshop resources:
-
-    make
-
 Start the development server:
 
     npm start
 
+Create a release archive:
+
+    npm run archive
+
+## Creating a new release
+
+After confirming that the archive created above (`openlayers-workshop.zip`) works as expected, create a tag and push it.  Travis will create an archive and attach it to the GitHub release page.
+
 ## Publishing the workshop
 
-Update the version number in `package.json`:
+Update the hosted version of the website:
 
-    npm version minor
-
-Publish build artifacts to the npm registry (this will also run the default `make` target):
-
-    npm publish
+    npm run deploy

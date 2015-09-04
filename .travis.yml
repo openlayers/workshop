@@ -8,15 +8,13 @@ cache:
 branches:
   only:
   - master
-before_install:
-  - pip install -U Sphinx
 before_deploy:
-  - make openlayers-workshop.zip
+  - npm run archive
 deploy:
   provider: releases
   api_key:
     secure: ag2ObhNaZYbULIABDARbHyvqk9DChYg6j6HZUmocdfM4Go/MF/OckpR0VntiMKpv+eQ8vdmTyRWVcW4Y/B+AOkMs/fhRs4rYOLq7BXWyLLbcvNaXP+3n6HDB/RZBPcNCYdQUo+oDDOyk7W9vF5T3o4aKlXFRLQIVQgABrwEQC1I=
-  file: openlayers-workshop.zip
+  file: build/openlayers-workshop.zip
   on:
     repo: openlayers/ol3-workshop
     tags: true
