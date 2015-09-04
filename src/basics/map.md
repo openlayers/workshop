@@ -49,7 +49,7 @@ Let's take a look at a fully working example of an OpenLayers 3 map.
 
 ### Tasks
 
-1.  Make sure you've completed the [setup instructions](../setup.md) to install dependencies and get the debug server running.
+1.  Make sure you've completed the [setup instructions](../) to install dependencies and get the debug server running.
 
 1.  Copy the text above into a new file called `map.html`, and save it in the root of the workshop directory.
 
