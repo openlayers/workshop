@@ -1,6 +1,6 @@
 # OpenLayers Workshop
 
-This doc is for people developing the OpenLayers Workshop.  Workshop participants work with archives downloaded from the [release pages](https://github.com/openlayers/ol3-workshop/releases).
+This doc is for people developing the OpenLayers Workshop.  Workshop participants work with archives downloaded from the [release pages](https://github.com/openlayers/workshop/releases).
 
 ## Prerequisites
 
@@ -26,8 +26,8 @@ First, confirm the release archive works as expected:
 
 Extract the resulting `build/openlayers-workshop.zip` archive, and make sure the instructions will work for workshop participants.  After confirming things work as expected, create a tag and push it.  Travis will create an archive and attach it to the GitHub release page.
 
-In addition, you can update the [hosted version](http://openlayers.org/ol3-workshop/) of the workshop (this part is subject to change):
+In addition, you can update the [hosted version](http://openlayers.org/workshop/) of the workshop (this part is subject to change):
 
     npm run deploy
 
-[![Current Status](https://travis-ci.org/openlayers/ol3-workshop.svg?branch=master)](https://travis-ci.org/openlayers/ol3-workshop)
+[![Current Status](https://travis-ci.org/openlayers/workshop.svg?branch=master)](https://travis-ci.org/openlayers/workshop)

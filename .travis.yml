@@ -16,5 +16,5 @@ deploy:
     secure: ag2ObhNaZYbULIABDARbHyvqk9DChYg6j6HZUmocdfM4Go/MF/OckpR0VntiMKpv+eQ8vdmTyRWVcW4Y/B+AOkMs/fhRs4rYOLq7BXWyLLbcvNaXP+3n6HDB/RZBPcNCYdQUo+oDDOyk7W9vF5T3o4aKlXFRLQIVQgABrwEQC1I=
   file: build/openlayers-workshop.zip
   on:
-    repo: openlayers/ol3-workshop
+    repo: openlayers/workshop
     tags: true
