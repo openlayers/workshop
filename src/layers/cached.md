@@ -28,7 +28,7 @@ The [OpenStreetMap (OSM)](http://www.openstreetmap.org/) project is an effort to
           })
         ],
         view: new ol.View({
-          center: ol.proj.fromLonLat([-93.27, 44.98]),
+          center: ol.proj.fromLonLat([126.97, 37.56]),
           zoom: 9
         }),
         controls: ol.control.defaults({
@@ -66,7 +66,7 @@ Review the view definition of the map:
 
 ```js
   view: new ol.View({
-    center: ol.proj.fromLonLat([-93.27, 44.98]),
+    center: ol.proj.fromLonLat([126.97, 37.56]),
     zoom: 9
   })
 ```
