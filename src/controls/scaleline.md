@@ -51,6 +51,8 @@ However, for the sake of this exercise, let's say you think the map viewport is 
 
 1.  Save your changes and open `map.html` in your browser: {{ book.workshopUrl }}/map.html    
 
+1.  Fix the position of the control with, for example, the following CSS rules:
+
   ```css    
     .scale-line {
       position: absolute;
