@@ -25,8 +25,7 @@ Another typical widget to display on maps is a scale bar.  OpenLayers 3 provides
 You may find the scale bar a bit hard to read over the imagery. There are a few approaches to take in order to improve scale visibility.  If you want to keep the control inside the map viewport, you can add some style declarations within the CSS of your document. To test this out, you can include a background color and padding to the scale bar with something like the following:
 
 ```css
-  .ol-scale-line,
-  .ol-scale-line:not([ie8andbelow]) {
+  .ol-scale-line {
     background: black;
     padding: 5px;
   }
