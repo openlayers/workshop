@@ -34,8 +34,8 @@ Let's go back to the vector layer example to get earthquake data on top of a wor
           new ol.layer.Tile({
             title: 'Global Imagery',
             source: new ol.source.TileWMS({
-              url: 'http://maps.opengeo.org/geowebcache/service/wms',
-              params: {LAYERS: 'bluemarble', VERSION: '1.1.1'}
+              url: 'http://demo.opengeo.org/geoserver/wms',
+              params: {LAYERS: 'nasa:bluemarble', VERSION: '1.1.1'}
             })
           }),
           new ol.layer.Vector({
