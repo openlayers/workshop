@@ -27,6 +27,9 @@
       var map = new ol.Map({
         target: 'map',
         layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          }),
           new ol.layer.Vector({
             title: 'Buildings',
             source: new ol.source.Vector({
@@ -43,8 +46,7 @@
           })
         ],
         view: new ol.View({
-          projection: 'EPSG:4326',
-          center: [-122.791859392, 42.3099154789],
+          center: ol.proj.fromLonLat([-122.79264450073244, 42.30975194250527]),
           zoom: 16
         })
       });
