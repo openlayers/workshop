@@ -107,10 +107,10 @@ As a solution to the first bonus task you can add an `info` div below the map:
 
 ```html
 <div id="info"></div>
+```
 
 and add the following JavaScript code to display the title of the clicked
 feature:
-```
 
 ```js
 map.on('singleclick', function(e) {
