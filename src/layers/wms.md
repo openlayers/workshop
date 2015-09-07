@@ -2,7 +2,7 @@
 
 When you add a layer to your map, the layer's source is typically responsible for fetching the data to be displayed. The data requested can be either raster or vector data. You can think of raster data as information rendered as an image on the server side. Vector data is delivered as structured information from the server and may be rendered for display on the client (your browser).
 
-There are many different types of services that provide raster map data. This section deals with providers that conform with the OGC (Open Geospatial Consortium, Inc.) [Web Map Service (WMS)](http://www.opengeospatial.org/standards/wms>) specification.
+There are many different types of services that provide raster map data. This section deals with providers that conform with the OGC (Open Geospatial Consortium, Inc.) [Web Map Service (WMS)](http://www.opengeospatial.org/standards/wms) specification.
 
 ## Creating a Layer
 
@@ -35,8 +35,8 @@ Let's take a look at the following code:
           new ol.layer.Tile({
             title: 'Global Imagery',
             source: new ol.source.TileWMS({
-              url: 'http://maps.opengeo.org/geowebcache/service/wms',
-              params: {LAYERS: 'bluemarble', VERSION: '1.1.1'}
+              url: 'http://demo.opengeo.org/geoserver/wms',
+              params: {LAYERS: 'nasa:bluemarble', VERSION: '1.1.1'}
             })
           })
         ],
@@ -77,8 +77,8 @@ The url is the online resource of the WMS service, and params is an object liter
     new ol.layer.Tile({
       title: 'Global Imagery',
       source: new ol.source.TileWMS({
-        url: 'http://maps.opengeo.org/geowebcache/service/wms',
-        params: {LAYERS: 'bluemarble', VERSION: '1.1.1'}
+        url: 'http://demo.opengeo.org/geoserver/wms',
+        params: {LAYERS: 'nasa:bluemarble', VERSION: '1.1.1'}
       })
     })
   ]
@@ -86,7 +86,7 @@ The url is the online resource of the WMS service, and params is an object liter
 
 ### Tasks
 
-1. This same WMS offers a layer named `'openstreetmap'`. Change the value of the `LAYERS` parameter from `'bluemarble'` to `'openstreetmap'`.
+1. This same WMS offers a [Natural Earth](http://www.naturalearthdata.com/) layer named `'ne:NE1_HR_LC_SR_W_DR'`. Change the value of the `LAYERS` parameter from `'nasa:bluemarble'` to `'ne:NE1_HR_LC_SR_W_DR'`.
 
   Your revised ol.layer.Tile Constructor should look like:
 
@@ -94,13 +94,13 @@ The url is the online resource of the WMS service, and params is an object liter
     new ol.layer.Tile({
       title: 'Global Imagery',
       source: new ol.source.TileWMS({
-        url: 'http://maps.opengeo.org/geowebcache/service/wms',
-        params: {LAYERS: 'openstreetmap', VERSION: '1.1.1'}
+        url: 'http://demo.opengeo.org/geoserver/wms',
+        params: {LAYERS: 'ne:NE1_HR_LC_SR_W_DR', VERSION: '1.1.1'}
       })
     })
   ```
 
-1. Change your layer and source to have a single image instead of tiles. Look at the following API doc pages for hints: http://openlayers.org/en/master/apidoc/ol.layer.Image.html and http://openlayers.org/en/master/apidoc/ol.source.ImageWMS.html. During this process you will need to change the url (into http://suite.opengeo.org/geoserver/wms) and the layer name (into `opengeo:countries`) as well. Use the Network tab of your browser's developer tools to make sure a single image is requested and not 256x256 pixel tiles.
+1. Change your layer and source to have a single image instead of tiles. Look at the following API doc pages for hints: http://openlayers.org/en/master/apidoc/ol.layer.Image.html and http://openlayers.org/en/master/apidoc/ol.source.ImageWMS.html. Use the Network tab of your browser's developer tools to make sure a single image is requested and not 256x256 pixel tiles.
 
   ![A WMS as an image source](wms1.png)
 

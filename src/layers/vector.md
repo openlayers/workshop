@@ -30,8 +30,8 @@ Let's go back to the WMS example to get a basic world map.  We'll add some featu
           new ol.layer.Tile({
             title: 'Global Imagery',
             source: new ol.source.TileWMS({
-              url: 'http://maps.opengeo.org/geowebcache/service/wms',
-              params: {LAYERS: 'bluemarble', VERSION: '1.1.1'}
+              url: 'http://demo.opengeo.org/geoserver/wms',
+              params: {LAYERS: 'nasa:bluemarble', VERSION: '1.1.1'}
             })
           })
         ],
@@ -100,3 +100,24 @@ The layer is given the title `'Earthquakes'` and some custom options. In the opt
 1.  The white circles on the map represent `ol.Feature` objects on your `ol.layer.Vector` layer. Each of these features has attribute data with `title` and `summary` properties. Register a `'singleclick'` listener on your map that calls `forEachFeatureAtPixel` on the map, and displays earthquake information below the map viewport.
 
 1.  The data for the vector layer comes from an earthquake feed published by the USGS (http://earthquake.usgs.gov/earthquakes/catalogs/).  See if you can find additional data with spatial information in a format supported by OpenLayers 3.  If you save another document representing spatial data in your `data` directory, you should be able to view it in a vector layer on your map.
+
+### Solutions
+
+As a solution to the first bonus task you can add an `info` div below the map:
+
+```html
+<div id="info"></div>
+```
+
+and add the following JavaScript code to display the title of the clicked
+feature:
+
+```js
+map.on('singleclick', function(e) {
+  var feature = map.forEachFeatureAtPixel(e.pixel, function(feature) {
+    return feature;
+  });
+  var infoElement = document.getElementById('info');
+  infoElement.innerHTML = feature ? feature.get('title') : '';
+});
+```

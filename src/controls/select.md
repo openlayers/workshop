@@ -49,8 +49,8 @@ The previous example demonstrated the use of an `ol.control.Control` on the map.
             new ol.layer.Tile({
               title: 'Global Imagery',
               source: new ol.source.TileWMS({
-                url: 'http://maps.opengeo.org/geowebcache/service/wms',
-                params: {LAYERS: 'bluemarble', VERSION: '1.1.1'}
+                url: 'http://demo.opengeo.org/geoserver/wms',
+                params: {LAYERS: 'nasa:bluemarble', VERSION: '1.1.1'}
               })
             }),
             new ol.layer.Vector({

@@ -28,7 +28,7 @@ The [OpenStreetMap (OSM)](http://www.openstreetmap.org/) project is an effort to
           })
         ],
         view: new ol.View({
-          center: ol.proj.fromLonLat([-93.27, 44.98]),
+          center: ol.proj.fromLonLat([126.97, 37.56]),
           zoom: 9
         }),
         controls: ol.control.defaults({
@@ -66,7 +66,7 @@ Review the view definition of the map:
 
 ```js
   view: new ol.View({
-    center: ol.proj.fromLonLat([-93.27, 44.98]),
+    center: ol.proj.fromLonLat([126.97, 37.56]),
     zoom: 9
   })
 ```
@@ -121,8 +121,6 @@ As before, we create a layer and add it to the layers array of our map config ob
 
 A treatment of map controls is also outside of the scope of this module, but these style declarations give you a sneak preview. By default, an `ol.control.Attribution` control is added to all maps. This lets layer sources display attribution information in the map viewport. The declarations above alter the style of this attribution for our map (notice the Copyright line at the bottom right of the map).
 
-Having mastered layers with publicly available cached tile sets, let's move on to working with [proprietary raster layers](proprietary.md).
-
 ### Attribution Control Configuration
 
 By default the `ol.control.Attribution` adds an `i` (information) button that can be pressed to actually displays the attribution information. To comply to [OpenStreetMap's Terms Of Use](http://wiki.openstreetmap.org/wiki/Legal_FAQ), and always display the OpenStreetMap attribution information, the following is used in the options object passed to the `ol.Map` constructor:
@@ -136,3 +134,5 @@ By default the `ol.control.Attribution` adds an `i` (information) button that ca
 ```
 
 This removes the `i` button, and makes the attribution information always visible.
+
+Having mastered layers with publicly available cached tile sets, let's move on to working with [proprietary raster layers](proprietary.md).

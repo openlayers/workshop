@@ -54,8 +54,8 @@ Modifying features works by using an `ol.interaction.Select` in combination with
             new ol.layer.Tile({
               title: 'Global Imagery',
               source: new ol.source.TileWMS({
-                url: 'http://maps.opengeo.org/geowebcache/service/wms',
-                params: {LAYERS: 'bluemarble', VERSION: '1.1.1'}
+                url: 'http://demo.opengeo.org/geoserver/wms',
+                params: {LAYERS: 'nasa:bluemarble', VERSION: '1.1.1'}
               })
             }),
             new ol.layer.Vector({
