@@ -14,6 +14,10 @@ Start the development server:
 
 Now you can modify the `src` content.  When adding new pages or restructuring things, update the `src/SUMMARY.md` (this is used to generate the content tree in the navigation).  Also update any of the nested `README.md` files (these provide the index page for each section).
 
+## Updating the workshop with a new release of OpenLayers
+
+To udpate the workshop with a new release of OpenLayers change the version number of the `openlayers` dependency in both `package.json` and `src/package.json`.
+
 ## Creating a new release
 
 When you push a new tag, Travis will build the workshop archive and attach it to the [release page](https://github.com/openlayers/workshop/releases).
