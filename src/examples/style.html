@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="/ol.css" type="text/css">
     <style>
       .map {
-        background-color: gray;
         height: 256px;
         width: 512px;
       }
@@ -16,14 +15,18 @@
     <div id="map" class="map"></div>
     <script src="/loader.js" type="text/javascript"></script>
     <script type="text/javascript">
-      var defaultStyle = [new ol.style.Style({
-        fill: new ol.style.Fill({color: 'navy'}),
-        stroke: ol.style.Stroke({color: 'black', width: 1})
-      })];
-      var ruleStyle = [new ol.style.Style({
-        fill: new ol.style.Fill({color: 'olive'}),
-        stroke: new ol.style.Stroke({color: 'black', width: 1})
-      })];
+      var defaultStyles = [
+        new ol.style.Style({
+          fill: new ol.style.Fill({color: 'navy'}),
+          stroke: new ol.style.Stroke({color: 'black', width: 1})
+        })
+      ];
+      var smallStyles = [
+        new ol.style.Style({
+          fill: new ol.style.Fill({color: 'olive'}),
+          stroke: new ol.style.Stroke({color: 'black', width: 1})
+        })
+      ];
       var map = new ol.Map({
         target: 'map',
         layers: [
@@ -34,14 +37,13 @@
             title: 'Buildings',
             source: new ol.source.Vector({
               url: '/data/layers/buildings.kml',
-              format: new ol.format.KML()
+              format: new ol.format.KML({
+                extractStyles: false
+              })
             }),
-            styleFunction: function(feature, resolution) {
-              if (feature.get('shape_area') < 3000) {
-                return ruleStyle;
-              } else {
-                return defaultStyle;
-              }
+            style: function(feature, resolution) {
+              return feature.get('shape_area') < 3000 ?
+                  smallStyles : defaultStyles;
             }
           })
         ],
