@@ -9,7 +9,6 @@
       <link rel="stylesheet" href="/ol.css" type="text/css">
       <style>
       #map {
-        background-color: gray;
         height: 256px;
         width: 512px;
       }
