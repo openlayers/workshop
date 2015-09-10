@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="2.2" data-basepath=".." data-revision="Fri Sep 04 2015 14:40:48 GMT-0600 (MDT)">
+    <div class="book" data-level="2.2" data-basepath=".." data-revision="Thu Sep 10 2015 12:12:51 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -513,7 +513,7 @@
        })
      ],
      view: <span class="hljs-keyword">new</span> ol.View({
-       center: ol.proj.fromLonLat([-<span class="hljs-number">93.27</span>, <span class="hljs-number">44.98</span>]),
+       center: ol.proj.fromLonLat([<span class="hljs-number">126.97</span>, <span class="hljs-number">37.56</span>]),
        zoom: <span class="hljs-number">9</span>
      }),
      controls: ol.control.defaults({
@@ -545,7 +545,7 @@
 <h3 id="projections">Projections</h3>
 <p>Review the view definition of the map:</p>
 <pre><code class="lang-js">  view: <span class="hljs-keyword">new</span> ol.View({
-    center: ol.proj.fromLonLat([-<span class="hljs-number">93.27</span>, <span class="hljs-number">44.98</span>]),
+    center: ol.proj.fromLonLat([<span class="hljs-number">126.97</span>, <span class="hljs-number">37.56</span>]),
     zoom: <span class="hljs-number">9</span>
   })
 </code></pre>
@@ -579,7 +579,6 @@
   }</span>
 </code></pre>
 <p>A treatment of map controls is also outside of the scope of this module, but these style declarations give you a sneak preview. By default, an <code>ol.control.Attribution</code> control is added to all maps. This lets layer sources display attribution information in the map viewport. The declarations above alter the style of this attribution for our map (notice the Copyright line at the bottom right of the map).</p>
-<p>Having mastered layers with publicly available cached tile sets, let&apos;s move on to working with <a href="proprietary.html">proprietary raster layers</a>.</p>
 <h3 id="attribution-control-configuration">Attribution Control Configuration</h3>
 <p>By default the <code>ol.control.Attribution</code> adds an <code>i</code> (information) button that can be pressed to actually displays the attribution information. To comply to <a href="http://wiki.openstreetmap.org/wiki/Legal_FAQ" target="_blank">OpenStreetMap&apos;s Terms Of Use</a>, and always display the OpenStreetMap attribution information, the following is used in the options object passed to the <code>ol.Map</code> constructor:</p>
 <pre><code class="lang-js">  controls: ol.control.defaults({
@@ -589,6 +588,7 @@
   })
 </code></pre>
 <p>This removes the <code>i</code> button, and makes the attribution information always visible.</p>
+<p>Having mastered layers with publicly available cached tile sets, let&apos;s move on to working with <a href="proprietary.html">proprietary raster layers</a>.</p>
 
                     
                     </section>

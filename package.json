@@ -16,6 +16,6 @@
     "start": "node serve.js"
   },
   "dependencies": {
-    "openlayers": "https://github.com/openlayers/ol3/tarball/4dddf4c3d97ee3453b31dd3057937621e7ed7698"
+    "openlayers": "3.9.0"
   }
 }

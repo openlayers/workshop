@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="4.3" data-basepath=".." data-revision="Fri Sep 04 2015 14:40:48 GMT-0600 (MDT)">
+    <div class="book" data-level="4.3" data-basepath=".." data-revision="Thu Sep 10 2015 12:12:51 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -511,26 +511,28 @@
 <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>My Map<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;map&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="processing">
-    var <span class="hljs-built_in">map</span> = <span class="hljs-keyword">new</span> ol.Map({
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="gradle">
+    var map = <span class="hljs-keyword">new</span> ol.Map({
       target: <span class="hljs-string">&apos;map&apos;</span>,
       layers: [
+        <span class="hljs-keyword">new</span> ol.layer.Tile({
+          <span class="hljs-keyword">source</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-keyword">source</span>.OSM()
+        }),
         <span class="hljs-keyword">new</span> ol.layer.Vector({
           title: <span class="hljs-string">&apos;Buildings&apos;</span>,
-          source: <span class="hljs-keyword">new</span> ol.source.Vector({
+          <span class="hljs-keyword">source</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-keyword">source</span>.Vector({
             url: <span class="hljs-string">&apos;/data/layers/buildings.kml&apos;</span>,
             format: <span class="hljs-keyword">new</span> ol.format.KML({
               extractStyles: <span class="hljs-keyword">false</span>
             })
           }),
           style: <span class="hljs-keyword">new</span> ol.style.Style({
-            <span class="hljs-built_in">stroke</span>: <span class="hljs-keyword">new</span> ol.style.Stroke({<span class="hljs-built_in">color</span>: <span class="hljs-string">&apos;red&apos;</span>, <span class="hljs-variable">width</span>: <span class="hljs-number">2</span>})
+            stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({color: <span class="hljs-string">&apos;red&apos;</span>, width: <span class="hljs-number">2</span>})
           })
         })
       ],
       view: <span class="hljs-keyword">new</span> ol.View({
-        projection: <span class="hljs-string">&apos;EPSG:4326&apos;</span>,
-        center: [-<span class="hljs-number">122.791859392</span>, <span class="hljs-number">42.3099154789</span>],
+        center: ol.proj.fromLonLat([-<span class="hljs-number">122.79264450073244</span>, <span class="hljs-number">42.30975194250527</span>]),
         zoom: <span class="hljs-number">16</span>
       })
     });

@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="2.4" data-basepath=".." data-revision="Fri Sep 04 2015 14:40:48 GMT-0600 (MDT)">
+    <div class="book" data-level="2.4" data-basepath=".." data-revision="Thu Sep 10 2015 12:12:51 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -520,8 +520,8 @@
           <span class="hljs-keyword">new</span> ol.layer.Tile({
             title: <span class="hljs-string">&apos;Global Imagery&apos;</span>,
             source: <span class="hljs-keyword">new</span> ol.source.TileWMS({
-              url: <span class="hljs-string">&apos;http://maps.opengeo.org/geowebcache/service/wms&apos;</span>,
-              <span class="hljs-keyword">params</span>: {LAYERS: <span class="hljs-string">&apos;bluemarble&apos;</span>, VERSION: <span class="hljs-string">&apos;1.1.1&apos;</span>}
+              url: <span class="hljs-string">&apos;http://demo.opengeo.org/geoserver/wms&apos;</span>,
+              <span class="hljs-keyword">params</span>: {LAYERS: <span class="hljs-string">&apos;nasa:bluemarble&apos;</span>, VERSION: <span class="hljs-string">&apos;1.1.1&apos;</span>}
             })
           })
         ],
@@ -583,6 +583,20 @@
 <li><p>The data for the vector layer comes from an earthquake feed published by the USGS (<a href="http://earthquake.usgs.gov/earthquakes/catalogs/" target="_blank">http://earthquake.usgs.gov/earthquakes/catalogs/</a>).  See if you can find additional data with spatial information in a format supported by OpenLayers 3.  If you save another document representing spatial data in your <code>data</code> directory, you should be able to view it in a vector layer on your map.</p>
 </li>
 </ol>
+<h3 id="solutions">Solutions</h3>
+<p>As a solution to the first bonus task you can add an <code>info</code> div below the map:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;info&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<p>and add the following JavaScript code to display the title of the clicked
+feature:</p>
+<pre><code class="lang-js">map.on(<span class="hljs-string">&apos;singleclick&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+  <span class="hljs-keyword">var</span> feature = map.forEachFeatureAtPixel(e.pixel, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">feature</span>) </span>{
+    <span class="hljs-keyword">return</span> feature;
+  });
+  <span class="hljs-keyword">var</span> infoElement = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;info&apos;</span>);
+  infoElement.innerHTML = feature ? feature.get(<span class="hljs-string">&apos;title&apos;</span>) : <span class="hljs-string">&apos;&apos;</span>;
+});
+</code></pre>
 
                     
                     </section>

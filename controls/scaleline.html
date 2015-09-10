@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.1" data-basepath=".." data-revision="Fri Sep 04 2015 14:40:48 GMT-0600 (MDT)">
+    <div class="book" data-level="3.1" data-basepath=".." data-revision="Thu Sep 10 2015 12:12:51 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -512,11 +512,10 @@
 </ol>
 <h2 id="moving-the-scaleline-control">Moving the ScaleLine Control</h2>
 <p>You may find the scale bar a bit hard to read over the imagery. There are a few approaches to take in order to improve scale visibility.  If you want to keep the control inside the map viewport, you can add some style declarations within the CSS of your document. To test this out, you can include a background color and padding to the scale bar with something like the following:</p>
-<pre><code class="lang-css">  <span class="hljs-class">.ol-scale-line</span>,
-  <span class="hljs-rule"><span class="hljs-attribute">.ol-scale-line</span>:<span class="hljs-value"><span class="hljs-function">not</span>([ie8andbelow]) {
-    background: black</span></span>;
+<pre><code class="lang-css">  <span class="hljs-class">.ol-scale-line</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">background</span>:<span class="hljs-value"> black</span></span>;
     <span class="hljs-rule"><span class="hljs-attribute">padding</span>:<span class="hljs-value"> <span class="hljs-number">5px</span></span></span>;
-  }
+  }</span>
 </code></pre>
 <p>However, for the sake of this exercise, let&apos;s say you think the map viewport is getting unbearably crowded. To avoid such over-crowding, you can display the scale in a different location. To accomplish this, we need to first create an additional element in our markup and then tell the scale control to render itself within this new element.</p>
 <h3 id="tasks">Tasks</h3>
@@ -532,6 +531,8 @@
 </code></pre>
 </li>
 <li><p>Save your changes and open <code>map.html</code> in your browser: <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a>    </p>
+</li>
+<li><p>&quot;Fix&quot; the position of the control with, for example, the following CSS rules:</p>
 <pre><code class="lang-css"><span class="hljs-class">.scale-line</span> <span class="hljs-rules">{
   <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> absolute</span></span>;
   <span class="hljs-rule"><span class="hljs-attribute">top</span>:<span class="hljs-value"> <span class="hljs-number">350px</span></span></span>;
