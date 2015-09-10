@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Draw interaction | OpenLayers Workshop</title>
+        <title>Custom Builds | OpenLayers Workshop</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.3.0">
@@ -31,10 +31,10 @@
         
     
     
-    <link rel="next" href="../controls/modify.html" />
+    <link rel="next" href="../custom-builds/concepts.html" />
     
     
-    <link rel="prev" href="../controls/select.html" />
+    <link rel="prev" href="../vector/style.html" />
     
 
         
@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.3" data-basepath=".." data-revision="Thu Sep 10 2015 17:44:47 GMT+0200 (CEST)">
+    <div class="book" data-level="5" data-basepath=".." data-revision="Thu Sep 10 2015 17:44:47 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -287,7 +287,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.3" data-path="controls/draw.html">
+        <li class="chapter " data-level="3.3" data-path="controls/draw.html">
             
                 
                     <a href="../controls/draw.html">
@@ -388,7 +388,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5" data-path="custom-builds/index.html">
+        <li class="chapter active" data-level="5" data-path="custom-builds/index.html">
             
                 
                     <a href="../custom-builds/index.html">
@@ -544,83 +544,11 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="drawing-features">Drawing Features</h1>
-<p>New features can be drawn by using an <code>ol.interaction.Draw</code>. A draw interaction is constructed with a vector source and a geometry type.</p>
-<h2 id="create-a-vector-layer-and-a-draw-interaction">Create a Vector Layer and a Draw Interaction</h2>
-<h3 id="tasks">Tasks</h3>
-<ol>
-<li><p>Let&apos;s start with the example below. Open <code>map.html</code> in your text editor and make sure it looks something like the following:</p>
-<pre><code class="lang-html"><span class="hljs-doctype">&lt;!doctype html&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;en&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">&quot;stylesheet&quot;</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;/ol.css&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/css&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
-    <span class="hljs-id">#map</span> <span class="hljs-rules">{
-      <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">256px</span></span></span>;
-      <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">512px</span></span></span>;
-    }</span>
-    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;/loader.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>OpenLayers 3 example<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>My Map<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;map&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="gradle">
-      var <span class="hljs-keyword">source</span> = <span class="hljs-keyword">new</span> ol.<span class="hljs-keyword">source</span>.Vector({
-        url: <span class="hljs-string">&apos;/data/layers/7day-M2.5.json&apos;</span>,
-        format: <span class="hljs-keyword">new</span> ol.format.GeoJSON()
-      });
-      var draw = <span class="hljs-keyword">new</span> ol.interaction.Draw({
-        <span class="hljs-keyword">source</span>: <span class="hljs-keyword">source</span>,
-        type: <span class="hljs-string">&apos;Point&apos;</span>
-      });
-      var map = <span class="hljs-keyword">new</span> ol.Map({
-        interactions: ol.interaction.defaults().extend([draw]),
-        target: <span class="hljs-string">&apos;map&apos;</span>,
-        layers: [
-          <span class="hljs-keyword">new</span> ol.layer.Tile({
-            title: <span class="hljs-string">&apos;Global Imagery&apos;</span>,
-            <span class="hljs-keyword">source</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-keyword">source</span>.TileWMS({
-              url: <span class="hljs-string">&apos;http://demo.opengeo.org/geoserver/wms&apos;</span>,
-              params: {LAYERS: <span class="hljs-string">&apos;nasa:bluemarble&apos;</span>, VERSION: <span class="hljs-string">&apos;1.1.1&apos;</span>}
-            })
-          }),
-          <span class="hljs-keyword">new</span> ol.layer.Vector({
-            title: <span class="hljs-string">&apos;Earthquakes&apos;</span>,
-            <span class="hljs-keyword">source</span>: <span class="hljs-keyword">source</span>,
-            style: <span class="hljs-keyword">new</span> ol.style.Style({
-              image: <span class="hljs-keyword">new</span> ol.style.Circle({
-                radius: <span class="hljs-number">5</span>,
-                fill: <span class="hljs-keyword">new</span> ol.style.Fill({
-                  color: <span class="hljs-string">&apos;#0000FF&apos;</span>
-                }),
-                stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
-                  color: <span class="hljs-string">&apos;#000000&apos;</span>
-                })
-              })
-            })
-          })
-        ],
-        view: <span class="hljs-keyword">new</span> ol.View({
-          projection: <span class="hljs-string">&apos;EPSG:4326&apos;</span>,
-          center: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
-          zoom: <span class="hljs-number">1</span>
-        })
-      });
-    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
-</code></pre>
-</li>
-<li><p>Save your changes to <code>map.html</code> and open the page in your browser:  <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a>. To see drawing of point geometries in action, click in the map to add a new feature:</p>
-<p><figure><img src="draw1.png" alt="Using a draw interaction to add features to a vector source"><figcaption>Using a draw interaction to add features to a vector source</figcaption></figure></p>
-</li>
-</ol>
-<h3 id="bonus-tasks">Bonus Tasks</h3>
-<ol>
-<li>Create a listener which gets the new feature&apos;s X and Y after it is drawn.</li>
-</ol>
+                        <h1 id="custom-builds">Custom Builds</h1>
+<ul>
+<li><a href="concepts.html">Concepts</a></li>
+<li><a href="create.html">Create a custom build</a></li>
+</ul>
 
                     
                     </section>
@@ -631,10 +559,10 @@
         </div>
 
         
-        <a href="../controls/select.html" class="navigation navigation-prev " aria-label="Previous page: Select interaction"><i class="fa fa-angle-left"></i></a>
+        <a href="../vector/style.html" class="navigation navigation-prev " aria-label="Previous page: Custom styles"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../controls/modify.html" class="navigation navigation-next " aria-label="Next page: Modify interaction"><i class="fa fa-angle-right"></i></a>
+        <a href="../custom-builds/concepts.html" class="navigation navigation-next " aria-label="Next page: Concepts"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

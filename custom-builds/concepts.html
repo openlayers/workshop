@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Draw interaction | OpenLayers Workshop</title>
+        <title>Concepts | OpenLayers Workshop</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.3.0">
@@ -31,10 +31,10 @@
         
     
     
-    <link rel="next" href="../controls/modify.html" />
+    <link rel="next" href="../custom-builds/create.html" />
     
     
-    <link rel="prev" href="../controls/select.html" />
+    <link rel="prev" href="../custom-builds/index.html" />
     
 
         
@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.3" data-basepath=".." data-revision="Thu Sep 10 2015 17:44:47 GMT+0200 (CEST)">
+    <div class="book" data-level="5.1" data-basepath=".." data-revision="Thu Sep 10 2015 17:44:47 GMT+0200 (CEST)">
     
 
 <div class="book-summary">
@@ -287,7 +287,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.3" data-path="controls/draw.html">
+        <li class="chapter " data-level="3.3" data-path="controls/draw.html">
             
                 
                     <a href="../controls/draw.html">
@@ -404,7 +404,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1" data-path="custom-builds/concepts.html">
+        <li class="chapter active" data-level="5.1" data-path="custom-builds/concepts.html">
             
                 
                     <a href="../custom-builds/concepts.html">
@@ -544,83 +544,91 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="drawing-features">Drawing Features</h1>
-<p>New features can be drawn by using an <code>ol.interaction.Draw</code>. A draw interaction is constructed with a vector source and a geometry type.</p>
-<h2 id="create-a-vector-layer-and-a-draw-interaction">Create a Vector Layer and a Draw Interaction</h2>
-<h3 id="tasks">Tasks</h3>
-<ol>
-<li><p>Let&apos;s start with the example below. Open <code>map.html</code> in your text editor and make sure it looks something like the following:</p>
-<pre><code class="lang-html"><span class="hljs-doctype">&lt;!doctype html&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;en&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">&quot;stylesheet&quot;</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;/ol.css&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/css&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
-    <span class="hljs-id">#map</span> <span class="hljs-rules">{
-      <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">256px</span></span></span>;
-      <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">512px</span></span></span>;
-    }</span>
-    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;/loader.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>OpenLayers 3 example<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>My Map<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;map&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="gradle">
-      var <span class="hljs-keyword">source</span> = <span class="hljs-keyword">new</span> ol.<span class="hljs-keyword">source</span>.Vector({
-        url: <span class="hljs-string">&apos;/data/layers/7day-M2.5.json&apos;</span>,
-        format: <span class="hljs-keyword">new</span> ol.format.GeoJSON()
-      });
-      var draw = <span class="hljs-keyword">new</span> ol.interaction.Draw({
-        <span class="hljs-keyword">source</span>: <span class="hljs-keyword">source</span>,
-        type: <span class="hljs-string">&apos;Point&apos;</span>
-      });
-      var map = <span class="hljs-keyword">new</span> ol.Map({
-        interactions: ol.interaction.defaults().extend([draw]),
-        target: <span class="hljs-string">&apos;map&apos;</span>,
-        layers: [
-          <span class="hljs-keyword">new</span> ol.layer.Tile({
-            title: <span class="hljs-string">&apos;Global Imagery&apos;</span>,
-            <span class="hljs-keyword">source</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-keyword">source</span>.TileWMS({
-              url: <span class="hljs-string">&apos;http://demo.opengeo.org/geoserver/wms&apos;</span>,
-              params: {LAYERS: <span class="hljs-string">&apos;nasa:bluemarble&apos;</span>, VERSION: <span class="hljs-string">&apos;1.1.1&apos;</span>}
-            })
-          }),
-          <span class="hljs-keyword">new</span> ol.layer.Vector({
-            title: <span class="hljs-string">&apos;Earthquakes&apos;</span>,
-            <span class="hljs-keyword">source</span>: <span class="hljs-keyword">source</span>,
-            style: <span class="hljs-keyword">new</span> ol.style.Style({
-              image: <span class="hljs-keyword">new</span> ol.style.Circle({
-                radius: <span class="hljs-number">5</span>,
-                fill: <span class="hljs-keyword">new</span> ol.style.Fill({
-                  color: <span class="hljs-string">&apos;#0000FF&apos;</span>
-                }),
-                stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
-                  color: <span class="hljs-string">&apos;#000000&apos;</span>
-                })
-              })
-            })
-          })
-        ],
-        view: <span class="hljs-keyword">new</span> ol.View({
-          projection: <span class="hljs-string">&apos;EPSG:4326&apos;</span>,
-          center: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
-          zoom: <span class="hljs-number">1</span>
-        })
-      });
-    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+                        <h1 id="understanding-custom-builds">Understanding custom builds</h1>
+<p>OpenLayers 3 is a big library providing a lot of functionality. So it is
+unlikely that an application will need and use all the functionality OpenLayers
+3 provides. Custom builds (a.k.a. application-specific builds) are OpenLayers
+3 builds with just the functionality your application needs. Custom builds are
+often much smaller that the full build, so creating custom builds is often
+a very good idea.</p>
+<h2 id="requirements">Requirements</h2>
+<p>OpenLayers 3 builds are created by using the <a href="https://developers.google.com/closure/compiler/" target="_blank">Closure
+Compiler</a>. The goal of the
+Closure Compiler is to compile JavaScript to better JavaScript, that takes less
+time to downoad and run faster.</p>
+<p>The Closure Compiler is a Java program, so running the Compiler requires a Java
+Virtual Machine. So before jumping to the next section, and creating a custom
+build, make sure Java is installed on your machine.</p>
+<p>You just need the Java Runtime Environment, which you can download from the
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Oracle Java
+site</a>. For
+example, for Windows, you would download and install
+<code>jre-8u60-windows-i586.exe</code>.</p>
+<h2 id="build-configuration-file">Build configuration file</h2>
+<p>Creating a custom build requires writing a build configuration file. The format
+of build configuration files is JSON. Here is a simple example of a build
+configuration file:</p>
+<pre><code class="lang-js">{
+  <span class="hljs-string">&quot;exports&quot;</span>: [
+    <span class="hljs-string">&quot;ol.Map&quot;</span>,
+    <span class="hljs-string">&quot;ol.View&quot;</span>,
+    <span class="hljs-string">&quot;ol.layer.Tile&quot;</span>,
+    <span class="hljs-string">&quot;ol.source.OSM&quot;</span>
+  ],
+  <span class="hljs-string">&quot;jvm&quot;</span>: [],
+  <span class="hljs-string">&quot;umd&quot;</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-string">&quot;compile&quot;</span>: {
+    <span class="hljs-string">&quot;externs&quot;</span>: [
+      <span class="hljs-string">&quot;externs/bingmaps.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/closure-compiler.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/esrijson.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/geojson.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/oli.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/olx.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/proj4js.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/tilejson.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/topojson.js&quot;</span>
+    ],
+    <span class="hljs-string">&quot;define&quot;</span>: [
+      <span class="hljs-string">&quot;goog.array.ASSUME_NATIVE_FUNCTIONS=true&quot;</span>,
+      <span class="hljs-string">&quot;goog.dom.ASSUME_STANDARDS_MODE=true&quot;</span>,
+      <span class="hljs-string">&quot;goog.json.USE_NATIVE_JSON=true&quot;</span>
+    ],
+    <span class="hljs-string">&quot;jscomp_error&quot;</span>: [
+      <span class="hljs-string">&quot;*&quot;</span>
+    ],
+    <span class="hljs-string">&quot;jscomp_off&quot;</span>: [
+      <span class="hljs-string">&quot;useOfGoogBase&quot;</span>,
+      <span class="hljs-string">&quot;unnecessaryCasts&quot;</span>,
+      <span class="hljs-string">&quot;lintChecks&quot;</span>
+    ],
+    <span class="hljs-string">&quot;extra_annotation_name&quot;</span>: [
+      <span class="hljs-string">&quot;api&quot;</span>, <span class="hljs-string">&quot;observable&quot;</span>
+    ],
+    <span class="hljs-string">&quot;compilation_level&quot;</span>: <span class="hljs-string">&quot;ADVANCED&quot;</span>,
+    <span class="hljs-string">&quot;warning_level&quot;</span>: <span class="hljs-string">&quot;VERBOSE&quot;</span>,
+    <span class="hljs-string">&quot;use_types_for_optimization&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">&quot;manage_closure_dependencies&quot;</span>: <span class="hljs-literal">true</span>
+  }
+}
 </code></pre>
-</li>
-<li><p>Save your changes to <code>map.html</code> and open the page in your browser:  <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a>. To see drawing of point geometries in action, click in the map to add a new feature:</p>
-<p><figure><img src="draw1.png" alt="Using a draw interaction to add features to a vector source"><figcaption>Using a draw interaction to add features to a vector source</figcaption></figure></p>
-</li>
-</ol>
-<h3 id="bonus-tasks">Bonus Tasks</h3>
-<ol>
-<li>Create a listener which gets the new feature&apos;s X and Y after it is drawn.</li>
-</ol>
+<p>The most relevant part of this configuration object is the <code>exports</code> array.
+This array declares the functions/constructors you use in your JavaScript code.
+For example, the above configuration file is what you&apos;d use for the following
+JavaScript code:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.Map({
+  target: <span class="hljs-string">&apos;map&apos;</span>,
+  layers: [
+    <span class="hljs-keyword">new</span> ol.layer.Tile({
+      source: <span class="hljs-keyword">new</span> ol.source.OSM()
+    })
+  ],
+  view: <span class="hljs-keyword">new</span> ol.View({
+    center: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+    zoom: <span class="hljs-number">4</span>
+  })
+});
+</code></pre>
 
                     
                     </section>
@@ -631,10 +639,10 @@
         </div>
 
         
-        <a href="../controls/select.html" class="navigation navigation-prev " aria-label="Previous page: Select interaction"><i class="fa fa-angle-left"></i></a>
+        <a href="../custom-builds/index.html" class="navigation navigation-prev " aria-label="Previous page: Custom Builds"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../controls/modify.html" class="navigation navigation-next " aria-label="Next page: Modify interaction"><i class="fa fa-angle-right"></i></a>
+        <a href="../custom-builds/create.html" class="navigation navigation-next " aria-label="Next page: Create custom builds"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
