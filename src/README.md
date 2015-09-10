@@ -26,3 +26,4 @@ The following modules will be covered in this workshop:
 * [Layers and Sources](layers/README.md) - Learn about layers and sources.
 * [Controls and Interactions](controls/README.md) - Learn about using map controls and interactions.
 * [Vector Topics](vector/README.md) - Explore vector layers in depth.
+* [Custom Builds](custom-builds/README.md) - Create custom builds.

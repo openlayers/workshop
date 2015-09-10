@@ -22,3 +22,7 @@
   * [Formats](vector/formats.md)
   * [Styling concepts](vector/style-intro.md)
   * [Custom styles](vector/style.md)  
+
+* [Custom Builds](custom-builds/README.md)
+  * [Concepts](custom-builds/concepts.md)
+  * [Create custom builds](custom-builds/create.md)
