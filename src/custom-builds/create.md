@@ -88,7 +88,8 @@ the [last chapter](../vector/style.md).
           "ol.source.Vector",
           "ol.style.Fill",
           "ol.style.Stroke",
-          "ol.style.Style"
+          "ol.style.Style",
+          "ol.style.Text"
       ],
       "jvm": [],
       "umd": true,
