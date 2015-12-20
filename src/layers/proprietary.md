@@ -15,7 +15,7 @@ Let's add a Bing layer.
   ```js
     source: new ol.source.BingMaps({
       imagerySet: 'Road',
-      key: 'Ak-dzM4wZjSqTlzveKz5u0d4IQ4bRzVI309GxmkgSVr1ewS6iPSrOvOKhA-CJlm3'
+      key: '<Your Bing Maps Key Here>'
     })
   ```
   *Note* - The Bing tiles API requires that you register for an API key to use with your mapping application.  The example here uses an API key that you should not use in production.  To use the Bing layer in production, register for an API key at https://www.bingmapsportal.com/.
@@ -55,7 +55,7 @@ Your revised `map.html` file should look something like this:
           new ol.layer.Tile({
             source: new ol.source.BingMaps({
               imagerySet: 'Road',
-              key: 'Ak-dzM4wZjSqTlzveKz5u0d4IQ4bRzVI309GxmkgSVr1ewS6iPSrOvOKhA-CJlm3'
+              key: '<Your Bing Maps Key Here>'
             })
           })
         ],
