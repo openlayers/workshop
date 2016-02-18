@@ -79,3 +79,15 @@ New features can be drawn by using an `ol.interaction.Draw`. A draw interaction 
 ### Bonus Tasks
 
 1.  Create a listener which gets the new feature's X and Y after it is drawn.
+
+### Solutions
+
+Here is a solution for the first bonus task. In it we register an event listener for the `drawend` event of the `ol.interaction.Draw`. This method logs the feature's X and Y to the developer console:
+
+```js
+draw.on('drawend', function(evt){
+  var feature = evt.feature;
+  var p = feature.getGeometry();
+  console.log(p.getCoordinates());
+});
+```
