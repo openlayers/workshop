@@ -76,62 +76,59 @@ the [last chapter](../vector/style.md).
 2. Create a build configuration file for that map:
 
   ```json
-    {
-      "exports": [
-          "ol.Map",
-          "ol.View",
-          "ol.format.KML",
-          "ol.layer.Tile",
-          "ol.layer.Vector",
-          "ol.proj.fromLonLat",
-          "ol.source.OSM",
-          "ol.source.Vector",
-          "ol.style.Fill",
-          "ol.style.Stroke",
-          "ol.style.Style",
-          "ol.style.Text"
+  {
+    "exports": [
+      "ol.Map",
+      "ol.View",
+      "ol.format.KML",
+      "ol.layer.Tile",
+      "ol.layer.Vector",
+      "ol.proj.fromLonLat",
+      "ol.source.OSM",
+      "ol.source.Vector",
+      "ol.style.Fill",
+      "ol.style.Stroke",
+      "ol.style.Style",
+      "ol.style.Text"
+    ],
+    "jvm": [],
+    "umd": true,
+    "compile": {
+      "externs": [
+        "externs/bingmaps.js",
+        "externs/closure-compiler.js",
+        "externs/esrijson.js",
+        "externs/geojson.js",
+        "externs/oli.js",
+        "externs/olx.js",
+        "externs/proj4js.js",
+        "externs/tilejson.js",
+        "externs/topojson.js"
       ],
-      "jvm": [],
-      "umd": true,
-      "compile": {
-        "externs": [
-          "externs/bingmaps.js",
-          "externs/closure-compiler.js",
-          "externs/esrijson.js",
-          "externs/geojson.js",
-          "externs/oli.js",
-          "externs/olx.js",
-          "externs/proj4js.js",
-          "externs/tilejson.js",
-          "externs/topojson.js"
-        ],
-        "define": [
-          "goog.array.ASSUME_NATIVE_FUNCTIONS=true",
-          "goog.dom.ASSUME_STANDARDS_MODE=true",
-          "goog.json.USE_NATIVE_JSON=true",
-          "ol.ENABLE_DOM=false",
-          "ol.ENABLE_WEBGL=false",
-          "ol.ENABLE_PROJ4JS=false",
-          "ol.ENABLE_IMAGE=false",
-          "goog.DEBUG=false"
-        ],
-        "jscomp_error": [
-          "*"
-        ],
-        "jscomp_off": [
-          "useOfGoogBase",
-          "unnecessaryCasts",
-          "lintChecks"
-        ],
-        "extra_annotation_name": [
-          "api", "observable"
-        ],
-        "compilation_level": "ADVANCED",
-        "warning_level": "VERBOSE",
-        "use_types_for_optimization": true,
-        "manage_closure_dependencies": true
-      }
+      "define": [
+        "goog.dom.ASSUME_STANDARDS_MODE=true",
+        "goog.DEBUG=false",
+        "ol.ENABLE_DOM=false",
+        "ol.ENABLE_WEBGL=false",
+        "ol.ENABLE_PROJ4JS=false",
+        "ol.ENABLE_IMAGE=false"
+      ],
+      "jscomp_error": [
+        "*"
+      ],
+      "jscomp_off": [
+        "useOfGoogBase",
+        "lintChecks"
+      ],
+      "extra_annotation_name": [
+        "api", "observable"
+      ],
+      "compilation_level": "ADVANCED",
+      "warning_level": "VERBOSE",
+      "use_types_for_optimization": true,
+      "manage_closure_dependencies": true
     }
+  }
   ```
 
 3. Create the custom build using `OpenLayers`'s `build.js` Node script:
