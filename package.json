@@ -23,7 +23,7 @@
     "deploy": "npm run build && gh-pages --dist build/openlayers-workshop"
   },
   "dependencies": {
-    "openlayers": "3.13.1"
+    "openlayers": "3.14.2"
   },
   "devDependencies": {
     "gh-pages": "^0.4.0",
