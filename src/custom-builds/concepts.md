@@ -12,7 +12,7 @@ a very good idea.
 OpenLayers 3 builds are created by using the [Closure
 Compiler](https://developers.google.com/closure/compiler/). The goal of the
 Closure Compiler is to compile JavaScript to better JavaScript, that takes less
-time to downoad and run faster.
+time to download and run faster.
 
 The Closure Compiler is a Java program, so running the Compiler requires a Java
 Virtual Machine. So before jumping to the next section, and creating a custom
