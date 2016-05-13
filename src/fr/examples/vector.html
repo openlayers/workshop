@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 256px;
+        width: 512px;
+      }
+      .info {
+      }
+    </style>
+    <title>OpenLayers 3 example</title>
+  </head>
+  <body>
+    <h1>My Map</h1>
+    <div id="map" class="map"></div>
+    <div id="info" class="info"></div>
+    <script src="/loader.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var style = new ol.style.Style({
+        image: new ol.style.Circle({
+          radius: 3,
+          fill: new ol.style.Fill({color: 'white'})
+        })
+      });
+      var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            title: 'Global Imagery',
+            source: new ol.source.TileWMS({
+              url: 'http://demo.opengeo.org/geoserver/wms',
+              params: {'LAYERS': 'nasa:bluemarble', 'VERSION': '1.1.1'}
+            })
+          }),
+          new ol.layer.Vector({
+            title: 'Earthquakes',
+            source: new ol.source.Vector({
+              url: '/data/layers/7day-M2.5.json',
+              format: new ol.format.GeoJSON()
+            }),
+            style: style
+          })
+        ],
+        view: new ol.View({
+          projection: 'EPSG:4326',
+          center: [0, 0],
+          zoom: 1
+        })
+      });
+      map.on('singleclick', function(evt) {
+        document.getElementById('info').innerHTML = '';
+        var pixel = evt.pixel;
+        var feature = map.forEachFeatureAtPixel(pixel, function(feature, layer) {
+          return feature;
+        });
+        if (feature) {
+          document.getElementById('info').innerHTML += 'Title: ' + feature.get('title') + '<br/>';
+        }
+      });
+    </script>
+  </body>
+</html>
