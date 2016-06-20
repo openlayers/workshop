@@ -117,8 +117,10 @@ the [last chapter](../vector/style.md).
         "*"
       ],
       "jscomp_off": [
-        "useOfGoogBase",
-        "lintChecks"
+        "analyzerChecks",
+        "lintChecks",
+        "unnecessaryCasts",
+        "useOfGoogBase"
       ],
       "extra_annotation_name": [
         "api", "observable"
