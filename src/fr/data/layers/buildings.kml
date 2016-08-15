@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:ns2="http://www.google.com/kml/ext/2.2" xmlns:ns3="http://www.w3.org/2005/Atom" xmlns:ns4="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0">
+    <Document>
+        <Schema id="buildings_1" name="buildings_1">
+            <SimpleField name="layer" type="string"/>
+            <SimpleField name="elevation" type="double"/>
+            <SimpleField name="shape_leng" type="double"/>
+            <SimpleField name="shape_area" type="double"/>
+            <SimpleField name="key" type="string"/>
+            <SimpleField name="zone" type="string"/>
+        </Schema>
+        <Folder>
+            <name>buildings</name>
+            <Placemark id="buildings.1">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1714.697</SimpleData>
+                        <SimpleData name="shape_leng">205.996104678</SimpleData>
+                        <SimpleData name="shape_area">2643.38635228</SimpleData>
+                        <SimpleData name="key">1</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79678181570254,42.31505552411342,1714.6968876999777 -122.79672376733662,42.31505395552092,1714.6968876999777 -122.79658124469145,42.31505010709761,1714.6968876999777 -122.7965926669625,42.314916711335805,1714.6968876999777 -122.79672441910049,42.31492027198181,1714.6968876999777 -122.79679324000244,42.314922129181795,1714.6968876999777 -122.79678181570254,42.31505552411342,1714.6968876999777</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.2">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1719.698</SimpleData>
+                        <SimpleData name="shape_leng">34.4166760474</SimpleData>
+                        <SimpleData name="shape_area">73.9440815368</SimpleData>
+                        <SimpleData name="key">2</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79227686195097,42.30914942022552,1719.6978619499778 -122.79227802208642,42.30913514932265,1719.6978619499778 -122.79230869348162,42.30913652444241,1719.6978619499778 -122.79230763532738,42.309149546857334,1719.6978619499778 -122.792306708206,42.30916089151277,1719.6978619499778 -122.792276033062,42.309159513766616,1719.6978619499778 -122.79227686195097,42.30914942022552,1719.6978619499778</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.3">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1918.966</SimpleData>
+                        <SimpleData name="shape_leng">377.707971952</SimpleData>
+                        <SimpleData name="shape_area">5168.04098811</SimpleData>
+                        <SimpleData name="key">3</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.78845435331775,42.31216913972058,1918.9658361166444 -122.78844430551878,42.31217188051275,1918.9658361166444 -122.78832094551113,42.31220551632168,1918.9658361166444 -122.78831173258477,42.31220802852785,1918.9658361166444 -122.78824108725593,42.312068448291534,1918.9658361166444 -122.78822488936073,42.312072587248636,1918.9658361166444 -122.78816350334199,42.31208827605385,1918.9658361166444 -122.78814057431764,42.31203796145363,1918.9658361166444 -122.7882022179409,42.31202238271009,1918.9658361166444 -122.78821899689008,42.31201814101023,1918.9658361166444 -122.7882005708901,42.311981144845085,1918.9658361166444 -122.78817294457608,42.31198931429434,1918.9658361166444 -122.78814907460014,42.31194570565343,1918.9658361166444 -122.78820878443427,42.311930006724964,1918.9658361166444 -122.78820509439629,42.31192140170197,1918.9658361166444 -122.78825321927256,42.311909107813754,1918.9658361166444 -122.78825872104741,42.31191768418987,1918.9658361166444 -122.78831570297739,42.311901354290185,1918.9658361166444 -122.7883181844396,42.31190577267374,1918.9658361166444 -122.78834423236418,42.31195217755657,1918.9658361166444 -122.78837986583008,42.311942627136375,1918.9658361166444 -122.78841664553714,42.31201593552787,1918.9658361166444 -122.78838285845859,42.31202478476959,1918.9658361166444 -122.7883831574038,42.31202539020494,1918.9658361166444 -122.78845435331775,42.31216913972058,1918.9658361166444</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.4">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1904.06</SimpleData>
+                        <SimpleData name="shape_leng">202.145679723</SimpleData>
+                        <SimpleData name="shape_area">2340.0155332</SimpleData>
+                        <SimpleData name="key">4</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.78788039463318,42.311112420026866,1904.0600260333113 -122.78764081243455,42.31113086878758,1904.0600260333113 -122.78763040649166,42.31106579886575,1904.0600260333113 -122.7876251608705,42.31103299504347,1904.0600260333113 -122.78786474259715,42.311014543616366,1904.0600260333113 -122.78786868205924,42.311039187572135,1904.0600260333113 -122.78788039463318,42.311112420026866,1904.0600260333113</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.5">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1899.203</SimpleData>
+                        <SimpleData name="shape_leng">356.047232356</SimpleData>
+                        <SimpleData name="shape_area">4352.98951092</SimpleData>
+                        <SimpleData name="key">5</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.78852977306452,42.31121484180474,1899.2030803666444 -122.78838298995157,42.31125273268076,1899.2030803666444 -122.78834818655973,42.31117844849017,1899.2030803666444 -122.7883888589598,42.31116795018694,1899.2030803666444 -122.78837725817782,42.31114317617676,1899.2030803666444 -122.7883263130014,42.31115659453876,1899.2030803666444 -122.78819859052096,42.311190231389034,1899.2030803666444 -122.78818763452738,42.31119311666577,1899.2030803666444 -122.7881496635718,42.31111725760081,1899.2030803666444 -122.78820802735984,42.31110291973265,1899.2030803666444 -122.78834771516466,42.31106860605813,1899.2030803666444 -122.78835690692105,42.311066347340656,1899.2030803666444 -122.78834226478833,42.31103509585074,1899.2030803666444 -122.7884417357378,42.31100941949313,1899.2030803666444 -122.78849910044083,42.31113184351409,1899.2030803666444 -122.78849176625779,42.31113373764459,1899.2030803666444 -122.78850977915664,42.31117217047229,1899.2030803666444 -122.78852977306452,42.31121484180474,1899.2030803666444</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.6">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1821.619</SimpleData>
+                        <SimpleData name="shape_leng">59.4865399941</SimpleData>
+                        <SimpleData name="shape_area">175.159694504</SimpleData>
+                        <SimpleData name="key">6</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.7916434460676,42.31087098141521,1821.618917949978 -122.79164375765065,42.31087051398349,1821.618917949978 -122.79167671124918,42.31082099474268,1821.618917949978 -122.79167889785808,42.3108177081983,1821.618917949978 -122.7917055976554,42.31082770717621,1821.618917949978 -122.79167014709458,42.310880980376915,1821.618917949978 -122.7916434460676,42.31087098141521,1821.618917949978</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.7">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1781.094</SimpleData>
+                        <SimpleData name="shape_leng">97.893390175</SimpleData>
+                        <SimpleData name="shape_area">619.977304725</SimpleData>
+                        <SimpleData name="key">7</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79287131607548,42.31086794980046,1781.0940646166446 -122.79287045802444,42.31086606969834,1781.0940646166446 -122.79284078424911,42.310800826215434,1781.0940646166446 -122.79288782790397,42.31078604324866,1781.0940646166446 -122.79294827771865,42.31080621163148,1781.0940646166446 -122.79296321617045,42.31084102558361,1781.0940646166446 -122.7929635601451,42.31084183092379,1781.0940646166446 -122.79287131607548,42.31086794980046,1781.0940646166446</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.8">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1781.093</SimpleData>
+                        <SimpleData name="shape_leng">103.581850876</SimpleData>
+                        <SimpleData name="shape_area">640.631815018</SimpleData>
+                        <SimpleData name="key">8</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79293454841077,42.31103110863642,1781.0930803666447 -122.79304372125544,42.3110029767998,1781.0930803666447 -122.79307013799465,42.31105550887447,1781.0930803666447 -122.79299954608594,42.311073702005444,1781.0930803666447 -122.79296028126002,42.31108381944438,1781.0930803666447 -122.79293454841077,42.31103110863642,1781.0930803666447</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.9">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1765.454</SimpleData>
+                        <SimpleData name="shape_leng">172.728329947</SimpleData>
+                        <SimpleData name="shape_area">1797.9204807</SimpleData>
+                        <SimpleData name="key">9</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79169262584789,42.305837221481646,1765.4540040333113 -122.79170195884844,42.305696479610894,1765.4540040333113 -122.79171006522807,42.305696792222584,1765.4540040333113 -122.79183120374412,42.30570148701498,1765.4540040333113 -122.79182187224778,42.30584222887187,1765.4540040333113 -122.79170155119597,42.30583756698755,1765.4540040333113 -122.79169262584789,42.305837221481646,1765.4540040333113</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.10">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1771.594</SimpleData>
+                        <SimpleData name="shape_leng">271.226828146</SimpleData>
+                        <SimpleData name="shape_area">3302.24504564</SimpleData>
+                        <SimpleData name="key">10</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.7919092129052,42.30566277336616,1771.5940836166446 -122.79200394516798,42.30544268159834,1771.5940836166446 -122.79201125346907,42.30544441622458,1771.5940836166446 -122.79201996969488,42.30542415686951,1771.5940836166446 -122.79204832636047,42.30543088262827,1771.5940836166446 -122.79204092893109,42.30544808200262,1771.5940836166446 -122.79212589719964,42.30546822978959,1771.5940836166446 -122.79208733676728,42.30555781958374,1771.5940836166446 -122.79206897043159,42.305600485373695,1771.5940836166446 -122.79210175530619,42.305608256779784,1771.5940836166446 -122.79209466580241,42.305625022120545,1771.5940836166446 -122.79206326192003,42.30569930595765,1771.5940836166446 -122.79204590370709,42.305695189961156,1771.5940836166446 -122.79197632019967,42.30567868668259,1771.5940836166446 -122.7919092129052,42.30566277336616,1771.5940836166446</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.11">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1764.009</SimpleData>
+                        <SimpleData name="shape_leng">242.296369468</SimpleData>
+                        <SimpleData name="shape_area">3281.55609848</SimpleData>
+                        <SimpleData name="key">11</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79195817144041,42.305919781164484,1764.0091250333112 -122.79195766116844,42.30592742762927,1764.0091250333112 -122.79195333907532,42.305992325457446,1764.0091250333112 -122.79195062798019,42.30603310249005,1764.0091250333112 -122.79194967690125,42.30604735112578,1764.0091250333112 -122.791713897083,42.306038694197255,1764.0091250333112 -122.79171687166718,42.305994003262974,1764.0091250333112 -122.79167721947528,42.30599254660549,1764.0091250333112 -122.79168247442016,42.3059136202757,1764.0091250333112 -122.79169210983541,42.30591397387077,1764.0091250333112 -122.79172300013529,42.30591511051611,1764.0091250333112 -122.79172326911618,42.305911152365155,1764.0091250333112 -122.7919115493513,42.30591806815484,1764.0091250333112 -122.79195817144041,42.305919781164484,1764.0091250333112</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.12">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1762.926</SimpleData>
+                        <SimpleData name="shape_leng">350.00567926</SimpleData>
+                        <SimpleData name="shape_area">7574.04382374</SimpleData>
+                        <SimpleData name="key">12</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79208919590612,42.306080108279964,1762.9261219499776 -122.79208855501822,42.30609161462396,1762.9261219499776 -122.79208806271288,42.30610043869546,1762.9261219499776 -122.79208242219083,42.306201662476155,1762.9261219499776 -122.79207764392189,42.306287414622936,1762.9261219499776 -122.79207721419083,42.306295106282754,1762.9261219499776 -122.79172048531079,42.3062841528185,1762.9261219499776 -122.79172087711481,42.30627710945516,1762.9261219499776 -122.79173155543486,42.30608552809995,1762.9261219499776 -122.79173246825772,42.306069154853795,1762.9261219499776 -122.79208919590612,42.306080108279964,1762.9261219499776</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.13">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1757.841</SimpleData>
+                        <SimpleData name="shape_leng">205.082305009</SimpleData>
+                        <SimpleData name="shape_area">2434.50695839</SimpleData>
+                        <SimpleData name="key">13</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79487152407133,42.30442231932897,1757.8411583666443 -122.79487007511025,42.30432478879595,1757.8411583666443 -122.79486987080868,42.30431114000844,1757.8411583666443 -122.79505426023553,42.30430963075486,1757.8411583666443 -122.79505446638436,42.30432309848669,1757.8411583666443 -122.79509931959277,42.304322737886565,1757.8411583666443 -122.79510071753973,42.304416478878366,1757.8411583666443 -122.79505199775063,42.30441687402407,1757.8411583666443 -122.79505205947102,42.30442084527094,1757.8411583666443 -122.79502299794508,42.30442108266461,1757.8411583666443 -122.79487152407133,42.30442231932897,1757.8411583666443</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.14">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1770.01</SimpleData>
+                        <SimpleData name="shape_leng">298.675600342</SimpleData>
+                        <SimpleData name="shape_area">4228.55082577</SimpleData>
+                        <SimpleData name="key">14</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79448586782932,42.3044649198545,1770.010097283311 -122.79429443894949,42.30446508628491,1770.010097283311 -122.79429431101087,42.304377451590554,1770.010097283311 -122.79428201875938,42.30437745756415,1770.010097283311 -122.79428194644969,42.30432781041887,1770.010097283311 -122.79442495907446,42.30432769318034,1770.010097283311 -122.79442493803478,42.3043106913724,1770.010097283311 -122.79442802925425,42.304310688830384,1770.010097283311 -122.79451069754481,42.30431062101898,1770.010097283311 -122.79451068343852,42.30429840840654,1770.010097283311 -122.79460964483965,42.304298325181726,1770.010097283311 -122.79460982685903,42.304416856222915,1770.010097283311 -122.79460983515023,42.304421484185845,1770.010097283311 -122.79448579942024,42.30442159386671,1770.010097283311 -122.79448586782932,42.3044649198545,1770.010097283311</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.15">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1757.966</SimpleData>
+                        <SimpleData name="shape_leng">103.826722383</SimpleData>
+                        <SimpleData name="shape_area">360.728084682</SimpleData>
+                        <SimpleData name="key">15</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79459504748387,42.30414585507884,1757.9661581166447 -122.79459502329753,42.30416853152388,1757.9661581166447 -122.79459031584888,42.304168528225,1757.9661581166447 -122.79443756948636,42.304168438420525,1757.9661581166447 -122.79443367246421,42.3041684348399,1757.9661581166447 -122.79443369670939,42.30414575839491,1757.9661581166447 -122.79459504748387,42.30414585507884,1757.9661581166447</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.16">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1691.522</SimpleData>
+                        <SimpleData name="shape_leng">173.19082801</SimpleData>
+                        <SimpleData name="shape_area">1815.58050043</SimpleData>
+                        <SimpleData name="key">16</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.7951192649548,42.30859011924902,1691.5220652833113 -122.79513838648563,42.30872435043965,1691.5220652833113 -122.79513908531297,42.308729244438396,1691.5220652833113 -122.79500817165604,42.30873951983477,1691.5220652833113 -122.79498835148793,42.30860039192251,1691.5220652833113 -122.7951192649548,42.30859011924902,1691.5220652833113</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.17">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1687.07</SimpleData>
+                        <SimpleData name="shape_leng">350.394539184</SimpleData>
+                        <SimpleData name="shape_area">5265.68065944</SimpleData>
+                        <SimpleData name="key">17</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79574629758709,42.30864010448299,1687.069974449978 -122.79551238547239,42.308663182896154,1687.069974449978 -122.79551369883335,42.308670522999364,1687.069974449978 -122.79549318226701,42.308672543564995,1687.069974449978 -122.79549552185244,42.30868562566333,1687.069974449978 -122.79535422677795,42.3086995691922,1687.069974449978 -122.7953388649399,42.30861379524452,1687.069974449978 -122.79549151381477,42.30859872909683,1687.069974449978 -122.79547413182678,42.308501692963866,1687.069974449978 -122.79571720672479,42.30847770676393,1687.069974449978 -122.79574629758709,42.30864010448299,1687.069974449978</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.18">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1719.921</SimpleData>
+                        <SimpleData name="shape_leng">279.046989373</SimpleData>
+                        <SimpleData name="shape_area">4857.70697558</SimpleData>
+                        <SimpleData name="key">18</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79581004258817,42.30353154903422,1719.9209586166444 -122.79581006464244,42.30353477359885,1719.9209586166444 -122.79581122793256,42.3037053928536,1719.9209586166444 -122.79581129179387,42.30371474148139,1719.9209586166444 -122.79554233294463,42.303715757751604,1719.9209586166444 -122.7955410881684,42.30353256522742,1719.9209586166444 -122.79581004258817,42.30353154903422,1719.9209586166444</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.19">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1864.616</SimpleData>
+                        <SimpleData name="shape_leng">169.653531145</SimpleData>
+                        <SimpleData name="shape_area">1472.01395575</SimpleData>
+                        <SimpleData name="key">19</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79044828058379,42.31269293658171,1864.6158791999778 -122.79044949530687,42.3128589265549,1864.6158791999778 -122.79036573018493,42.312859269196196,1864.6158791999778 -122.7903595366795,42.31285929317731,1864.6158791999778 -122.79035840730222,42.312705324342325,1864.6158791999778 -122.79035831977167,42.31269330325238,1864.6158791999778 -122.79044828058379,42.31269293658171,1864.6158791999778</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.20">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1868.398</SimpleData>
+                        <SimpleData name="shape_leng">195.745210076</SimpleData>
+                        <SimpleData name="shape_area">2393.4751627</SimpleData>
+                        <SimpleData name="key">20</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79024215358574,42.3131043032188,1868.3980238666445 -122.79025632685831,42.31310461976738,1868.3980238666445 -122.79029176190889,42.313105412444045,1868.3980238666445 -122.79042717002658,42.31310843602385,1868.3980238666445 -122.79042184659032,42.31323955464293,1868.3980238666445 -122.79023683097208,42.31323542180447,1868.3980238666445 -122.79024215358574,42.3131043032188,1868.3980238666445</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.21">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1921.935</SimpleData>
+                        <SimpleData name="shape_leng">260.725029772</SimpleData>
+                        <SimpleData name="shape_area">3265.66251748</SimpleData>
+                        <SimpleData name="key">21</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.78858420538448,42.31295650997676,1921.934990283311 -122.78859453166547,42.31319535367661,1921.934990283311 -122.78846683355228,42.31319839455727,1921.934990283311 -122.78845999997382,42.31304014663772,1921.934990283311 -122.7884277882632,42.313040915362485,1921.934990283311 -122.78842725005165,42.31302840899754,1921.934990283311 -122.78842484066733,42.31297260335982,1921.934990283311 -122.7884243104105,42.31296031297487,1921.934990283311 -122.78850877866907,42.312958303131914,1921.934990283311 -122.78858420538448,42.31295650997676,1921.934990283311</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.22">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1718.11</SimpleData>
+                        <SimpleData name="shape_leng">230.151760904</SimpleData>
+                        <SimpleData name="shape_area">2727.07986462</SimpleData>
+                        <SimpleData name="key">22</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79492257909187,42.3159027938108,1718.1099386166443 -122.79492149304076,42.31593519034484,1718.1099386166443 -122.79490805089763,42.31593494234991,1718.1099386166443 -122.79484574595402,42.31593379438449,1718.1099386166443 -122.79482516379659,42.31593341423909,1718.1099386166443 -122.79482540280965,42.31592628300176,1718.1099386166443 -122.79483018616459,42.31578357803974,1718.1099386166443 -122.79494729300393,42.315785743795466,1718.1099386166443 -122.79494699233004,42.31579472069777,1718.1099386166443 -122.79505332954754,42.31579668305124,1718.1099386166443 -122.79505028573512,42.315887415566316,1718.1099386166443 -122.7950075780753,42.315886626404215,1718.1099386166443 -122.79500698295196,42.315904354034686,1718.1099386166443 -122.79494314911432,42.315903174185095,1718.1099386166443 -122.79492257909187,42.3159027938108,1718.1099386166443</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.23">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1925.013</SimpleData>
+                        <SimpleData name="shape_leng">297.669493697</SimpleData>
+                        <SimpleData name="shape_area">3712.90434627</SimpleData>
+                        <SimpleData name="key">23</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.7874487023837,42.311658531405484,1925.0130681166447 -122.78745081054691,42.31167021521786,1925.0130681166447 -122.78745948779166,42.31171825496287,1925.0130681166447 -122.78746235416504,42.31173412104275,1925.0130681166447 -122.78744889965847,42.31173545566345,1925.0130681166447 -122.78745495019749,42.31176899786633,1925.0130681166447 -122.78748492257756,42.31176602064265,1925.0130681166447 -122.78750039368258,42.31185174102812,1925.0130681166447 -122.78753175246463,42.31184861770206,1925.0130681166447 -122.78754534922491,42.31192392836611,1925.0130681166447 -122.78737742582177,42.311940627957014,1925.0130681166447 -122.78732866352865,42.311670465760244,1925.0130681166447 -122.7874487023837,42.311658531405484,1925.0130681166447</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.24">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1813.569</SimpleData>
+                        <SimpleData name="shape_leng">392.26075371</SimpleData>
+                        <SimpleData name="shape_area">5521.61846031</SimpleData>
+                        <SimpleData name="key">24</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79252625092455,42.3121952521177,1813.5690652833114 -122.79261159878645,42.312195471878155,1813.5690652833114 -122.79267119831208,42.31224018168321,1813.5690652833114 -122.79267114979099,42.31225067364159,1813.5690652833114 -122.79270218469223,42.31222788567465,1813.5690652833114 -122.79270581157249,42.312225223665955,1813.5690652833114 -122.7927423136923,42.31222531843368,1813.5690652833114 -122.79282550003889,42.312287712767606,1813.5690652833114 -122.79283827562271,42.31228774128954,1813.5690652833114 -122.79283799326136,42.312349150155256,1813.5690652833114 -122.79286249371762,42.312349208738624,1813.5690652833114 -122.79286213910233,42.312425397755895,1813.5690652833114 -122.79283283314533,42.312425326972786,1813.5690652833114 -122.79283256298095,42.31248506049374,1813.5690652833114 -122.7926780112857,42.312484672267644,1813.5690652833114 -122.79267811464047,42.31246182039857,1813.5690652833114 -122.79263769029147,42.31246171436102,1813.5690652833114 -122.79263790373673,42.312414547928675,1813.5690652833114 -122.79266825577548,42.31241462271853,1813.5690652833114 -122.79266833722346,42.312396998318974,1813.5690652833114 -122.79266844893306,42.31237345192548,1813.5690652833114 -122.79266851511755,42.312359196042614,1813.5690652833114 -122.79264461994994,42.31235913232016,1813.5690652833114 -122.79264484789915,42.31231064893084,1813.5690652833114 -122.79263593539638,42.3123039675691,1813.5690652833114 -122.79262721793944,42.31231036781446,1813.5690652833114 -122.79262323203974,42.31230737690923,1813.5690652833114 -122.7925682035963,42.31226609548694,1813.5690652833114 -122.792525924203,42.312265991988816,1813.5690652833114 -122.79252595930626,42.31225803006069,1813.5690652833114 -122.79252625092455,42.3121952521177,1813.5690652833114</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.25">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1814.029</SimpleData>
+                        <SimpleData name="shape_leng">66.761585487</SimpleData>
+                        <SimpleData name="shape_area">304.324417584</SimpleData>
+                        <SimpleData name="key">25</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79261971058132,42.312167425655815,1814.0290381166446 -122.79265389656582,42.31214282741717,1814.0290381166446 -122.79267896343612,42.31214179652093,1814.0290381166446 -122.79269770490139,42.31215615647523,1814.0290381166446 -122.79269967535896,42.31215766724335,1814.0290381166446 -122.79270127281313,42.31217889770513,1814.0290381166446 -122.79266887616703,42.31220220236843,1814.0290381166446 -122.79266693528278,42.31220359810305,1814.0290381166446 -122.79261971058132,42.312167425655815,1814.0290381166446</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.26">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1840.784</SimpleData>
+                        <SimpleData name="shape_leng">350.971931051</SimpleData>
+                        <SimpleData name="shape_area">4820.18881863</SimpleData>
+                        <SimpleData name="key">26</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79148449452613,42.31103974508352,1840.7839058666445 -122.79142238915632,42.311033638933665,1840.7839058666445 -122.79142542127673,42.31101659132343,1840.7839058666445 -122.79139543123145,42.31101364588607,1840.7839058666445 -122.79139380000149,42.31102278127893,1840.7839058666445 -122.79137990653571,42.31102141901829,1840.7839058666445 -122.7913574509186,42.31101921571134,1840.7839058666445 -122.7913396824406,42.31101747105541,1840.7839058666445 -122.79134107012067,42.31100966087473,1840.7839058666445 -122.79132425271902,42.31100800947144,1840.7839058666445 -122.7913129651551,42.31100689957063,1840.7839058666445 -122.79130941890668,42.31102678727232,1840.7839058666445 -122.79129940964074,42.31108292258999,1840.7839058666445 -122.79126670152651,42.311079710816955,1840.7839058666445 -122.79121279198651,42.31107441611945,1840.7839058666445 -122.79121477183425,42.31106331576744,1840.7839058666445 -122.79122896677895,42.31098370263145,1840.7839058666445 -122.79121113971884,42.31098194833838,1840.7839058666445 -122.79122779049784,42.31088857925118,1840.7839058666445 -122.79127629567591,42.31086336997468,1840.7839058666445 -122.79127833682344,42.310851925251704,1840.7839058666445 -122.7913047358088,42.310854523986016,1840.7839058666445 -122.79130847691661,42.31083353720983,1840.7839058666445 -122.79134323100958,42.31083695687242,1840.7839058666445 -122.7913881618434,42.31085502863116,1840.7839058666445 -122.79140872963681,42.31087681757274,1840.7839058666445 -122.79145467734679,42.310881332790196,1840.7839058666445 -122.79146140873645,42.31088846470973,1840.7839058666445 -122.79145907567325,42.31090153462642,1840.7839058666445 -122.7915370117627,42.31090919149156,1840.7839058666445 -122.79153186489941,42.31093808789251,1840.7839058666445 -122.79150312443672,42.31093526839927,1840.7839058666445 -122.79148449452613,42.31103974508352,1840.7839058666445</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.27">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1830.764</SimpleData>
+                        <SimpleData name="shape_leng">386.61509676</SimpleData>
+                        <SimpleData name="shape_area">4652.24420762</SimpleData>
+                        <SimpleData name="key">27</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.78854224564935,42.310242879769085,1830.7639127833113 -122.7885677372141,42.31015920314772,1830.7639127833113 -122.78857521643654,42.31016045992866,1830.7639127833113 -122.78866370169801,42.310175312969825,1830.7639127833113 -122.78867835236302,42.31017777152325,1830.7639127833113 -122.78869097169755,42.310136340576214,1830.7639127833113 -122.78877611901542,42.31015063264236,1830.7639127833113 -122.78875730589881,42.310212398479806,1830.7639127833113 -122.78885761302105,42.31022923145886,1830.7639127833113 -122.78887685872925,42.31016606901792,1830.7639127833113 -122.78902417251703,42.31019079001295,1830.7639127833113 -122.78898563583998,42.31031729598356,1830.7639127833113 -122.78854224564935,42.310242879769085,1830.7639127833113</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.28">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1826.968</SimpleData>
+                        <SimpleData name="shape_leng">169.107277342</SimpleData>
+                        <SimpleData name="shape_area">1642.28264145</SimpleData>
+                        <SimpleData name="key">28</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.78823101725142,42.31011260034266,1826.9679886166446 -122.78820214328634,42.3102148192618,1826.9679886166446 -122.78808834676872,42.310197105668024,1826.9679886166446 -122.78809278948698,42.310181371430666,1826.9679886166446 -122.78807593543245,42.31017874855817,1826.9679886166446 -122.78803837595825,42.31017290368213,1826.9679886166446 -122.78806091742823,42.31009308570896,1826.9679886166446 -122.78808196698398,42.31009636196495,1826.9679886166446 -122.78811793158962,42.310101962695505,1826.9679886166446 -122.7881198094544,42.310095295373074,1826.9679886166446 -122.78823101725142,42.31011260034266,1826.9679886166446</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.29">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1780.679</SimpleData>
+                        <SimpleData name="shape_leng">455.927718664</SimpleData>
+                        <SimpleData name="shape_area">7083.90801207</SimpleData>
+                        <SimpleData name="key">29</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79265862091162,42.31067875321038,1780.679039199978 -122.79279939561259,42.31076893102344,1780.679039199978 -122.79282081829092,42.31081351608384,1780.679039199978 -122.79288278671808,42.310942489925004,1780.679039199978 -122.79286197591234,42.31094800215982,1780.679039199978 -122.79288558342826,42.31099714391574,1780.679039199978 -122.7928896300082,42.31100556323309,1780.679039199978 -122.79285905126596,42.31112725288057,1780.679039199978 -122.79279367872672,42.311118205018104,1780.679039199978 -122.79274045825001,42.31111084009448,1780.679039199978 -122.79276446715237,42.311015303859236,1780.679039199978 -122.79274719781161,42.310979369191756,1780.679039199978 -122.79272911221996,42.310984158674735,1780.679039199978 -122.79267407203677,42.310869614585805,1780.679039199978 -122.79261328181212,42.31090086674738,1780.679039199978 -122.79256592042108,42.310850107525454,1780.679039199978 -122.79262689896642,42.310818764204384,1780.679039199978 -122.79255176399649,42.31077063899787,1780.679039199978 -122.79256217674883,42.31076168535118,1780.679039199978 -122.79265862091162,42.31067875321038,1780.679039199978</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.30">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1711.22</SimpleData>
+                        <SimpleData name="shape_leng">331.274191417</SimpleData>
+                        <SimpleData name="shape_area">4527.08210244</SimpleData>
+                        <SimpleData name="key">30</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79624424002766,42.31556978815826,1711.219860533311 -122.79624138053401,42.315590623902196,1711.219860533311 -122.79612745961103,42.31558199775251,1711.219860533311 -122.7961491862697,42.31542387192458,1711.219860533311 -122.7962624129996,42.315432437427376,1711.219860533311 -122.79625764232414,42.31546716316639,1711.219860533311 -122.79630028095754,42.31547039295653,1711.219860533311 -122.79630322263799,42.315448925124,1711.219860533311 -122.79638987474542,42.315455483650844,1711.219860533311 -122.79638688101726,42.315477249740844,1711.219860533311 -122.79645893214766,42.31548270320764,1711.219860533311 -122.79649525403487,42.31548545271069,1711.219860533311 -122.79648055029084,42.31559248290677,1711.219860533311 -122.79647953576875,42.315599868594674,1711.219860533311 -122.7963698604799,42.31559156603132,1711.219860533311 -122.79637152054391,42.31557941838645,1711.219860533311 -122.79624424002766,42.31556978815826,1711.219860533311</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.31">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1705.172</SimpleData>
+                        <SimpleData name="shape_leng">48.0399687284</SimpleData>
+                        <SimpleData name="shape_area">142.104921865</SimpleData>
+                        <SimpleData name="key">31</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79665009234625,42.31558955293398,1705.1719723666447 -122.79668857585202,42.31561296386629,1705.1719723666447 -122.79666451328856,42.31563578750363,1705.1719723666447 -122.79662602977774,42.31561237656307,1705.1719723666447 -122.79665009234625,42.31558955293398,1705.1719723666447</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.32">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1913.163</SimpleData>
+                        <SimpleData name="shape_leng">32.9933384456</SimpleData>
+                        <SimpleData name="shape_area">66.4874293684</SimpleData>
+                        <SimpleData name="key">32</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.78846598383016,42.31245465247082,1913.163026199978 -122.78846294490546,42.31242877086056,1913.163026199978 -122.78848890517779,42.312427910097384,1913.163026199978 -122.7884919405421,42.312453793580545,1913.163026199978 -122.78846598383016,42.31245465247082,1913.163026199978</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.33">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1955.201</SimpleData>
+                        <SimpleData name="shape_leng">321.275803172</SimpleData>
+                        <SimpleData name="shape_area">3928.89236215</SimpleData>
+                        <SimpleData name="key">33</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.7874680055892,42.313444200473626,1955.2009998666445 -122.78736403664416,42.31344365640169,1955.2009998666445 -122.78736570570672,42.31336320541238,1955.2009998666445 -122.78738347954126,42.313363070168435,1955.2009998666445 -122.78738483489423,42.31321855137236,1955.2009998666445 -122.78740608663762,42.31321905166505,1955.2009998666445 -122.78740670567078,42.313198684913104,1955.2009998666445 -122.78746630359707,42.31319912631828,1955.2009998666445 -122.78746586449972,42.313167518262155,1955.2009998666445 -122.78754048160542,42.31317025957911,1955.2009998666445 -122.78754000748772,42.31326707975599,1955.2009998666445 -122.78758971702692,42.313268036819515,1955.2009998666445 -122.78758788644735,42.313329951577295,1955.2009998666445 -122.78753634113443,42.31332903173766,1955.2009998666445 -122.78753612532644,42.31338042549567,1955.2009998666445 -122.7874713055057,42.31337891744389,1955.2009998666445 -122.7874680055892,42.313444200473626,1955.2009998666445</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.34">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1820.34</SimpleData>
+                        <SimpleData name="shape_leng">44.1382508652</SimpleData>
+                        <SimpleData name="shape_area">89.2415774502</SimpleData>
+                        <SimpleData name="key">34</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79231814337236,42.31218446296842,1820.3400491166444 -122.79231783281821,42.31223038495131,1820.3400491166444 -122.79229811836056,42.3122305333961,1820.3400491166444 -122.7922984288297,42.3121846087135,1820.3400491166444 -122.79231814337236,42.31218446296842,1820.3400491166444</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.35">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1820.34</SimpleData>
+                        <SimpleData name="shape_leng">51.3221574261</SimpleData>
+                        <SimpleData name="shape_area">155.412100717</SimpleData>
+                        <SimpleData name="key">35</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.7923714295178,42.31219427547891,1820.3400491166444 -122.79237154777925,42.31223780848977,1820.3400491166444 -122.79233533410505,42.31223773745996,1820.3400491166444 -122.79233521219832,42.31219420362305,1820.3400491166444 -122.7923714295178,42.31219427547891,1820.3400491166444</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.36">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1691.656</SimpleData>
+                        <SimpleData name="shape_leng">234.968139232</SimpleData>
+                        <SimpleData name="shape_area">3444.04361047</SimpleData>
+                        <SimpleData name="key">36</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79647560857207,42.31153567157974,1691.655923283311 -122.79624896838187,42.311535236535995,1691.655923283311 -122.79624890121342,42.31138108465288,1691.655923283311 -122.7964755443459,42.31138151602307,1691.655923283311 -122.79647560857207,42.31153567157974,1691.655923283311</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.37">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1755.59</SimpleData>
+                        <SimpleData name="shape_leng">23.4493617482</SimpleData>
+                        <SimpleData name="shape_area">34.0576147459</SimpleData>
+                        <SimpleData name="key">37</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79401477408106,42.30410148681299,1755.5898505333112 -122.79403849978969,42.30410167970983,1755.5898505333112 -122.79403828253872,42.30411623855901,1755.5898505333112 -122.79401455803685,42.30411604563746,1755.5898505333112 -122.79401477408106,42.30410148681299,1755.5898505333112</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.38">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1767.802</SimpleData>
+                        <SimpleData name="shape_leng">30.3158977161</SimpleData>
+                        <SimpleData name="shape_area">57.3388960145</SimpleData>
+                        <SimpleData name="key">38</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.7931464100371,42.30398848888335,1767.8020964499779 -122.79316015763037,42.30400760808084,1767.8020964499779 -122.79313648179931,42.304016986351336,1767.8020964499779 -122.79312273417801,42.303997866251024,1767.8020964499779 -122.7931464100371,42.30398848888335,1767.8020964499779</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.39">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1761.384</SimpleData>
+                        <SimpleData name="shape_leng">163.534750978</SimpleData>
+                        <SimpleData name="shape_area">1667.16957702</SimpleData>
+                        <SimpleData name="key">39</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79163411802223,42.305882804726195,1761.3841302833112 -122.79149083994216,42.30587742835237,1761.3841302833112 -122.79149886242172,42.30575970246928,1761.3841302833112 -122.7916421401316,42.305765076133156,1761.3841302833112 -122.79163411802223,42.305882804726195,1761.3841302833112</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.40">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1721.88</SimpleData>
+                        <SimpleData name="shape_leng">132.782764627</SimpleData>
+                        <SimpleData name="shape_area">1101.89106159</SimpleData>
+                        <SimpleData name="key">40</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79663888211071,42.30497629682856,1721.8799441999777 -122.79676250762758,42.304977562954285,1721.8799441999777 -122.79676082641683,42.305067954343514,1721.8799441999777 -122.79663720072026,42.305066688215916,1721.8799441999777 -122.79663888211071,42.30497629682856,1721.8799441999777</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.41">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1687.07</SimpleData>
+                        <SimpleData name="shape_leng">53.8064360632</SimpleData>
+                        <SimpleData name="shape_area">176.904730354</SimpleData>
+                        <SimpleData name="key">41</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79521819059214,42.309097175043085,1687.069974449978 -122.7952289939611,42.30912752846655,1687.069974449978 -122.79517372911998,42.30913836222181,1687.069974449978 -122.79516292577613,42.30910800879302,1687.069974449978 -122.79521819059214,42.309097175043085,1687.069974449978</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.42">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1742.083</SimpleData>
+                        <SimpleData name="shape_leng">88.6745088894</SimpleData>
+                        <SimpleData name="shape_area">489.617115645</SimpleData>
+                        <SimpleData name="key">42</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.7921212006352,42.31623265934764,1742.0829877833112 -122.79212463407355,42.31629715199048,1742.0829877833112 -122.79204773392566,42.31629940875084,1742.0829877833112 -122.79204430056696,42.31623491610565,1742.0829877833112 -122.7921212006352,42.31623265934764,1742.0829877833112</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.43">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1883.694</SimpleData>
+                        <SimpleData name="shape_leng">45.0328635563</SimpleData>
+                        <SimpleData name="shape_area">126.370191496</SimpleData>
+                        <SimpleData name="key">43</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.7896223368518,42.3124567991693,1883.6939250333112 -122.78958306202905,42.31245495848734,1883.6939250333112 -122.78958582097508,42.31242244526135,1883.6939250333112 -122.78962509213994,42.312424286016146,1883.6939250333112 -122.7896223368518,42.3124567991693,1883.6939250333112</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.44">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1864.409</SimpleData>
+                        <SimpleData name="shape_leng">193.918917797</SimpleData>
+                        <SimpleData name="shape_area">1943.04102164</SimpleData>
+                        <SimpleData name="key">44</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79059445784581,42.31287987578876,1864.4088586166445 -122.79048984373247,42.312881064239185,1864.4088586166445 -122.79048595930313,42.31269268488365,1864.4088586166445 -122.7905905694952,42.312691497410626,1864.4088586166445 -122.79059445784581,42.31287987578876,1864.4088586166445</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.45">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1788.149</SimpleData>
+                        <SimpleData name="shape_leng">39.5078898869</SimpleData>
+                        <SimpleData name="shape_area">87.5551005119</SimpleData>
+                        <SimpleData name="key">45</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.78693029801175,42.30952393229473,1788.1488405333112 -122.78697843404994,42.30952200896543,1788.1488405333112 -122.78697976515635,42.30954040891066,1788.1488405333112 -122.78693163264188,42.30954232946705,1788.1488405333112 -122.78693029801175,42.30952393229473,1788.1488405333112</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.46">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1790.82</SimpleData>
+                        <SimpleData name="shape_leng">29.9737567889</SimpleData>
+                        <SimpleData name="shape_area">51.7296333891</SimpleData>
+                        <SimpleData name="key">46</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.78696100384721,42.30950141557031,1790.8200950333112 -122.78696156247271,42.30951620000591,1790.8200950333112 -122.78692609821573,42.30951692981252,1790.8200950333112 -122.78692554313658,42.30950214260327,1790.8200950333112 -122.78696100384721,42.30950141557031,1790.8200950333112</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.47">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1900.636</SimpleData>
+                        <SimpleData name="shape_leng">47.8698394965</SimpleData>
+                        <SimpleData name="shape_area">143.198011013</SimpleData>
+                        <SimpleData name="key">47</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.78756374217681,42.31098155074354,1900.6361483666446 -122.78760760140176,42.310988306410785,1900.6361483666446 -122.78759872253214,42.3110200619964,1900.6361483666446 -122.78755486682373,42.31101330355216,1900.6361483666446 -122.78756374217681,42.31098155074354,1900.6361483666446</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.48">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1926.266</SimpleData>
+                        <SimpleData name="shape_leng">39.1439352703</SimpleData>
+                        <SimpleData name="shape_area">92.0008751067</SimpleData>
+                        <SimpleData name="key">48</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.78735113759957,42.31204000777688,1926.2660183666444 -122.78739445476646,42.312038742185685,1926.2660183666444 -122.78739560088123,42.312060253815055,1926.2660183666444 -122.78735228127442,42.31206151945587,1926.2660183666444 -122.78735113759957,42.31204000777688,1926.2660183666444</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.49">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1931.023</SimpleData>
+                        <SimpleData name="shape_leng">140.289254136</SimpleData>
+                        <SimpleData name="shape_area">1158.63042793</SimpleData>
+                        <SimpleData name="key">49</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.78726401072349,42.312159573146374,1931.0228986166444 -122.78726530479466,42.312232610740125,1931.0228986166444 -122.78710440886138,42.31223418973421,1931.0228986166444 -122.7871031148799,42.31216114943887,1931.0228986166444 -122.78726401072349,42.312159573146374,1931.0228986166444</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+            <Placemark id="buildings.50">
+                <ExtendedData>
+                    <SchemaData schemaUrl="#buildings_1">
+                        <SimpleData name="layer">S-BUILDING</SimpleData>
+                        <SimpleData name="elevation">1818.618</SimpleData>
+                        <SimpleData name="shape_leng">159.690140733</SimpleData>
+                        <SimpleData name="shape_area">1357.84399268</SimpleData>
+                        <SimpleData name="key">50</SimpleData>
+                        <SimpleData name="zone"></SimpleData>
+                    </SchemaData>
+                </ExtendedData>
+                <Polygon>
+                    <outerBoundaryIs>
+                        <LinearRing>
+                            <tessellate>1</tessellate>
+                            <coordinates>-122.79250056750118,42.31186246485379,1818.6179396999778 -122.79249386295777,42.31192967794002,1818.6179396999778 -122.79229003845442,42.31191846489498,1818.6179396999778 -122.79229674331663,42.311851254520654,1818.6179396999778 -122.79250056750118,42.31186246485379,1818.6179396999778</coordinates>
+                        </LinearRing>
+                    </outerBoundaryIs>
+                </Polygon>
+            </Placemark>
+        </Folder>
+    </Document>
+</kml>
