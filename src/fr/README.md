@@ -4,9 +4,9 @@ Bienvenue au **Workshop OpenLayers 3**. Ce workshop est conçu pour vous donner 
 
 ## Configuration
 
-Ces instructions assument que vous avez récupéré l'archive `openlayers-workshop.zip` depuis la [dernière version du workshop](https://github.com/openlayers/workshop/releases).  En plus, vous devez avoir [Node](https://nodejs.org/) installé pour lancer une serveur de développement pour la bibliothèque OpenLayers.
+Ces instructions assument que vous avez récupéré l'archive `openlayers-workshop-fr.zip` depuis la [dernière version du workshop](https://github.com/openlayers/workshop/releases).  En plus, vous devez avoir [Node](https://nodejs.org/) installé pour lancer une serveur de développement pour la bibliothèque OpenLayers.
 
-Après extraction du fichier zip, allez dans le répertoire `openlayers-workshop` et installez quelques dépendances additionnelles:
+Après extraction du fichier zip, allez dans le répertoire `openlayers-workshop-fr` et installez quelques dépendances additionnelles:
 
     npm install
 
