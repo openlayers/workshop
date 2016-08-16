@@ -53,17 +53,21 @@ configuration file:
       "externs/topojson.js"
     ],
     "define": [
-      "goog.array.ASSUME_NATIVE_FUNCTIONS=true",
       "goog.dom.ASSUME_STANDARDS_MODE=true",
-      "goog.json.USE_NATIVE_JSON=true"
+      "goog.DEBUG=false",
+      "ol.ENABLE_DOM=false",
+      "ol.ENABLE_WEBGL=false",
+      "ol.ENABLE_PROJ4JS=false",
+      "ol.ENABLE_IMAGE=false"
     ],
     "jscomp_error": [
       "*"
     ],
     "jscomp_off": [
-      "useOfGoogBase",
+      "analyzerChecks",
+      "lintChecks",
       "unnecessaryCasts",
-      "lintChecks"
+      "useOfGoogBase"
     ],
     "extra_annotation_name": [
       "api", "observable"
