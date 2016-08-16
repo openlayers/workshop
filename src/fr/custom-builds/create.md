@@ -116,8 +116,10 @@ Dans cette section, nous allons créer un `build` personnalisé pour la carte qu
         "*"
       ],
       "jscomp_off": [
-        "useOfGoogBase",
-        "lintChecks"
+        "analyzerChecks",
+        "lintChecks",
+        "unnecessaryCasts",
+        "useOfGoogBase"
       ],
       "extra_annotation_name": [
         "api", "observable"
