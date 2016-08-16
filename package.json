@@ -14,7 +14,8 @@
   "homepage": "https://github.com/openlayers/workshop#readme",
   "scripts": {
     "start": "mkdir -p src/_book && cp node_modules/openlayers/css/ol.css src/ && npm run doc:serve",
-    "test": "npm run doc:build",
+    "test": "npm run doc:build && npm run test:custom-build-chapter",
+    "test:custom-build": "node node_modules/openlayers/tasks/build.js ol-custom.json ol-custom.js && rm ol-custom.js",
     "clean": "rm -rf src/_book build",
     "postinstall": "gitbook install src",
     "doc:serve": "gitbook serve src",
