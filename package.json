@@ -16,6 +16,7 @@
     "start": "mkdir -p src/_book && cp node_modules/openlayers/css/ol.css src/ && npm run doc:serve",
     "test": "npm run doc:build",
     "clean": "rm -rf src/_book build",
+    "postinstall": "gitbook install src",
     "doc:serve": "gitbook serve src",
     "doc:build": "gitbook build src build/openlayers-workshop",
     "build": "npm run clean && npm run doc:build",
@@ -28,7 +29,6 @@
   },
   "devDependencies": {
     "gh-pages": "0.11.0",
-    "gitbook-cli": "2.3.0",
-    "gitbook-plugin-image-captions": "2.0.0"
+    "gitbook-cli": "2.3.0"
   }
 }
