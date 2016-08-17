@@ -1,0 +1,634 @@
+<!DOCTYPE HTML>
+<html lang="fr" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Sources tuilées | Workshop OpenLayers</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+        <link rel="stylesheet" href="../style.css">
+    
+
+        
+    
+    
+    <link rel="next" href="../layers/proprietary.html" />
+    
+    
+    <link rel="prev" href="../layers/wms.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="2.2"
+        data-chapter-title="Sources tuilées"
+        data-filepath="layers/cached.md"
+        data-basepath=".."
+        data-revision="Wed Aug 17 2016 12:25:21 GMT+0200 (CEST)"
+        data-innerlanguage="fr">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+                
+                <li>
+                    <a href="/" target="blank" class="custom-link">OpenLayers Workshop</a>
+                </li>
+            
+            
+
+            
+            <li class="divider"></li>
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="basics/index.html">
+            
+                
+                    <a href="../basics/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Les basiques
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="basics/map.html">
+            
+                
+                    <a href="../basics/map.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Créez une carte
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="basics/dissect.html">
+            
+                
+                    <a href="../basics/dissect.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Disséquez votre carte
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="basics/resources.html">
+            
+                
+                    <a href="../basics/resources.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Ressources OpenLayers utiles
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="layers/index.html">
+            
+                
+                    <a href="../layers/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Les couches et les sources
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="layers/wms.html">
+            
+                
+                    <a href="../layers/wms.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Sources WMS
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="layers/cached.html">
+            
+                
+                    <a href="../layers/cached.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Sources tuilées
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="layers/proprietary.html">
+            
+                
+                    <a href="../layers/proprietary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Fournisseurs de tuiles propriétaires
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="layers/vector.html">
+            
+                
+                    <a href="../layers/vector.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Données vecteur
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="layers/imagevector.html">
+            
+                
+                    <a href="../layers/imagevector.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        Source image vecteur
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="controls/index.html">
+            
+                
+                    <a href="../controls/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Les control et les interaction
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="controls/scaleline.html">
+            
+                
+                    <a href="../controls/scaleline.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Le control barre d&#39;échelle `ScaleLine`
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="controls/select.html">
+            
+                
+                    <a href="../controls/select.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        L&#39;interaction de sélection `Select`
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="controls/draw.html">
+            
+                
+                    <a href="../controls/draw.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        L&#39;interaction de dessin `Draw`
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="controls/modify.html">
+            
+                
+                    <a href="../controls/modify.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        L&#39;interaction de modification `Modify`
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="vector/index.html">
+            
+                
+                    <a href="../vector/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Les sujets liés aux vecteurs
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="vector/formats.html">
+            
+                
+                    <a href="../vector/formats.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Aparté sur les formats
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="vector/style-intro.html">
+            
+                
+                    <a href="../vector/style-intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Concepts de styles
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="vector/style.html">
+            
+                
+                    <a href="../vector/style.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Styles personnalisés
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="custom-builds/index.html">
+            
+                
+                    <a href="../custom-builds/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Les `build` personnalisés
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="custom-builds/concepts.html">
+            
+                
+                    <a href="../custom-builds/concepts.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Concepts
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="custom-builds/create.html">
+            
+                
+                    <a href="../custom-builds/create.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Créer des `build` personnalisés
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Publié avec GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Workshop OpenLayers</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="tuiles-mises-en-cache">Tuiles mises en cache</h1>
+<p>Par d&#xE9;faut, Une couche de type <code>Tile</code> fait des requ&#xEA;tes pour des images de 256 x 256 (pixel) pour remplir votre fen&#xEA;tre d&apos;affichage de carte et au del&#xE0;. Au fur et &#xE0; mesure des d&#xE9;placements et zoom sur votre carte, plus de requ&#xEA;tes vers des images seront effectu&#xE9;es pour remplir les surfaces que vous n&apos;avez pas encore visit&#xE9;es. Pendant que votre navigateur mettra en cache quelques unes des images demand&#xE9;es, une part importante du travail de traitement est typiquement requis c&#xF4;t&#xE9; serveur pour faire le rendu des images dynamiquement.</p>
+<p>Comme les couches tuil&#xE9;es font des appels &#xE0; des images en utilisant une grille r&#xE9;guli&#xE8;re, il est possible pour le serveur de mettre en cache ces images demand&#xE9;es et retourner le r&#xE9;sultat mis en cache, la prochaine fois que vous ou quelqu&apos;un d&apos;autre visitez la m&#xEA;me zone - r&#xE9;sultant en de meilleures performances.</p>
+<h2 id="olsourcexyz"><code>ol.source.XYZ</code></h2>
+<p>La sp&#xE9;cification <code>Web Map Service</code> permet beaucoup de flexibilit&#xE9; par rapport &#xE0; ce qu&apos;un client peut demander. Sans contraintes, cela rend la mise en cache difficile ou impossible en pratique.</p>
+<p>A l&apos;extr&#xEA;me oppos&#xE9;, un service peut fournir des tuiles seulement &#xE0; un jeu de niveaux de zoom fixe et seulement pour une grille r&#xE9;guli&#xE8;re. Ce comportement peut &#xEA;tre g&#xE9;n&#xE9;ralis&#xE9; aux couches tuil&#xE9;es avec une source  de type <code>XYZ</code> - vous pouvez consid&#xE9;rer que X et Y indiquent la colonne et la ligne de la grille et que le Z repr&#xE9;sente le niveau de zoom.</p>
+<h2 id="olsourceosm"><code>ol.source.OSM</code></h2>
+<p>Le projet <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap (OSM)</a> est un effort  pour collecter et mettre &#xE0; disposition des donn&#xE9;es cartographiques pour l&apos;ensemble du monde. OSM fournit diff&#xE9;rents types de rendus des donn&#xE9;es sous forme de jeux de tuiles mis en cache. Ces rendus se conforment &#xE0; l&apos;arrangement de grille XYZ basique et peuvent &#xEA;tre utilis&#xE9;s dans une carte OpenLayers. La source de la couche <code>ol.source.OSM</code> permet d&apos;acc&#xE9;der aux tuiles OpenStreetMap.</p>
+<h3 id="t&#xE2;ches">T&#xE2;ches</h3>
+<ol>
+<li><p>Ouvrez le fichier <code>map.html</code> de la <a href="wms.html">section pr&#xE9;c&#xE9;dente</a> dans votre &#xE9;diteur de texte et changez le code d&apos;initialisation de la carte pour qu&apos;il ressemble &#xE0; celui qui suit:</p>
+<pre><code class="lang-html"> <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="actionscript">
+   <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.Map({
+     target: <span class="hljs-string">&apos;map&apos;</span>,
+     layers: [
+       <span class="hljs-keyword">new</span> ol.layer.Tile({
+         source: <span class="hljs-keyword">new</span> ol.source.OSM()
+       })
+     ],
+     view: <span class="hljs-keyword">new</span> ol.View({
+       center: ol.proj.fromLonLat([<span class="hljs-number">126.97</span>, <span class="hljs-number">37.56</span>]),
+       zoom: <span class="hljs-number">9</span>
+     }),
+     controls: ol.control.defaults({
+       attributionOptions: {
+         collapsible: <span class="hljs-literal">false</span>
+       }
+     })
+   });
+ </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+</li>
+<li><p>Dans le bloc <code>&lt;head&gt;</code> du m&#xEA;me document, ajoutez quelques d&#xE9;clarations de style pour l&apos;attribution de la couche.</p>
+<pre><code class="lang-html"> <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+     <span class="hljs-id">#map</span> <span class="hljs-rules">{
+         <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">512px</span></span></span>;
+         <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">256px</span></span></span>;
+     }</span>
+     <span class="hljs-class">.ol-attribution</span> <span class="hljs-tag">a</span> <span class="hljs-rules">{
+         <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> black</span></span>;
+     }</span>
+ </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+</code></pre>
+</li>
+<li><p>Sauvez vos changements et rafraichissez la page dans votre navigateur: <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a></p>
+<figure id="fig2.2.1"><img src="cached1.png" alt="Une couche tuil&#xE9;e avec une source de type OSM"><figcaption>Une couche tuil&#xE9;e avec une source de type OSM</figcaption></figure>
+</li>
+</ol>
+<h2 id="revue-de-d&#xE9;tails">Revue de d&#xE9;tails</h2>
+<h3 id="les-projections">Les projections</h3>
+<p>Revoyons la d&#xE9;finition d&apos;une vue dans la carte:</p>
+<pre><code class="lang-js">  view: <span class="hljs-keyword">new</span> ol.View({
+    center: ol.proj.fromLonLat([<span class="hljs-number">126.97</span>, <span class="hljs-number">37.56</span>]),
+    zoom: <span class="hljs-number">9</span>
+  })
+</code></pre>
+<p>La donn&#xE9;e g&#xE9;ospatiale peut venir dans n&apos;importe quel syst&#xE8;me de coordonn&#xE9;es de r&#xE9;f&#xE9;rence. Un jeu de donn&#xE9;e peut utiliser des coordonn&#xE9;es g&#xE9;ographiques (longitude et latitude) en degr&#xE9;s, et un autre peut avoir des coordonn&#xE9;es dans une projection locale avec des unit&#xE9;s en m&#xE8;tres. Une discussion compl&#xE8;te sur les syst&#xE8;mes de r&#xE9;f&#xE9;rence de coordonn&#xE9;es va bien au del&#xE0; du p&#xE9;rim&#xE8;tre de ce module mais il est n&#xE9;anmoins important de comprendre le concept de base.</p>
+<p>OpenLayers 3 doit conna&#xEE;tre le syst&#xE8;me de coordonn&#xE9;es de votre donn&#xE9;e. En interne, cela est repr&#xE9;sent&#xE9; avec un objet <code>ol.proj.Projection</code> mais des cha&#xEE;nes de caract&#xE8;re peuvent &#xEA;tre aussi utilis&#xE9;es.</p>
+<p>Les tuiles OpenStreetMap que nous utilisons sont dans une projection Mercator. Pour cette raison, nous devons d&#xE9;finir initialement le centre en utilisant des coordonn&#xE9;es en Mercator. Comme il est relativement simple de trouver les coordonn&#xE9;es pour un point d&apos;int&#xE9;r&#xEA;t en coordonn&#xE9;es g&#xE9;ographiques, nous utilisons la fonction <code>ol.proj.fromLonLat</code> pour transformer les coordonn&#xE9;es g&#xE9;ographiques (<code>&apos;EPSG:4326&apos;</code>) en coordonn&#xE9;es Mercator (<code>&apos;EPSG:3857&apos;</code>).</p>
+<h3 id="projections-alternatives">Projections alternatives</h3>
+<p>OpenLayers 3 inclut les transformation entre les syst&#xE8;mes de r&#xE9;f&#xE9;rences de coordonn&#xE9;es g&#xE9;ographiques (<code>&apos;EPSG:4326&apos;</code>) et Web Mercator (<code>&apos;EPSG:3857&apos;</code>).  Pour cette raison, nous pouvons utiliser la fonction <code>ol.proj.fromLonLat</code> ci-dessus sans aucun travail suppl&#xE9;mentaire.  Si vous voulez travailler avec des donn&#xE9;es dans une projection diff&#xE9;rente, vous devez inclure des informations additionnelles avant d&apos;utiliser les fonctions <code>ol.proj.*</code>.</p>
+<p>Par exemple, si vous voulez travailler avec de la donn&#xE9;e dans le syst&#xE8;me de r&#xE9;f&#xE9;rence de coordonn&#xE9;es <code>&apos;EPSG:21781&apos;</code>, vous allez devoir inclure les deux tags <code>script</code> dans votre page:</p>
+<pre><code class="lang-html">  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://epsg.io/21781-1753.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<p>Ensuite, dans le code de votre application, vous pouvez enregistrer cette projection et d&#xE9;finir la validit&#xE9; de son &#xE9;t&#xE9;endue comme ci-dessous:</p>
+<pre><code class="lang-js">  <span class="hljs-comment">// This creates a projection object for the EPSG:21781 projection</span>
+  <span class="hljs-comment">// and sets a &quot;validity extent&quot; in that projection object.</span>
+  <span class="hljs-keyword">var</span> projection = ol.proj.get(<span class="hljs-string">&apos;EPSG:21781&apos;</span>);
+  projection.setExtent([<span class="hljs-number">485869.5728</span>, <span class="hljs-number">76443.1884</span>, <span class="hljs-number">837076.5648</span>, <span class="hljs-number">299941.7864</span>]);
+</code></pre>
+<p>L&apos;information d&apos;&#xE9;tendue <code>extent</code> peut &#xEA;tre retrouv&#xE9;e sur <a href="http://epsg.io/" target="_blank">http://epsg.io/</a>, en utilisant le code EPSG.</p>
+<h3 id="cr&#xE9;ation-de-couche">Cr&#xE9;ation de couche</h3>
+<pre><code class="lang-js">  layers: [
+    <span class="hljs-keyword">new</span> ol.layer.Tile({
+      source: <span class="hljs-keyword">new</span> ol.source.OSM()
+    })
+  ],
+</code></pre>
+<p>Comme pr&#xE9;c&#xE9;demment, nous cr&#xE9;ons une couche et l&apos;ajoutons au tableau de couches dans la configuration de notre objet carte <code>map</code>. Cette fois, nous acceptons toutes les options par d&#xE9;faut de la <code>source</code>.</p>
+<h3 id="style">Style</h3>
+<pre><code class="lang-css">  <span class="hljs-class">.ol-attribution</span> <span class="hljs-tag">a</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> black</span></span>;
+  }</span>
+</code></pre>
+<p>Un traitement des <code>controls</code> de la carte est en dehors du p&#xE9;rim&#xE8;tre de ce module, mais ces d&#xE9;clarations de style vous donnent une l&#xE9;ger avant-go&#xFB;t/aper&#xE7;u. Par d&#xE9;faut, un <code>control</code> <code>ol.control.Attribution</code> est ajout&#xE9; &#xE0; toutes les cartes. Cela laisse les sources de couche afficher les informations d&apos;attribution dans la fen&#xEA;tre d&apos;affichage de carte. Les d&#xE9;clarations ci-dessus changent le style de cette attribution pour notre carte (remarquez la ligne de Copyright au pied droit de la carte).</p>
+<h3 id="configuration-du-control-pour-lattribution">Configuration du <code>control</code> pour l&apos;attribution</h3>
+<p>Par d&#xE9;faut, <code>ol.control.Attribution</code> ajoute un bouton <code>i</code> (information) qui peut &#xEA;tre press&#xE9; pour afficher r&#xE9;ellement l&apos;information d&apos;attribution. Pour se conformer aux <a href="http://wiki.openstreetmap.org/wiki/FR:Questions_fr%C3%A9quentes_l%C3%A9gales" target="_blank">termes d&apos;utilisation d&apos;OpenStreetMap</a>, et toujours afficher l&apos;information d&apos;attribution d&apos;OpenStreetMap, ce qui suit est utilis&#xE9; dans les options de l&apos;objet pass&#xE9; au constructeur <code>ol.Map</code>:</p>
+<pre><code class="lang-js">  controls: ol.control.defaults({
+    attributionOptions: {
+      collapsible: <span class="hljs-literal">false</span>
+    }
+  })
+</code></pre>
+<p>Cela enl&#xE8;ve le bouton <code>i</code>, et rend l&apos;information d&apos;attribution toujours visible.</p>
+<p>Apr&#xE8;s avoir ma&#xEE;tris&#xE9; les couches avec les jeux de tuiles mis en cache publics, passons au travail avec <a href="proprietary.html">les couches raster propri&#xE9;taires</a>.</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../layers/wms.html" class="navigation navigation-prev " aria-label="Previous page: Sources WMS"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../layers/proprietary.html" class="navigation navigation-next " aria-label="Next page: Fournisseurs de tuiles propriétaires"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

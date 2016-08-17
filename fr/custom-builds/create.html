@@ -1,0 +1,678 @@
+<!DOCTYPE HTML>
+<html lang="fr" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Créer des `build` personnalisés | Workshop OpenLayers</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+        <link rel="stylesheet" href="../style.css">
+    
+
+        
+    
+    
+    
+    <link rel="prev" href="../custom-builds/concepts.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="5.2"
+        data-chapter-title="Créer des `build` personnalisés"
+        data-filepath="custom-builds/create.md"
+        data-basepath=".."
+        data-revision="Wed Aug 17 2016 12:25:21 GMT+0200 (CEST)"
+        data-innerlanguage="fr">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+                
+                <li>
+                    <a href="/" target="blank" class="custom-link">OpenLayers Workshop</a>
+                </li>
+            
+            
+
+            
+            <li class="divider"></li>
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="basics/index.html">
+            
+                
+                    <a href="../basics/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Les basiques
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="basics/map.html">
+            
+                
+                    <a href="../basics/map.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Créez une carte
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="basics/dissect.html">
+            
+                
+                    <a href="../basics/dissect.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Disséquez votre carte
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="basics/resources.html">
+            
+                
+                    <a href="../basics/resources.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Ressources OpenLayers utiles
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="layers/index.html">
+            
+                
+                    <a href="../layers/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Les couches et les sources
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="layers/wms.html">
+            
+                
+                    <a href="../layers/wms.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Sources WMS
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="layers/cached.html">
+            
+                
+                    <a href="../layers/cached.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Sources tuilées
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="layers/proprietary.html">
+            
+                
+                    <a href="../layers/proprietary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Fournisseurs de tuiles propriétaires
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="layers/vector.html">
+            
+                
+                    <a href="../layers/vector.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Données vecteur
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="layers/imagevector.html">
+            
+                
+                    <a href="../layers/imagevector.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        Source image vecteur
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="controls/index.html">
+            
+                
+                    <a href="../controls/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Les control et les interaction
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="controls/scaleline.html">
+            
+                
+                    <a href="../controls/scaleline.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Le control barre d&#39;échelle `ScaleLine`
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="controls/select.html">
+            
+                
+                    <a href="../controls/select.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        L&#39;interaction de sélection `Select`
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="controls/draw.html">
+            
+                
+                    <a href="../controls/draw.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        L&#39;interaction de dessin `Draw`
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="controls/modify.html">
+            
+                
+                    <a href="../controls/modify.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        L&#39;interaction de modification `Modify`
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="vector/index.html">
+            
+                
+                    <a href="../vector/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Les sujets liés aux vecteurs
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="vector/formats.html">
+            
+                
+                    <a href="../vector/formats.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Aparté sur les formats
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="vector/style-intro.html">
+            
+                
+                    <a href="../vector/style-intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Concepts de styles
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="vector/style.html">
+            
+                
+                    <a href="../vector/style.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Styles personnalisés
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="custom-builds/index.html">
+            
+                
+                    <a href="../custom-builds/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Les `build` personnalisés
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="custom-builds/concepts.html">
+            
+                
+                    <a href="../custom-builds/concepts.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Concepts
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.2" data-path="custom-builds/create.html">
+            
+                
+                    <a href="../custom-builds/create.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Créer des `build` personnalisés
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Publié avec GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Workshop OpenLayers</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="cr&#xE9;er-des-build-personnalis&#xE9;s">Cr&#xE9;er des <code>build</code> personnalis&#xE9;s</h1>
+<p>Dans cette section, nous allons cr&#xE9;er un <code>build</code> personnalis&#xE9; pour la carte que nous avons cr&#xE9;&#xE9;e dans le <a href="../vector/style.html">dernier chapitre</a>.</p>
+<ol>
+<li><p>Commen&#xE7;ons avec le fichier <code>map.html</code> que vous avez cr&#xE9;&#xE9; pr&#xE9;c&#xE9;demment:</p>
+<pre><code class="lang-html"> <span class="hljs-doctype">&lt;!doctype html&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;en&quot;</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">&quot;stylesheet&quot;</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;/ol.css&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/css&quot;</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+   <span class="hljs-id">#map</span> <span class="hljs-rules">{
+     <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">256px</span></span></span>;
+     <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">512px</span></span></span>;
+   }</span>
+   </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>OpenLayers 3 example<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;/loader.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>My Map<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;map&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="actionscript">
+     <span class="hljs-keyword">var</span> style = (<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+       <span class="hljs-keyword">var</span> stroke = <span class="hljs-keyword">new</span> ol.style.Stroke({
+         color: <span class="hljs-string">&apos;black&apos;</span>
+       });
+       <span class="hljs-keyword">var</span> textStroke = <span class="hljs-keyword">new</span> ol.style.Stroke({
+         color: <span class="hljs-string">&apos;#fff&apos;</span>,
+         width: <span class="hljs-number">3</span>
+       });
+       <span class="hljs-keyword">var</span> textFill = <span class="hljs-keyword">new</span> ol.style.Fill({
+         color: <span class="hljs-string">&apos;#000&apos;</span>
+       });
+       <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(feature, resolution)</span> </span>{
+         <span class="hljs-keyword">return</span> [<span class="hljs-keyword">new</span> ol.style.Style({
+           stroke: stroke,
+           text: <span class="hljs-keyword">new</span> ol.style.Text({
+             font: <span class="hljs-string">&apos;12px Calibri,sans-serif&apos;</span>,
+             text: feature.<span class="hljs-keyword">get</span>(<span class="hljs-string">&apos;key&apos;</span>),
+             fill: textFill,
+             stroke: textStroke
+           })
+         })];
+       };
+     })();
+     <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.Map({
+       target: <span class="hljs-string">&apos;map&apos;</span>,
+       layers: [
+         <span class="hljs-keyword">new</span> ol.layer.Tile({
+           source: <span class="hljs-keyword">new</span> ol.source.OSM()
+         }),
+         <span class="hljs-keyword">new</span> ol.layer.Vector({
+           title: <span class="hljs-string">&apos;Buildings&apos;</span>,
+           source: <span class="hljs-keyword">new</span> ol.source.Vector({
+             url: <span class="hljs-string">&apos;/data/layers/buildings.kml&apos;</span>,
+             format: <span class="hljs-keyword">new</span> ol.format.KML({
+               extractStyles: <span class="hljs-literal">false</span>
+             })
+           }),
+           style: style
+         })
+       ],
+       view: <span class="hljs-keyword">new</span> ol.View({
+         center: ol.proj.fromLonLat([-<span class="hljs-number">122.79264450073244</span>, <span class="hljs-number">42.30975194250527</span>]),
+         zoom: <span class="hljs-number">16</span>
+       })
+     });
+   </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+</li>
+<li><p>Cr&#xE9;ez un fichier de configuration du <code>build</code> pour cette carte:</p>
+<pre><code class="lang-json">{
+ <span class="hljs-string">&quot;exports&quot;</span>: [
+   <span class="hljs-string">&quot;ol.Map&quot;</span>,
+   <span class="hljs-string">&quot;ol.View&quot;</span>,
+   <span class="hljs-string">&quot;ol.format.KML&quot;</span>,
+   <span class="hljs-string">&quot;ol.layer.Tile&quot;</span>,
+   <span class="hljs-string">&quot;ol.layer.Vector&quot;</span>,
+   <span class="hljs-string">&quot;ol.proj.fromLonLat&quot;</span>,
+   <span class="hljs-string">&quot;ol.source.OSM&quot;</span>,
+   <span class="hljs-string">&quot;ol.source.Vector&quot;</span>,
+   <span class="hljs-string">&quot;ol.style.Fill&quot;</span>,
+   <span class="hljs-string">&quot;ol.style.Stroke&quot;</span>,
+   <span class="hljs-string">&quot;ol.style.Style&quot;</span>,
+   <span class="hljs-string">&quot;ol.style.Text&quot;</span>
+ ],
+ <span class="hljs-string">&quot;jvm&quot;</span>: [],
+ <span class="hljs-string">&quot;umd&quot;</span>: <span class="hljs-literal">true</span>,
+ <span class="hljs-string">&quot;compile&quot;</span>: {
+   <span class="hljs-string">&quot;externs&quot;</span>: [
+     <span class="hljs-string">&quot;externs/bingmaps.js&quot;</span>,
+     <span class="hljs-string">&quot;externs/closure-compiler.js&quot;</span>,
+     <span class="hljs-string">&quot;externs/esrijson.js&quot;</span>,
+     <span class="hljs-string">&quot;externs/geojson.js&quot;</span>,
+     <span class="hljs-string">&quot;externs/oli.js&quot;</span>,
+     <span class="hljs-string">&quot;externs/olx.js&quot;</span>,
+     <span class="hljs-string">&quot;externs/proj4js.js&quot;</span>,
+     <span class="hljs-string">&quot;externs/tilejson.js&quot;</span>,
+     <span class="hljs-string">&quot;externs/topojson.js&quot;</span>
+   ],
+   <span class="hljs-string">&quot;define&quot;</span>: [
+     <span class="hljs-string">&quot;goog.dom.ASSUME_STANDARDS_MODE=true&quot;</span>,
+     <span class="hljs-string">&quot;goog.DEBUG=false&quot;</span>,
+     <span class="hljs-string">&quot;ol.ENABLE_DOM=false&quot;</span>,
+     <span class="hljs-string">&quot;ol.ENABLE_WEBGL=false&quot;</span>,
+     <span class="hljs-string">&quot;ol.ENABLE_PROJ4JS=false&quot;</span>,
+     <span class="hljs-string">&quot;ol.ENABLE_IMAGE=false&quot;</span>
+   ],
+   <span class="hljs-string">&quot;jscomp_error&quot;</span>: [
+     <span class="hljs-string">&quot;*&quot;</span>
+   ],
+   <span class="hljs-string">&quot;jscomp_off&quot;</span>: [
+     <span class="hljs-string">&quot;analyzerChecks&quot;</span>,
+     <span class="hljs-string">&quot;lintChecks&quot;</span>,
+     <span class="hljs-string">&quot;unnecessaryCasts&quot;</span>,
+     <span class="hljs-string">&quot;useOfGoogBase&quot;</span>
+   ],
+   <span class="hljs-string">&quot;extra_annotation_name&quot;</span>: [
+     <span class="hljs-string">&quot;api&quot;</span>, <span class="hljs-string">&quot;observable&quot;</span>
+   ],
+   <span class="hljs-string">&quot;compilation_level&quot;</span>: <span class="hljs-string">&quot;ADVANCED&quot;</span>,
+   <span class="hljs-string">&quot;warning_level&quot;</span>: <span class="hljs-string">&quot;VERBOSE&quot;</span>,
+   <span class="hljs-string">&quot;use_types_for_optimization&quot;</span>: <span class="hljs-literal">true</span>,
+   <span class="hljs-string">&quot;manage_closure_dependencies&quot;</span>: <span class="hljs-literal">true</span>
+ }
+}
+</code></pre>
+</li>
+<li><p>Cr&#xE9;ez le <code>build</code> personnalis&#xE9; en utilisant le script Node <code>build.js</code> d&apos;OpenLayers:</p>
+<pre><code class="lang-shell">$ node node_modules/openlayers/tasks/build.js ol-custom.json ol-custom.js
+</code></pre>
+<p>Cela va g&#xE9;n&#xE9;rer le <code>build</code> personnalis&#xE9; <code>ol-custom.js</code> &#xE0; la racine du projet.</p>
+</li>
+<li><p>Maintenant, changez <code>map.html</code> pour utiliser le <code>build</code> personnalis&#xE9; (<code>ol-custom.js</code>) plut&#xF4;t que le chargeur de d&#xE9;veloppement.</p>
+<p>Ainsi, changez</p>
+<pre><code class="lang-html">   <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;/loader.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<p>par</p>
+<pre><code class="lang-html">   <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;/ol-custom.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+</li>
+</ol>
+<p>La page devrait maintenant se charger plus rapidement!</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../custom-builds/concepts.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Concepts"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

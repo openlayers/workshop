@@ -1,0 +1,634 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Tiled sources | OpenLayers Workshop</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+        <link rel="stylesheet" href="../style.css">
+    
+
+        
+    
+    
+    <link rel="next" href="../layers/proprietary.html" />
+    
+    
+    <link rel="prev" href="../layers/wms.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="2.2"
+        data-chapter-title="Tiled sources"
+        data-filepath="layers/cached.md"
+        data-basepath=".."
+        data-revision="Wed Aug 17 2016 12:25:20 GMT+0200 (CEST)"
+        data-innerlanguage="en">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+                
+                <li>
+                    <a href="/" target="blank" class="custom-link">OpenLayers Workshop</a>
+                </li>
+            
+            
+
+            
+            <li class="divider"></li>
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="basics/index.html">
+            
+                
+                    <a href="../basics/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Basics
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="basics/map.html">
+            
+                
+                    <a href="../basics/map.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Creating a map
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="basics/dissect.html">
+            
+                
+                    <a href="../basics/dissect.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Dissecting your map
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="basics/resources.html">
+            
+                
+                    <a href="../basics/resources.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Resources
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="layers/index.html">
+            
+                
+                    <a href="../layers/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Layers and Sources
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="layers/wms.html">
+            
+                
+                    <a href="../layers/wms.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        WMS sources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="layers/cached.html">
+            
+                
+                    <a href="../layers/cached.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Tiled sources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="layers/proprietary.html">
+            
+                
+                    <a href="../layers/proprietary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Proprietary tile providers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="layers/vector.html">
+            
+                
+                    <a href="../layers/vector.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Vector data
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="layers/imagevector.html">
+            
+                
+                    <a href="../layers/imagevector.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        Image vector source
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="controls/index.html">
+            
+                
+                    <a href="../controls/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Controls
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="controls/scaleline.html">
+            
+                
+                    <a href="../controls/scaleline.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Scale line control
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="controls/select.html">
+            
+                
+                    <a href="../controls/select.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Select interaction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="controls/draw.html">
+            
+                
+                    <a href="../controls/draw.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        Draw interaction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="controls/modify.html">
+            
+                
+                    <a href="../controls/modify.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Modify interaction
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="vector/index.html">
+            
+                
+                    <a href="../vector/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Vector Topics
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="vector/formats.html">
+            
+                
+                    <a href="../vector/formats.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Formats
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="vector/style-intro.html">
+            
+                
+                    <a href="../vector/style-intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Styling concepts
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="vector/style.html">
+            
+                
+                    <a href="../vector/style.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Custom styles
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="custom-builds/index.html">
+            
+                
+                    <a href="../custom-builds/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Custom Builds
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="custom-builds/concepts.html">
+            
+                
+                    <a href="../custom-builds/concepts.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Concepts
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="custom-builds/create.html">
+            
+                
+                    <a href="../custom-builds/create.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Create custom builds
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >OpenLayers Workshop</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="cached-tiles">Cached Tiles</h1>
+<p>By default, the Tile layer makes requests for 256 x 256 (pixel) images to fill your map viewport and beyond. As you pan and zoom around your map, more requests for images go out to fill the areas you haven&apos;t yet visited. While your browser will cache some requested images, a lot of processing work is typically required for the server to dynamically render images.</p>
+<p>Since tiled layers make requests for images on a regular grid, it is possible for the server to cache these image requests and return the cached result next time you (or someone else) visits the same area - resulting in better performance all around.</p>
+<h2 id="olsourcexyz"><code>ol.source.XYZ</code></h2>
+<p>The Web Map Service specification allows a lot of flexibility in terms of what a client can request. Without constraints, this makes caching difficult or impossible in practice.</p>
+<p>At the opposite extreme, a service might offer tiles only at a fixed set of zoom levels and only for a regular grid. These can be generalized as tiled layers with an XYZ source - you can consider X and Y to indicate the column and row of the grid and Z to represent the zoom level.</p>
+<h2 id="olsourceosm"><code>ol.source.OSM</code></h2>
+<p>The <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap (OSM)</a> project is an effort to collect and make freely available map data for the world. OSM provides a few different renderings of their data as cached tile sets. These renderings conform to the basic XYZ grid arrangement and can be used in an OpenLayers map. The <code>ol.source.OSM</code> layer source accesses OpenStreetMap tiles.</p>
+<h3 id="tasks">Tasks</h3>
+<ol>
+<li><p>Open the <code>map.html</code> file from the <a href="wms.html">previous section</a> in a text editor and change the map initialization code to look like the following:</p>
+<pre><code class="lang-html"> <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="actionscript">
+   <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.Map({
+     target: <span class="hljs-string">&apos;map&apos;</span>,
+     layers: [
+       <span class="hljs-keyword">new</span> ol.layer.Tile({
+         source: <span class="hljs-keyword">new</span> ol.source.OSM()
+       })
+     ],
+     view: <span class="hljs-keyword">new</span> ol.View({
+       center: ol.proj.fromLonLat([<span class="hljs-number">126.97</span>, <span class="hljs-number">37.56</span>]),
+       zoom: <span class="hljs-number">9</span>
+     }),
+     controls: ol.control.defaults({
+       attributionOptions: {
+         collapsible: <span class="hljs-literal">false</span>
+       }
+     })
+   });
+ </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+</li>
+<li><p>In the <code>&lt;head&gt;</code> of the same document, add a few style declarations for the layer attribution.</p>
+<pre><code class="lang-html"> <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+     <span class="hljs-id">#map</span> <span class="hljs-rules">{
+         <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">512px</span></span></span>;
+         <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">256px</span></span></span>;
+     }</span>
+     <span class="hljs-class">.ol-attribution</span> <span class="hljs-tag">a</span> <span class="hljs-rules">{
+         <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> black</span></span>;
+     }</span>
+ </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+</code></pre>
+</li>
+<li><p>Save your changes, and refresh the page in your browser: <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a></p>
+<figure id="fig2.2.1"><img src="cached1.png" alt="A tiled layer with an OSM source"><figcaption>A tiled layer with an OSM source</figcaption></figure>
+</li>
+</ol>
+<h2 id="a-closer-look">A Closer Look</h2>
+<h3 id="projections">Projections</h3>
+<p>Review the view definition of the map:</p>
+<pre><code class="lang-js">  view: <span class="hljs-keyword">new</span> ol.View({
+    center: ol.proj.fromLonLat([<span class="hljs-number">126.97</span>, <span class="hljs-number">37.56</span>]),
+    zoom: <span class="hljs-number">9</span>
+  })
+</code></pre>
+<p>Geospatial data can come in any number of coordinate reference systems. One data set might use geographic coordinates (longitude and latitude) in degrees, and another might have coordinates in a local projection with units in meters. A full discussion of coordinate reference systems is beyond the scope of this module, but it is important to understand the basic concept.</p>
+<p>OpenLayers 3 needs to know the coordinate system for your data. Internally, this is represented with an <code>ol.proj.Projection</code> object but strings can also be supplied.</p>
+<p>The OpenStreetMap tiles that we will be using are in a Mercator projection. Because of this, we need to set the initial center using Mercator coordinates. Since it is relatively easy to find out the coordinates for a place of interest in geographic coordinates, we use the <code>ol.proj.fromLonLat</code> method to turn geographic coordinates (<code>&apos;EPSG:4326&apos;</code>) into Mercator coordinates (<code>&apos;EPSG:3857&apos;</code>).</p>
+<h3 id="alternative-projections">Alternative Projections</h3>
+<p>OpenLayers 3 includes transforms between Geographic (<code>&apos;EPSG:4326&apos;</code>) and Web Mercator (<code>&apos;EPSG:3857&apos;</code>) coordinate reference systems.  Because of this, we can use the <code>ol.proj.fromLonLat</code> function above without any extra work.  If you want to work with data in a different projection, you need to include some additional information before using the <code>ol.proj.*</code> functions.</p>
+<p>For example, if you wanted to work with data in the <code>&apos;EPSG:21781&apos;</code> coordinate reference system, you would include the following two script tags in your page:</p>
+<pre><code class="lang-html">  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://epsg.io/21781-1753.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<p>Then in your application code, you could register this projection and set its validity extent as follows:</p>
+<pre><code class="lang-js">  <span class="hljs-comment">// This creates a projection object for the EPSG:21781 projection</span>
+  <span class="hljs-comment">// and sets a &quot;validity extent&quot; in that projection object.</span>
+  <span class="hljs-keyword">var</span> projection = ol.proj.get(<span class="hljs-string">&apos;EPSG:21781&apos;</span>);
+  projection.setExtent([<span class="hljs-number">485869.5728</span>, <span class="hljs-number">76443.1884</span>, <span class="hljs-number">837076.5648</span>, <span class="hljs-number">299941.7864</span>]);
+</code></pre>
+<p>The extent information can be looked up at <a href="http://epsg.io/" target="_blank">http://epsg.io/</a>, using the EPSG code.</p>
+<h3 id="layer-creation">Layer Creation</h3>
+<pre><code class="lang-js">  layers: [
+    <span class="hljs-keyword">new</span> ol.layer.Tile({
+      source: <span class="hljs-keyword">new</span> ol.source.OSM()
+    })
+  ],
+</code></pre>
+<p>As before, we create a layer and add it to the layers array of our map config object. This time, we accept all the default options for the source.</p>
+<h3 id="style">Style</h3>
+<pre><code class="lang-css">  <span class="hljs-class">.ol-attribution</span> <span class="hljs-tag">a</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> black</span></span>;
+  }</span>
+</code></pre>
+<p>A treatment of map controls is also outside of the scope of this module, but these style declarations give you a sneak preview. By default, an <code>ol.control.Attribution</code> control is added to all maps. This lets layer sources display attribution information in the map viewport. The declarations above alter the style of this attribution for our map (notice the Copyright line at the bottom right of the map).</p>
+<h3 id="attribution-control-configuration">Attribution Control Configuration</h3>
+<p>By default the <code>ol.control.Attribution</code> adds an <code>i</code> (information) button that can be pressed to actually displays the attribution information. To comply to <a href="http://wiki.openstreetmap.org/wiki/Legal_FAQ" target="_blank">OpenStreetMap&apos;s Terms Of Use</a>, and always display the OpenStreetMap attribution information, the following is used in the options object passed to the <code>ol.Map</code> constructor:</p>
+<pre><code class="lang-js">  controls: ol.control.defaults({
+    attributionOptions: {
+      collapsible: <span class="hljs-literal">false</span>
+    }
+  })
+</code></pre>
+<p>This removes the <code>i</code> button, and makes the attribution information always visible.</p>
+<p>Having mastered layers with publicly available cached tile sets, let&apos;s move on to working with <a href="proprietary.html">proprietary raster layers</a>.</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../layers/wms.html" class="navigation navigation-prev " aria-label="Previous page: WMS sources"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../layers/proprietary.html" class="navigation navigation-next " aria-label="Next page: Proprietary tile providers"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

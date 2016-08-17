@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 256px;
+        width: 512px;
+      }
+    </style>
+    <title>OpenLayers 3 example</title>
+  </head>
+  <body>
+    <h1>My Map</h1>
+    <div id="map" class="map"></div>
+    <script src="/loader.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var defaultStyles = [
+        new ol.style.Style({
+          fill: new ol.style.Fill({color: 'navy'}),
+          stroke: new ol.style.Stroke({color: 'black', width: 1})
+        })
+      ];
+      var smallStyles = [
+        new ol.style.Style({
+          fill: new ol.style.Fill({color: 'olive'}),
+          stroke: new ol.style.Stroke({color: 'black', width: 1})
+        })
+      ];
+      var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          }),
+          new ol.layer.Vector({
+            title: 'Buildings',
+            source: new ol.source.Vector({
+              url: '/data/layers/buildings.kml',
+              format: new ol.format.KML({
+                extractStyles: false
+              })
+            }),
+            style: function(feature, resolution) {
+              return feature.get('shape_area') < 3000 ?
+                  smallStyles : defaultStyles;
+            }
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([-122.79264450073244, 42.30975194250527]),
+          zoom: 16
+        })
+      });
+    </script>
+  </body>
+</html>

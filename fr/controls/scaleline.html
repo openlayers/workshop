@@ -1,0 +1,594 @@
+<!DOCTYPE HTML>
+<html lang="fr" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Le control barre d&#39;échelle `ScaleLine` | Workshop OpenLayers</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+        <link rel="stylesheet" href="../style.css">
+    
+
+        
+    
+    
+    <link rel="next" href="../controls/select.html" />
+    
+    
+    <link rel="prev" href="../controls/index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="3.1"
+        data-chapter-title="Le control barre d&#39;échelle `ScaleLine`"
+        data-filepath="controls/scaleline.md"
+        data-basepath=".."
+        data-revision="Wed Aug 17 2016 12:25:21 GMT+0200 (CEST)"
+        data-innerlanguage="fr">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+                
+                <li>
+                    <a href="/" target="blank" class="custom-link">OpenLayers Workshop</a>
+                </li>
+            
+            
+
+            
+            <li class="divider"></li>
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="basics/index.html">
+            
+                
+                    <a href="../basics/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Les basiques
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="basics/map.html">
+            
+                
+                    <a href="../basics/map.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Créez une carte
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="basics/dissect.html">
+            
+                
+                    <a href="../basics/dissect.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Disséquez votre carte
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="basics/resources.html">
+            
+                
+                    <a href="../basics/resources.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Ressources OpenLayers utiles
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="layers/index.html">
+            
+                
+                    <a href="../layers/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Les couches et les sources
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="layers/wms.html">
+            
+                
+                    <a href="../layers/wms.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Sources WMS
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="layers/cached.html">
+            
+                
+                    <a href="../layers/cached.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Sources tuilées
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="layers/proprietary.html">
+            
+                
+                    <a href="../layers/proprietary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Fournisseurs de tuiles propriétaires
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="layers/vector.html">
+            
+                
+                    <a href="../layers/vector.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Données vecteur
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="layers/imagevector.html">
+            
+                
+                    <a href="../layers/imagevector.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        Source image vecteur
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="controls/index.html">
+            
+                
+                    <a href="../controls/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Les control et les interaction
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="3.1" data-path="controls/scaleline.html">
+            
+                
+                    <a href="../controls/scaleline.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Le control barre d&#39;échelle `ScaleLine`
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="controls/select.html">
+            
+                
+                    <a href="../controls/select.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        L&#39;interaction de sélection `Select`
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="controls/draw.html">
+            
+                
+                    <a href="../controls/draw.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        L&#39;interaction de dessin `Draw`
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="controls/modify.html">
+            
+                
+                    <a href="../controls/modify.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        L&#39;interaction de modification `Modify`
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="vector/index.html">
+            
+                
+                    <a href="../vector/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Les sujets liés aux vecteurs
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="vector/formats.html">
+            
+                
+                    <a href="../vector/formats.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Aparté sur les formats
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="vector/style-intro.html">
+            
+                
+                    <a href="../vector/style-intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Concepts de styles
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="vector/style.html">
+            
+                
+                    <a href="../vector/style.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Styles personnalisés
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="custom-builds/index.html">
+            
+                
+                    <a href="../custom-builds/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Les `build` personnalisés
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="custom-builds/concepts.html">
+            
+                
+                    <a href="../custom-builds/concepts.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Concepts
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="custom-builds/create.html">
+            
+                
+                    <a href="../custom-builds/create.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Créer des `build` personnalisés
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Publié avec GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Workshop OpenLayers</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="afficher-une-barre-d&#xE9;chelle">Afficher une barre d&apos;&#xE9;chelle</h1>
+<p>Un autre widget typique &#xE0; afficher sur une carte est la barre d&apos;&#xE9;chelle.  OpenLayers 3 fournit un <code>ol.control.ScaleLine</code> juste pour cela.</p>
+<h2 id="cr&#xE9;er-un-control-de-barre-d&#xE9;chelle-scaleline">Cr&#xE9;er un <code>control</code> de barre d&apos;&#xE9;chelle (<code>ScaleLine</code>)</h2>
+<h3 id="t&#xE2;ches">T&#xE2;ches</h3>
+<ol>
+<li><p>Ouvrez <code>map.html</code> dans votre &#xE9;diteur de texte.</p>
+</li>
+<li><p>Quelque part dans la configuration de la carte, ajoutez le code suivant pour cr&#xE9;er un nouveau <code>control</code> de barre d&apos;&#xE9;chelle pour votre carte:</p>
+<pre><code class="lang-js">controls: ol.control.defaults().extend([
+  <span class="hljs-keyword">new</span> ol.control.ScaleLine()
+]),
+</code></pre>
+</li>
+<li><p>Sauvez vos changements et ouvrez <code>map.html</code> dans votre navigateur: <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a></p>
+<figure id="fig3.1.1"><img src="scaleline1.png" alt="Une barre d&apos;&#xE9;chelle par d&#xE9;faut dans le coin en bas &#xE0; gauche"><figcaption>Une barre d&apos;&#xE9;chelle par d&#xE9;faut dans le coin en bas &#xE0; gauche</figcaption></figure>
+</li>
+</ol>
+<h2 id="d&#xE9;placer-le-control-de-type-scaleline">D&#xE9;placer le <code>control</code> de type <code>ScaleLine</code></h2>
+<p>Vous pouvez trouver la barre d&apos;&#xE9;chelle difficile &#xE0; lire par dessus le fond image. Il y a quelques approches &#xE0; prendre en compte pour am&#xE9;liorer la visibilit&#xE9; de l&apos;&#xE9;chelle.  Si vous voulez gardez le <code>control</code> dans la fen&#xEA;tre d&apos;affichage de carte, vous pouvez ajouter quelques d&#xE9;clarations de style dans le CSS de votre document. Pour tester cela, vous pouvez inclure une couleur de fond et une marge &#xE0; la barre d&apos;&#xE9;chelle avec quelque chose comme ce qui suit:</p>
+<pre><code class="lang-css">  <span class="hljs-class">.ol-scale-line</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">background</span>:<span class="hljs-value"> black</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">padding</span>:<span class="hljs-value"> <span class="hljs-number">5px</span></span></span>;
+  }</span>
+</code></pre>
+<p>Cependant, pour l&apos;int&#xE9;r&#xEA;t de l&apos;exercice, admettons que vous pensez que l&apos;affichage de la fen&#xEA;tre de carte est vraiment absolument trop charg&#xE9;e. Pour &#xE9;viter cet encombrement, vous pouvez afficher votre &#xE9;chelle dans un lieu diff&#xE9;rent. Pour accomplir ceci, nous avons besoin en premier de cr&#xE9;er un &#xE9;l&#xE9;ment additionnel dans notre balisage et ensuite, de dire au <code>control</code> d&apos;&#xE9;chelle de faire son rendu &#xE0; l&apos;int&#xE9;rieur de ce nouvel &#xE9;l&#xE9;ment.</p>
+<h3 id="t&#xE2;ches">T&#xE2;ches</h3>
+<ol>
+<li><p>Cr&#xE9;ez un nouvel &#xE9;l&#xE9;ment de type block dans la partie <code>&lt;body&gt;</code> de votre page. Pour rendre cet &#xE9;l&#xE9;ment facile &#xE0; &#xEA;tre r&#xE9;f&#xE9;r&#xE9;, nous lui donnons un attribut <code>id</code>. Ins&#xE9;rez le balisage suivant quelque part dans le <code>&lt;body&gt;</code> de votre page <code>map.html</code>. (en pla&#xE7;ant l&apos;&#xE9;l&#xE9;ment d&apos;&#xE9;chelle juste apr&#xE8;s l&apos;&#xE9;lement de la fen&#xEA;tre d&apos;affichage de carte <code>&lt;div id=&quot;map&quot;&gt;&lt;/div&gt;</code> est ce qui parait le plus logique.):</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;scale-line&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;scale-line&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+</li>
+<li><p>Maintenant, modifiez le code cr&#xE9;ant le <code>control</code> d&apos;&#xE9;chelle afin qu&apos;il se r&#xE9;f&#xE8;re &#xE0; l&apos;&#xE9;l&#xE9;ment <code>scale-line</code>:</p>
+<pre><code class="lang-js">controls: ol.control.defaults().extend([
+  <span class="hljs-keyword">new</span> ol.control.ScaleLine({className: <span class="hljs-string">&apos;ol-scale-line&apos;</span>, target: <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;scale-line&apos;</span>)})
+]),
+</code></pre>
+</li>
+<li><p>Sauvez vos changements et ouvrez <code>map.html</code> dans votre navigateur: <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a></p>
+</li>
+<li><p>&quot;Corrigez&quot; la position du <code>control</code> avec, par exemple, les r&#xE8;gles CSS suivantes:</p>
+<pre><code class="lang-css"><span class="hljs-class">.scale-line</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> absolute</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">top</span>:<span class="hljs-value"> <span class="hljs-number">350px</span></span></span>;
+}</span>
+<span class="hljs-class">.ol-scale-line</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> relative</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">bottom</span>:<span class="hljs-value"> <span class="hljs-number">0px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">left</span>:<span class="hljs-value"> <span class="hljs-number">0px</span></span></span>;
+}</span>
+</code></pre>
+</li>
+<li><p>Maintenant, sauvegardez vos changements et regardez <code>map.html</code> &#xE0; nouveau dans votre navigateur: <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a></p>
+<figure id="fig3.1.2"><img src="scaleline2.png" alt="Un `control` de barre d&apos;&#xE9;chelle &#xE0; l&apos;ext&#xE9;rieur de la fen&#xEA;tre d&apos;affichage de la carte"><figcaption>Un `control` de barre d&apos;&#xE9;chelle &#xE0; l&apos;ext&#xE9;rieur de la fen&#xEA;tre d&apos;affichage de la carte</figcaption></figure>
+</li>
+</ol>
+<p><em>Note</em> - Pour cr&#xE9;er un <code>control</code> personnalis&#xE9;, vous pouvez le faire h&#xE9;riter (en utilisant <code>ol.inherits</code>) de <code>ol.control.Control</code>. Pour voir, un exemple de cela, allez-voir: <a href="http://openlayers.org/en/master/examples/custom-controls.html" target="_blank">http://openlayers.org/en/master/examples/custom-controls.html</a>.</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../controls/index.html" class="navigation navigation-prev " aria-label="Previous page: Les control et les interaction"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../controls/select.html" class="navigation navigation-next " aria-label="Next page: L&#39;interaction de sélection `Select`"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

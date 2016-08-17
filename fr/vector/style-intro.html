@@ -1,0 +1,638 @@
+<!DOCTYPE HTML>
+<html lang="fr" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Concepts de styles | Workshop OpenLayers</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+        <link rel="stylesheet" href="../style.css">
+    
+
+        
+    
+    
+    <link rel="next" href="../vector/style.html" />
+    
+    
+    <link rel="prev" href="../vector/formats.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="4.2"
+        data-chapter-title="Concepts de styles"
+        data-filepath="vector/style-intro.md"
+        data-basepath=".."
+        data-revision="Wed Aug 17 2016 12:25:21 GMT+0200 (CEST)"
+        data-innerlanguage="fr">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+                
+                <li>
+                    <a href="/" target="blank" class="custom-link">OpenLayers Workshop</a>
+                </li>
+            
+            
+
+            
+            <li class="divider"></li>
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="basics/index.html">
+            
+                
+                    <a href="../basics/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Les basiques
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="basics/map.html">
+            
+                
+                    <a href="../basics/map.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Créez une carte
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="basics/dissect.html">
+            
+                
+                    <a href="../basics/dissect.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Disséquez votre carte
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="basics/resources.html">
+            
+                
+                    <a href="../basics/resources.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Ressources OpenLayers utiles
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="layers/index.html">
+            
+                
+                    <a href="../layers/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Les couches et les sources
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="layers/wms.html">
+            
+                
+                    <a href="../layers/wms.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Sources WMS
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="layers/cached.html">
+            
+                
+                    <a href="../layers/cached.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Sources tuilées
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="layers/proprietary.html">
+            
+                
+                    <a href="../layers/proprietary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Fournisseurs de tuiles propriétaires
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="layers/vector.html">
+            
+                
+                    <a href="../layers/vector.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Données vecteur
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="layers/imagevector.html">
+            
+                
+                    <a href="../layers/imagevector.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        Source image vecteur
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="controls/index.html">
+            
+                
+                    <a href="../controls/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Les control et les interaction
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="controls/scaleline.html">
+            
+                
+                    <a href="../controls/scaleline.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Le control barre d&#39;échelle `ScaleLine`
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="controls/select.html">
+            
+                
+                    <a href="../controls/select.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        L&#39;interaction de sélection `Select`
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="controls/draw.html">
+            
+                
+                    <a href="../controls/draw.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        L&#39;interaction de dessin `Draw`
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="controls/modify.html">
+            
+                
+                    <a href="../controls/modify.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        L&#39;interaction de modification `Modify`
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="vector/index.html">
+            
+                
+                    <a href="../vector/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Les sujets liés aux vecteurs
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="vector/formats.html">
+            
+                
+                    <a href="../vector/formats.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Aparté sur les formats
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.2" data-path="vector/style-intro.html">
+            
+                
+                    <a href="../vector/style-intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Concepts de styles
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="vector/style.html">
+            
+                
+                    <a href="../vector/style.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Styles personnalisés
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="custom-builds/index.html">
+            
+                
+                    <a href="../custom-builds/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Les `build` personnalisés
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="custom-builds/concepts.html">
+            
+                
+                    <a href="../custom-builds/concepts.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Concepts
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="custom-builds/create.html">
+            
+                
+                    <a href="../custom-builds/create.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Créer des `build` personnalisés
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Publié avec GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Workshop OpenLayers</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="comprendre-les-styles">Comprendre les styles</h1>
+<p>Quand vous stylez des &#xE9;l&#xE9;ments HTML, vous devez utilisez des CSS ressemblant &#xE0; ci-dessous:</p>
+<pre><code class="lang-css">  <span class="hljs-class">.someClass</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> blue</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">border-width</span>:<span class="hljs-value"> <span class="hljs-number">1px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">border-color</span>:<span class="hljs-value"> olive</span></span>;
+  }</span>
+</code></pre>
+<p>Le texte <code>.someClass</code> est un s&#xE9;lecteur (dans ce cas, il s&#xE9;lectionne tous les &#xE9;l&#xE9;ments qui incluent le nom de la classe <code>&apos;someClass&apos;</code>) et le bloc qui suit est un groupe de propri&#xE9;t&#xE9;s nomm&#xE9;es avec des valeurs, connues aussi comme d&#xE9;clarations de style.</p>
+<h2 id="style-de-couche">Style de couche</h2>
+<p>Une couche vecteur peut avoir des styles. Plus sp&#xE9;cifiquement, une couche vecteur peut &#xEA;tre configur&#xE9;e avec un objet <code>ol.style.Style</code>, un tableau d&apos;objets <code>ol.style.Style</code>, ou une fonction qui prend pour argument une instance <code>ol.Feature</code> et une  r&#xE9;solution et qui retourne un tableau d&apos;objets <code>ol.style.Style</code>.</p>
+<p>Voici un exemple de couche vecteur configur&#xE9;e avec un style statique:</p>
+<pre><code class="lang-js">  <span class="hljs-keyword">var</span> layer = <span class="hljs-keyword">new</span> ol.layer.Vector({
+    source: <span class="hljs-keyword">new</span> ol.source.Vector(),
+    style: <span class="hljs-keyword">new</span> ol.style.Style({
+      <span class="hljs-comment">// ...</span>
+    })
+  });
+</code></pre>
+<p>Et voici un exemple de couche vecteur configur&#xE9;e avec une fonction de style qui applique un style &#xE0; tous les objets g&#xE9;ographiques qui ont un attribut nomm&#xE9; <code>class</code> avec une valeur de <code>&apos;someClass&apos;</code>:</p>
+<pre><code class="lang-js">  <span class="hljs-keyword">var</span> layer = <span class="hljs-keyword">new</span> ol.layer.Vector({
+    source: <span class="hljs-keyword">new</span> ol.source.Vector(),
+    style: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">feature, resolution</span>) </span>{
+      <span class="hljs-keyword">if</span> (feature.get(<span class="hljs-string">&apos;class&apos;</span>) === <span class="hljs-string">&apos;someClass&apos;</span>) {
+        <span class="hljs-comment">// create styles...</span>
+        <span class="hljs-keyword">return</span> styles;
+      }
+    },
+  });
+</code></pre>
+<h2 id="les-symboliseurs">Les symboliseurs</h2>
+<p>L&apos;&#xE9;quivalent d&apos;un bloc de d&#xE9;claration en CSS est un <code>symboliseur</code> en OpenLayers 3 (ce sont typiquement des instances de classes <code>ol.style</code>). Pour peindre des objets g&#xE9;ographiques avec un fond bleu et une ligne de 1 pixel de large de couleur olive, vous devrez utilisez deux symboliseurs comme suivant:</p>
+<pre><code class="lang-js">  <span class="hljs-keyword">new</span> ol.style.Style({
+    fill: <span class="hljs-keyword">new</span> ol.style.Fill({
+      color: <span class="hljs-string">&apos;blue&apos;</span>
+    }),
+    stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
+      color: <span class="hljs-string">&apos;olive&apos;</span>,
+      width: <span class="hljs-number">1</span>
+    })
+  });
+</code></pre>
+<p>En fonction du type de g&#xE9;om&#xE9;trie, diff&#xE9;rents symboliseurs peuvent &#xEA;tre appliqu&#xE9;s. Les lignes fonctionnent comme les polygones, mais elles ne peuvent pas avoir un remplissage. Les points peuvent &#xEA;tre styl&#xE9;s avec <code>ol.style.Circle</code> et <code>ol.style.Icon</code>. Le premier est utilis&#xE9; pour faire le rendu des formes de type cercle, et le dernier utilise les images venant de fichiers (e.g. comme des images png). Voici un exemple pour les styles avec un cercle:</p>
+<pre><code class="lang-js">  <span class="hljs-keyword">new</span> ol.style.Circle({
+    radius: <span class="hljs-number">20</span>,
+    fill: <span class="hljs-keyword">new</span> ol.style.Fill({
+      color: <span class="hljs-string">&apos;#ff9900&apos;</span>,
+      opacity: <span class="hljs-number">0.6</span>
+    }),
+    stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
+      color: <span class="hljs-string">&apos;#ffcc00&apos;</span>,
+      opacity: <span class="hljs-number">0.4</span>
+    })
+  });
+</code></pre>
+<h2 id="olstylestyle"><code>ol.style.Style</code></h2>
+<p>Un objet <code>ol.style.Style</code> a 4 cl&#xE9;s: <code>fill</code>, <code>image</code>, <code>stroke</code> et <code>text</code>. Il a aussi une propri&#xE9;t&#xE9; optionnelle <code>zIndex</code>. La fonction de style retournera un tableau d&apos;objets <code>ol.style.Style</code>.</p>
+<p>Si vous voulez que tous les objets g&#xE9;ographiques soit colori&#xE9;s en rouge &#xE0; l&apos;exception de ceux qui ont une attribut <code>class</code> ayant pour valeur <code>&quot;someClass&quot;</code> (et que vous voulez que ces objets g&#xE9;ographiques soient colori&#xE9;s en bleu avec une ligne de 1 pixel de large de couleur olive), vous devrez cr&#xE9;er une fonction de style qui resssemble &#xE0; celle qui suit (par ailleurs, il est important de cr&#xE9;er les objets en dehors de la fonction de style afin qu&apos;ils puissent &#xEA;tre r&#xE9;utilis&#xE9;s, mais pour des raisons de simplicit&#xE9; les objets sont cr&#xE9;&#xE9;s &quot;inline&quot; dans l&apos;exemple ci-dessous):</p>
+<pre><code class="lang-js">  <span class="hljs-keyword">var</span> primaryStyles = [
+    <span class="hljs-keyword">new</span> ol.style.Style({
+      fill: <span class="hljs-keyword">new</span> ol.style.Fill({
+        color: <span class="hljs-string">&apos;blue&apos;</span>
+      }),
+      stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
+        color: <span class="hljs-string">&apos;olive&apos;</span>,
+        width: <span class="hljs-number">1</span>
+      })
+    })];
+    <span class="hljs-keyword">var</span> otherStyle = [<span class="hljs-keyword">new</span> ol.style.Style({
+      fill: <span class="hljs-keyword">new</span> ol.style.Fill({
+        color: <span class="hljs-string">&apos;red&apos;</span>
+      })
+    })
+  ];
+  <span class="hljs-keyword">var</span> otherStyles = [
+    <span class="hljs-comment">// define other styles here</span>
+  ]
+
+  layer.setStyle(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">feature, resolution</span>) </span>{
+    <span class="hljs-keyword">if</span> (feature.get(<span class="hljs-string">&apos;class&apos;</span>) === <span class="hljs-string">&apos;someClass&apos;</span>) {
+      <span class="hljs-keyword">return</span> primaryStyles;
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span> otherStyles;
+    }
+  });
+</code></pre>
+<p><em>Note</em> - Il est important de cr&#xE9;er les tableaux de style en dehors de la fonction de style r&#xE9;elle. La fonction de style est appel&#xE9;e de nombreuses fois pendant les phases de rendu, et vous aurez une animation plus fluide si vos fonctions de style ne cr&#xE9;ent pas trop d&apos;&#xE9;l&#xE9;ments inutiles en m&#xE9;moire.</p>
+<p>Un objet g&#xE9;ographique a aussi un option de configuration de style qui peut prendre une fonction n&apos;ayant que la r&#xE9;solution comme argument. Cela permet de styler les objets g&#xE9;ographiques de mani&#xE8;re individuelle (bas&#xE9;s sur la r&#xE9;solution).</p>
+<h2 id="pseudoclasses">Pseudo-classes</h2>
+<p>CSS autorise les pseudo-classes sur les s&#xE9;lecteurs. Basiquement, cela limite l&apos;application de d&#xE9;clarations de style bas&#xE9;s sur des contextes qui ne sont pas facilement repr&#xE9;sent&#xE9; dans un s&#xE9;lecteur, comme la position de la souris, les &#xE9;l&#xE9;ments voisins, ou l&apos;historique du navigateur. Dans OpenLayers 3, un concept quelque peu similaire est d&apos;avoir une option de configuration de style sur une <code>ol.interaction.Select</code>.</p>
+<p>Un exemple est:</p>
+<pre><code class="lang-js">  <span class="hljs-keyword">var</span> select = <span class="hljs-keyword">new</span> ol.interaction.Select({
+    style: <span class="hljs-keyword">new</span> ol.style.Style({
+      fill: <span class="hljs-keyword">new</span> ol.style.Fill({
+        color: <span class="hljs-string">&apos;rgba(255,255,255,0.5)&apos;</span>
+      })
+    })
+  });
+</code></pre>
+<p>Avec les basiques de stylage &#xE0; votre actif, il est temps de passer aux <a href="style.html">stylage des couches vecteur</a>.</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../vector/formats.html" class="navigation navigation-prev " aria-label="Previous page: Aparté sur les formats"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../vector/style.html" class="navigation navigation-next " aria-label="Next page: Styles personnalisés"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

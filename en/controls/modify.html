@@ -1,0 +1,644 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Modify interaction | OpenLayers Workshop</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+        <link rel="stylesheet" href="../style.css">
+    
+
+        
+    
+    
+    <link rel="next" href="../vector/index.html" />
+    
+    
+    <link rel="prev" href="../controls/draw.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="3.4"
+        data-chapter-title="Modify interaction"
+        data-filepath="controls/modify.md"
+        data-basepath=".."
+        data-revision="Wed Aug 17 2016 12:25:20 GMT+0200 (CEST)"
+        data-innerlanguage="en">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+                
+                <li>
+                    <a href="/" target="blank" class="custom-link">OpenLayers Workshop</a>
+                </li>
+            
+            
+
+            
+            <li class="divider"></li>
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="basics/index.html">
+            
+                
+                    <a href="../basics/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Basics
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="basics/map.html">
+            
+                
+                    <a href="../basics/map.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Creating a map
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="basics/dissect.html">
+            
+                
+                    <a href="../basics/dissect.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Dissecting your map
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="basics/resources.html">
+            
+                
+                    <a href="../basics/resources.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Resources
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="layers/index.html">
+            
+                
+                    <a href="../layers/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Layers and Sources
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="layers/wms.html">
+            
+                
+                    <a href="../layers/wms.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        WMS sources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="layers/cached.html">
+            
+                
+                    <a href="../layers/cached.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Tiled sources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="layers/proprietary.html">
+            
+                
+                    <a href="../layers/proprietary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Proprietary tile providers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="layers/vector.html">
+            
+                
+                    <a href="../layers/vector.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Vector data
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="layers/imagevector.html">
+            
+                
+                    <a href="../layers/imagevector.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        Image vector source
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="controls/index.html">
+            
+                
+                    <a href="../controls/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Controls
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="controls/scaleline.html">
+            
+                
+                    <a href="../controls/scaleline.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Scale line control
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="controls/select.html">
+            
+                
+                    <a href="../controls/select.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Select interaction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="controls/draw.html">
+            
+                
+                    <a href="../controls/draw.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        Draw interaction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.4" data-path="controls/modify.html">
+            
+                
+                    <a href="../controls/modify.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Modify interaction
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="vector/index.html">
+            
+                
+                    <a href="../vector/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Vector Topics
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="vector/formats.html">
+            
+                
+                    <a href="../vector/formats.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Formats
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="vector/style-intro.html">
+            
+                
+                    <a href="../vector/style-intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Styling concepts
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="vector/style.html">
+            
+                
+                    <a href="../vector/style.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Custom styles
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="custom-builds/index.html">
+            
+                
+                    <a href="../custom-builds/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Custom Builds
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="custom-builds/concepts.html">
+            
+                
+                    <a href="../custom-builds/concepts.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Concepts
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="custom-builds/create.html">
+            
+                
+                    <a href="../custom-builds/create.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Create custom builds
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >OpenLayers Workshop</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="modifying-features">Modifying Features</h1>
+<p>Modifying features works by using an <code>ol.interaction.Select</code> in combination with an <code>ol.interaction.Modify</code>. They share a common collection (<code>ol.Collection</code>) of features. Features selected with the <code>ol.interaction.Select</code> become candidates for modifications with the <code>ol.interaction.Modify</code>.</p>
+<h2 id="create-a-vector-layer-and-a-modify-interaction">Create a Vector Layer and a Modify Interaction</h2>
+<h3 id="tasks">Tasks</h3>
+<ol>
+<li><p>Let&apos;s start with the working example.  Open <code>map.html</code> in your text editor and make sure it looks something like the following:</p>
+<pre><code class="lang-html"><span class="hljs-doctype">&lt;!doctype html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;en&quot;</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">&quot;stylesheet&quot;</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;/ol.css&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/css&quot;</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+   <span class="hljs-id">#map</span> <span class="hljs-rules">{
+     <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">256px</span></span></span>;
+     <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">512px</span></span></span>;
+   }</span>
+   </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;/loader.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>OpenLayers 3 example<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>My Map<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;map&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="actionscript">
+     <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">new</span> ol.source.Vector({
+       url: <span class="hljs-string">&apos;/data/layers/7day-M2.5.json&apos;</span>,
+       format: <span class="hljs-keyword">new</span> ol.format.GeoJSON()
+     });
+     <span class="hljs-keyword">var</span> style = <span class="hljs-keyword">new</span> ol.style.Style({
+       image: <span class="hljs-keyword">new</span> ol.style.Circle({
+         radius: <span class="hljs-number">7</span>,
+           fill: <span class="hljs-keyword">new</span> ol.style.Fill({
+           color: [<span class="hljs-number">0</span>, <span class="hljs-number">153</span>, <span class="hljs-number">255</span>, <span class="hljs-number">1</span>]
+         }),
+         stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
+           color: [<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0.75</span>],
+           width: <span class="hljs-number">1.5</span>
+         })
+       }),
+       zIndex: <span class="hljs-number">100000</span>
+     });
+     <span class="hljs-keyword">var</span> select = <span class="hljs-keyword">new</span> ol.interaction.Select({style: style});
+     <span class="hljs-keyword">var</span> modify = <span class="hljs-keyword">new</span> ol.interaction.Modify({
+       features: select.getFeatures()
+     });
+     <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.Map({
+       interactions: ol.interaction.defaults().extend([select, modify]),
+       target: <span class="hljs-string">&apos;map&apos;</span>,
+       layers: [
+         <span class="hljs-keyword">new</span> ol.layer.Tile({
+           title: <span class="hljs-string">&apos;Global Imagery&apos;</span>,
+           source: <span class="hljs-keyword">new</span> ol.source.TileWMS({
+             url: <span class="hljs-string">&apos;http://demo.opengeo.org/geoserver/wms&apos;</span>,
+             params: {LAYERS: <span class="hljs-string">&apos;nasa:bluemarble&apos;</span>, VERSION: <span class="hljs-string">&apos;1.1.1&apos;</span>}
+           })
+         }),
+         <span class="hljs-keyword">new</span> ol.layer.Vector({
+           title: <span class="hljs-string">&apos;Earthquakes&apos;</span>,
+           source: source,
+           style: <span class="hljs-keyword">new</span> ol.style.Style({
+             image: <span class="hljs-keyword">new</span> ol.style.Circle({
+               radius: <span class="hljs-number">5</span>,
+               fill: <span class="hljs-keyword">new</span> ol.style.Fill({
+                 color: <span class="hljs-string">&apos;#0000FF&apos;</span>
+               }),
+               stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
+                 color: <span class="hljs-string">&apos;#000000&apos;</span>
+               })
+             })
+           })
+         })
+       ],
+       view: <span class="hljs-keyword">new</span> ol.View({
+         projection: <span class="hljs-string">&apos;EPSG:4326&apos;</span>,
+         center: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+         zoom: <span class="hljs-number">1</span>
+       })
+     });
+   </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+</li>
+<li><p>Save your changes to <code>map.html</code> and open the page in your browser:  <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a>. To see feature modification in action, use the mouse-click to select an earth quake and then drag to move the point.</p>
+</li>
+</ol>
+<h2 id="a-closer-look">A Closer Look</h2>
+<p>Let&apos;s examine how modifying features works.</p>
+<pre><code class="lang-js">  <span class="hljs-keyword">var</span> style = <span class="hljs-keyword">new</span> ol.style.Style({
+    image: <span class="hljs-keyword">new</span> ol.style.Circle({
+      radius: <span class="hljs-number">7</span>,
+        fill: <span class="hljs-keyword">new</span> ol.style.Fill({
+        color: [<span class="hljs-number">0</span>, <span class="hljs-number">153</span>, <span class="hljs-number">255</span>, <span class="hljs-number">1</span>]
+      }),
+      stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
+        color: [<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0.75</span>],
+        width: <span class="hljs-number">1.5</span>
+      })
+    }),
+    zIndex: <span class="hljs-number">100000</span>
+  });
+  <span class="hljs-keyword">var</span> select = <span class="hljs-keyword">new</span> ol.interaction.Select({style: style});
+  <span class="hljs-keyword">var</span> modify = <span class="hljs-keyword">new</span> ol.interaction.Modify({
+    features: select.getFeatures()
+  });
+</code></pre>
+<p>We create 2 interactions, an <code>ol.interaction.Select</code> to select the features before modifying them, and an <code>ol.interaction.Modify</code> to actually modify the geometries. They share the same <code>ol.Collection</code> of features. Features selected using <code>ol.interaction.Modify</code> become candidates for modification with the <code>ol.interaction.Modify</code>. As previously, the <code>ol.interaction.Select</code> is configured with a style object, which effectively defines the style used for drawing selected features. When the user clicks in the map again, the feature will be drawn using the layer&apos;s style.</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../controls/draw.html" class="navigation navigation-prev " aria-label="Previous page: Draw interaction"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../vector/index.html" class="navigation navigation-next " aria-label="Next page: Vector Topics"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
