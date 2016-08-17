@@ -12,8 +12,8 @@ deploy:
   api_key:
     secure: ag2ObhNaZYbULIABDARbHyvqk9DChYg6j6HZUmocdfM4Go/MF/OckpR0VntiMKpv+eQ8vdmTyRWVcW4Y/B+AOkMs/fhRs4rYOLq7BXWyLLbcvNaXP+3n6HDB/RZBPcNCYdQUo+oDDOyk7W9vF5T3o4aKlXFRLQIVQgABrwEQC1I=
   file:
-    - build/openlayers-workshop-en.zip
-    - build/openlayers-workshop-fr.zip
+    - openlayers-workshop-en.zip
+    - openlayers-workshop-fr.zip
   on:
     repo: openlayers/workshop
     tags: true
