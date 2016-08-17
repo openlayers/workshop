@@ -16,7 +16,11 @@ Now you can modify the `src` content.  When adding new pages or restructuring th
 
 ## Updating the workshop with a new release of OpenLayers
 
-To udpate the workshop with a new release of OpenLayers change the version number of the `openlayers` dependency in both `package.json` and `src/package.json`.
+To update the workshop with a new release of OpenLayers one needs to change the version number of the `openlayers` dependency in three places:
+
+* Top level `package.json`,
+* English workshop `src/en/package.json` and
+* French workshop `src/fr/package.json`
 
 ## Creating a new release
 
