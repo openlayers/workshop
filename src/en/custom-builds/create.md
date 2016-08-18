@@ -73,7 +73,7 @@ the [last chapter](../vector/style.md).
     </html>
   ```
 
-2. Create a build configuration file for that map:
+2. Create a build configuration file `ol-custom.json` for that map:
 
   ```json
   {
