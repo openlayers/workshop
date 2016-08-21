@@ -80,36 +80,32 @@ An `ol.style.Style` object has 4 keys: `fill`, `image`, `stroke` and `text`. It 
 If you want all features to be colored red except for those that have a `class` attribute with the value of `"someClass"` (and you want those features colored blue with an 1px wide olive stroke), you would create a style function that looked like the following (by the way, it is important to create objects outside of the style function so they can be reused, but for simplicity reasons the objects are created inline in the example below):
 
 ```js
-  var primaryStyles = [
-    new ol.style.Style({
-      fill: new ol.style.Fill({
-        color: 'blue'
-      }),
-      stroke: new ol.style.Stroke({
-        color: 'olive',
-        width: 1
-      })
-    })];
-    var otherStyle = [new ol.style.Style({
-      fill: new ol.style.Fill({
-        color: 'red'
-      })
-    })    
-  ];
-  var otherStyles = [
-    // define other styles here
-  ]
+  var primaryStyle = new ol.style.Style({
+    fill: new ol.style.Fill({
+      color: 'blue'
+    }),
+    stroke: new ol.style.Stroke({
+      color: 'olive',
+      width: 1
+    })
+  });
+
+  var otherStyle = new ol.style.Style({
+    fill: new ol.style.Fill({
+      color: 'red'
+    })
+  });
 
   layer.setStyle(function(feature, resolution) {
     if (feature.get('class') === 'someClass') {
-      return primaryStyles;
+      return primaryStyle;
     } else {
-      return otherStyles;
+      return otherStyle;
     }    
   });
 ```
 
-*Note* - It is important to create the style arrays outside of the actual style function.  The style function is called many times during rendering, and you'll get smoother animation if your style functions don't create a lot of garbage.
+*Note* - It is important to create the styles outside of the actual style function.  The style function is called many times during rendering, and you'll get smoother animation if your style functions don't create a lot of garbage.
 
 A feature also has a style config option that can take a function having only resolution as argument. This makes it possible to style individual features (based on resolution).
 
