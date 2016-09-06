@@ -72,7 +72,7 @@ Dans cette section, nous allons créer un `build` personnalisé pour la carte qu
     </html>
   ```
 
-2. Créez un fichier de configuration du `build` pour cette carte:
+2. Créez un fichier de configuration de 'build' `ol-custom.json` pour cette carte:
 
   ```json
   {

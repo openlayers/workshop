@@ -80,36 +80,32 @@ Un objet `ol.style.Style` a 4 clés: `fill`, `image`, `stroke` et `text`. Il a a
 Si vous voulez que tous les objets géographiques soit coloriés en rouge à l'exception de ceux qui ont une attribut `class` ayant pour valeur `"someClass"` (et que vous voulez que ces objets géographiques soient coloriés en bleu avec une ligne de 1 pixel de large de couleur olive), vous devrez créer une fonction de style qui resssemble à celle qui suit (par ailleurs, il est important de créer les objets en dehors de la fonction de style afin qu'ils puissent être réutilisés, mais pour des raisons de simplicité les objets sont créés "inline" dans l'exemple ci-dessous):
 
 ```js
-  var primaryStyles = [
-    new ol.style.Style({
-      fill: new ol.style.Fill({
-        color: 'blue'
-      }),
-      stroke: new ol.style.Stroke({
-        color: 'olive',
-        width: 1
-      })
-    })];
-    var otherStyle = [new ol.style.Style({
-      fill: new ol.style.Fill({
-        color: 'red'
-      })
+  var primaryStyle = new ol.style.Style({
+    fill: new ol.style.Fill({
+      color: 'blue'
+    }),
+    stroke: new ol.style.Stroke({
+      color: 'olive',
+      width: 1
     })
-  ];
-  var otherStyles = [
-    // define other styles here
-  ]
+  });
+
+  var otherStyle = new ol.style.Style({
+    fill: new ol.style.Fill({
+      color: 'red'
+    })
+  });
 
   layer.setStyle(function(feature, resolution) {
     if (feature.get('class') === 'someClass') {
-      return primaryStyles;
+      return primaryStyle;
     } else {
-      return otherStyles;
+      return otherStyle;
     }
   });
 ```
 
-*Note* - Il est important de créer les tableaux de style en dehors de la fonction de style réelle. La fonction de style est appelée de nombreuses fois pendant les phases de rendu, et vous aurez une animation plus fluide si vos fonctions de style ne créent pas trop d'éléments inutiles en mémoire.
+*Note* - Il est important de créer les styles en dehors de la fonction de style réelle. La fonction de style est appelée de nombreuses fois pendant les phases de rendu, et vous aurez une animation plus fluide si vos fonctions de style ne créent pas trop d'éléments inutiles en mémoire.
 
 Un objet géographique a aussi un option de configuration de style qui peut prendre une fonction n'ayant que la résolution comme argument. Cela permet de styler les objets géographiques de manière individuelle (basés sur la résolution).
 
