@@ -43,7 +43,7 @@ Votre fichier révisé `map.html` devrait ressembler à ceci:
       }
     </style>
     <script src="/loader.js" type="text/javascript"></script>
-    <title>OpenLayers 3 example</title>
+    <title>OpenLayers example</title>
   </head>
   <body>
     <h1>My Map</h1>

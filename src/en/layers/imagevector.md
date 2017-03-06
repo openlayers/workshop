@@ -21,7 +21,7 @@ Let's go back to the vector layer example to get earthquake data on top of a wor
         width: 512px;
       }
     </style>
-    <title>OpenLayers 3 example</title>
+    <title>OpenLayers example</title>
     <script src="/loader.js" type="text/javascript"></script>
   </head>
   <body>

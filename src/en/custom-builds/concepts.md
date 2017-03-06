@@ -1,6 +1,6 @@
 # Understanding custom builds
 
-OpenLayers 3 is a big library providing a lot of functionality. So it is
+OpenLayers is a big library providing a lot of functionality. So it is
 unlikely that an application will need and use all the functionality OpenLayers
 3 provides. Custom builds (a.k.a. application-specific builds) are OpenLayers
 3 builds with just the functionality your application needs. Custom builds are
@@ -9,7 +9,7 @@ a very good idea.
 
 ## Requirements
 
-OpenLayers 3 builds are created by using the [Closure
+OpenLayers builds are created by using the [Closure
 Compiler](https://developers.google.com/closure/compiler/). The goal of the
 Closure Compiler is to compile JavaScript to better JavaScript, that takes less
 time to download and run faster.

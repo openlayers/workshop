@@ -15,7 +15,7 @@ Dans cette section, nous allons créer un `build` personnalisé pour la carte qu
         width: 512px;
       }
       </style>
-      <title>OpenLayers 3 example</title>
+      <title>OpenLayers example</title>
       <script src="/loader.js" type="text/javascript"></script>
     </head>
     <body>

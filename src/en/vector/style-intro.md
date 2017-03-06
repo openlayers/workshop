@@ -43,7 +43,7 @@ And here's an example of a vector layer configured with a style function that ap
 
 ## Symbolizers
 
-The equivalent of a declaration block in CSS is a `symbolizer` in OpenLayers 3 (these are typically instances of `ol.style` classes). To paint polygon features with a blue background and a 1 pixel wide olive stroke, you would use two symbolizers like the following:
+The equivalent of a declaration block in CSS is a `symbolizer` in OpenLayers (these are typically instances of `ol.style` classes). To paint polygon features with a blue background and a 1 pixel wide olive stroke, you would use two symbolizers like the following:
 
 ```js
   new ol.style.Style({
@@ -111,7 +111,7 @@ A feature also has a style config option that can take a function having only re
 
 ## Pseudo-classes
 
-CSS allows for pseudo-classes on selectors. These basically limit the application of style declarations based on contexts that are not easily represented in the selector, such as mouse position, neighboring elements, or browser history. In OpenLayers 3, a somewhat similar concept is having a style config option on an `ol.interaction.Select`.
+CSS allows for pseudo-classes on selectors. These basically limit the application of style declarations based on contexts that are not easily represented in the selector, such as mouse position, neighboring elements, or browser history. In OpenLayers, a somewhat similar concept is having a style config option on an `ol.interaction.Select`.
 
 An example is:
 

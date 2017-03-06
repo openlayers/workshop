@@ -1,6 +1,6 @@
 # Vector Layers
 
-Vector Layers are represented by `ol.layer.Vector` and handle the client-side display of vector data. Currently OpenLayers 3 supports full vector rendering in the Canvas renderer, but only point geometries in the WebGL renderer.
+Vector Layers are represented by `ol.layer.Vector` and handle the client-side display of vector data. Currently OpenLayers supports full vector rendering in the Canvas renderer, but only point geometries in the WebGL renderer.
 
 ## Rendering Features Client-Side
 
@@ -17,7 +17,7 @@ Let's go back to the WMS example to get a basic world map.  We'll add some featu
         width: 512px;
       }
     </style>
-    <title>OpenLayers 3 example</title>
+    <title>OpenLayers example</title>
     <script src="/loader.js" type="text/javascript"></script>
   </head>
   <body>
@@ -99,7 +99,7 @@ The layer is given the title `'Earthquakes'` and some custom options. In the opt
 
 1.  The white circles on the map represent `ol.Feature` objects on your `ol.layer.Vector` layer. Each of these features has attribute data with `title` and `summary` properties. Register a `'singleclick'` listener on your map that calls `forEachFeatureAtPixel` on the map, and displays earthquake information below the map viewport.
 
-1.  The data for the vector layer comes from an earthquake feed published by the USGS (http://earthquake.usgs.gov/earthquakes/catalogs/).  See if you can find additional data with spatial information in a format supported by OpenLayers 3.  If you save another document representing spatial data in your `data` directory, you should be able to view it in a vector layer on your map.
+1.  The data for the vector layer comes from an earthquake feed published by the USGS (http://earthquake.usgs.gov/earthquakes/catalogs/).  See if you can find additional data with spatial information in a format supported by OpenLayers.  If you save another document representing spatial data in your `data` directory, you should be able to view it in a vector layer on your map.
 
 ### Solutions
 

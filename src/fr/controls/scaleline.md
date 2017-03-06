@@ -1,6 +1,6 @@
 # Afficher une barre d'échelle
 
-Un autre widget typique à afficher sur une carte est la barre d'échelle.  OpenLayers 3 fournit un `ol.control.ScaleLine` juste pour cela.
+Un autre widget typique à afficher sur une carte est la barre d'échelle.  OpenLayers fournit un `ol.control.ScaleLine` juste pour cela.
 
 ## Créer un `control` de barre d'échelle (`ScaleLine`)
 

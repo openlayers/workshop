@@ -22,7 +22,7 @@ L'exemple précédent faisait la démonstration de l'utilisation d'un `ol.contro
       }
       </style>
       <script src="/loader.js" type="text/javascript"></script>
-      <title>OpenLayers 3 example</title>
+      <title>OpenLayers example</title>
     </head>
     <body>
       <h1>My Map</h1>

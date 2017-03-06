@@ -21,7 +21,7 @@ Revenons à l'exemple de couche vecteur pour avoir les données des tremblements
         width: 512px;
       }
     </style>
-    <title>OpenLayers 3 example</title>
+    <title>OpenLayers example</title>
     <script src="/loader.js" type="text/javascript"></script>
   </head>
   <body>

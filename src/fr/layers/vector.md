@@ -1,6 +1,6 @@
 # Données vecteur
 
-Les couches vecteur sont représentées par `ol.layer.Vector` et gère l'affichage côté client des données vecteur. Actuellement, OpenLayers 3 supporte le rendu vecteur complet dans le moteur de rendu Canvas, mais seulement pour les points pour le moteur de rendu WebGL.
+Les couches vecteur sont représentées par `ol.layer.Vector` et gère l'affichage côté client des données vecteur. Actuellement, OpenLayers supporte le rendu vecteur complet dans le moteur de rendu Canvas, mais seulement pour les points pour le moteur de rendu WebGL.
 
 ## Rendu des objets géographiques côté client
 
@@ -17,7 +17,7 @@ Revenons à l'exemple WMS pour avoir une carte du monde basique.  Nous allons aj
         width: 512px;
       }
     </style>
-    <title>OpenLayers 3 example</title>
+    <title>OpenLayers example</title>
     <script src="/loader.js" type="text/javascript"></script>
   </head>
   <body>
@@ -99,7 +99,7 @@ La couche se voit donner le titre (`title`) `'Earthquakes'` et quelques options 
 
 1.  Les cercles blancs sur la carte représentent des objets `ol.Feature` sur votre couche `ol.layer.Vector`. Chacun de ces objets a des données d'attributs les propriétés `title` et `summary`. Assignez un événement de type `'singleclick'` sur votre carte qui appelle `forEachFeatureAtPixel` sur la carte et affiche les informations de tremblements de terre en dessous de la fenêtre d'affichage de carte.
 
-2.  La donnée pour la couche vecteur vient du flux d'information sur les tremblements de terre publié par l'USGS (http://earthquake.usgs.gov/earthquakes/catalogs/).  Voyez si vous pouvez trouver des données additionnelles avec des informations spatiales dans un format supporté par OpenLayers 3.  Si vous sauvegardez un autre document représentant des données spatiales dans votre répertoire `data`, vous devriez être capable de le voir dans une couche vecteur sur votre carte.
+2.  La donnée pour la couche vecteur vient du flux d'information sur les tremblements de terre publié par l'USGS (http://earthquake.usgs.gov/earthquakes/catalogs/).  Voyez si vous pouvez trouver des données additionnelles avec des informations spatiales dans un format supporté par OpenLayers.  Si vous sauvegardez un autre document représentant des données spatiales dans votre répertoire `data`, vous devriez être capable de le voir dans une couche vecteur sur votre carte.
 
 ### Solutions
 

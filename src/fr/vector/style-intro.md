@@ -43,7 +43,7 @@ Et voici un exemple de couche vecteur configurée avec une fonction de style qui
 
 ## Les symboliseurs
 
-L'équivalent d'un bloc de déclaration en CSS est un `symboliseur` en OpenLayers 3 (ce sont typiquement des instances de classes `ol.style`). Pour peindre des objets géographiques avec un fond bleu et une ligne de 1 pixel de large de couleur olive, vous devrez utilisez deux symboliseurs comme suivant:
+L'équivalent d'un bloc de déclaration en CSS est un `symboliseur` en OpenLayers (ce sont typiquement des instances de classes `ol.style`). Pour peindre des objets géographiques avec un fond bleu et une ligne de 1 pixel de large de couleur olive, vous devrez utilisez deux symboliseurs comme suivant:
 
 ```js
   new ol.style.Style({
@@ -111,7 +111,7 @@ Un objet géographique a aussi un option de configuration de style qui peut pren
 
 ## Pseudo-classes
 
-CSS autorise les pseudo-classes sur les sélecteurs. Basiquement, cela limite l'application de déclarations de style basés sur des contextes qui ne sont pas facilement représenté dans un sélecteur, comme la position de la souris, les éléments voisins, ou l'historique du navigateur. Dans OpenLayers 3, un concept quelque peu similaire est d'avoir une option de configuration de style sur une `ol.interaction.Select`.
+CSS autorise les pseudo-classes sur les sélecteurs. Basiquement, cela limite l'application de déclarations de style basés sur des contextes qui ne sont pas facilement représenté dans un sélecteur, comme la position de la souris, les éléments voisins, ou l'historique du navigateur. Dans OpenLayers, un concept quelque peu similaire est d'avoir une option de configuration de style sur une `ol.interaction.Select`.
 
 Un exemple est:
 

@@ -1,6 +1,6 @@
 # OpenLayers Workshop
 
-Welcome to the **OpenLayers 3 Workshop**. This workshop is designed to give you a comprehensive overview of OpenLayers as a web mapping solution.
+Welcome to the **OpenLayers Workshop**. This workshop is designed to give you a comprehensive overview of OpenLayers as a web mapping solution.
 
 ## Setup
 

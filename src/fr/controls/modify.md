@@ -20,7 +20,7 @@ La modification des objets géographiques fonctionne en utilisant une `ol.intera
       }
       </style>
       <script src="/loader.js" type="text/javascript"></script>
-      <title>OpenLayers 3 example</title>
+      <title>OpenLayers example</title>
     </head>
     <body>
       <h1>My Map</h1>

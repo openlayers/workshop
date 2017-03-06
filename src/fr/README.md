@@ -1,6 +1,6 @@
 # Workshop OpenLayers
 
-Bienvenue au **Workshop OpenLayers 3**. Ce workshop est conçu pour vous donner une vue d'ensemble d'OpenLayers en tant que solution de cartographie en ligne.
+Bienvenue au **Workshop OpenLayers**. Ce workshop est conçu pour vous donner une vue d'ensemble d'OpenLayers en tant que solution de cartographie en ligne.
 
 ## Configuration
 
