@@ -28,7 +28,7 @@
     "openlayers": "3.16.0"
   },
   "devDependencies": {
-    "gh-pages": "0.11.0",
+    "gh-pages": "0.12.0",
     "gitbook-cli": "2.3.0"
   }
 }
