@@ -20,7 +20,7 @@ De nouveaux objets géographiques peuvent être dessinés en utilisant une `ol.i
         }
         </style>
         <script src="/loader.js" type="text/javascript"></script>
-        <title>OpenLayers 3 example</title>
+        <title>OpenLayers example</title>
       </head>
       <body>
         <h1>My Map</h1>

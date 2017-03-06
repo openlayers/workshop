@@ -4,7 +4,7 @@ Dans OpenLayers, une carte est une collection de couches avec plusieurs `interac
 
 ## Exemple fonctionnel
 
-Jetons un oeil à un exemple pleinement fonctionnel d'une carte OpenLayers 3.
+Jetons un oeil à un exemple pleinement fonctionnel d'une carte OpenLayers.
 
 ```html
 <!doctype html>
@@ -17,7 +17,7 @@ Jetons un oeil à un exemple pleinement fonctionnel d'une carte OpenLayers 3.
         width: 512px;
       }
     </style>
-    <title>OpenLayers 3 example</title>
+    <title>OpenLayers example</title>
     <script src="/loader.js" type="text/javascript"></script>
   </head>
   <body>

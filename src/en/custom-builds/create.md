@@ -16,7 +16,7 @@ the [last chapter](../vector/style.md).
         width: 512px;
       }
       </style>
-      <title>OpenLayers 3 example</title>
+      <title>OpenLayers example</title>
       <script src="/loader.js" type="text/javascript"></script>
     </head>
     <body>

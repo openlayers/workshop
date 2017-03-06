@@ -73,13 +73,13 @@ Review the view definition of the map:
 
 Geospatial data can come in any number of coordinate reference systems. One data set might use geographic coordinates (longitude and latitude) in degrees, and another might have coordinates in a local projection with units in meters. A full discussion of coordinate reference systems is beyond the scope of this module, but it is important to understand the basic concept.
 
-OpenLayers 3 needs to know the coordinate system for your data. Internally, this is represented with an `ol.proj.Projection` object but strings can also be supplied.
+OpenLayers needs to know the coordinate system for your data. Internally, this is represented with an `ol.proj.Projection` object but strings can also be supplied.
 
 The OpenStreetMap tiles that we will be using are in a Mercator projection. Because of this, we need to set the initial center using Mercator coordinates. Since it is relatively easy to find out the coordinates for a place of interest in geographic coordinates, we use the `ol.proj.fromLonLat` method to turn geographic coordinates (`'EPSG:4326'`) into Mercator coordinates (`'EPSG:3857'`).
 
 ### Alternative Projections
 
-OpenLayers 3 includes transforms between Geographic (`'EPSG:4326'`) and Web Mercator (`'EPSG:3857'`) coordinate reference systems.  Because of this, we can use the `ol.proj.fromLonLat` function above without any extra work.  If you want to work with data in a different projection, you need to include some additional information before using the `ol.proj.*` functions.
+OpenLayers includes transforms between Geographic (`'EPSG:4326'`) and Web Mercator (`'EPSG:3857'`) coordinate reference systems.  Because of this, we can use the `ol.proj.fromLonLat` function above without any extra work.  If you want to work with data in a different projection, you need to include some additional information before using the `ol.proj.*` functions.
 
 For example, if you wanted to work with data in the `'EPSG:21781'` coordinate reference system, you would include the following two script tags in your page:
 

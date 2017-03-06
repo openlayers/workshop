@@ -23,10 +23,10 @@ After understanding the basic components that make-up and control a map, search 
 
 ## Join the Community
 
-OpenLayers is supported and maintained by a community of developers and users like you. Whether you have questions to ask or code to contribute, you can get involved by using the `openlayers-3` tag on StackOverflow for usage questions or signing up for the developers mailing list.
+OpenLayers is supported and maintained by a community of developers and users like you. Whether you have questions to ask or code to contribute, you can get involved by using the `openlayers` tag on Stack Overflow for usage questions or signing up for the developers mailing list.
 
-* http://stackoverflow.com/questions/tagged/openlayers-3
-* https://groups.google.com/forum/#!forum/ol3-dev
+* http://stackoverflow.com/questions/tagged/openlayers
+* https://groups.google.com/forum/#!forum/openlayers-dev
 
 ## Reporting issues
 

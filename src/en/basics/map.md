@@ -4,7 +4,7 @@ In OpenLayers, a map is a collection of layers and various interactions and cont
 
 ## Working Example
 
-Let's take a look at a fully working example of an OpenLayers 3 map.
+Let's take a look at a fully working example of an OpenLayers map.
 
 ```html
 <!doctype html>
@@ -17,7 +17,7 @@ Let's take a look at a fully working example of an OpenLayers 3 map.
         width: 512px;
       }
     </style>
-    <title>OpenLayers 3 example</title>
+    <title>OpenLayers example</title>
     <script src="/loader.js" type="text/javascript"></script>
   </head>
   <body>

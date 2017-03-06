@@ -22,7 +22,7 @@ Jetez un oeil au code suivant:
       }
     </style>
     <script src="/loader.js" type="text/javascript"></script>
-    <title>OpenLayers 3 example</title>
+    <title>OpenLayers example</title>
   </head>
   <body>
     <h1>My Map</h1>
@@ -62,7 +62,7 @@ Jetez un oeil au code suivant:
 Le constructeur `ol.layer.Tile` nécessite un objet littéral de type `olx.layer.TileOptions` voir: http://openlayers.org/en/master/apidoc/ol.layer.Tile.html
 Dans ce cas, nous complétons la clé `source` des options avec une `ol.source.TileWMS`.
 Un titre lisible par les humains pour la couche peut être fournie avec la clé `title`, mais n'importe quel nom pour la clé peut être utilisée ici.
-Dans OpenLayers 3, il y a une séparation entre les couches et les sources alors que dans Openlayers 2, l'ensemble faisait partie d'une couche.
+Dans OpenLayers, il y a une séparation entre les couches et les sources alors que dans Openlayers 2, l'ensemble faisait partie d'une couche.
 
 `ol.layer.Tile` représente un grille régulière d'images, `ol.layer.Image` représente une image seule. En fonction du type de couche, vous devrez ajouter une source différente (`ol.source.TileWMS` versus `ol.source.ImageWMS`) également.
 

@@ -23,7 +23,7 @@ Let's take a look at the following code:
       }
     </style>
     <script src="/loader.js" type="text/javascript"></script>
-    <title>OpenLayers 3 example</title>
+    <title>OpenLayers example</title>
   </head>
   <body>
     <h1>My Map</h1>
@@ -63,7 +63,7 @@ Let's take a look at the following code:
 The `ol.layer.Tile` constructor gets an object literal of type `olx.layer.TileOptions` see: http://openlayers.org/en/master/apidoc/ol.layer.Tile.html
 In this case we are providing the source key of the options with an `ol.source.TileWMS`.
 A human-readable title for the layer can be provided with the title key, but basically any arbitrary name for the key can be used here.
-In OpenLayers 3 there is a separation between layers and sources, whereas in OpenLayers 2 this was all part of the layer.
+In OpenLayers there is a separation between layers and sources, whereas in OpenLayers 2 this was all part of the layer.
 
 `ol.layer.Tile` represents a regular grid of images, `ol.layer.Image` represents a single image. Depending on the layer type, you would use a different source (`ol.source.TileWMS` versus `ol.source.ImageWMS`) as well.
 

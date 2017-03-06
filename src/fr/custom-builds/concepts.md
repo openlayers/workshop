@@ -1,12 +1,12 @@
 # Comprendre les `build` personnalisés
 
-OpenLayers 3 est une grosse bibliothèque qui fournit de nombreuses fonctionnalités.
-Ainsi, il est peu probable qu'une application nécessite et utilise toutes les fonctionnalités qu'OpenLayers fournit. Les `build` personnalisés (c'est à dire `build` spécifiques à une application) sont des versions de la bibliothèque OpenLayers 3 qui embarquent juste les fonctionnalités que votre application a besoin.
+OpenLayers est une grosse bibliothèque qui fournit de nombreuses fonctionnalités.
+Ainsi, il est peu probable qu'une application nécessite et utilise toutes les fonctionnalités qu'OpenLayers fournit. Les `build` personnalisés (c'est à dire `build` spécifiques à une application) sont des versions de la bibliothèque OpenLayers qui embarquent juste les fonctionnalités que votre application a besoin.
  Les `build` personnalisés sont souvent plus petits que les `build` complets. Ainsi, créer des `build` personnalisés est souvent une très bonne idée.
 
 ## Pré-requis
 
-Les `build` OpenLayers 3 sont créés en utilisant [Closure
+Les `build` OpenLayers sont créés en utilisant [Closure
 Compiler](https://developers.google.com/closure/compiler/). Le but de Closure Compiler est de compiler le JavaScript en un JavaScript "meilleur", qui prend moins de temps à télécharger et fonctionne plus vite.
 
 Closure Compiler est un programme en Java. Ainsi pour qu'il fonctionne, Closure Compiler nécessite une machine virtuelle Java. De ce fait, avant de passer à la section suivante et de créer un `build` personnalisé, assurez-vous que Java est installé sur votre machine.
