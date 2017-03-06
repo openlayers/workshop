@@ -26,7 +26,7 @@ Après avoir compris les composants de base qui constituent et contrôlent une c
 OpenLayers est supportée et maintenue par une communauté de développeurs et d'utilisateurs comme vous. Que vous ayez des questions à demander ou du code pour contribuer, vous pouvez vous impliquer en utilisant le tag `openlayers` sur Stack Overflow pour les questions relatives aux usages ou vous inscrire à la liste de développement du projet.
 
 * http://stackoverflow.com/questions/tagged/openlayers
-* https://groups.google.com/forum/#!forum/ol3-dev
+* https://groups.google.com/forum/#!forum/openlayers-dev
 
 ## Remonter des dysfonctionnements/problèmes
 
