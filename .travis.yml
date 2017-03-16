@@ -1,7 +1,10 @@
 sudo: false
 language: node_js
 node_js:
-  - '0.12'
+  - 6
+script:
+  - npm test
+  - node node_modules/openlayers/tasks/build.js src/en/data/build-config/vector-chapter.json custom-build.js &&  stat -c "%n %s bytes" custom-build.js && rm custom-build.js
 cache:
   directories:
     - node_modules
