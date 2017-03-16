@@ -9,7 +9,8 @@
     }
   },
   "plugins": [
-    "image-captions"
+    "image-captions",
+    "include"
   ],
   "pluginsConfig": {
     "image-captions": {
