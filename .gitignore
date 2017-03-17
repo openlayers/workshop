@@ -1,6 +1,20 @@
-/build/
-/node_modules/
-/src/_book/
-/src/ol.css
+# ignore installed dependencies from node
+node_modules/
+
+# ignore complete build directory (pdfs etc)
+build/
+
+# from this folder gitbook serves its content
+src/_book
+
+# copied when the dev server runs (in both language folders)
+ol.css
+
+# from custom builds chapter, *.json and *.js (in both language folders)
+ol-custom.js*
+
+# the main example file (in both language folders)
+map.html
+
 openlayers-workshop-en.zip
 openlayers-workshop-fr.zip
