@@ -74,63 +74,9 @@ Dans cette section, nous allons créer un `build` personnalisé pour la carte qu
 
 2. Créez un fichier de configuration de 'build' `ol-custom.json` pour cette carte:
 
-  ```json
-  {
-    "exports": [
-      "ol.Map",
-      "ol.View",
-      "ol.format.KML",
-      "ol.layer.Tile",
-      "ol.layer.Vector",
-      "ol.proj.fromLonLat",
-      "ol.source.OSM",
-      "ol.source.Vector",
-      "ol.style.Fill",
-      "ol.style.Stroke",
-      "ol.style.Style",
-      "ol.style.Text"
-    ],
-    "jvm": [],
-    "umd": true,
-    "compile": {
-      "externs": [
-        "externs/bingmaps.js",
-        "externs/closure-compiler.js",
-        "externs/esrijson.js",
-        "externs/geojson.js",
-        "externs/oli.js",
-        "externs/olx.js",
-        "externs/proj4js.js",
-        "externs/tilejson.js",
-        "externs/topojson.js"
-      ],
-      "define": [
-        "goog.dom.ASSUME_STANDARDS_MODE=true",
-        "goog.DEBUG=false",
-        "ol.ENABLE_DOM=false",
-        "ol.ENABLE_WEBGL=false",
-        "ol.ENABLE_PROJ4JS=false",
-        "ol.ENABLE_IMAGE=false"
-      ],
-      "jscomp_error": [
-        "*"
-      ],
-      "jscomp_off": [
-        "analyzerChecks",
-        "lintChecks",
-        "unnecessaryCasts",
-        "useOfGoogBase"
-      ],
-      "extra_annotation_name": [
-        "api", "observable"
-      ],
-      "compilation_level": "ADVANCED",
-      "warning_level": "VERBOSE",
-      "use_types_for_optimization": true,
-      "manage_closure_dependencies": true
-    }
-  }
-  ```
+```json
+!INCLUDE "../../shared/vector-chapter-build-config.json"
+```
 
 3. Créez le `build` personnalisé en utilisant le script Node `build.js` d'OpenLayers:
 
