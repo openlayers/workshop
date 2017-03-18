@@ -59,7 +59,7 @@
         data-chapter-title="Sources tuilées"
         data-filepath="layers/cached.md"
         data-basepath=".."
-        data-revision="Wed Aug 17 2016 12:25:21 GMT+0200 (CEST)"
+        data-revision="Sat Mar 18 2017 20:22:12 GMT+0100 (CET)"
         data-innerlanguage="fr">
     
 
@@ -545,10 +545,10 @@
   })
 </code></pre>
 <p>La donn&#xE9;e g&#xE9;ospatiale peut venir dans n&apos;importe quel syst&#xE8;me de coordonn&#xE9;es de r&#xE9;f&#xE9;rence. Un jeu de donn&#xE9;e peut utiliser des coordonn&#xE9;es g&#xE9;ographiques (longitude et latitude) en degr&#xE9;s, et un autre peut avoir des coordonn&#xE9;es dans une projection locale avec des unit&#xE9;s en m&#xE8;tres. Une discussion compl&#xE8;te sur les syst&#xE8;mes de r&#xE9;f&#xE9;rence de coordonn&#xE9;es va bien au del&#xE0; du p&#xE9;rim&#xE8;tre de ce module mais il est n&#xE9;anmoins important de comprendre le concept de base.</p>
-<p>OpenLayers 3 doit conna&#xEE;tre le syst&#xE8;me de coordonn&#xE9;es de votre donn&#xE9;e. En interne, cela est repr&#xE9;sent&#xE9; avec un objet <code>ol.proj.Projection</code> mais des cha&#xEE;nes de caract&#xE8;re peuvent &#xEA;tre aussi utilis&#xE9;es.</p>
+<p>OpenLayers doit conna&#xEE;tre le syst&#xE8;me de coordonn&#xE9;es de votre donn&#xE9;e. En interne, cela est repr&#xE9;sent&#xE9; avec un objet <code>ol.proj.Projection</code> mais des cha&#xEE;nes de caract&#xE8;re peuvent &#xEA;tre aussi utilis&#xE9;es.</p>
 <p>Les tuiles OpenStreetMap que nous utilisons sont dans une projection Mercator. Pour cette raison, nous devons d&#xE9;finir initialement le centre en utilisant des coordonn&#xE9;es en Mercator. Comme il est relativement simple de trouver les coordonn&#xE9;es pour un point d&apos;int&#xE9;r&#xEA;t en coordonn&#xE9;es g&#xE9;ographiques, nous utilisons la fonction <code>ol.proj.fromLonLat</code> pour transformer les coordonn&#xE9;es g&#xE9;ographiques (<code>&apos;EPSG:4326&apos;</code>) en coordonn&#xE9;es Mercator (<code>&apos;EPSG:3857&apos;</code>).</p>
 <h3 id="projections-alternatives">Projections alternatives</h3>
-<p>OpenLayers 3 inclut les transformation entre les syst&#xE8;mes de r&#xE9;f&#xE9;rences de coordonn&#xE9;es g&#xE9;ographiques (<code>&apos;EPSG:4326&apos;</code>) et Web Mercator (<code>&apos;EPSG:3857&apos;</code>).  Pour cette raison, nous pouvons utiliser la fonction <code>ol.proj.fromLonLat</code> ci-dessus sans aucun travail suppl&#xE9;mentaire.  Si vous voulez travailler avec des donn&#xE9;es dans une projection diff&#xE9;rente, vous devez inclure des informations additionnelles avant d&apos;utiliser les fonctions <code>ol.proj.*</code>.</p>
+<p>OpenLayers inclut les transformation entre les syst&#xE8;mes de r&#xE9;f&#xE9;rences de coordonn&#xE9;es g&#xE9;ographiques (<code>&apos;EPSG:4326&apos;</code>) et Web Mercator (<code>&apos;EPSG:3857&apos;</code>).  Pour cette raison, nous pouvons utiliser la fonction <code>ol.proj.fromLonLat</code> ci-dessus sans aucun travail suppl&#xE9;mentaire.  Si vous voulez travailler avec des donn&#xE9;es dans une projection diff&#xE9;rente, vous devez inclure des informations additionnelles avant d&apos;utiliser les fonctions <code>ol.proj.*</code>.</p>
 <p>Par exemple, si vous voulez travailler avec de la donn&#xE9;e dans le syst&#xE8;me de r&#xE9;f&#xE9;rence de coordonn&#xE9;es <code>&apos;EPSG:21781&apos;</code>, vous allez devoir inclure les deux tags <code>script</code> dans votre page:</p>
 <pre><code class="lang-html">  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://epsg.io/21781-1753.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
@@ -623,7 +623,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"include":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

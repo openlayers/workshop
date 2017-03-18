@@ -59,7 +59,7 @@
         data-chapter-title="Aparté sur les formats"
         data-filepath="vector/formats.md"
         data-basepath=".."
-        data-revision="Wed Aug 17 2016 12:25:21 GMT+0200 (CEST)"
+        data-revision="Sat Mar 18 2017 20:22:12 GMT+0100 (CET)"
         data-innerlanguage="fr">
     
 
@@ -491,7 +491,7 @@
                         <h1 id="travailler-avec-les-formats-vecteur">Travailler avec les formats vecteur</h1>
 <p>Le constructeur &quot;de base&quot; <code>ol.layer.Vector</code> fournit un type de couche plut&#xF4;t flexible. Par d&#xE9;faut, quand vous cr&#xE9;ez une nouvelle couche vecteur, aucune pr&#xE9;supposition n&apos;est faite concernant d&apos;o&#xF9; les objets g&#xE9;ographiques pour la couche seront fournis, comme c&apos;est du domaine de <code>ol.source.Vector</code>.  Avant de nous engager dans le stylage des objets g&#xE9;ographiques vecteur, cette section introduit les basiques des formats vecteur.</p>
 <h2 id="olformat"><code>ol.format</code></h2>
-<p>Les classes <code>ol.format</code> dans OpenLayers 3 sont responsables du &quot;parsing&quot; des donn&#xE9;es venant du serveur et repr&#xE9;sentant les objets g&#xE9;ographiques vecteur. Le format transforme un objet g&#xE9;ographique brut en objet <code>ol.Feature</code>.</p>
+<p>Les classes <code>ol.format</code> dans OpenLayers sont responsables du &quot;parsing&quot; des donn&#xE9;es venant du serveur et repr&#xE9;sentant les objets g&#xE9;ographiques vecteur. Le format transforme un objet g&#xE9;ographique brut en objet <code>ol.Feature</code>.</p>
 <p>Consid&#xE9;rons les deux blocs de donn&#xE9;es ci-dessous. Les deux repr&#xE9;sentent le m&#xEA;me objet <code>ol.Feature</code> (un point &#xE0; Barcelone, Espagne). Le premier est s&#xE9;rialis&#xE9; comme <a href="http://geojson.org" target="_blank">GeoJSON</a> (en utilisant le &quot;parser&quot; <code>ol.format.GeoJSON</code>). Le second est s&#xE9;rialis&#xE9; comme KML (OGC Keyhole Markup Language) (en utilisant le &quot;parser&quot; <code>ol.format.KML</code>).</p>
 <h3 id="exemple-geojson">Exemple GeoJSON</h3>
 <pre><code class="lang-json">{
@@ -553,7 +553,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"include":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

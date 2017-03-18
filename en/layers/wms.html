@@ -59,7 +59,7 @@
         data-chapter-title="WMS sources"
         data-filepath="layers/wms.md"
         data-basepath=".."
-        data-revision="Wed Aug 17 2016 12:25:20 GMT+0200 (CEST)"
+        data-revision="Sat Mar 18 2017 20:22:12 GMT+0100 (CET)"
         data-innerlanguage="en">
     
 
@@ -506,7 +506,7 @@ understanding of how they work.</p>
       }</span>
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;/loader.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>OpenLayers 3 example<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>OpenLayers example<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>My Map<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
@@ -545,7 +545,7 @@ understanding of how they work.</p>
 <p>The <code>ol.layer.Tile</code> constructor gets an object literal of type <code>olx.layer.TileOptions</code> see: <a href="http://openlayers.org/en/master/apidoc/ol.layer.Tile.html" target="_blank">http://openlayers.org/en/master/apidoc/ol.layer.Tile.html</a>
 In this case we are providing the source key of the options with an <code>ol.source.TileWMS</code>.
 A human-readable title for the layer can be provided with the title key, but basically any arbitrary name for the key can be used here.
-In OpenLayers 3 there is a separation between layers and sources, whereas in OpenLayers 2 this was all part of the layer.</p>
+In OpenLayers there is a separation between layers and sources, whereas in OpenLayers 2 this was all part of the layer.</p>
 <p><code>ol.layer.Tile</code> represents a regular grid of images, <code>ol.layer.Image</code> represents a single image. Depending on the layer type, you would use a different source (<code>ol.source.TileWMS</code> versus <code>ol.source.ImageWMS</code>) as well.</p>
 <h2 id="the-olsourcetilewms-constructor">The ol.source.TileWMS Constructor</h2>
 <p>The <code>ol.source.TileWMS</code> constructor has a single argument which is defined by: <a href="http://openlayers.org/en/master/apidoc/ol.source.TileWMS.html" target="_blank">http://openlayers.org/en/master/apidoc/ol.source.TileWMS.html</a>.
@@ -618,7 +618,7 @@ on to learn about <a href="cached.html">cached tile services</a>.</p>
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"include":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

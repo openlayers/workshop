@@ -59,7 +59,7 @@
         data-chapter-title="Données vecteur"
         data-filepath="layers/vector.md"
         data-basepath=".."
-        data-revision="Wed Aug 17 2016 12:25:21 GMT+0200 (CEST)"
+        data-revision="Sat Mar 18 2017 20:22:12 GMT+0100 (CET)"
         data-innerlanguage="fr">
     
 
@@ -489,7 +489,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="donn&#xE9;es-vecteur">Donn&#xE9;es vecteur</h1>
-<p>Les couches vecteur sont repr&#xE9;sent&#xE9;es par <code>ol.layer.Vector</code> et g&#xE8;re l&apos;affichage c&#xF4;t&#xE9; client des donn&#xE9;es vecteur. Actuellement, OpenLayers 3 supporte le rendu vecteur complet dans le moteur de rendu Canvas, mais seulement pour les points pour le moteur de rendu WebGL.</p>
+<p>Les couches vecteur sont repr&#xE9;sent&#xE9;es par <code>ol.layer.Vector</code> et g&#xE8;re l&apos;affichage c&#xF4;t&#xE9; client des donn&#xE9;es vecteur. Actuellement, OpenLayers supporte le rendu vecteur complet dans le moteur de rendu Canvas, mais seulement pour les points pour le moteur de rendu WebGL.</p>
 <h2 id="rendu-des-objets-g&#xE9;ographiques-c&#xF4;t&#xE9;-client">Rendu des objets g&#xE9;ographiques c&#xF4;t&#xE9; client</h2>
 <p>Revenons &#xE0; l&apos;exemple WMS pour avoir une carte du monde basique.  Nous allons ajouter quelques donn&#xE9;es g&#xE9;ographiques au dessus, dans une couche vecteur.</p>
 <pre><code class="lang-html"><span class="hljs-doctype">&lt;!doctype html&gt;</span>
@@ -502,7 +502,7 @@
         <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">512px</span></span></span>;
       }</span>
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>OpenLayers 3 example<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>OpenLayers example<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;/loader.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
@@ -575,7 +575,7 @@
 <ol>
 <li><p>Les cercles blancs sur la carte repr&#xE9;sentent des objets <code>ol.Feature</code> sur votre couche <code>ol.layer.Vector</code>. Chacun de ces objets a des donn&#xE9;es d&apos;attributs les propri&#xE9;t&#xE9;s <code>title</code> et <code>summary</code>. Assignez un &#xE9;v&#xE9;nement de type <code>&apos;singleclick&apos;</code> sur votre carte qui appelle <code>forEachFeatureAtPixel</code> sur la carte et affiche les informations de tremblements de terre en dessous de la fen&#xEA;tre d&apos;affichage de carte.</p>
 </li>
-<li><p>La donn&#xE9;e pour la couche vecteur vient du flux d&apos;information sur les tremblements de terre publi&#xE9; par l&apos;USGS (<a href="http://earthquake.usgs.gov/earthquakes/catalogs/" target="_blank">http://earthquake.usgs.gov/earthquakes/catalogs/</a>).  Voyez si vous pouvez trouver des donn&#xE9;es additionnelles avec des informations spatiales dans un format support&#xE9; par OpenLayers 3.  Si vous sauvegardez un autre document repr&#xE9;sentant des donn&#xE9;es spatiales dans votre r&#xE9;pertoire <code>data</code>, vous devriez &#xEA;tre capable de le voir dans une couche vecteur sur votre carte.</p>
+<li><p>La donn&#xE9;e pour la couche vecteur vient du flux d&apos;information sur les tremblements de terre publi&#xE9; par l&apos;USGS (<a href="http://earthquake.usgs.gov/earthquakes/catalogs/" target="_blank">http://earthquake.usgs.gov/earthquakes/catalogs/</a>).  Voyez si vous pouvez trouver des donn&#xE9;es additionnelles avec des informations spatiales dans un format support&#xE9; par OpenLayers.  Si vous sauvegardez un autre document repr&#xE9;sentant des donn&#xE9;es spatiales dans votre r&#xE9;pertoire <code>data</code>, vous devriez &#xEA;tre capable de le voir dans une couche vecteur sur votre carte.</p>
 </li>
 </ol>
 <h3 id="solutions">Solutions</h3>
@@ -630,7 +630,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"include":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

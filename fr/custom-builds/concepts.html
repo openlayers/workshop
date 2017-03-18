@@ -59,7 +59,7 @@
         data-chapter-title="Concepts"
         data-filepath="custom-builds/concepts.md"
         data-basepath=".."
-        data-revision="Wed Aug 17 2016 12:25:21 GMT+0200 (CEST)"
+        data-revision="Sat Mar 18 2017 20:22:12 GMT+0100 (CET)"
         data-innerlanguage="fr">
     
 
@@ -489,11 +489,11 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="comprendre-les-build-personnalis&#xE9;s">Comprendre les <code>build</code> personnalis&#xE9;s</h1>
-<p>OpenLayers 3 est une grosse biblioth&#xE8;que qui fournit de nombreuses fonctionnalit&#xE9;s.
-Ainsi, il est peu probable qu&apos;une application n&#xE9;cessite et utilise toutes les fonctionnalit&#xE9;s qu&apos;OpenLayers fournit. Les <code>build</code> personnalis&#xE9;s (c&apos;est &#xE0; dire <code>build</code> sp&#xE9;cifiques &#xE0; une application) sont des versions de la biblioth&#xE8;que OpenLayers 3 qui embarquent juste les fonctionnalit&#xE9;s que votre application a besoin.
+<p>OpenLayers est une grosse biblioth&#xE8;que qui fournit de nombreuses fonctionnalit&#xE9;s.
+Ainsi, il est peu probable qu&apos;une application n&#xE9;cessite et utilise toutes les fonctionnalit&#xE9;s qu&apos;OpenLayers fournit. Les <code>build</code> personnalis&#xE9;s (c&apos;est &#xE0; dire <code>build</code> sp&#xE9;cifiques &#xE0; une application) sont des versions de la biblioth&#xE8;que OpenLayers qui embarquent juste les fonctionnalit&#xE9;s que votre application a besoin.
  Les <code>build</code> personnalis&#xE9;s sont souvent plus petits que les <code>build</code> complets. Ainsi, cr&#xE9;er des <code>build</code> personnalis&#xE9;s est souvent une tr&#xE8;s bonne id&#xE9;e.</p>
 <h2 id="pr&#xE9;requis">Pr&#xE9;-requis</h2>
-<p>Les <code>build</code> OpenLayers 3 sont cr&#xE9;&#xE9;s en utilisant <a href="https://developers.google.com/closure/compiler/" target="_blank">Closure
+<p>Les <code>build</code> OpenLayers sont cr&#xE9;&#xE9;s en utilisant <a href="https://developers.google.com/closure/compiler/" target="_blank">Closure
 Compiler</a>. Le but de Closure Compiler est de compiler le JavaScript en un JavaScript &quot;meilleur&quot;, qui prend moins de temps &#xE0; t&#xE9;l&#xE9;charger et fonctionne plus vite.</p>
 <p>Closure Compiler est un programme en Java. Ainsi pour qu&apos;il fonctionne, Closure Compiler n&#xE9;cessite une machine virtuelle Java. De ce fait, avant de passer &#xE0; la section suivante et de cr&#xE9;er un <code>build</code> personnalis&#xE9;, assurez-vous que Java est install&#xE9; sur votre machine.</p>
 <p>Vous avez juste besoin du Java Runtime Environment (JRE), que vous pouvez t&#xE9;l&#xE9;charger depuis <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">le site Java de Oracle</a>. Par exemple, pour Windows, vous t&#xE9;l&#xE9;chargerez et installerez probablement <code>jre-8u92-windows-x64.exe</code>.</p>
@@ -602,7 +602,7 @@ Par exemple, le fichier de configuration au dessus est ce que vous utiliseriez p
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"include":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

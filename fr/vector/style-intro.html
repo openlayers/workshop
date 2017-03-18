@@ -59,7 +59,7 @@
         data-chapter-title="Concepts de styles"
         data-filepath="vector/style-intro.md"
         data-basepath=".."
-        data-revision="Wed Aug 17 2016 12:25:21 GMT+0200 (CEST)"
+        data-revision="Sat Mar 18 2017 20:22:12 GMT+0100 (CET)"
         data-innerlanguage="fr">
     
 
@@ -519,7 +519,7 @@
   });
 </code></pre>
 <h2 id="les-symboliseurs">Les symboliseurs</h2>
-<p>L&apos;&#xE9;quivalent d&apos;un bloc de d&#xE9;claration en CSS est un <code>symboliseur</code> en OpenLayers 3 (ce sont typiquement des instances de classes <code>ol.style</code>). Pour peindre des objets g&#xE9;ographiques avec un fond bleu et une ligne de 1 pixel de large de couleur olive, vous devrez utilisez deux symboliseurs comme suivant:</p>
+<p>L&apos;&#xE9;quivalent d&apos;un bloc de d&#xE9;claration en CSS est un <code>symboliseur</code> en OpenLayers (ce sont typiquement des instances de classes <code>ol.style</code>). Pour peindre des objets g&#xE9;ographiques avec un fond bleu et une ligne de 1 pixel de large de couleur olive, vous devrez utilisez deux symboliseurs comme suivant:</p>
 <pre><code class="lang-js">  <span class="hljs-keyword">new</span> ol.style.Style({
     fill: <span class="hljs-keyword">new</span> ol.style.Fill({
       color: <span class="hljs-string">&apos;blue&apos;</span>
@@ -546,38 +546,34 @@
 <h2 id="olstylestyle"><code>ol.style.Style</code></h2>
 <p>Un objet <code>ol.style.Style</code> a 4 cl&#xE9;s: <code>fill</code>, <code>image</code>, <code>stroke</code> et <code>text</code>. Il a aussi une propri&#xE9;t&#xE9; optionnelle <code>zIndex</code>. La fonction de style retournera un tableau d&apos;objets <code>ol.style.Style</code>.</p>
 <p>Si vous voulez que tous les objets g&#xE9;ographiques soit colori&#xE9;s en rouge &#xE0; l&apos;exception de ceux qui ont une attribut <code>class</code> ayant pour valeur <code>&quot;someClass&quot;</code> (et que vous voulez que ces objets g&#xE9;ographiques soient colori&#xE9;s en bleu avec une ligne de 1 pixel de large de couleur olive), vous devrez cr&#xE9;er une fonction de style qui resssemble &#xE0; celle qui suit (par ailleurs, il est important de cr&#xE9;er les objets en dehors de la fonction de style afin qu&apos;ils puissent &#xEA;tre r&#xE9;utilis&#xE9;s, mais pour des raisons de simplicit&#xE9; les objets sont cr&#xE9;&#xE9;s &quot;inline&quot; dans l&apos;exemple ci-dessous):</p>
-<pre><code class="lang-js">  <span class="hljs-keyword">var</span> primaryStyles = [
-    <span class="hljs-keyword">new</span> ol.style.Style({
-      fill: <span class="hljs-keyword">new</span> ol.style.Fill({
-        color: <span class="hljs-string">&apos;blue&apos;</span>
-      }),
-      stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
-        color: <span class="hljs-string">&apos;olive&apos;</span>,
-        width: <span class="hljs-number">1</span>
-      })
-    })];
-    <span class="hljs-keyword">var</span> otherStyle = [<span class="hljs-keyword">new</span> ol.style.Style({
-      fill: <span class="hljs-keyword">new</span> ol.style.Fill({
-        color: <span class="hljs-string">&apos;red&apos;</span>
-      })
+<pre><code class="lang-js">  <span class="hljs-keyword">var</span> primaryStyle = <span class="hljs-keyword">new</span> ol.style.Style({
+    fill: <span class="hljs-keyword">new</span> ol.style.Fill({
+      color: <span class="hljs-string">&apos;blue&apos;</span>
+    }),
+    stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
+      color: <span class="hljs-string">&apos;olive&apos;</span>,
+      width: <span class="hljs-number">1</span>
     })
-  ];
-  <span class="hljs-keyword">var</span> otherStyles = [
-    <span class="hljs-comment">// define other styles here</span>
-  ]
+  });
+
+  <span class="hljs-keyword">var</span> otherStyle = <span class="hljs-keyword">new</span> ol.style.Style({
+    fill: <span class="hljs-keyword">new</span> ol.style.Fill({
+      color: <span class="hljs-string">&apos;red&apos;</span>
+    })
+  });
 
   layer.setStyle(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">feature, resolution</span>) </span>{
     <span class="hljs-keyword">if</span> (feature.get(<span class="hljs-string">&apos;class&apos;</span>) === <span class="hljs-string">&apos;someClass&apos;</span>) {
-      <span class="hljs-keyword">return</span> primaryStyles;
+      <span class="hljs-keyword">return</span> primaryStyle;
     } <span class="hljs-keyword">else</span> {
-      <span class="hljs-keyword">return</span> otherStyles;
+      <span class="hljs-keyword">return</span> otherStyle;
     }
   });
 </code></pre>
-<p><em>Note</em> - Il est important de cr&#xE9;er les tableaux de style en dehors de la fonction de style r&#xE9;elle. La fonction de style est appel&#xE9;e de nombreuses fois pendant les phases de rendu, et vous aurez une animation plus fluide si vos fonctions de style ne cr&#xE9;ent pas trop d&apos;&#xE9;l&#xE9;ments inutiles en m&#xE9;moire.</p>
+<p><em>Note</em> - Il est important de cr&#xE9;er les styles en dehors de la fonction de style r&#xE9;elle. La fonction de style est appel&#xE9;e de nombreuses fois pendant les phases de rendu, et vous aurez une animation plus fluide si vos fonctions de style ne cr&#xE9;ent pas trop d&apos;&#xE9;l&#xE9;ments inutiles en m&#xE9;moire.</p>
 <p>Un objet g&#xE9;ographique a aussi un option de configuration de style qui peut prendre une fonction n&apos;ayant que la r&#xE9;solution comme argument. Cela permet de styler les objets g&#xE9;ographiques de mani&#xE8;re individuelle (bas&#xE9;s sur la r&#xE9;solution).</p>
 <h2 id="pseudoclasses">Pseudo-classes</h2>
-<p>CSS autorise les pseudo-classes sur les s&#xE9;lecteurs. Basiquement, cela limite l&apos;application de d&#xE9;clarations de style bas&#xE9;s sur des contextes qui ne sont pas facilement repr&#xE9;sent&#xE9; dans un s&#xE9;lecteur, comme la position de la souris, les &#xE9;l&#xE9;ments voisins, ou l&apos;historique du navigateur. Dans OpenLayers 3, un concept quelque peu similaire est d&apos;avoir une option de configuration de style sur une <code>ol.interaction.Select</code>.</p>
+<p>CSS autorise les pseudo-classes sur les s&#xE9;lecteurs. Basiquement, cela limite l&apos;application de d&#xE9;clarations de style bas&#xE9;s sur des contextes qui ne sont pas facilement repr&#xE9;sent&#xE9; dans un s&#xE9;lecteur, comme la position de la souris, les &#xE9;l&#xE9;ments voisins, ou l&apos;historique du navigateur. Dans OpenLayers, un concept quelque peu similaire est d&apos;avoir une option de configuration de style sur une <code>ol.interaction.Select</code>.</p>
 <p>Un exemple est:</p>
 <pre><code class="lang-js">  <span class="hljs-keyword">var</span> select = <span class="hljs-keyword">new</span> ol.interaction.Select({
     style: <span class="hljs-keyword">new</span> ol.style.Style({
@@ -627,7 +623,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"include":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

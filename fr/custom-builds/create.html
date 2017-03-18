@@ -57,7 +57,7 @@
         data-chapter-title="Créer des `build` personnalisés"
         data-filepath="custom-builds/create.md"
         data-basepath=".."
-        data-revision="Wed Aug 17 2016 12:25:21 GMT+0200 (CEST)"
+        data-revision="Sat Mar 18 2017 20:22:12 GMT+0100 (CET)"
         data-innerlanguage="fr">
     
 
@@ -500,7 +500,7 @@
      <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">512px</span></span></span>;
    }</span>
    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>OpenLayers 3 example<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>OpenLayers example<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;/loader.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
  <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
  <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
@@ -557,64 +557,64 @@
  <span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
 </code></pre>
 </li>
-<li><p>Cr&#xE9;ez un fichier de configuration du <code>build</code> pour cette carte:</p>
+<li><p>Cr&#xE9;ez un fichier de configuration de &apos;build&apos; <code>ol-custom.json</code> pour cette carte:</p>
+</li>
+</ol>
 <pre><code class="lang-json">{
- <span class="hljs-string">&quot;exports&quot;</span>: [
-   <span class="hljs-string">&quot;ol.Map&quot;</span>,
-   <span class="hljs-string">&quot;ol.View&quot;</span>,
-   <span class="hljs-string">&quot;ol.format.KML&quot;</span>,
-   <span class="hljs-string">&quot;ol.layer.Tile&quot;</span>,
-   <span class="hljs-string">&quot;ol.layer.Vector&quot;</span>,
-   <span class="hljs-string">&quot;ol.proj.fromLonLat&quot;</span>,
-   <span class="hljs-string">&quot;ol.source.OSM&quot;</span>,
-   <span class="hljs-string">&quot;ol.source.Vector&quot;</span>,
-   <span class="hljs-string">&quot;ol.style.Fill&quot;</span>,
-   <span class="hljs-string">&quot;ol.style.Stroke&quot;</span>,
-   <span class="hljs-string">&quot;ol.style.Style&quot;</span>,
-   <span class="hljs-string">&quot;ol.style.Text&quot;</span>
- ],
- <span class="hljs-string">&quot;jvm&quot;</span>: [],
- <span class="hljs-string">&quot;umd&quot;</span>: <span class="hljs-literal">true</span>,
- <span class="hljs-string">&quot;compile&quot;</span>: {
-   <span class="hljs-string">&quot;externs&quot;</span>: [
-     <span class="hljs-string">&quot;externs/bingmaps.js&quot;</span>,
-     <span class="hljs-string">&quot;externs/closure-compiler.js&quot;</span>,
-     <span class="hljs-string">&quot;externs/esrijson.js&quot;</span>,
-     <span class="hljs-string">&quot;externs/geojson.js&quot;</span>,
-     <span class="hljs-string">&quot;externs/oli.js&quot;</span>,
-     <span class="hljs-string">&quot;externs/olx.js&quot;</span>,
-     <span class="hljs-string">&quot;externs/proj4js.js&quot;</span>,
-     <span class="hljs-string">&quot;externs/tilejson.js&quot;</span>,
-     <span class="hljs-string">&quot;externs/topojson.js&quot;</span>
-   ],
-   <span class="hljs-string">&quot;define&quot;</span>: [
-     <span class="hljs-string">&quot;goog.dom.ASSUME_STANDARDS_MODE=true&quot;</span>,
-     <span class="hljs-string">&quot;goog.DEBUG=false&quot;</span>,
-     <span class="hljs-string">&quot;ol.ENABLE_DOM=false&quot;</span>,
-     <span class="hljs-string">&quot;ol.ENABLE_WEBGL=false&quot;</span>,
-     <span class="hljs-string">&quot;ol.ENABLE_PROJ4JS=false&quot;</span>,
-     <span class="hljs-string">&quot;ol.ENABLE_IMAGE=false&quot;</span>
-   ],
-   <span class="hljs-string">&quot;jscomp_error&quot;</span>: [
-     <span class="hljs-string">&quot;*&quot;</span>
-   ],
-   <span class="hljs-string">&quot;jscomp_off&quot;</span>: [
-     <span class="hljs-string">&quot;analyzerChecks&quot;</span>,
-     <span class="hljs-string">&quot;lintChecks&quot;</span>,
-     <span class="hljs-string">&quot;unnecessaryCasts&quot;</span>,
-     <span class="hljs-string">&quot;useOfGoogBase&quot;</span>
-   ],
-   <span class="hljs-string">&quot;extra_annotation_name&quot;</span>: [
-     <span class="hljs-string">&quot;api&quot;</span>, <span class="hljs-string">&quot;observable&quot;</span>
-   ],
-   <span class="hljs-string">&quot;compilation_level&quot;</span>: <span class="hljs-string">&quot;ADVANCED&quot;</span>,
-   <span class="hljs-string">&quot;warning_level&quot;</span>: <span class="hljs-string">&quot;VERBOSE&quot;</span>,
-   <span class="hljs-string">&quot;use_types_for_optimization&quot;</span>: <span class="hljs-literal">true</span>,
-   <span class="hljs-string">&quot;manage_closure_dependencies&quot;</span>: <span class="hljs-literal">true</span>
- }
+  <span class="hljs-string">&quot;exports&quot;</span>: [
+    <span class="hljs-string">&quot;ol.Map&quot;</span>,
+    <span class="hljs-string">&quot;ol.View&quot;</span>,
+    <span class="hljs-string">&quot;ol.format.KML&quot;</span>,
+    <span class="hljs-string">&quot;ol.layer.Tile&quot;</span>,
+    <span class="hljs-string">&quot;ol.layer.Vector&quot;</span>,
+    <span class="hljs-string">&quot;ol.proj.fromLonLat&quot;</span>,
+    <span class="hljs-string">&quot;ol.source.OSM&quot;</span>,
+    <span class="hljs-string">&quot;ol.source.Vector&quot;</span>,
+    <span class="hljs-string">&quot;ol.style.Fill&quot;</span>,
+    <span class="hljs-string">&quot;ol.style.Stroke&quot;</span>,
+    <span class="hljs-string">&quot;ol.style.Style&quot;</span>,
+    <span class="hljs-string">&quot;ol.style.Text&quot;</span>
+  ],
+  <span class="hljs-string">&quot;jvm&quot;</span>: [],
+  <span class="hljs-string">&quot;umd&quot;</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-string">&quot;compile&quot;</span>: {
+    <span class="hljs-string">&quot;externs&quot;</span>: [
+      <span class="hljs-string">&quot;externs/bingmaps.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/cartodb.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/closure-compiler.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/esrijson.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/geojson.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/oli.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/olx.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/proj4js.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/tilejson.js&quot;</span>,
+      <span class="hljs-string">&quot;externs/topojson.js&quot;</span>
+    ],
+    <span class="hljs-string">&quot;define&quot;</span>: [
+      <span class="hljs-string">&quot;goog.DEBUG=false&quot;</span>,
+      <span class="hljs-string">&quot;ol.ENABLE_WEBGL=false&quot;</span>,
+      <span class="hljs-string">&quot;ol.ENABLE_PROJ4JS=false&quot;</span>
+    ],
+    <span class="hljs-string">&quot;jscomp_error&quot;</span>: [
+      <span class="hljs-string">&quot;*&quot;</span>
+    ],
+    <span class="hljs-string">&quot;jscomp_off&quot;</span>: [
+      <span class="hljs-string">&quot;analyzerChecks&quot;</span>,
+      <span class="hljs-string">&quot;lintChecks&quot;</span>,
+      <span class="hljs-string">&quot;unnecessaryCasts&quot;</span>,
+      <span class="hljs-string">&quot;useOfGoogBase&quot;</span>
+    ],
+    <span class="hljs-string">&quot;extra_annotation_name&quot;</span>: [
+      <span class="hljs-string">&quot;api&quot;</span>, <span class="hljs-string">&quot;observable&quot;</span>
+    ],
+    <span class="hljs-string">&quot;compilation_level&quot;</span>: <span class="hljs-string">&quot;ADVANCED&quot;</span>,
+    <span class="hljs-string">&quot;warning_level&quot;</span>: <span class="hljs-string">&quot;VERBOSE&quot;</span>,
+    <span class="hljs-string">&quot;use_types_for_optimization&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">&quot;manage_closure_dependencies&quot;</span>: <span class="hljs-literal">true</span>
+  }
 }
 </code></pre>
-</li>
+<ol>
 <li><p>Cr&#xE9;ez le <code>build</code> personnalis&#xE9; en utilisant le script Node <code>build.js</code> d&apos;OpenLayers:</p>
 <pre><code class="lang-shell">$ node node_modules/openlayers/tasks/build.js ol-custom.json ol-custom.js
 </code></pre>
@@ -667,7 +667,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"include":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

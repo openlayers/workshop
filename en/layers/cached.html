@@ -59,7 +59,7 @@
         data-chapter-title="Tiled sources"
         data-filepath="layers/cached.md"
         data-basepath=".."
-        data-revision="Wed Aug 17 2016 12:25:20 GMT+0200 (CEST)"
+        data-revision="Sat Mar 18 2017 20:22:12 GMT+0100 (CET)"
         data-innerlanguage="en">
     
 
@@ -545,10 +545,10 @@
   })
 </code></pre>
 <p>Geospatial data can come in any number of coordinate reference systems. One data set might use geographic coordinates (longitude and latitude) in degrees, and another might have coordinates in a local projection with units in meters. A full discussion of coordinate reference systems is beyond the scope of this module, but it is important to understand the basic concept.</p>
-<p>OpenLayers 3 needs to know the coordinate system for your data. Internally, this is represented with an <code>ol.proj.Projection</code> object but strings can also be supplied.</p>
+<p>OpenLayers needs to know the coordinate system for your data. Internally, this is represented with an <code>ol.proj.Projection</code> object but strings can also be supplied.</p>
 <p>The OpenStreetMap tiles that we will be using are in a Mercator projection. Because of this, we need to set the initial center using Mercator coordinates. Since it is relatively easy to find out the coordinates for a place of interest in geographic coordinates, we use the <code>ol.proj.fromLonLat</code> method to turn geographic coordinates (<code>&apos;EPSG:4326&apos;</code>) into Mercator coordinates (<code>&apos;EPSG:3857&apos;</code>).</p>
 <h3 id="alternative-projections">Alternative Projections</h3>
-<p>OpenLayers 3 includes transforms between Geographic (<code>&apos;EPSG:4326&apos;</code>) and Web Mercator (<code>&apos;EPSG:3857&apos;</code>) coordinate reference systems.  Because of this, we can use the <code>ol.proj.fromLonLat</code> function above without any extra work.  If you want to work with data in a different projection, you need to include some additional information before using the <code>ol.proj.*</code> functions.</p>
+<p>OpenLayers includes transforms between Geographic (<code>&apos;EPSG:4326&apos;</code>) and Web Mercator (<code>&apos;EPSG:3857&apos;</code>) coordinate reference systems.  Because of this, we can use the <code>ol.proj.fromLonLat</code> function above without any extra work.  If you want to work with data in a different projection, you need to include some additional information before using the <code>ol.proj.*</code> functions.</p>
 <p>For example, if you wanted to work with data in the <code>&apos;EPSG:21781&apos;</code> coordinate reference system, you would include the following two script tags in your page:</p>
 <pre><code class="lang-html">  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://epsg.io/21781-1753.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
@@ -623,7 +623,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"include":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

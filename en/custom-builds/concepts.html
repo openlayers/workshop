@@ -59,7 +59,7 @@
         data-chapter-title="Concepts"
         data-filepath="custom-builds/concepts.md"
         data-basepath=".."
-        data-revision="Wed Aug 17 2016 12:25:20 GMT+0200 (CEST)"
+        data-revision="Sat Mar 18 2017 20:22:12 GMT+0100 (CET)"
         data-innerlanguage="en">
     
 
@@ -489,14 +489,14 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="understanding-custom-builds">Understanding custom builds</h1>
-<p>OpenLayers 3 is a big library providing a lot of functionality. So it is
+<p>OpenLayers is a big library providing a lot of functionality. So it is
 unlikely that an application will need and use all the functionality OpenLayers
 3 provides. Custom builds (a.k.a. application-specific builds) are OpenLayers
 3 builds with just the functionality your application needs. Custom builds are
 often much smaller that the full build, so creating custom builds is often
 a very good idea.</p>
 <h2 id="requirements">Requirements</h2>
-<p>OpenLayers 3 builds are created by using the <a href="https://developers.google.com/closure/compiler/" target="_blank">Closure
+<p>OpenLayers builds are created by using the <a href="https://developers.google.com/closure/compiler/" target="_blank">Closure
 Compiler</a>. The goal of the
 Closure Compiler is to compile JavaScript to better JavaScript, that takes less
 time to download and run faster.</p>
@@ -616,7 +616,7 @@ JavaScript code:</p>
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"include":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

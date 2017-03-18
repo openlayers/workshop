@@ -59,7 +59,7 @@
         data-chapter-title="Vector data"
         data-filepath="layers/vector.md"
         data-basepath=".."
-        data-revision="Wed Aug 17 2016 12:25:20 GMT+0200 (CEST)"
+        data-revision="Sat Mar 18 2017 20:22:12 GMT+0100 (CET)"
         data-innerlanguage="en">
     
 
@@ -489,7 +489,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="vector-layers">Vector Layers</h1>
-<p>Vector Layers are represented by <code>ol.layer.Vector</code> and handle the client-side display of vector data. Currently OpenLayers 3 supports full vector rendering in the Canvas renderer, but only point geometries in the WebGL renderer.</p>
+<p>Vector Layers are represented by <code>ol.layer.Vector</code> and handle the client-side display of vector data. Currently OpenLayers supports full vector rendering in the Canvas renderer, but only point geometries in the WebGL renderer.</p>
 <h2 id="rendering-features-clientside">Rendering Features Client-Side</h2>
 <p>Let&apos;s go back to the WMS example to get a basic world map.  We&apos;ll add some feature data on top of this in a vector layer.</p>
 <pre><code class="lang-html"><span class="hljs-doctype">&lt;!doctype html&gt;</span>
@@ -502,7 +502,7 @@
         <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">512px</span></span></span>;
       }</span>
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>OpenLayers 3 example<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>OpenLayers example<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;/loader.js&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
@@ -575,7 +575,7 @@
 <ol>
 <li><p>The white circles on the map represent <code>ol.Feature</code> objects on your <code>ol.layer.Vector</code> layer. Each of these features has attribute data with <code>title</code> and <code>summary</code> properties. Register a <code>&apos;singleclick&apos;</code> listener on your map that calls <code>forEachFeatureAtPixel</code> on the map, and displays earthquake information below the map viewport.</p>
 </li>
-<li><p>The data for the vector layer comes from an earthquake feed published by the USGS (<a href="http://earthquake.usgs.gov/earthquakes/catalogs/" target="_blank">http://earthquake.usgs.gov/earthquakes/catalogs/</a>).  See if you can find additional data with spatial information in a format supported by OpenLayers 3.  If you save another document representing spatial data in your <code>data</code> directory, you should be able to view it in a vector layer on your map.</p>
+<li><p>The data for the vector layer comes from an earthquake feed published by the USGS (<a href="http://earthquake.usgs.gov/earthquakes/catalogs/" target="_blank">http://earthquake.usgs.gov/earthquakes/catalogs/</a>).  See if you can find additional data with spatial information in a format supported by OpenLayers.  If you save another document representing spatial data in your <code>data</code> directory, you should be able to view it in a vector layer on your map.</p>
 </li>
 </ol>
 <h3 id="solutions">Solutions</h3>
@@ -631,7 +631,7 @@ feature:</p>
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"include":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

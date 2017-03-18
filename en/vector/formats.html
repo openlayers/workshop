@@ -59,7 +59,7 @@
         data-chapter-title="Formats"
         data-filepath="vector/formats.md"
         data-basepath=".."
-        data-revision="Wed Aug 17 2016 12:25:20 GMT+0200 (CEST)"
+        data-revision="Sat Mar 18 2017 20:22:12 GMT+0100 (CET)"
         data-innerlanguage="en">
     
 
@@ -491,7 +491,7 @@
                         <h1 id="working-with-vector-formats">Working with Vector Formats</h1>
 <p>The base <code>ol.layer.Vector</code> constructor provides a fairly flexible layer type. By default, when you create a new vector layer, no assumptions are made about where the features for the layer will come from, since this is the domain of <code>ol.source.Vector</code>.  Before getting into styling vector features, this section introduces the basics of vector formats.</p>
 <h2 id="olformat"><code>ol.format</code></h2>
-<p>The <code>ol.format</code> classes in OpenLayers 3 are responsible for parsing data from the server representing vector features. The format turns raw feature data into <code>ol.Feature</code> objects.</p>
+<p>The <code>ol.format</code> classes in OpenLayers are responsible for parsing data from the server representing vector features. The format turns raw feature data into <code>ol.Feature</code> objects.</p>
 <p>Consider the two blocks of data below. Both represent the same <code>ol.Feature</code> object (a point in Barcelona, Spain). The first is serialized as <a href="http://geojson.org" target="_blank">GeoJSON</a> (using the <code>ol.format.GeoJSON</code> parser). The second is serialized as KML (OGC Keyhole Markup Language) (using the <code>ol.format.KML</code> parser).</p>
 <h3 id="geojson-example">GeoJSON Example</h3>
 <pre><code class="lang-json">{
@@ -553,7 +553,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"include":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>
