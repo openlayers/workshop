@@ -76,7 +76,7 @@ the [last chapter](../vector/style.md).
 2. Create a build configuration file `ol-custom.json` for that map:
 
 ```json
-!INCLUDE "../data/build-config/vector-chapter.json"
+!INCLUDE "../../shared/vector-chapter-build-config.json"
 ```
 
 3. Create the custom build using `OpenLayers`'s `build.js` Node script:
