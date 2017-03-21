@@ -45,8 +45,8 @@ The next step in generating your map is to include some initialization code. In 
       layers: [
         new ol.layer.Tile({
           source: new ol.source.TileWMS({
-            url: 'http://demo.opengeo.org/geoserver/wms',
-            params: {LAYERS: 'nasa:bluemarble', VERSION: '1.1.1'}
+            url: 'https://ahocevar.com/geoserver/wms',
+            params: {LAYERS: 'nasa:bluemarble', TILED: true}
           })
         })
       ],
@@ -79,8 +79,8 @@ The layers config creates a layer to be displayed in our map:
   layers: [
     new ol.layer.Tile({
       source: new ol.source.TileWMS({
-        url: 'http://demo.opengeo.org/geoserver/wms',
-        params: {LAYERS: 'nasa:bluemarble', VERSION: '1.1.1'}
+        url: 'https://ahocevar.com/geoserver/wms',
+        params: {LAYERS: 'nasa:bluemarble', TILED: true}
       })
     })
   ],

@@ -14,7 +14,7 @@ ol.css
 ol-custom.js*
 
 # the main example file (in both language folders)
-map.html
+src/*/map.html
 
 openlayers-workshop-en.zip
 openlayers-workshop-fr.zip
