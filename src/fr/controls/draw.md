@@ -41,8 +41,8 @@ De nouveaux objets géographiques peuvent être dessinés en utilisant une `ol.i
               new ol.layer.Tile({
                 title: 'Global Imagery',
                 source: new ol.source.TileWMS({
-                  url: 'http://demo.opengeo.org/geoserver/wms',
-                  params: {LAYERS: 'nasa:bluemarble', VERSION: '1.1.1'}
+                  url: 'https://ahocevar.com/geoserver/wms',
+                  params: {LAYERS: 'nasa:bluemarble', TILED: true}
                 })
               }),
               new ol.layer.Vector({

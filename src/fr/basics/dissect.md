@@ -45,8 +45,8 @@ La prochaine étape dans la génération de votre carte est d'inclure un peu de 
       layers: [
         new ol.layer.Tile({
           source: new ol.source.TileWMS({
-            url: 'http://demo.opengeo.org/geoserver/wms',
-            params: {LAYERS: 'nasa:bluemarble', VERSION: '1.1.1'}
+            url: 'https://ahocevar.com/geoserver/wms',
+            params: {LAYERS: 'nasa:bluemarble', TILED: true}
           })
         })
       ],
@@ -79,8 +79,8 @@ La configuration de couches créé une couche qui doit être affichée dans notr
   layers: [
     new ol.layer.Tile({
       source: new ol.source.TileWMS({
-        url: 'http://demo.opengeo.org/geoserver/wms',
-        params: {LAYERS: 'nasa:bluemarble', VERSION: '1.1.1'}
+        url: 'https://ahocevar.com/geoserver/wms',
+        params: {LAYERS: 'nasa:bluemarble', TILED: true}
       })
     })
   ],

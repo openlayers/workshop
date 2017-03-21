@@ -30,8 +30,8 @@ Revenons à l'exemple WMS pour avoir une carte du monde basique.  Nous allons aj
           new ol.layer.Tile({
             title: 'Global Imagery',
             source: new ol.source.TileWMS({
-              url: 'http://demo.opengeo.org/geoserver/wms',
-              params: {LAYERS: 'nasa:bluemarble', VERSION: '1.1.1'}
+              url: 'https://ahocevar.com/geoserver/wms',
+              params: {LAYERS: 'nasa:bluemarble', TILED: true}
             })
           })
         ],

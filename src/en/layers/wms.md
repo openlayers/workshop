@@ -35,8 +35,8 @@ Let's take a look at the following code:
           new ol.layer.Tile({
             title: 'Global Imagery',
             source: new ol.source.TileWMS({
-              url: 'http://demo.opengeo.org/geoserver/wms',
-              params: {LAYERS: 'nasa:bluemarble', VERSION: '1.1.1'}
+              url: 'https://ahocevar.com/geoserver/wms',
+              params: {LAYERS: 'nasa:bluemarble', TILED: true}
             })
           })
         ],
@@ -70,15 +70,15 @@ In OpenLayers there is a separation between layers and sources, whereas in OpenL
 ## The ol.source.TileWMS Constructor
 
 The `ol.source.TileWMS` constructor has a single argument which is defined by: http://openlayers.org/en/master/apidoc/ol.source.TileWMS.html.
-The url is the online resource of the WMS service, and params is an object literal with the parameter names and their values. Since the default WMS version is 1.3.0 now in OpenLayers, you might need to provide a lower version in the params if your WMS does not support WMS 1.3.0.
+The url is the online resource of the WMS service, and params is an object literal with the parameter names and their values. Only the `LAYERS` param is required. In this example, we add `TILED: true`, a GeoServer specific extension for better caching of tiled WMS layers.
 
 ```js
   layers: [
     new ol.layer.Tile({
       title: 'Global Imagery',
       source: new ol.source.TileWMS({
-        url: 'http://demo.opengeo.org/geoserver/wms',
-        params: {LAYERS: 'nasa:bluemarble', VERSION: '1.1.1'}
+        url: 'https://ahocevar.com/geoserver/wms',
+        params: {LAYERS: 'nasa:bluemarble', TILED: true}
       })
     })
   ]
@@ -94,8 +94,8 @@ The url is the online resource of the WMS service, and params is an object liter
     new ol.layer.Tile({
       title: 'Global Imagery',
       source: new ol.source.TileWMS({
-        url: 'http://demo.opengeo.org/geoserver/wms',
-        params: {LAYERS: 'ne:NE1_HR_LC_SR_W_DR', VERSION: '1.1.1'}
+        url: 'https://ahocevar.com/geoserver/wms',
+        params: {LAYERS: 'ne:NE1_HR_LC_SR_W_DR', TILED: true}
       })
     })
   ```

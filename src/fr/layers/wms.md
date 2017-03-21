@@ -34,8 +34,8 @@ Jetez un oeil au code suivant:
           new ol.layer.Tile({
             title: 'Global Imagery',
             source: new ol.source.TileWMS({
-              url: 'http://demo.opengeo.org/geoserver/wms',
-              params: {LAYERS: 'nasa:bluemarble', VERSION: '1.1.1'}
+              url: 'https://ahocevar.com/geoserver/wms',
+              params: {LAYERS: 'nasa:bluemarble', TILED: true}
             })
           })
         ],
@@ -69,15 +69,15 @@ Dans OpenLayers, il y a une séparation entre les couches et les sources alors q
 ## Le constructeur `ol.source.TileWMS`
 
 Le constructeur `ol.source.TileWMS` est un argument unique qui est définit par: http://openlayers.org/en/master/apidoc/ol.source.TileWMS.html.
-L'url est la `online resource` du service WMS, et `params` est un objet litéral avec les noms des paramètres et leurs valeurs. Depuis que la version par défaut du WMS est la version 1.3.0 dans OpenLayers, vous pourriez avoir besoin de renseigner une version inférieure dans les `params` si votre WMS ne supporte par le WMS 1.3.0.
+L'url est la `online resource` du service WMS, et `params` est un objet litéral avec les noms des paramètres et leurs valeurs. Seul le paramètre `LAYERS` est requis. Dans cet exemple, nous ajoutons `TILED: true`, une extension spécifique à GeoServer pour une meilleure mise en cache des couches WMS en mosaïque.
 
 ```js
   layers: [
     new ol.layer.Tile({
       title: 'Global Imagery',
       source: new ol.source.TileWMS({
-        url: 'http://demo.opengeo.org/geoserver/wms',
-        params: {LAYERS: 'nasa:bluemarble', VERSION: '1.1.1'}
+        url: 'https://ahocevar.com/geoserver/wms',
+        params: {LAYERS: 'nasa:bluemarble', TILED: true}
       })
     })
   ]
@@ -93,8 +93,8 @@ L'url est la `online resource` du service WMS, et `params` est un objet litéral
     new ol.layer.Tile({
       title: 'Global Imagery',
       source: new ol.source.TileWMS({
-        url: 'http://demo.opengeo.org/geoserver/wms',
-        params: {LAYERS: 'ne:NE1_HR_LC_SR_W_DR', VERSION: '1.1.1'}
+        url: 'https://ahocevar.com/geoserver/wms',
+        params: {LAYERS: 'ne:NE1_HR_LC_SR_W_DR', TILED: true}
       })
     })
   ```
