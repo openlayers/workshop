@@ -4,7 +4,7 @@ Welcome to the **OpenLayers Workshop**. This workshop is designed to give you a 
 
 ## Preparation steps for OSGeo-Live v10.0
 
-If you do not have Node.js installed (e.g. if you work on a fresh OSGeo-Live v10.0), you will need to install it. Here are some example commands you need to issue in a terminal to get everything the workshop depends upon.
+If you do not have Node.js installed (e.g. if you work on a fresh [OSGeo-Live v10.0](https://live.osgeo.org/)), you will need to install it. Here are some example commands you need to issue in a terminal to get everything the workshop depends upon.
 
 First, let's install [`nvm` (Node Version Manager)](https://github.com/creationix/nvm) which we use to manage installations of Node.js.:
 
