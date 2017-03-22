@@ -2,6 +2,20 @@
 
 Welcome to the **OpenLayers Workshop**. This workshop is designed to give you a comprehensive overview of OpenLayers as a web mapping solution.
 
+## Preparation steps for OSGeo-Live v10.0
+
+If you do not have Node.js installed (e.g. if you work on a fresh OSGeo-Live v10.0), you will need to install it. Here are some example commands you need to issue in a terminal to get everything the workshop depends upon.
+
+First, let's install [`nvm` (Node Version Manager)](https://github.com/creationix/nvm) which we use to manage installations of Node.js.:
+
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+
+Next, please close and reopen the terminal, so that the `nvm` script is available.
+
+Afterwards issue the following in the terminal to install the lates v6.x Node.js and a matching `npm` utility:
+
+    nvm install v6
+
 ## Setup
 
 These instructions assume that you are starting with an `openlayers-workshop-en.zip` archive from the latest [workshop release](https://github.com/openlayers/workshop/releases).  In addition, you'll need [Node](https://nodejs.org/) installed to run a development server for the OpenLayers library.
