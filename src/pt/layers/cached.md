@@ -1,22 +1,22 @@
-# Cached Tiles
+# `Tiles` cacheados
 
-By default, the Tile layer makes requests for 256 x 256 (pixel) images to fill your map viewport and beyond. As you pan and zoom around your map, more requests for images go out to fill the areas you haven't yet visited. While your browser will cache some requested images, a lot of processing work is typically required for the server to dynamically render images.
+Por padrão, a camada `Tile` faz requisições para obter imagens de 256 x 256 pixels de modo a preencher a área de visualização do mapa. Conforme você move ou faz zoom no mapa, mais requisições são disparadas para preencher áreas que você ainda não visualizou. Enquanto seu navegador faz o cache de algumas imagens, muito processamento é normalmente exigido do servidor para renderizar imagens dinamicamente.
 
-Since tiled layers make requests for images on a regular grid, it is possible for the server to cache these image requests and return the cached result next time you (or someone else) visits the same area - resulting in better performance all around.
+Como esse tipo de camada faz requisições de imagens numa grade regular, é possível para o servidor fazer cache dessas requisições e retornar o resultado cacheado na próxima vez que você (ou outra pessoa) visitar a mesma área - ocasionando uma melhora no desempenho.
 
 ## `ol.source.XYZ`
 
-The Web Map Service specification allows a lot of flexibility in terms of what a client can request. Without constraints, this makes caching difficult or impossible in practice.
+A especificação WMS é muito flexível em termos do que um cliente pode requisitar. Sem restrições, isto faz com que seja muito difícil, ou até mesmo impossível, fazer cache.
 
-At the opposite extreme, a service might offer tiles only at a fixed set of zoom levels and only for a regular grid. These can be generalized as tiled layers with an XYZ source - you can consider X and Y to indicate the column and row of the grid and Z to represent the zoom level.
+No extremo oposto, um serviço pode oferecer `tiles` somente para níveis de zoom pré-determinados e somente para uma determinada grade. Isto pode ser generalizado como uma camada `tiled` com uma fonte de dados XYZ - você pode considerar X e Y para indicar a coluna e a linha da grade e Z para representar o nível de zoom.
 
 ## `ol.source.OSM`
 
-The [OpenStreetMap (OSM)](http://www.openstreetmap.org/) project is an effort to collect and make freely available map data for the world. OSM provides a few different renderings of their data as cached tile sets. These renderings conform to the basic XYZ grid arrangement and can be used in an OpenLayers map. The `ol.source.OSM` layer source accesses OpenStreetMap tiles.
+O projeto [OpenStreetMap (OSM)](http://www.openstreetmap.org/) é um esforço para coletar e disponibilizar gratuitamente dados geoespaciais para o mundo. O projeto fornece diferentes renderizações de seus dados como conjuntos de `tiles` cacheados. Estas renderizações estão em conformidade com o arranjo básico da grid XYZ e podem ser usadas num mapa OpenLayers. A fonte de dados `ol.source.OSM` acessa os `tiles` fornecidos pelo OpenStreetMap.
 
-### Tasks
+### Tarefas
 
-1. Open the `map.html` file from the [previous section](wms.md) in a text editor and change the map initialization code to look like the following:
+1. Abra o arquivo `map.html` da [seção anterior](wms.md) num editor de texto e mude o código de inicialização do mapa conforme abaixo:
 
   ```html
     <script>
@@ -40,7 +40,7 @@ The [OpenStreetMap (OSM)](http://www.openstreetmap.org/) project is an effort to
     </script>
   ```
 
-1. In the `<head>` of the same document, add a few style declarations for the layer attribution.
+1. No `<head>` do mesmo documento, adicione algumas declarações de estilo para a camada:  
 
   ```html
     <style>
@@ -54,15 +54,15 @@ The [OpenStreetMap (OSM)](http://www.openstreetmap.org/) project is an effort to
     </style>
   ```
 
-1. Save your changes, and refresh the page in your browser: {{ book.workshopUrl }}/map.html
+1. Salve suas alterações e atualize a página no seu navegador: {{ book.workshopUrl }}/map.html  
 
-  ![A tiled layer with an OSM source](cached1.png)
+  ![Uma camada `tiled` com uma fonte OSM](cached1.png)
 
-## A Closer Look
+## Olhando mais de perto
 
-### Projections
+### Projeções
 
-Review the view definition of the map:
+Revise a definição de visualização do mapa:
 
 ```js
   view: new ol.View({
@@ -70,25 +70,24 @@ Review the view definition of the map:
     zoom: 9
   })
 ```
+Dados geoespaciais podem vir em qualquer sistema de coordenadas. Um conjunto de dados pode usar coordenadas geográficas (longitude e latitude) em graus e outro pode usar coordenadas numa projeção local com unidades em metros. Uma discussão completa sobre sistemas de coordenadas referenciais está fora do escopo deste módulo, mas é importante entender o conceito básico.
 
-Geospatial data can come in any number of coordinate reference systems. One data set might use geographic coordinates (longitude and latitude) in degrees, and another might have coordinates in a local projection with units in meters. A full discussion of coordinate reference systems is beyond the scope of this module, but it is important to understand the basic concept.
+O OpenLayers precisa saber o sistema de coordenadas de seus dados. Internamente, isto é representado pelo objeto `ol.proj.Projection` mas também pode ser fornecida uma string.
 
-OpenLayers needs to know the coordinate system for your data. Internally, this is represented with an `ol.proj.Projection` object but strings can also be supplied.
+Os `tiles` do OpenStreetMap que você utilizará está na projeção de Mercator. Por causa disso, nós precisamos atribuir o centro do mapa utilizando coordenadas desta projeção. Considerando que é relativamente fácil encontrar coordenadas de um lugar de interesse em coordenadas geográficas, nós usamos o método `ol.proj.fromLonLat` para converter coordenadas geográficas (`'EPSG:4326'`) para coordenadas Mercator (`'EPSG:3857'`).
 
-The OpenStreetMap tiles that we will be using are in a Mercator projection. Because of this, we need to set the initial center using Mercator coordinates. Since it is relatively easy to find out the coordinates for a place of interest in geographic coordinates, we use the `ol.proj.fromLonLat` method to turn geographic coordinates (`'EPSG:4326'`) into Mercator coordinates (`'EPSG:3857'`).
+### Projeções alternativas
 
-### Alternative Projections
+O OpenLayers inclui transformações entre sistemas de coordenadas geográficas (`'EPSG:4326'`) e Web Mercator (`'EPSG:3857'`). Por isso, conseguimos utilizar a função `ol.proj.fromLonLat` sem qualquer esforço extra. Se você quiser trabalhar com dados em outras projeções, você precisará de algumas informações adicionais antes de usar as funções `ol.proj.*`.
 
-OpenLayers includes transforms between Geographic (`'EPSG:4326'`) and Web Mercator (`'EPSG:3857'`) coordinate reference systems.  Because of this, we can use the `ol.proj.fromLonLat` function above without any extra work.  If you want to work with data in a different projection, you need to include some additional information before using the `ol.proj.*` functions.
-
-For example, if you wanted to work with data in the `'EPSG:21781'` coordinate reference system, you would include the following two script tags in your page:
+Por exemplo, se quiser trabalhar com dados no sistema de coordenadas `'EPSG:21781'`, você precisa incluir duas tags de script em sua página:
 
 ```html
   <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js" type="text/javascript"></script>
   <script src="http://epsg.io/21781-1753.js" type="text/javascript"></script>
 ```
 
-Then in your application code, you could register this projection and set its validity extent as follows:
+Em seguida, no código de sua aplicação, você pode registrar esta projeção e atribuir sua extensão (`extent`):
 
 ```js
   // This creates a projection object for the EPSG:21781 projection
@@ -97,9 +96,9 @@ Then in your application code, you could register this projection and set its va
   projection.setExtent([485869.5728, 76443.1884, 837076.5648, 299941.7864]);
 ```
 
-The extent information can be looked up at http://epsg.io/, using the EPSG code.
+O `extent` pode ser obtido no site http://epsg.io/ usando o código EPSG.
 
-### Layer Creation
+### Criação da camada
 
 ```js
   layers: [
@@ -109,7 +108,7 @@ The extent information can be looked up at http://epsg.io/, using the EPSG code.
   ],
 ```
 
-As before, we create a layer and add it to the layers array of our map config object. This time, we accept all the default options for the source.
+Como antes, nós criamos uma camada e a adicionamos ao array `layers` do objeto de configuração do mapa. Desta vez, nós aceitamos todas as opções default para a fonte de dados.
 
 ### Style
 
@@ -119,11 +118,11 @@ As before, we create a layer and add it to the layers array of our map config ob
   }
 ```
 
-A treatment of map controls is also outside of the scope of this module, but these style declarations give you a sneak preview. By default, an `ol.control.Attribution` control is added to all maps. This lets layer sources display attribution information in the map viewport. The declarations above alter the style of this attribution for our map (notice the Copyright line at the bottom right of the map).
+Um aprofundamento sobre os controles do mapa também está fora do escopo deste módulo, mas estas declarações fornecem uma prévia. Por padrão, um controle `ol.control.Attribution` é adicionado a todos os mapas. Isto permite que as fontes de dados possam fornecer informações de atribuição sobre a área de visualização do mapa. As declarações acima, alteram o estilo desta atribuição para o nosso mapa (note a linha de Copyright sobre a parte inferior direita do mapa).
 
-### Attribution Control Configuration
+### Configuração do controle `Attribution`
 
-By default the `ol.control.Attribution` adds an `i` (information) button that can be pressed to actually displays the attribution information. To comply to [OpenStreetMap's Terms Of Use](http://wiki.openstreetmap.org/wiki/Legal_FAQ), and always display the OpenStreetMap attribution information, the following is used in the options object passed to the `ol.Map` constructor:
+Por padrão, o controle `ol.control.Attribution` adiciona um botão `i` (informação) que pode ser pressionado para mostrar a informação de atribuição. Para ficar em conformidade com os [Termos de Uso do OpenStreetMap](http://wiki.openstreetmap.org/wiki/Legal_FAQ) e sempre mostrar a informação de atribuição, a seguinte opção é passada para o construtor do objeto `ol.Map`:
 
 ```js
   controls: ol.control.defaults({
@@ -133,6 +132,7 @@ By default the `ol.control.Attribution` adds an `i` (information) button that ca
   })
 ```
 
-This removes the `i` button, and makes the attribution information always visible.
+Isto remove o botão `i` e faz com que a informação de atribuição esteja sempre visível.
 
-Having mastered layers with publicly available cached tile sets, let's move on to working with [proprietary raster layers](proprietary.md).
+Tendo dominado as camadas de `tiles` cacheados publicamente disponíveis, trabalharemos a seguir com [camadas raster proprietárias](proprietary.md).
+

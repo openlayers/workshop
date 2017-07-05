@@ -1,15 +1,14 @@
-# Web Map Service Layers
+# Camadas WMS (Web Map Service)
 
-When you add a layer to your map, the layer's source is typically responsible for fetching the data to be displayed. The data requested can be either raster or vector data. You can think of raster data as information rendered as an image on the server side. Vector data is delivered as structured information from the server and may be rendered for display on the client (your browser).
+Quando você adiciona uma camada ao seu mapa, a fonte de dados da camada é, geralmente, responsável por obter os dados a serem exibidos. O dado requisitado pode ser do tipo raster ou vetorial. Você pode pensar no raster como uma informação renderizada pelo servidor em formato de imagem. Por outro lado, um dado vetorial é entregue pelo servidor como uma informação estruturada e pode ser renderizada pelo cliente (seu navegador).
 
-There are many different types of services that provide raster map data. This section deals with providers that conform with the OGC (Open Geospatial Consortium, Inc.) [Web Map Service (WMS)](http://www.opengeospatial.org/standards/wms) specification.
+Existem diferentes serviços que fornecem dados do tipo raster. Esta seção apresenta os provedores que estão em conformidade com a especificação OGC (Open Geospatial Consortium, Inc.) [Web Map Service (WMS)](http://www.opengeospatial.org/standards/wms).
 
-## Creating a Layer
+## Criando uma camada
 
-We'll start with a fully working map example and modify the layers to get an
-understanding of how they work.
+Iniciaremos com um exemplo completo e modificaremos as camadas para uma melhor compreensão de como elas funcionam.
 
-Let's take a look at the following code:
+Vamos examinar o seguinte código:
 
 ```html
 <!doctype html>
@@ -52,25 +51,25 @@ Let's take a look at the following code:
 </html>
 ```
 
-### Tasks
+### Tarefas
 
-1. If you haven't already done so, save the text above as `map.html` in the root of your workshop directory.
+1. Se você ainda não tiver feito, salve o texto acima como `map.html` no diretório raiz do workshop.
 
-1. Open the page in your browser to confirm things work: {{ book.workshopUrl }}/map.html
+1. Abra a página no seu navegador para confirmar que está funcionando: {{ book.workshopUrl }}/map.html
 
-## The `ol.layer.Tile` Constructor
+## O construtor da classe `ol.layer.Tile`
 
-The `ol.layer.Tile` constructor gets an object literal of type `olx.layer.TileOptions` see: http://openlayers.org/en/master/apidoc/ol.layer.Tile.html
-In this case we are providing the source key of the options with an `ol.source.TileWMS`.
-A human-readable title for the layer can be provided with the title key, but basically any arbitrary name for the key can be used here.
-In OpenLayers there is a separation between layers and sources, whereas in OpenLayers 2 this was all part of the layer.
+O construtor da classe `ol.layer.Tile` aceita como parâmetro um objeto literal do tipo `ol.layer.TileOptions` veja: http://openlayers.org/en/master/apidoc/ol.layer.Tile.html.
+Neste caso, nós estamos passando a chave `source` por meio do objeto `ol.source.TileWMS`.
+A camada pode receber um título humanamente legível por meio da chave `title`, mas qualquer nome arbitrário para a chave pode ser fornecido aqui.
+No OpenLayers existe uma separação entre as camadas (`layers`) e as fontes de dados (`sources`), apesar de no OpenLayers 2 tudo fazer parte da camada.
 
-`ol.layer.Tile` represents a regular grid of images, `ol.layer.Image` represents a single image. Depending on the layer type, you would use a different source (`ol.source.TileWMS` versus `ol.source.ImageWMS`) as well.
+`ol.layer.Tile` representa uma grade regular de imagens, `ol.layer.Image` representa uma única imagem. Dependendo do tipo de camada, você pode usar uma fonte de dados diferente (`ol.source.TileWMS` versus `ol.source.ImageWMS`).
 
-## The ol.source.TileWMS Constructor
+## O construtor da classe ol.source.TileWMS
 
-The `ol.source.TileWMS` constructor has a single argument which is defined by: http://openlayers.org/en/master/apidoc/ol.source.TileWMS.html.
-The url is the online resource of the WMS service, and params is an object literal with the parameter names and their values. Only the `LAYERS` param is required. In this example, we add `TILED: true`, a GeoServer specific extension for better caching of tiled WMS layers.
+O construtor da classe `ol.source.TileWMS` tem um único argumento (ver: http://openlayers.org/en/master/apidoc/ol.source.TileWMS.html).
+`url` é o endereço do provedor WMS e `params` é um objeto literal com os nomes dos parâmetros e seus respectivos valores. Somente o parâmetro `LAYERS` é requerido. Neste exemplo, adicionamos `TILED: true`, uma extensão específica do Geoserver para melhorar o cache dos blocos (`tiles`) gerados pelas camadas WMS.
 
 ```js
   layers: [
@@ -84,11 +83,11 @@ The url is the online resource of the WMS service, and params is an object liter
   ]
 ```
 
-### Tasks
+### Tarefas
 
-1. This same WMS offers a [Natural Earth](http://www.naturalearthdata.com/) layer named `'ne:NE1_HR_LC_SR_W_DR'`. Change the value of the `LAYERS` parameter from `'nasa:bluemarble'` to `'ne:NE1_HR_LC_SR_W_DR'`.
+1. Este mesmo servidor WMS fornece uma camada [Natural Earth](http://www.naturalearthdata.com/) chamada `'ne:NE1_HR_LC_SR_W_DR'`. Mude o valor do parâmetro `LAYERS` de `'nasa:bluemarble'` para `'ne:NE1_HR_LC_SR_W_DR'`.
 
-  Your revised ol.layer.Tile Constructor should look like:
+  Seu construtor da classe ol.layer.Tile deve ficar assim: 
 
   ```js
     new ol.layer.Tile({
@@ -100,9 +99,8 @@ The url is the online resource of the WMS service, and params is an object liter
     })
   ```
 
-1. Change your layer and source to have a single image instead of tiles. Look at the following API doc pages for hints: http://openlayers.org/en/master/apidoc/ol.layer.Image.html and http://openlayers.org/en/master/apidoc/ol.source.ImageWMS.html. Use the Network tab of your browser's developer tools to make sure a single image is requested and not 256x256 pixel tiles.
+1. Mude sua camada e fonte de dados para ter uma imagem única ao ínves dos `tiles`. Olhe a documentação da API para algumas dicas: http://openlayers.org/en/master/apidoc/ol.layer.Image.html e http://openlayers.org/en/master/apidoc/ol.source.ImageWMS.html. Use a aba `Network` da ferramenta para desenvolvedores do seu navegador para checar se somente uma única imagem está sendo retornada ao invés de blocos de 256x256 pixels.
 
-  ![A WMS as an image source](wms1.png)
+  ![Uma camada WMS como uma fonte de dados de imagem](wms1.png)
 
-Having worked with dynamically rendered data from a Web Map Service, let's move
-on to learn about [cached tile services](cached.md).
+Parabéns! Você acabou de renderizar dados dinâmicos obtidos por meio de um serviço WMS, vamos aprender mais sobre [serviços de `tiles` cacheados](cache.md).
