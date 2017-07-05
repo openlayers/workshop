@@ -1,10 +1,10 @@
-# Creating a Map
+# Criando um mapa
 
-In OpenLayers, a map is a collection of layers and various interactions and controls for dealing with user interaction. A map is generated with three basic ingredients: markup, style declarations, and initialization code.
+No OpenLayers, uma mapa é uma coleção de camadas e várias interações e controles para interagir com o usuário. Um mapa é gerado a partir de três ingredientes básicos: marcação, declarações de estilo e código de inicialização.
 
-## Working Example
+## Exemplo completo
 
-Let's take a look at a fully working example of an OpenLayers map.
+Vejamos um exemplo completo de um mapa OpenLayers.
 
 ```html
 <!doctype html>
@@ -47,14 +47,14 @@ Let's take a look at a fully working example of an OpenLayers map.
 </html>
 ```
 
-### Tasks
+### Tarefas
 
-1.  Make sure you've completed the [setup instructions](../) to install dependencies and get the debug server running.
+1.  Certifique-se de ter completado a [preparação do ambiente](../) para instalar as dependências e ter o servidor de depuração rodando. 
 
-1.  Copy the text above into a new file called `map.html`, and save it in the root of the workshop directory.
+1.  Copie o texto acima em um arquivo chamado `map.html` e salve-o no diretório raiz do workshop.
 
-1.  Open the working map in your web browser: {{ book.workshopUrl }}/map.html
+1.  Abra o arquivo em seu navegador: {{ book.workshopUrl }}/map.html
 
-![A working map displaying imagery of the world](map1.png)
+![Um mapa completo exibindo uma imagem do mundo](map1.png)
 
-Having successfully created our first map, we'll continue by looking more closely at [the parts](./dissect.md).
+Tendo criado nosso primeiro mapa com sucesso, examinaremos o exemplo de forma mais [detalhada](./dissect.md).

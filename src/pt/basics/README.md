@@ -1,5 +1,5 @@
-# Basics
+# O Básico
 
-* [Creating a map](map.md)
-* [Dissecting your map](dissect.md)
-* [Useful resources](resources.md)
+* [Criando um mapa](map.md)
+* [Dissecando o seu mapa](dissect.md)
+* [Recursos úteis](resources.md)
