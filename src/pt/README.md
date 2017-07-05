@@ -2,7 +2,7 @@
 
 Bem-Vindo ao **OpenLayers Workshop**. Este workshop tem por objetivo fornecer uma visão geral sobre o OpenLayers como uma solução webmapping.
 
-## Setup
+## Preparação do ambiente
 
 Estas instruções assumem que você fez download do arquivo `openlayers-workshop-pt.zip` da [última versão do workshop](https://github.com/openlayers/workshop/releases).  Além disso, você precisará do [Node](https://nodejs.org/) instalado para rodar o servidor de desenvolvimento da biblioteca OpenLayers.
 
