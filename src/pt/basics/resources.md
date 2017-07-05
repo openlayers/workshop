@@ -23,14 +23,14 @@ Depois de entender os componentes básicos que constroem e controlam o mapa, pro
 
 ## Faça parte da comunidade
 
-O OpenLayers é suportado e mantido pela comunidade de desenvolvedores e usuários como você. Se tem perguntas ou código para contribuir, você pode utilizar a tag `openlayers` no Stack Overflow ou pode ingressar no grupo de discussão de desenvolvedores.
+O OpenLayers é suportado e mantido pela comunidade de desenvolvedores e por usuários como você. Se tem perguntas ou código para contribuir, você pode utilizar a tag `openlayers` no Stack Overflow ou pode ingressar no grupo de discussão de desenvolvedores.
 
 * http://stackoverflow.com/questions/tagged/openlayers
 * https://groups.google.com/forum/#!forum/openlayers-dev
 
 ## Reportando problemas
 
-Para reportar problemas é importante entender as maneiras como a biblioteca OpenLayers é distribuida:
+Para reportar problemas é importante entender as maneiras como a biblioteca OpenLayers é distribuída:
 
 * `ol.js` - script que é feito utilizando o compilador Closure em modo avançado (não legível por humanos)
 * `ol-debug.js` - versão legível para humanos utilizada durante o desenvolvimento
