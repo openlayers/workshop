@@ -1,14 +1,14 @@
-# Image Vector
+# Fontes de imagens vetoriais
 
-In the previous example using an `ol.layer.Vector` you can see that the features are re-rendered continuously during animated zooming (the size of the point symbolizers remains fixed).  With a vector layer, OpenLayers will re-render the source data with each animation frame.  This provides consistent rendering of line strokes, point symbolizers, and labels with changes in the view resolution.
+No exemplo anterior usando a classe `ol.layer.Vector`, você pode ver que as features são redesenhadas continuamente durante o zoom (o tamanho dos símbolos que representam o ponto continua fixo). Com uma camada vetorial, o OpenLayers irá redesenhar a fonte de dados cada vez que o mapa sofrer algum deslocamento. Isto fornece uma renderização consistente das linhas, pontos, símbolos e rótulos de acordo com a resolução atual do mapa.
 
-An alternative rendering strategy is to avoid re-rendering data during view transitions and instead reposition and scale the rendered output from the previous view state.  This can be accomplished by using an `ol.layer.Image` with an `ol.source.ImageVector`.  With this combination, "snapshots" of your data are rendered when the view is not animating, and these snapshots are reused during view transitions.
+Uma estratégia alternativa é evitar essa re-renderização durante as transições, reposicionando e escalando a geometria em função do seu estado anterior. Isto é possível com o uso conjunto das classes `ol.layer.Image` e `ol.source.ImageVector`. Com esta combinação, "snapshots" dos seus dados são renderizados quando a visualização não está sendo alterada e estes snapshots são reusados durante as transições de visualização.
 
-The example below uses an `ol.layer.Image` with an `ol.source.ImageVector`.  Though this example only renders a small quantity of data, this combination would be appropriate for applications that render large quantities of relatively static data.
+O examplo abaixo usa as duas classes citadas acima. Emborar este exemplo renderize somente uma pequena quantidade de dados, esta combinação seria apropriada para aplicações que renderizam uma grande quantidade de dados estáticos.
 
 ## `ol.source.ImageVector`
 
-Let's go back to the vector layer example to get earthquake data on top of a world map.
+Vamos agora voltar ao exemplo dos dados sobre terremotos:
 
 ```html
 <!doctype html>
@@ -64,11 +64,11 @@ Let's go back to the vector layer example to get earthquake data on top of a wor
 </html>
 ```
 
-### Tasks
+### Tarefas
 
-1. Open `map.html` in your text editor and copy in the contents of the vector example from above. Save your changes and confirm that things look good in your browser: {{ book.workshopUrl }}/map.html
+1. Abra o arquivo `map.html` no seu editor de texto e copie o conteúdo do exemplo acima. Salve as alterações e confirme o funcionamento no navegador: {{ book.workshopUrl }}/map.html
 
-1. Change the vector layer into:
+1. Altere a camada vetorial para:
 
   ```js
     new ol.layer.Image({
@@ -88,13 +88,13 @@ Let's go back to the vector layer example to get earthquake data on top of a wor
     })
   ```
 
-1. Reload {{ book.workshopUrl }}/map.html in the browser
+1. Recarregue a página {{ book.workshopUrl }}/map.html no navegador
 
-  *Note* - You will see the same vector data but depicted as an image. This will still enable things like feature detection, but the vector data will be less sharp. So this is essentially a trade-off between performance and quality.
+  *Nota* - Você verá os mesmos dados vetoriais, mas representados como uma imagem. Ainda será possível fazer a detecção das geometrias, mas os dados vetoriais terão uma qualidade menor. Assim, é essencialmente um trade-off entre desempenho e qualidade. 
+  
+### Olhando mais de perto
 
-### A Closer Look
-
-Let's examine the layer creation to get an idea of what is going on.
+Vamos examinar a criação da camada para entender o que está acontecendo.
 
 ```js
   new ol.layer.Image({
@@ -114,8 +114,8 @@ Let's examine the layer creation to get an idea of what is going on.
   })
 ```
 
-We are using an `ol.layer.Image` instead of an `ol.layer.Vector`. However, we can still use vector data here through `ol.source.ImageVector` that connects to our original `ol.source.Vector` vector source. The style is provided as config of `ol.source.ImageVector` and not on the layer.
+Nós estamos usando a classe `ol.layer.Image` ao invés da `ol.layer.Vector`. Entretanto, nós podemos ainda usar os dados vetoriais a partir da classe `ol.source.ImageVector`, fazendo uso da fonte original da classe `ol.source.Vector`. Observe que o estilo é fornecido para a configuração da classe `ol.source.ImageVector` e não para a camada.
 
-### Bonus Tasks
+### Tarefas de bônus
 
-1. Verify that feature detection still works by registering a `'singleclick'` listener on your map that calls `forEachFeatureAtPixel` on the map, and displays earthquake information below the map viewport.
+1. Verifique se a detecção da feature continua funcionando registrando um listener `'singleclick'` ao mapa e chamando o método `forEachFeatureAtPixel` sobre ele. Exiba as informações retornadas abaixo da área do mapa.

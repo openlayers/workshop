@@ -1,16 +1,16 @@
-# Proprietary Raster Layers
+# Camadas raster proprietárias
 
-In previous sections, we displayed layers based on a standards compliant WMS (OGC Web Map Service) and a custom tile cache. Online mapping (or at least the tiled map client) was largely popularized by the availability of proprietary map tile services. OpenLayers provides layer types that work with these proprietary services through their APIs.
+Nas seções anteriores, nós exibimos camadas que estão em conformidade com o padrão WMS (OGC Web Map Service) e um cache personalizado de `tiles`. Os mapas online (ou pelo menos os clientes de mapa em blocos) foram largamente popularizados pela disponibilização de serviços de `tiles` proprietários. O OpenLayers fornece tipos de camadas que trabalham com esses serviços proprietários por meio de suas APIs.
 
-In this section, we'll build on the example developed in the [previous section](cached.md) by adding a layer using tiles from Bing.
+Nesta seção, continuaremos trabalhando sobre o exemplo da [seção anterior](cached.md), adicionando uma camada `tiles` do Bing.
 
 ## Bing!
 
-Let's add a Bing layer.
+Vamos adicionar uma camada Bing!
 
-### Tasks
+### Tarefas
 
-1. In your `map.html` file, find where the OSM (OpenStreetMap) source is configured and change it into an `ol.source.BingMaps`
+1. No seu arquivo `map.html`, encontre o local onde foi configurada a fonte OSM (OpenStreetMap) e mude para `ol.source.BingMaps`
 
   ```js
     source: new ol.source.BingMaps({
@@ -18,15 +18,15 @@ Let's add a Bing layer.
       key: '<Your Bing Maps Key Here>'
     })
   ```
-  *Note* - The Bing tiles API requires that you register for an API key to use with your mapping application.  The example here uses an API key that you should not use in production.  To use the Bing layer in production, register for an API key at https://www.bingmapsportal.com/.
+  *Nota* - A API do Bing requer que você registre uma chave para usá-lo dentro de sua aplicação. Este exemplo usa uma chave que você não deve utilizar em produção. Para usar em produção, registre uma chave em: https://www.bingmapsportal.com/.
+  
+1. Salve as alterações e recarregue o arquivo `map.html`em seu navegador: {{ book.workshopUrl }}/map.html
 
-1.  Save your changes and reload `map.html` in your browser: {{ book.workshopUrl }}/map.html
+  ![Um mapa com uma camada Bing](proprietary1.png)
 
-  ![A map with tiles from a Bing Maps source](proprietary1.png)
+## Exemplo completo
 
-## Complete Working Example
-
-Your revised `map.html` file should look something like this:
+Seu arquivo `map.html` deveria estar assim:
 
 ```html
 <!doctype html>

@@ -1,10 +1,10 @@
-# Vector Layers
+# Camadas vetoriais
 
-Vector Layers are represented by `ol.layer.Vector` and handle the client-side display of vector data. Currently OpenLayers supports full vector rendering in the Canvas renderer, but only point geometries in the WebGL renderer.
+Camadas vetoriais são representadas pela classe `ol.layer.Vector` e delegam para o cliente a renderização dos dados. Atualmente, o OpenLayers suporta uma renderização vetorial completa utilizando o Canvas, mas somente geometrias do tipo ponto no WebGL.
 
-## Rendering Features Client-Side
+## Renderizando features no cliente
 
-Let's go back to the WMS example to get a basic world map.  We'll add some feature data on top of this in a vector layer.
+Vamos voltar ao exemplo WMS para gerar um mapa básico do mundo. Adicionaremos algumas geometrias sobre o mapa numa camada vetorial.
 
 ```html
 <!doctype html>
@@ -47,11 +47,11 @@ Let's go back to the WMS example to get a basic world map.  We'll add some featu
 </html>
 ```
 
-### Tasks
+### Tarefas
 
-1. Open `map.html` in your text editor and copy in the contents of the initial WMS example. Save your changes and confirm that things look good in your browser: {{ book.workshopUrl }}/map.html
+1. Abra o arquivo `map.html` no seu editor de texto e copie o conteúdo inicial do exemplo WMS. Salve suas alterações e confirme que está funcionando no seu navegador: {{ book.workshopUrl }}/map.html
 
-1. In your map initialization code add another layer after the Tile layer (paste the following). This adds a new vector layer to your map that requests a set of features stored in GeoJSON:
+1. No seu código de inicialização, adicione outra camada depois da camada Tile (cole o código abaixo). Isto adiciona uma nova camada vetorial ao seu mapa. Ela requisitará um conjuntos de features armazenadas no formato GeoJSON:
 
   ```js
     new ol.layer.Vector({
@@ -69,11 +69,11 @@ Let's go back to the WMS example to get a basic world map.  We'll add some featu
     })
   ```
 
-  ![Earthquake locations](vector1.png)
+  ![Localizações de terremoto](vector1.png)
 
-### A Closer Look
+### Olhando mais de perto
 
-Let's examine that vector layer creation to get an idea of what is going on.
+Vamos examinar a criação da camada vetorial para termos uma ideia do que está acontecendo.
 
 ```js
 new ol.layer.Vector({
@@ -91,26 +91,25 @@ new ol.layer.Vector({
 })
 ```
 
-The layer is given the title `'Earthquakes'` and some custom options. In the options object, we've included a `source` of type `ol.source.Vector` which points to a url. We've given the source a `format` that will be used for parsing the data.
+A camada recebe o título de `'Earthquakes'` e algumas outras opções. Dentre as opções, incluímos uma chave `source` do tipo `ol.source.Vector` que aponta para uma url. Além disso, fornecemos o formato (`format`) que será utilizado para fazer o parser dos dados.
 
-*Note* - In the case where you want to style the features based on an attribute, you would use a style function instead of an `ol.style.Style` for the `style` config option of `ol.layer.Vector`.
+*Nota* - Caso você quisesse estilizar features em função de algum atributo, você usaria uma função de estilo ao invés do `ol.style.Style` para a opção `style` da classe `ol.layer.Vector`.
 
-### Bonus Tasks
+### Tarefa de Bônus
 
-1.  The white circles on the map represent `ol.Feature` objects on your `ol.layer.Vector` layer. Each of these features has attribute data with `title` and `summary` properties. Register a `'singleclick'` listener on your map that calls `forEachFeatureAtPixel` on the map, and displays earthquake information below the map viewport.
+1. Os círculos brancos no mapa representam um objeto `ol.Feature` da sua camada `ol.layer.Vector`. Cada uma dessas features, possui as propriedades `title` e `summary`. Registre um listener `'singleclick'` no mapa que chama o método `forEachFeatureAtPixel` e mostra informações sobre o terremoto abaixo do mapa.
 
-1.  The data for the vector layer comes from an earthquake feed published by the USGS (http://earthquake.usgs.gov/earthquakes/catalogs/).  See if you can find additional data with spatial information in a format supported by OpenLayers.  If you save another document representing spatial data in your `data` directory, you should be able to view it in a vector layer on your map.
+1. Os dados da camada vetorial são de um feed publicado pela USGS (http://earthquake.usgs.gov/earthquakes/catalogs/). Veja se você consegue encontrar informações adicionais em formatos suportados pelo OpenLayers. Se você salvar outro documento no diretório `data`, você deve ser capaz de visualizá-lo por meio de uma camada vetorial. 
 
-### Solutions
+### Soluções
 
-As a solution to the first bonus task you can add an `info` div below the map:
+Você pode adicionar uma div `info` abaixo do seu mapa para responder a primeira tarefa de bônus:
 
 ```html
 <div id="info"></div>
 ```
 
-and add the following JavaScript code to display the title of the clicked
-feature:
+e adicionar o seguinte código JavaScript para mostrar o título do objeto que recebeu o clique:
 
 ```js
 map.on('singleclick', function(e) {
