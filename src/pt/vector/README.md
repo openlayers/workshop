@@ -1,5 +1,5 @@
-# Vector Topics
+# Tópicos sobre Vetores
 
-* [An aside on formats](formats.md)
-* [Styling concepts](style-intro.md)
-* [Custom feature styles](style.md)
+* [Formatos](formats.md)
+* [Estilos](style-intro.md)
+* [Personalização de estilos](style.md)

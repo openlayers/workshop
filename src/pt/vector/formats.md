@@ -1,14 +1,14 @@
-# Working with Vector Formats
+# Trabalhando com formatos vetoriais
 
-The base `ol.layer.Vector` constructor provides a fairly flexible layer type. By default, when you create a new vector layer, no assumptions are made about where the features for the layer will come from, since this is the domain of `ol.source.Vector`.  Before getting into styling vector features, this section introduces the basics of vector formats.
+O construtor base da classe `ol.layer.Vector` fornece um tipo de camada altamente flexível. Por padrão, quando você cria uma camada vetorial, nenhuma suposição é feita sobre a origem dos dados, já que isto é competência da classe `ol.source.Vector`. Antes de falarmos sobre estilos, esta seção introduz o básico sobre formatos vetoriais.
 
 ## `ol.format`
 
-The `ol.format` classes in OpenLayers are responsible for parsing data from the server representing vector features. The format turns raw feature data into `ol.Feature` objects.
+A classe `ol.Format` do OpenLayers é responsável por fazer o parser dos dados vindos do servidor representando geometrias vetoriais. Esta classe converte o dado `cru` para um objeto do tipo `ol.Feature`.
 
-Consider the two blocks of data below. Both represent the same `ol.Feature` object (a point in Barcelona, Spain). The first is serialized as [GeoJSON](http://geojson.org>) (using the `ol.format.GeoJSON` parser). The second is serialized as KML (OGC Keyhole Markup Language) (using the `ol.format.KML` parser).
+Considere os dois blocos de código abaixo. Ambos representam o mesmo objeto `ol.Feature` (um ponto em Barcelona, Espanha). O primeiro é serializado como [GeoJSON](http://geojson.org>) (usando o parser ol.format.GeoJSON`). O segundo é serializado como KML (OGC Keyhole Markup Language) (usando o parser `ol.format.KML`).
 
-### GeoJSON Example
+### Exemplo GeoJSON
 
 ```json
 {
@@ -22,7 +22,7 @@ Consider the two blocks of data below. Both represent the same `ol.Feature` obje
 }
 ```
 
-### KML Example
+### Exemplo KML
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
