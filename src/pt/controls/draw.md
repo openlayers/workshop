@@ -1,12 +1,12 @@
-# Drawing Features
+# Desenhando features
 
-New features can be drawn by using an `ol.interaction.Draw`. A draw interaction is constructed with a vector source and a geometry type.
+Novas geometrias podem ser desenhadas utilizando a interação `ol.interaction.Draw`. Esta interação é construída com uma fonte vetorial e um tipo de geometria.
 
-## Create a Vector Layer and a Draw Interaction
+## Criar uma camada vetorial e uma interação `Draw`
 
-### Tasks
+### Tarefas
 
-1.  Let's start with the example below. Open `map.html` in your text editor and make sure it looks something like the following:
+1. Vamos começar com o exemplo abaixo. Abra o arquivo `map.html` em seu editor de texto e deixe-o assim:
 
   ```html
     <!doctype html>
@@ -72,17 +72,17 @@ New features can be drawn by using an `ol.interaction.Draw`. A draw interaction 
     </html>
   ```
 
-1.  Save your changes to `map.html` and open the page in your browser:  {{ book.workshopUrl }}/map.html. To see drawing of point geometries in action, click in the map to add a new feature:
+1. Salve suas alterações no arquivo `map.html` e abra a página em seu navegador: {{ book.workshopUrl }}/map.html. Para desenhar um ponto, clique sobre o mapa e adicione uma nova feature:
+  
+  ![Usando uma interação para adicionar geometrias para uma fonte vetorial](draw1.png)
 
-  ![Using a draw interaction to add features to a vector source](draw1.png)
+### Tarefas de Bônus
 
-### Bonus Tasks
+1. Crie um listener para obter as coordenadas X e Y após desenhar um ponto.
 
-1.  Create a listener which gets the new feature's X and Y after it is drawn.
+### Soluções
 
-### Solutions
-
-Here is a solution for the first bonus task. In it we register an event listener for the `drawend` event of the `ol.interaction.Draw`. This method logs the feature's X and Y to the developer console:
+Aqui está a solução para a primeira atividade de bônus. Nós registramos um observador para o evento `drawed` da classe `ol.interaction.Draw`. Este método loga as coordenadas X e Y no console de desenvolvimento:
 
 ```js
 draw.on('drawend', function(evt){

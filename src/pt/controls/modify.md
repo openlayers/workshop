@@ -1,12 +1,12 @@
-# Modifying Features
+# Modificando features
 
-Modifying features works by using an `ol.interaction.Select` in combination with an `ol.interaction.Modify`. They share a common collection (`ol.Collection`) of features. Features selected with the `ol.interaction.Select` become candidates for modifications with the `ol.interaction.Modify`.
+A alteração de features funciona a partir da combinação da classe `ol.interaction.Select` com a classe `ol.interaction.Modify`. Elas compartilham uma coleção (`ol.Collection`) de features. Features selecionadas pela `ol.interaction.Select` tornam-se candidatas para modificação com a `ol.interaction.Modify`.
 
-## Create a Vector Layer and a Modify Interaction
+## Criar uma camada vetorial e uma interação do tipo `Modify`
 
-### Tasks
+### Tarefas
 
-1. Let's start with the working example.  Open `map.html` in your text editor and make sure it looks something like the following:
+1. Vamos iniciar com o exemplo completo. Abra o arquivo `map.html` em seu editor de texto e deixe-o assim:
 
   ```html  
   <!doctype html>
@@ -85,11 +85,11 @@ Modifying features works by using an `ol.interaction.Select` in combination with
   </html>
   ```        
 
-1.  Save your changes to `map.html` and open the page in your browser:  {{ book.workshopUrl }}/map.html. To see feature modification in action, use the mouse-click to select an earth quake and then drag to move the point.
+1. Salve suas alterações no arquivo `map.html` e abra a página em seu navegador: {{ book.workshopUrl }}/map.html. Para ver o componente em ação, clique para selecionar um terremoto e arraste para mover o ponto.
 
-## A Closer Look
+## Olhando mais de perto
 
-Let's examine how modifying features works.
+Vamos entender agora como a alteração de features funciona.
 
 ```js
   var style = new ol.style.Style({
@@ -111,4 +111,4 @@ Let's examine how modifying features works.
   });
 ```
 
-We create 2 interactions, an `ol.interaction.Select` to select the features before modifying them, and an `ol.interaction.Modify` to actually modify the geometries. They share the same `ol.Collection` of features. Features selected using `ol.interaction.Modify` become candidates for modification with the `ol.interaction.Modify`. As previously, the `ol.interaction.Select` is configured with a style object, which effectively defines the style used for drawing selected features. When the user clicks in the map again, the feature will be drawn using the layer's style.
+Nós criamos duas interações, uma `ol.interaction.Select` para selecionar a feature antes de modificá-la e uma `ol.interaction.Modify` para modificar as geometrias. Elas compartilham a mesma coleção de features. Features selecionadas usando a `ol.interaction.Modify` tornam-se candidatas para modificação com a `ol.interaction.Modify`. Do mesmo modo de antes, a `ol.interaction.Select` é configurada com um objeto `style`, que efetivamente define o estilo para desenhar a geometria. Quando o usuário clica sobre o mapa novamente, a feature será desenhada com o estilo da camada.
