@@ -1,14 +1,14 @@
-## Selecting Features
+## Selecionando features
 
-As we've seen in the layers module, we can pull features as vectors and draw them on top of a base map. One of the advantages of serving vector data is that users can interact with the data. In this example, we create a vector layer where users can select and view feature information.
+Como vimos no módulo sobre camadas, nós podemos colocar features vetoriais sobre o mapa. Uma das vantagens dos dados vetoriais é que usuários podem interagir com eles. Neste exemplo, criaremos uma camada vetorial na qual os usuários podem selecionar e visualizar informações sobre a feature.
 
-The previous example demonstrated the use of an `ol.control.Control` on the map.  Controls have a visual representation on the map or add DOM elements to the document.  An `ol.interaction.Interaction` is responsible for handling user interaction, but typically has no visual representation.  This example demonstrates the use of the `ol.interaction.Select` for interacting with features from vector layers.
+No exemplo anterior, utilizamos a classe `ol.control.Control`. Controles possuem uma representação visual sobre o mapa ou adicionam elementos DOM ao documento. Um objeto do tipo `ol.interaction.Interaction` é responsável por tratar a interação do usuário, mas geralmente não possui representação visual. Este exemplo demonstra o uso da classe `ol.interaction.Select` para interagir com as features de uma camada vetorial.
 
-## Create a Vector Layer and a Select Interaction
+## Criar uma camada vetorial e adicionar uma interação do tipo Select
 
-### Tasks
+### Tarefas
 
-1. Let's start with the vector layer example from a [previous section](../layers/vector.md).  Open `map.html` in your text editor and make sure it looks something like the following:
+1. Iniciaremos com o exemplo de camada vetorial da [seção anterior](../layers/vector.md). Abra o arquivo `map.html` no seu editor de texto e altere-o para que fique assim:
 
   ```html
   <!doctype html>
@@ -83,6 +83,6 @@ The previous example demonstrated the use of an `ol.control.Control` on the map.
   </html>
   ```        
 
-1.  Save your changes to `map.html` and open the page in your browser:  {{ book.workshopUrl }}/map.html. To see feature selection in action, use the mouse-click to select an earthquake:
+1. Salve suas alterações no arquivo `map.html` e abra a página no navegador: {{ book.workshopUrl }}/map.html. Para ver a seleção da feature em ação, dê um clique para selecionar um terremoto:
 
-  ![Using an interaction to select features from a vector layer](select1.png)
+  ![Usando uma interação para selecionar features de uma camada vetorial](select1.png)

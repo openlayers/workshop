@@ -1,14 +1,14 @@
-# Displaying a Scale Line
+# Mostrando a barra de escala
 
-Another typical widget to display on maps is a scale bar.  OpenLayers provides an `ol.control.ScaleLine` for just this.
+A barra de escala é um controle muito comum de encontrarmos num mapa. O OpenLayers fornece uma classe `ol.control.ScaleLine` para isso.
 
-## Creating a ScaleLine Control
+## Criando um controle ScaleLine
 
-### Tasks
+### Tarefas
 
-1.  Open the `map.html` in your text editor.
+1.  Abra o arquivo `map.html` no seu editor.
 
-1.  Somewhere in the map config, add the following code to create a new scale line control for your map:
+1.  Em algum lugar na configuração do mapa, adicione o código para criar o controle ScaleLine:
 
   ```js
     controls: ol.control.defaults().extend([
@@ -16,13 +16,13 @@ Another typical widget to display on maps is a scale bar.  OpenLayers provides a
     ]),
   ```
 
-1.  Save your changes and open `map.html` in your browser: {{ book.workshopUrl }}/map.html
+1. Salve suas alterações e abra o arquivo `map.html`em seu navegador: {{ book.workshopUrl }}/map.html
 
-  ![A default scale bar in the bottom left-hand corner](./scaleline1.png)
+  ![O controle ScaleLine na parte inferior esquerda](./scaleline1.png)
 
-## Moving the ScaleLine Control
+## Reposicionando o controle
 
-You may find the scale bar a bit hard to read over the imagery. There are a few approaches to take in order to improve scale visibility.  If you want to keep the control inside the map viewport, you can add some style declarations within the CSS of your document. To test this out, you can include a background color and padding to the scale bar with something like the following:
+Talvez você ache um pouco difícil enxergar o controle sobre a imagem. Há algumas alternativas para melhorar a visualização da escala. Se você quiser manter o controle na região do mapa, você pode adicionar algumas declarações de estilo ao seu documento. Vamos testar alterando a cor de fundo e alterando o `padding` do controle:
 
 ```css
   .ol-scale-line {
@@ -31,17 +31,17 @@ You may find the scale bar a bit hard to read over the imagery. There are a few 
   }
 ```
 
-However, for the sake of this exercise, let's say you think the map viewport is getting unbearably crowded. To avoid such over-crowding, you can display the scale in a different location. To accomplish this, we need to first create an additional element in our markup and then tell the scale control to render itself within this new element.
+Contudo, a título de exemplo, vamos imaginar que seu mapa já esteja com muitas informações. Para evitar adicionar mais um controle sobre ele, podemos exibir o ScaleLine em um local diferente. Para isso, precisamos criar um elemento de marcação adicional e dizer para o controle o novo local de renderização.
 
-### Tasks
+### Tarefas
 
-1.  Create a new block level element in the `<body>` of your page. To make this element easy to refer to, we'll give it an `id` attribute. Insert the following markup somewhere in the `<body>` of your `map.html` page. (Placing the scale element right after the map viewport element `<div id="map"></div>` makes sense.):
+1. Crie um novo elemento em nível de bloco no `<body>`de sua página. Para tornar mais fácil o referenciamento deste novo elemento, forneceremos um identificador através do atributo `id`. Insira o seguinte código em algum lugar dentro do elemento `<body>` da sua página `map.html`(faz sentido colocá-lo logo depois do trecho `<div id="map"></div>`):
 
   ```html
     <div id="scale-line" class="scale-line"></div>
   ```
 
-1.  Now modify the code creating the scale control so that it refers to the `scale-line` element:
+1. Agora modifique o código criando o controle ScaleLine e fazendo com que ele referencie este elemento:
 
   ```js   
     controls: ol.control.defaults().extend([
@@ -49,9 +49,9 @@ However, for the sake of this exercise, let's say you think the map viewport is 
     ]),
   ```
 
-1.  Save your changes and open `map.html` in your browser: {{ book.workshopUrl }}/map.html    
+1. Salve suas alterações e abra o arquivo `map.html` no navegador: {{ book.workshopUrl }}/map.html    
 
-1.  "Fix" the position of the control with, for example, the following CSS rules:
+1. Defina a posição do controle com, por exemplo, a seguinte declaração CSS:
 
   ```css    
     .scale-line {
@@ -65,9 +65,8 @@ However, for the sake of this exercise, let's say you think the map viewport is 
     }
   ```
 
-1.  Now save your changes and view `map.html` again in your browser: {{ book.workshopUrl }}/map.html
+1. Salve suas alterações e abra o arquivo `map.html` novamente no navegador: {{ book.workshopUrl }}/map.html    
 
-  ![A scale line control outside the map viewport](scaleline2.png)
+  ![O controle ScaleLine fora do mapa](scaleline2.png)
 
-
-*Note* - To create a custom control you can inherit (by using `ol.inherits`) from `ol.control.Control`. To see an example of this check out: http://openlayers.org/en/master/examples/custom-controls.html.
+*Nota* - Para criar um controle personalizado você pode herdar (usando a classe `ol.inherits`) da classe `ol.control.Control`. Para ver um exemplo, veja: http://openlayers.org/en/master/examples/custom-controls.html.

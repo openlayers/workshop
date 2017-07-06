@@ -1,6 +1,6 @@
-# Controls and interactions
+# Controles e interações
 
- * [Scale line control](scaleline.md)
- * [Select interaction](select.md)
- * [Draw interaction](draw.md)
- * [Modify interaction](modify.md)
+ * [Controle `ScaleLine`](scaleline.md)
+ * [Interação `Select`](select.md)
+ * [Interação `Draw`](draw.md)
+ * [Interação `Modify`](modify.md)
