@@ -1,6 +1,6 @@
-# Styling Vector Layers
+# Estilizando camadas vetoriais
 
-1.  We'll start with a working example that displays building footprints in a vector layer.  Open your text editor and save the following as `map.html` in the root of your workshop directory:
+1. Iniciaremos com um exemplo completo que mostra edifícios numa camada vetorial. Abra o seu editor de textos e salve-o como `map.html` no diretório raiz do workshop:
 
   ```html
   <!doctype html>
@@ -49,9 +49,9 @@
   </html>
   ```
 
-1. Open this `map.html` file in your browser to see buildings with a red outline:  {{ book.workshopUrl }}/map.html
+1. Abra o arquivo `map.html` no seu navegador para ver os edifícios com borda vermelha: {{ book.workshopUrl }}/map.html
 
-1. With a basic understanding of [styling in OpenLayers](style-intro.md), we can create a style function that displays buildings in different colors based on the size of their footprint. In your map initialization code, add the following two styles arrays and replace the `style` option for the `'Buildings'` layer with the style function below:
+1. Com uma compreensão básica dos [estilos no OpenLayers](style-intro.md), podemos criar uma função de estilo que mostra os edifícios em difentes cores baseadas no tamanho de sua área. No código de inicialização do seu mapa, adicione dois arrays de estilos e troque a opção `style` para a camada `'Buildings'` com a função abaixo:
 
   ```js
     var defaultStyles = [
@@ -76,11 +76,11 @@
     }
   ```
 
-1. Save your changes and open `map.html` in your browser: {{ book.workshopUrl }}/map.html
+1. Salve as alterações e abra o arquivo `map.html` no seu navegador: {{ book.workshopUrl }}/map.html  
 
-    ![Buildings colored by footprint area](style1.png)
+    ![Edifícios coloridos em função da área](style1.png)
 
-1. Now as a final step, let's add a label to the buildings. For simplicity we're only using a label and a black outline as the style.
+1. Como passo final, vamos adicionar um rótulo para os edifícios. Por simplicidade, estamos colocando somente um rótulo e um contorno preto como estilo.    
 
   ```js
     style: (function() {
@@ -108,6 +108,6 @@
     })()
   ```
 
-1. Save your changes and open `map.html` in your browser: {{ book.workshopUrl }}/map.html
+1. Salve suas alterações no arquivo `map.html` no seu navegador: {{ book.workshopUrl }}/map.html
 
-  ![Buildings labeled by the key field](style2.png)
+  ![Edifícios rotulados utilizando o atributo `key`](style2.png)

@@ -1,6 +1,6 @@
-# Understanding Style
+# Entendendo estilos
 
-When styling HTML elements, you might use CSS like the following:
+Quando atribuímos estilos a elementos HTML, geramos um CSS com uma estrutura mais ou menos assim:
 
 ```css
   .someClass {
@@ -10,13 +10,13 @@ When styling HTML elements, you might use CSS like the following:
   }
 ```
 
-The `.someClass` text is a selector (in this case it selects all elements that include the class name `'someClass'`) and the block that follows is a group of named properties and values, otherwise known as style declarations.
+`.someClass` é um seletor (neste caso, está selecionando todos os elementos que possuem uma classe chamada `'someClass'`) e o bloco seguinte é um grupo de propriedades e valores, conhecido como declaração de estilos.
 
-## Layer style
+## Estilizando camadas
 
-A vector layer can have styles. More specifically, a vector layer can be configured with an `ol.style.Style` object, an array of `ol.style.Style` objects, or a function that takes an `ol.Feature` instance and a resolution and returns an array of `ol.style.Style` objects.
+Camadas vetoriais podem ter estilos. Mais especificamente, uma camada vetorial pode ser configurada com um objeto `ol.style.Style`, um array de objetos `ol.style.Style`, ou uma função que aceita como parâmetro um objeto `ol.Feature` e uma resolução, retornando um array de objetos `ol.style.Style`.
 
-Here's an example of a vector layer configured with a static style:
+Aqui está um exemplo de camada vetorial configurada com um estilo estático:
 
 ```js
   var layer = new ol.layer.Vector({
@@ -27,7 +27,7 @@ Here's an example of a vector layer configured with a static style:
   });
 ```
 
-And here's an example of a vector layer configured with a style function that applies a style to all features that have an attribute named `class` with a value of `'someClass'`:
+E aqui um exemplo de camada vetorial configurada com uma função de estilo que aplica um estilo para todas as features que tenham um atributo chamado `class` contendo o valor `'someClass'`:
 
 ```js
   var layer = new ol.layer.Vector({
@@ -41,9 +41,9 @@ And here's an example of a vector layer configured with a style function that ap
   });
 ```
 
-## Symbolizers
+## `Symbolizers`
 
-The equivalent of a declaration block in CSS is a `symbolizer` in OpenLayers (these are typically instances of `ol.style` classes). To paint polygon features with a blue background and a 1 pixel wide olive stroke, you would use two symbolizers like the following:
+O equivalente de um bloco de declaração de estilos em CSS no OpenLayers é um `symbolizer` (são geralmente instâncias de classes `ol.style`). Para desenhar um polígono com cor de fundo azul, linha na cor `olive` e 1 pixel de largura, você poderia utilizar dois `symbolizers` como a seguir:
 
 ```js
   new ol.style.Style({
@@ -57,7 +57,7 @@ The equivalent of a declaration block in CSS is a `symbolizer` in OpenLayers (th
   });
 ```
 
-Depending on the geometry type, different symbolizers can be applied. Lines work like polygons, but they cannot have a fill. Points can be styled with `ol.style.Circle` or `ol.style.Icon`. The former is used to render circle shapes, and the latter uses graphics from file (e.g. png images). Here is an example for a style with a circle:
+A depender do tipo de geometria, diferentes `symbolizers` podem ser aplicados. Linhas funcionam como polígonos, mas não possuem um preenchimento. Pontos podem ser estilizados com a classe `ol.style.Circle` ou `ol.style.Icon`. O primeiro é usado para renderizar formas circulares, o último para usar imagens de um arquivo (ex. arquivos png). Aqui está um exemplo do primeiro caso:
 
 ```js
   new ol.style.Circle({
@@ -75,9 +75,9 @@ Depending on the geometry type, different symbolizers can be applied. Lines work
 
 ## `ol.style.Style`
 
-An `ol.style.Style` object has 4 keys: `fill`, `image`, `stroke` and `text`. It also has an optional `zIndex` property. The style function will return an array of `ol.style.Style` objects.
+Um objeto `ol.style.Style` possui quatro chaves: `fill`, `image`, `stroke` and `text`. Possui, além dessas, uma propriedade opcional chamada `zIndex`. A função de estilo retornará um array de objetos `ol.style.Style`.
 
-If you want all features to be colored red except for those that have a `class` attribute with the value of `"someClass"` (and you want those features colored blue with an 1px wide olive stroke), you would create a style function that looked like the following (by the way, it is important to create objects outside of the style function so they can be reused, but for simplicity reasons the objects are created inline in the example below):
+Se você quiser que todas as features sejam vermelhas, exceto aquelas que possuem o atributo `class` com o valor `"someClass"` (estas você quer que fiquem na cor azul e linha `olive` com 1px de largura), você pode criar uma função de estilo dessa forma (é importante criar objetos de estilo fora da função para que eles possam ser reutilizados, mas aqui criaremos `inline` para manter o exemplo mais simples):
 
 ```js
   var primaryStyle = new ol.style.Style({
@@ -105,15 +105,15 @@ If you want all features to be colored red except for those that have a `class` 
   });
 ```
 
-*Note* - It is important to create the styles outside of the actual style function.  The style function is called many times during rendering, and you'll get smoother animation if your style functions don't create a lot of garbage.
+*Nota* - É importante criar os estilos fora da função. A função é chamada diversas vezes durante a renderização, e você verá transições mais suaves se suas funções de estilo não gerarem muito `lixo`.
 
-A feature also has a style config option that can take a function having only resolution as argument. This makes it possible to style individual features (based on resolution).
+Uma feature também tem a opção de configuração de estilo que aceita somente a resolução como argumento. Isto torna possível estilizar as features de forma individual (baseado na resolução).
 
 ## Pseudo-classes
 
-CSS allows for pseudo-classes on selectors. These basically limit the application of style declarations based on contexts that are not easily represented in the selector, such as mouse position, neighboring elements, or browser history. In OpenLayers, a somewhat similar concept is having a style config option on an `ol.interaction.Select`.
+O CSS permite o uso de pseudo-classes nos seletores. Elas, basicamente, limitam a aplicação das declarações de estilo a certos contextos que não são facilmente representados no seletor, como: posição do mouse, vizinhança de elementos ou histórico do navegador. No OpenLayers, existe um conceito similar com a opção `style` de uma interação `ol.interaction.Select`.
 
-An example is:
+Exemplo:
 
 ```js
   var select = new ol.interaction.Select({
@@ -125,4 +125,4 @@ An example is:
   });
 ```
 
-With the basics of styling under your belt, it's time to move on to [styling vector layers](style.md).
+Agora que você já sabe os conceitos básicos dos estilos, é hora de seguir para [estilização de camadas vetoriais](style.md).
