@@ -1,4 +1,4 @@
-# Custom Builds
+# `Builds` Personalizados
 
-* [Concepts](concepts.md)
-* [Create a custom build](create.md)
+* [Conceitos](concepts.md)
+* [Criar `builds` personalizados](create.md)

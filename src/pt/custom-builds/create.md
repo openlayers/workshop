@@ -1,9 +1,8 @@
-# Creating custom builds
+# Criando `builds` personalizados
 
-In this section we're going to create a custom build for the map you created at
-the [last chapter](../vector/style.md).
+Nesta seção, criaremos um `build` personalizado para criação do mapa do [último capítulo](../vector/style.md).
 
-1. Start with the `map.html` file you created previously:
+1. Inicie com o arquivo `map.html` que você criou anteriormente:
 
   ```html
     <!doctype html>
@@ -73,34 +72,31 @@ the [last chapter](../vector/style.md).
     </html>
   ```
 
-2. Create a build configuration file `ol-custom.json` for that map:
+2. Crie um arquivo de `build` chamado `ol-custom.json` para este mapa:   
 
 ```json
 !INCLUDE "../../shared/vector-chapter-build-config.json"
 ```
 
-3. Create the custom build using `OpenLayers`'s `build.js` Node script:
+3. Crie o `build` personalizado usando o script Node `build.js` do `OpenLayers`:
 
   ```shell
   $ node node_modules/openlayers/tasks/build.js ol-custom.json ol-custom.js
   ```
 
-  This will generate the `ol-custom.js` custom build at the root of the
-  the project.
+  Este comando vai gerar o arquivo `ol-custom.js` no diretório raiz do projeto.
 
-4. Now change `map.html` to use the custom build (`ol-custom.js`) rather
-   than the development loader.
+4. Agora altere o arquivo `map.html` para usar o `build` personalizado (`ol-custom.js`) ao invés do carregador de desenvolvimento.
 
-   So change
+   Então altere:
 
    ```html
       <script src="/loader.js" type="text/javascript"></script>
    ```
 
-   to
+   Para
 
    ```html
       <script src="/ol-custom.js" type="text/javascript"></script>
    ```
-
-The page should now load much faster than before!
+A página deve carregar muito mais rápido do que antes!
