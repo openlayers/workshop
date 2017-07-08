@@ -1,4 +1,4 @@
-# Layers and Sources
+# Camadas e Fontes de Dados
 
 * [Fontes WMS](wms.md)
 * [Fontes de blocos de dados de imagem (`tiles`)](cached.md)

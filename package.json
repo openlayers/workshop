@@ -22,7 +22,7 @@
     "build": "npm run clean && npm run doc:build",
     "archive:en": "npm run build && cp src/en/README.md build/openlayers-workshop/en/ && cd build && rm -rf openlayers-workshop/gitbook openlayers-workshop/index.html openlayers-workshop/search_index.json && mv openlayers-workshop/en openlayers-workshop-en && rm -rf openlayers-workshop && zip -FSr ../openlayers-workshop-en.zip openlayers-workshop-en",
     "archive:fr": "npm run build && cp src/fr/README.md build/openlayers-workshop/fr/ && cd build && rm -rf openlayers-workshop/gitbook openlayers-workshop/index.html openlayers-workshop/search_index.json && mv openlayers-workshop/fr openlayers-workshop-fr && rm -rf openlayers-workshop && zip -FSr ../openlayers-workshop-fr.zip openlayers-workshop-fr",
-    "archive:pt": "npm run build && cp src/fr/README.md build/openlayers-workshop/pt/ && cd build && rm -rf openlayers-workshop/gitbook openlayers-workshop/index.html openlayers-workshop/search_index.json && mv openlayers-workshop/pt openlayers-workshop-pt && rm -rf openlayers-workshop && zip -FSr ../openlayers-workshop-pt.zip openlayers-workshop-pt",    
+    "archive:pt": "npm run build && cp src/pt/README.md build/openlayers-workshop/pt/ && cd build && rm -rf openlayers-workshop/gitbook openlayers-workshop/index.html openlayers-workshop/search_index.json && mv openlayers-workshop/pt openlayers-workshop-pt && rm -rf openlayers-workshop && zip -FSr ../openlayers-workshop-pt.zip openlayers-workshop-pt",    
     "deploy": "npm run build && gh-pages --dist build/openlayers-workshop"
   },
   "dependencies": {

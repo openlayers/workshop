@@ -1,4 +1,4 @@
-# Controles e interações
+# Controles e Interações
 
  * [Controle `ScaleLine`](scaleline.md)
  * [Interação `Select`](select.md)
