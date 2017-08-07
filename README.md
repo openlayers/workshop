@@ -4,7 +4,7 @@ This doc is for people developing the OpenLayers Workshop.  Workshop participant
 
 ## Building the workshop
 
-Install Node dependencies:
+Install Node 8+ and dependencies:
 
     npm install
 
@@ -19,7 +19,7 @@ Now you can modify the `src` content.  When adding new pages or restructuring th
 To update the workshop with a new release of OpenLayers one needs to change the version number of the `openlayers` dependency in four places:
 
 * Top level `package.json`,
-* English workshop `src/en/package.json` 
+* English workshop `src/en/package.json`
 * French workshop `src/fr/package.json` and
 * Portuguese workshop `src/pt/package.json`
 

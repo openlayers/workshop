@@ -1,5 +1,5 @@
 {
-  "gitbook": "^2.3.0",
+  "gitbook": "^3.2.3",
   "variables": {
     "workshopUrl": "http://localhost:4000"
   },
