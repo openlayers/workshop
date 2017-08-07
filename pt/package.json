@@ -1,0 +1,21 @@
+{
+  "name": "openlayers-workshop",
+  "version": "0.0.0",
+  "description": "OpenLayers workshop",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openlayers/workshop.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/openlayers/workshop/issues"
+  },
+  "homepage": "https://github.com/openlayers/workshop#readme",
+  "scripts": {
+    "start": "node serve.js"
+  },
+  "dependencies": {
+    "openlayers": "4.0.1"
+  }
+}

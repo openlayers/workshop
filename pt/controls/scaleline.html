@@ -1,0 +1,606 @@
+
+<!DOCTYPE HTML>
+<html lang="pt" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Controle ScaleLine · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../style.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="select.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Escreva para pesquisar" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="/" target="_blank" class="custom-link">OpenLayers Workshop</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../basics/">
+            
+                <a href="../basics/">
+            
+                    
+                    O Básico
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../basics/map.html">
+            
+                <a href="../basics/map.html">
+            
+                    
+                    Criando um mapa
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../basics/dissect.html">
+            
+                <a href="../basics/dissect.html">
+            
+                    
+                    Dissecando o seu mapa
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../basics/resources.html">
+            
+                <a href="../basics/resources.html">
+            
+                    
+                    Recursos úteis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../layers/">
+            
+                <a href="../layers/">
+            
+                    
+                    Camadas e Fontes de Dados
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../layers/wms.html">
+            
+                <a href="../layers/wms.html">
+            
+                    
+                    Fontes WMS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../layers/cached.html">
+            
+                <a href="../layers/cached.html">
+            
+                    
+                    Fontes de blocos de dados de imagem (tiles)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../layers/proprietary.html">
+            
+                <a href="../layers/proprietary.html">
+            
+                    
+                    Fornecedores proprietários de blocos de dados de imagem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../layers/vector.html">
+            
+                <a href="../layers/vector.html">
+            
+                    
+                    Dados vetoriais
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../layers/imagevector.html">
+            
+                <a href="../layers/imagevector.html">
+            
+                    
+                    Fontes de imagens vetoriais
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Controles e Interações
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="scaleline.html">
+            
+                <a href="scaleline.html">
+            
+                    
+                    Controle ScaleLine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="select.html">
+            
+                <a href="select.html">
+            
+                    
+                    Interação Select
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="draw.html">
+            
+                <a href="draw.html">
+            
+                    
+                    Interação Draw
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="modify.html">
+            
+                <a href="modify.html">
+            
+                    
+                    Interação Modify
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../vector/">
+            
+                <a href="../vector/">
+            
+                    
+                    Tópicos sobre Vetores
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../vector/formats.html">
+            
+                <a href="../vector/formats.html">
+            
+                    
+                    Formatos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../vector/style-intro.html">
+            
+                <a href="../vector/style-intro.html">
+            
+                    
+                    Estilos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../vector/style.html">
+            
+                <a href="../vector/style.html">
+            
+                    
+                    Personalização de estilos
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../custom-builds/">
+            
+                <a href="../custom-builds/">
+            
+                    
+                    Builds Personalizados
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../custom-builds/concepts.html">
+            
+                <a href="../custom-builds/concepts.html">
+            
+                    
+                    Conceitos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../custom-builds/create.html">
+            
+                <a href="../custom-builds/create.html">
+            
+                    
+                    Criar builds personalizados
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Publicado com GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Controle ScaleLine</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="mostrando-a-barra-de-escala">Mostrando a barra de escala</h1>
+<p>A barra de escala &#xE9; um controle muito comum de encontrarmos num mapa. O OpenLayers fornece uma classe <code>ol.control.ScaleLine</code> para isso.</p>
+<h2 id="criando-um-controle-scaleline">Criando um controle ScaleLine</h2>
+<h3 id="tarefas">Tarefas</h3>
+<ol>
+<li><p>Abra o arquivo <code>map.html</code> no seu editor.</p>
+</li>
+<li><p>Em algum lugar na configura&#xE7;&#xE3;o do mapa, adicione o c&#xF3;digo para criar o controle ScaleLine:</p>
+<pre><code class="lang-js">controls: ol.control.defaults().extend([
+  <span class="hljs-keyword">new</span> ol.control.ScaleLine()
+]),
+</code></pre>
+</li>
+<li><p>Salve suas altera&#xE7;&#xF5;es e abra o arquivo <code>map.html</code>em seu navegador: <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a></p>
+<figure id="fig1.4.1.1"><img src="scaleline1.png" alt="O controle ScaleLine na parte inferior esquerda"><figcaption>O controle ScaleLine na parte inferior esquerda</figcaption></figure>
+</li>
+</ol>
+<h2 id="reposicionando-o-controle">Reposicionando o controle</h2>
+<p>Talvez voc&#xEA; ache um pouco dif&#xED;cil enxergar o controle sobre a imagem. H&#xE1; algumas alternativas para melhorar a visualiza&#xE7;&#xE3;o da escala. Se voc&#xEA; quiser manter o controle na regi&#xE3;o do mapa, voc&#xEA; pode adicionar algumas declara&#xE7;&#xF5;es de estilo ao seu documento. Vamos testar alterando a cor de fundo e alterando o <code>padding</code> do controle:</p>
+<pre><code class="lang-css">  <span class="hljs-selector-class">.ol-scale-line</span> {
+    <span class="hljs-attribute">background</span>: black;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">5px</span>;
+  }
+</code></pre>
+<p>Contudo, a t&#xED;tulo de exemplo, vamos imaginar que seu mapa j&#xE1; esteja com muitas informa&#xE7;&#xF5;es. Para evitar adicionar mais um controle sobre ele, podemos exibir o ScaleLine em um local diferente. Para isso, precisamos criar um elemento de marca&#xE7;&#xE3;o adicional e dizer para o controle o novo local de renderiza&#xE7;&#xE3;o.</p>
+<h3 id="tarefas">Tarefas</h3>
+<ol>
+<li><p>Crie um novo elemento em n&#xED;vel de bloco no <code>&lt;body&gt;</code>de sua p&#xE1;gina. Para tornar mais f&#xE1;cil o referenciamento deste novo elemento, forneceremos um identificador atrav&#xE9;s do atributo <code>id</code>. Insira o seguinte c&#xF3;digo em algum lugar dentro do elemento <code>&lt;body&gt;</code> da sua p&#xE1;gina <code>map.html</code>(faz sentido coloc&#xE1;-lo logo depois do trecho <code>&lt;div id=&quot;map&quot;&gt;&lt;/div&gt;</code>):</p>
+<pre><code class="lang-html"> <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;scale-line&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;scale-line&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+</li>
+<li><p>Agora modifique o c&#xF3;digo criando o controle ScaleLine e fazendo com que ele referencie este elemento:</p>
+<pre><code class="lang-js"> controls: ol.control.defaults().extend([
+   <span class="hljs-keyword">new</span> ol.control.ScaleLine({className: <span class="hljs-string">&apos;ol-scale-line&apos;</span>, target: <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;scale-line&apos;</span>)})
+ ]),
+</code></pre>
+</li>
+<li><p>Salve suas altera&#xE7;&#xF5;es e abra o arquivo <code>map.html</code> no navegador: <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a>    </p>
+</li>
+<li><p>Defina a posi&#xE7;&#xE3;o do controle com, por exemplo, a seguinte declara&#xE7;&#xE3;o CSS:</p>
+<pre><code class="lang-css"> <span class="hljs-selector-class">.scale-line</span> {
+   <span class="hljs-attribute">position</span>: absolute;
+   <span class="hljs-attribute">top</span>: <span class="hljs-number">350px</span>;
+ }
+ <span class="hljs-selector-class">.ol-scale-line</span> {
+   <span class="hljs-attribute">position</span>: relative;
+   <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0px</span>;
+   <span class="hljs-attribute">left</span>: <span class="hljs-number">0px</span>;
+ }
+</code></pre>
+</li>
+<li><p>Salve suas altera&#xE7;&#xF5;es e abra o arquivo <code>map.html</code> novamente no navegador: <a href="http://localhost:4000/map.html" target="_blank">http://localhost:4000/map.html</a>    </p>
+<figure id="fig1.4.1.2"><img src="scaleline2.png" alt="O controle ScaleLine fora do mapa"><figcaption>O controle ScaleLine fora do mapa</figcaption></figure>
+</li>
+</ol>
+<p><em>Nota</em> - Para criar um controle personalizado voc&#xEA; pode herdar (usando a classe <code>ol.inherits</code>) da classe <code>ol.control.Control</code>. Para ver um exemplo, veja: <a href="http://openlayers.org/en/master/examples/custom-controls.html" target="_blank">http://openlayers.org/en/master/examples/custom-controls.html</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Controles e Interações">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="select.html" class="navigation navigation-next " aria-label="Next page: Interação Select">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Controle ScaleLine","level":"1.4.1","depth":2,"next":{"title":"Interação Select","level":"1.4.2","depth":2,"path":"controls/select.md","ref":"controls/select.md","articles":[]},"previous":{"title":"Controles e Interações","level":"1.4","depth":1,"path":"controls/README.md","ref":"controls/README.md","articles":[{"title":"Controle ScaleLine","level":"1.4.1","depth":2,"path":"controls/scaleline.md","ref":"controls/scaleline.md","articles":[]},{"title":"Interação Select","level":"1.4.2","depth":2,"path":"controls/select.md","ref":"controls/select.md","articles":[]},{"title":"Interação Draw","level":"1.4.3","depth":2,"path":"controls/draw.md","ref":"controls/draw.md","articles":[]},{"title":"Interação Modify","level":"1.4.4","depth":2,"path":"controls/modify.md","ref":"controls/modify.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["image-captions","include"],"styles":{"website":"style.css"},"pluginsConfig":{"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"},"include":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:4000","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Um mapa completo exibindo uma imagem do mundo","alt":"Um mapa completo exibindo uma imagem do mundo","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa completo exibindo uma imagem do mundo","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: Um breakpoint no depurador","alt":"Um breakpoint no depurador","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"Um breakpoint no depurador","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Uma camada WMS como uma fonte de dados de imagem","alt":"Uma camada WMS como uma fonte de dados de imagem","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada WMS como uma fonte de dados de imagem","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Uma camada `tiled` com uma fonte OSM","alt":"Uma camada `tiled` com uma fonte OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada `tiled` com uma fonte OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Um mapa com uma camada Bing","alt":"Um mapa com uma camada Bing","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa com uma camada Bing","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Localizações de terremoto","alt":"Localizações de terremoto","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Localizações de terremoto","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: O controle ScaleLine na parte inferior esquerda","alt":"O controle ScaleLine na parte inferior esquerda","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"O controle ScaleLine na parte inferior esquerda","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: O controle ScaleLine fora do mapa","alt":"O controle ScaleLine fora do mapa","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"O controle ScaleLine fora do mapa","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Usando uma interação para selecionar features de uma camada vetorial","alt":"Usando uma interação para selecionar features de uma camada vetorial","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para selecionar features de uma camada vetorial","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Usando uma interação para adicionar geometrias para uma fonte vetorial","alt":"Usando uma interação para adicionar geometrias para uma fonte vetorial","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para adicionar geometrias para uma fonte vetorial","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Edifícios rotulados utilizando o atributo `key`","alt":"Edifícios rotulados utilizando o atributo `key`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Edifícios rotulados utilizando o atributo `key`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"pt","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"controls/scaleline.md","mtime":"2017-08-07T23:09:15.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-07T23:49:35.144Z"},"basePath":"..","book":{"language":"pt"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
