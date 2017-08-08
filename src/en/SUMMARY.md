@@ -1,4 +1,4 @@
 # Summary
 
-* [XYZ](xyz/README.md)
-  * [Creating a map](xyz/map.md)
+* [Basics](basics/README.md)
+  * [Creating a map](basics/map.md)
