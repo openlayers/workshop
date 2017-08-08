@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/openlayers/workshop#readme",
   "scripts": {
-    "start": "mkdir -p src/_book && cp node_modules/openlayers/css/ol.css src/ && npm run doc:serve",
+    "start": "mkdir -p src/_book && npm run doc:serve",
     "test": "npm run doc:build",
     "clean": "rm -rf src/_book build",
     "postinstall": "gitbook update && gitbook install src",
@@ -26,7 +26,7 @@
     "deploy": "npm run build && gh-pages --dist build/openlayers-workshop"
   },
   "dependencies": {
-    "openlayers": "4.0.1"
+    "ol": "4.3.0-beta.2"
   },
   "devDependencies": {
     "gh-pages": "1.0.0",

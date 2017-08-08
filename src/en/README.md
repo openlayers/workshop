@@ -2,19 +2,19 @@
 
 Welcome to the **OpenLayers Workshop**. This workshop is designed to give you a comprehensive overview of OpenLayers as a web mapping solution.
 
-## Preparation steps for OSGeo-Live v10.0
+## Preparation Steps
 
 If you do not have Node.js installed (e.g. if you work on a fresh [OSGeo-Live v10.0](https://live.osgeo.org/)), you will need to install it. Here are some example commands you need to issue in a terminal to get everything the workshop depends upon.
 
 First, let's install [`nvm` (Node Version Manager)](https://github.com/creationix/nvm) which we use to manage installations of Node.js.:
 
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 
 Next, please close and reopen the terminal, so that the `nvm` script is available.
 
-Afterwards issue the following in the terminal to install the lates v6.x Node.js and a matching `npm` utility:
+Afterwards issue the following in the terminal to install the latest v8.x Node.js and a matching `npm` utility:
 
-    nvm install v6
+    nvm install v8
 
 ## Setup
 
@@ -36,8 +36,4 @@ This workshop is presented as a set of modules.  In each module you will perform
 
 The following modules will be covered in this workshop:
 
-* [Basics](basics/README.md) - Learn how to add a map to a webpage with OpenLayers.
-* [Layers and Sources](layers/README.md) - Learn about layers and sources.
-* [Controls and Interactions](controls/README.md) - Learn about using map controls and interactions.
-* [Vector Topics](vector/README.md) - Explore vector layers in depth.
-* [Custom Builds](custom-builds/README.md) - Create custom builds.
+* [XYZ](xyz/README.md) - Learn how to add a map to a webpage with OpenLayers.
