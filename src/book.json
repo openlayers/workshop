@@ -16,6 +16,9 @@
   "pluginsConfig": {
     "image-captions": {
       "caption": "_CAPTION_"
+    },
+    "include-codeblock": {
+      "unindent": true
     }
   },
   "styles": {

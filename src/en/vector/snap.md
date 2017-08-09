@@ -1,0 +1,11 @@
+# Snapping
+
+You may have noticed that it is easy to draw features that don't line up nicely with existing features.  In addition, when modifying features, we can break topology — adding a void between polygons that were previously adjacent.  The `Snap` interaction can be used to help preserve topology while drawing and editing features.
+
+First, import the `Snap` interaction into your `main.js`:
+
+[import:8-8](../examples/vector/snap.js)
+
+As with the other editing interactions, we'll configure the snap interaction to work with our vector source and add it to the map:
+
+[import:42-42](../examples/vector/snap.js)

@@ -1,13 +1,13 @@
 import 'ol/ol.css';
 import DragDrop from 'ol/interaction/DragAndDrop';
+import Draw from 'ol/interaction/draw';
 import GeoJSON from 'ol/format/geojson';
+import GeometryType from 'ol/geom/geometrytype';
 import Map from 'ol/map';
+import Modify from 'ol/interaction/modify';
 import VectorLayer from 'ol/layer/vector';
 import VectorSource from 'ol/source/vector';
 import View from 'ol/view';
-import Modify from 'ol/interaction/modify';
-import Draw from 'ol/interaction/draw';
-import GeometryType from 'ol/geom/geometrytype';
 
 const source = new VectorSource();
 

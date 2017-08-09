@@ -2,10 +2,10 @@ import 'ol/ol.css';
 import DragDrop from 'ol/interaction/DragAndDrop';
 import GeoJSON from 'ol/format/geojson';
 import Map from 'ol/map';
+import Modify from 'ol/interaction/modify';
 import VectorLayer from 'ol/layer/vector';
 import VectorSource from 'ol/source/vector';
 import View from 'ol/view';
-import Modify from 'ol/interaction/modify';
 
 const source = new VectorSource();
 

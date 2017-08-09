@@ -23,3 +23,4 @@ This workshop is presented as a set of modules.  In each module you will perform
 The following modules will be covered in this workshop:
 
 * [Basics](basics/README.md) - Learn how to add a map to a webpage with OpenLayers.
+* [Vector Data](vector/README.md) - Working with vector data.
