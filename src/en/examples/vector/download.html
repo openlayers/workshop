@@ -11,9 +11,24 @@
         font-family: sans-serif;
         background-color: #04041b;
       }
+      #tools {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+      #tools a {
+        display: inline-block;
+        padding: 0.5rem;
+        background: white;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
     <div id="map-container"></div>
+    <div id="tools">
+      <a id="clear">Clear</a>
+      <a id="download" download="features.json">Download</a>
+    </div>
   </body>
 </html>
