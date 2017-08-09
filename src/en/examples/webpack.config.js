@@ -1,6 +1,7 @@
+const CopyPlugin = require('copy-webpack-plugin');
 const Dashboard = require('webpack-dashboard/plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const path = require('path');
 const webpack = require('webpack');
@@ -30,8 +31,9 @@ const main = {
     ]
   },
   plugins: [
+    new CopyPlugin([{from: 'data', to: 'data'}]),
     new ExtractTextPlugin('style.css'),
-    new HtmlWebpackPlugin({
+    new HtmlPlugin({
       template: 'index.html'
     })
   ]
