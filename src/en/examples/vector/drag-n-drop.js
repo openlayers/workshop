@@ -5,21 +5,11 @@ import Map from 'ol/map';
 import VectorLayer from 'ol/layer/vector';
 import VectorSource from 'ol/source/vector';
 import View from 'ol/view';
-import interaction from 'ol/interaction';
 
 const source = new VectorSource();
 
-const dragDrop = new DragDrop({
-  formatConstructors: [GeoJSON]
-});
-
-dragDrop.on('addfeatures', function(event) {
-  source.addFeatures(event.features);
-});
-
-new Map({
+const map = new Map({
   target: 'map-container',
-  interactions: interaction.defaults().extend([dragDrop]),
   layers: [
     new VectorLayer({
       source: source
@@ -30,3 +20,13 @@ new Map({
     zoom: 2
   })
 });
+
+const dragDrop = new DragDrop({
+  formatConstructors: [GeoJSON]
+});
+
+dragDrop.on('addfeatures', function(event) {
+  source.addFeatures(event.features);
+});
+
+map.addInteraction(dragDrop);
