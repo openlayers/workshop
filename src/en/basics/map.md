@@ -8,11 +8,11 @@ Let's take a look at a fully working example of an OpenLayers map.
 
 First, the markup (`index.html`) with `<style>` to make the map container fill the whole page:
 
-[import](../examples/basics/index.html)
+[import](../examples/basics/map.html)
 
 Next, the application entry point (`main.js`) that initializes the map:
 
-[import](../examples/basics/step-1.js)
+[import](../examples/basics/map.js)
 
 ### Tasks
 

@@ -3,8 +3,9 @@ import Map from 'ol/map';
 import View from 'ol/view';
 import TileLayer from 'ol/layer/tile';
 import XYZSource from 'ol/source/xyz';
+import proj from 'ol/proj';
 
-new Map({
+var map = new Map({
   target: 'map-container',
   layers: [
     new TileLayer({
@@ -17,4 +18,9 @@ new Map({
     center: [0, 0],
     zoom: 2
   })
+});
+
+navigator.geolocation.getCurrentPosition(function(pos) {
+  var coords = proj.fromLonLat([pos.coords.longitude, pos.coords.latitude]);
+  map.getView().animate({center: coords, zoom: 10});
 });
