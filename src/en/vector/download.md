@@ -8,7 +8,7 @@ First, we need a bit of markup to represent the buttons.  Add the following elem
 
 Now add some CSS to make the buttons look right.  Add something like this to the `<style>` element in `index.html`:
 
-[import:'tools', lang:"css"](../examples/vector/download.html)
+[import:'tools', lang:'css'](../examples/vector/download.html)
 
 Clearing features is easier, so we'll do that part first.  The vector source has a `source.clear()` method.  We want clicks on the "Clear" button to call that, so we'll add a listener for `click` in our `main.js`:
 

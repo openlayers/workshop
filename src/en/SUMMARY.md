@@ -13,3 +13,7 @@
   * [Snapping](vector/snap.md)
   * [Downloading features](vector/download.md)
   * Making it look nice
+* [Raster Operations](raster/README.md)
+  * [Map setup](raster/map.md)
+  * [Render elevation data](raster/elevation.md)
+  * [Render sea level](raster/raster.md)

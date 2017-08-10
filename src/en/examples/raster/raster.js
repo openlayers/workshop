@@ -1,7 +1,11 @@
 import 'ol/ol.css';
+//! [import-image]
 import ImageLayer from 'ol/layer/image';
+//! [import-image]
 import Map from 'ol/map';
+//! [import-raster]
 import RasterSource from 'ol/source/raster';
+//! [import-raster]
 import TileLayer from 'ol/layer/tile';
 import View from 'ol/view';
 import XYZSource from 'ol/source/xyz';
@@ -13,27 +17,35 @@ const elevation = new XYZSource({
   crossOrigin: 'anonymous'
 });
 
+//! [flood]
 function flood(pixels, data) {
   var pixel = pixels[0];
   if (pixel[3]) {
+    // decode R, G, B values as elevation
     var height = -10000 + ((pixel[0] * 256 * 256 + pixel[1] * 256 + pixel[2]) * 0.1);
     if (height <= data.level) {
-      pixel[0] = 145;
-      pixel[1] = 175;
-      pixel[2] = 186;
-      pixel[3] = 255;
+      // sea blue
+      pixel[0] = 145; // red
+      pixel[1] = 175; // green
+      pixel[2] = 186; // blue
+      pixel[3] = 255; // alpha
     } else {
+      // transparent
       pixel[3] = 0;
     }
   }
   return pixel;
 }
+//! [flood]
 
+//! [raster]
 const raster = new RasterSource({
   sources: [elevation],
   operation: flood
 });
+//! [raster]
 
+//! [controls]
 const control = document.getElementById('level');
 const output = document.getElementById('output');
 control.addEventListener('input', function() {
@@ -41,10 +53,13 @@ control.addEventListener('input', function() {
   raster.changed();
 });
 output.innerText = control.value;
+//! [controls]
 
+//! [beforeops]
 raster.on('beforeoperations', function(event) {
   event.data.level = control.value;
 });
+//! [beforeops]
 
 new Map({
   target: 'map-container',
@@ -54,10 +69,12 @@ new Map({
         url: 'http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg'
       })
     }),
+    //! [layer]
     new ImageLayer({
       opacity: 0.8,
       source: raster
     })
+    //! [layer]
   ],
   view: new View({
     center: proj.fromLonLat([-71.06, 42.37]),

@@ -10,6 +10,7 @@
         width: 100%;
         font-family: sans-serif;
       }
+      /*! [style] */
       #slider {
         position: absolute;
         bottom: 1rem;
@@ -17,14 +18,17 @@
         text-align: center;
         text-shadow: 0px 0px 4px rgba(255, 255, 255, 1);
       }
+      /*! [style] */
     </style>
   </head>
   <body>
     <div id="map-container"></div>
+    <!--! [controls] -->
     <label id="slider">
       Sea level
       <input id="level" type="range" min="0" max="100" value="1"/>
       +<span id="output"></span> m
     </label>
+    <!--! [controls] -->
   </body>
 </html>
