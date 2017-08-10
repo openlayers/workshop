@@ -11,7 +11,7 @@
   "plugins": [
     "image-captions",
     "include",
-    "include-codeblock"
+    "include-codeblock-patched"
   ],
   "pluginsConfig": {
     "image-captions": {

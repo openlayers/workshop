@@ -25,27 +25,32 @@ const map = new Map({
   })
 });
 
-const dragDrop = new DragDrop({
+map.addInteraction(new DragDrop({
+  source: source,
   formatConstructors: [GeoJSON]
-});
+}));
 
-dragDrop.on('addfeatures', function(event) {
-  source.addFeatures(event.features);
-});
+map.addInteraction(new Modify({
+  source: source
+}));
 
-map.addInteraction(dragDrop);
+map.addInteraction(new Draw({
+  source: source,
+  type: GeometryType.POLYGON
+}));
 
-map.addInteraction(new Modify({source: source}));
+map.addInteraction(new Snap({
+  source: source
+}));
 
-map.addInteraction(new Draw({source: source, type: GeometryType.POLYGON}));
-
-map.addInteraction(new Snap({source: source}));
-
+//! [clear]
 const clear = document.getElementById('clear');
 clear.addEventListener('click', function() {
   source.clear();
 });
+//! [clear]
 
+//! [download]
 const format = new GeoJSON({featureProjection: 'EPSG:3857'});
 const download = document.getElementById('download');
 source.on('change', function() {
@@ -53,3 +58,4 @@ source.on('change', function() {
   const json = format.writeFeatures(features);
   download.href = 'data:text/json;charset=utf-8,' + json;
 });
+//! [download]

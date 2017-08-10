@@ -2,7 +2,9 @@ import 'ol/ol.css';
 import DragDrop from 'ol/interaction/DragAndDrop';
 import GeoJSON from 'ol/format/geojson';
 import Map from 'ol/map';
+//! [import-modify]
 import Modify from 'ol/interaction/modify';
+//! [import-modify]
 import VectorLayer from 'ol/layer/vector';
 import VectorSource from 'ol/source/vector';
 import View from 'ol/view';
@@ -22,14 +24,13 @@ const map = new Map({
   })
 });
 
-const dragDrop = new DragDrop({
+map.addInteraction(new DragDrop({
+  source: source,
   formatConstructors: [GeoJSON]
-});
+}));
 
-dragDrop.on('addfeatures', function(event) {
-  source.addFeatures(event.features);
-});
-
-map.addInteraction(dragDrop);
-
-map.addInteraction(new Modify({source: source}));
+//! [modify]
+map.addInteraction(new Modify({
+  source: source
+}));
+//! [modify]

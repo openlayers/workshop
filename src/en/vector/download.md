@@ -4,16 +4,16 @@ After uploading data and editing it, we want to let our users download the resul
 
 First, we need a bit of markup to represent the buttons.  Add the following elements below the `map-container` in your `index.html`:
 
-[import:29-32](../examples/vector/download.html)
+[import:'markup'](../examples/vector/download.html)
 
 Now add some CSS to make the buttons look right.  Add something like this to the `<style>` element in `index.html`:
 
-[import:14-24, lang:"css"](../examples/vector/download.html)
+[import:'tools', lang:"css"](../examples/vector/download.html)
 
-Clearing features is easier, so we'll do that part first.  The vector source has a `clear` method.  We want clicks on the "Clear" button to call that, so we'll add a listener for `click` in our `main.js`:
+Clearing features is easier, so we'll do that part first.  The vector source has a `source.clear()` method.  We want clicks on the "Clear" button to call that, so we'll add a listener for `click` in our `main.js`:
 
-[import:44-47](../examples/vector/download.js)
+[import:'clear'](../examples/vector/download.js)
 
 To format our feature data for download, we'll use a `GeoJSON` format to serialize features.  Since we want the "Download" button to always work, we'll serialize features on every `change` event from the source and construct a data URI for the anchor element's `href` attribute:
 
-[import:49-55](../examples/vector/download.js)
+[import:'download'](../examples/vector/download.js)

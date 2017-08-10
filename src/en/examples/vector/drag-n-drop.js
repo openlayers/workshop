@@ -21,12 +21,7 @@ const map = new Map({
   })
 });
 
-const dragDrop = new DragDrop({
+map.addInteraction(new DragDrop({
+  source: source,
   formatConstructors: [GeoJSON]
-});
-
-dragDrop.on('addfeatures', function(event) {
-  source.addFeatures(event.features);
-});
-
-map.addInteraction(dragDrop);
+}));

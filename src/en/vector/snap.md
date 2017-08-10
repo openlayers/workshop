@@ -4,8 +4,8 @@ You may have noticed that it is easy to draw features that don't line up nicely 
 
 First, import the `Snap` interaction into your `main.js`:
 
-[import:8-8](../examples/vector/snap.js)
+[import:'import-snap'](../examples/vector/snap.js)
 
 As with the other editing interactions, we'll configure the snap interaction to work with our vector source and add it to the map:
 
-[import:42-42](../examples/vector/snap.js)
+[import:'snap'](../examples/vector/snap.js)

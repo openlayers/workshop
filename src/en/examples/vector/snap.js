@@ -5,7 +5,9 @@ import GeoJSON from 'ol/format/geojson';
 import GeometryType from 'ol/geom/geometrytype';
 import Map from 'ol/map';
 import Modify from 'ol/interaction/modify';
+//! [import-snap]
 import Snap from 'ol/interaction/snap';
+//! [import-snap]
 import VectorLayer from 'ol/layer/vector';
 import VectorSource from 'ol/source/vector';
 import View from 'ol/view';
@@ -25,18 +27,22 @@ const map = new Map({
   })
 });
 
-const dragDrop = new DragDrop({
+map.addInteraction(new DragDrop({
+  source: source,
   formatConstructors: [GeoJSON]
-});
+}));
 
-dragDrop.on('addfeatures', function(event) {
-  source.addFeatures(event.features);
-});
+map.addInteraction(new Modify({
+  source: source
+}));
 
-map.addInteraction(dragDrop);
+map.addInteraction(new Draw({
+  source: source,
+  type: GeometryType.POLYGON
+}));
 
-map.addInteraction(new Modify({source: source}));
-
-map.addInteraction(new Draw({source: source, type: GeometryType.POLYGON}));
-
-map.addInteraction(new Snap({source: source}));
+//! [snap]
+map.addInteraction(new Snap({
+  source: source
+}));
+//! [snap]
