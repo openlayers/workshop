@@ -8,15 +8,15 @@ In addition to drawing maps from tiles provided by a tile service, OpenLayers ca
 
 A few more imports are required:
 
-[import:7-10](../examples/basics/point-feature.js)
+[import:'import'](../examples/basics/point-feature.js)
 
 The vector layer itself is created with the following code:
 
-[import:27-30](../examples/basics/point-feature.js)
+[import:'point-layer'](../examples/basics/point-feature.js)
 
 We also need to add a point feature to that vector layer as soon as we know our location. This is done with a single line in the `geolocation`'s' `getCurrentPosition` callback:
 
-[import:35-35](../examples/basics/point-feature.js)
+[import:'add-point'](../examples/basics/point-feature.js)
 
 The complete `main.js` file now looks like this:
 
@@ -26,4 +26,4 @@ The complete `main.js` file now looks like this:
 
 1.  Copy the JS above and paste it into `main.js`.
 
-1.  Look at the working map in your web browser: {{ book.workshopUrl }}. When asked whether you want to give the page access to your location, answer with 'Yes'. When zoomed to your location, you should see a blue circle indicating your position.
+1.  Look at the working map in your web browser: {{ book.workshopUrl }}. When asked whether you want to give the page access to your location, answer 'Yes'. When zoomed to your location, you should see a blue circle indicating your position.

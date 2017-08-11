@@ -4,25 +4,23 @@ OpenLayers can anchor markup to a position on the map. This can be used to displ
 
 ## Working Example
 
-The component that anchors markup to a position on the map is called `Overlay`. Let's import the module that provides the overlay:
+For nice styling of the popup, we can go to http://www.cssarrowplease.com and design a container for our popup. The resulting css is simply copied to the `<style>` section of our index.html:
 
-[import:11-11](../examples/basics/popup.js)
+[import:'css'](../examples/basics/popup.html)
 
-For nice styling of the popup, we install `balloon-css` as additional dependency:
+To make the popup look nicer, we give the `.arrow-box` some padding and rounded corners:
 
-    npm install --save balloon-css
+[import:'nicer-css'](../examples/basics/popup.html)
 
-The css provided by this dependency has to be imported into our application:
+In addition to the css, we also need to add the markup for the container the body of our `index.html`:
 
-[import:13-13](../examples/basics/popup.js)
+[import:'markup'](../examples/basics/popup.html)
 
-For this balloon popup to work, we also need to add some markup to our `index.html`:
+To create the overlay and connect it to the popup, we append the following code to our `main.js`:
 
-[import:21-23](../examples/basics/popup.html)
+[import:'popup'](../examples/basics/popup.js)
 
-To create the overlay and connect it to the balloon popup, we append the following code to our `main.js`:
-
-[import:41-](../examples/basics/popup.html)
+Note the `offset` we configured for the `Overlay`. The y offset (`-10`) has to compensate for the arrow size we provided on http://www.cssarrowplease.com.
 
 The complete `index.html` and `main.js` files now looks like this:
 
@@ -37,3 +35,5 @@ The complete `index.html` and `main.js` files now looks like this:
 1.  Copy the JS above and paste it into `main.js`.
 
 1.  Look at the working map in your web browser: {{ book.workshopUrl }}. Once you are zoomed to your current location and see the blue circle, click on it to get the popup. When you click somewhere else on the map, the popup will disappear again.
+
+![A map with a popup at our location](popup.png)

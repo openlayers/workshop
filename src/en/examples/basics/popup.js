@@ -8,9 +8,9 @@ import VectorLayer from 'ol/layer/vector';
 import VectorSource from 'ol/source/vector';
 import Feature from 'ol/feature';
 import Point from 'ol/geom/point';
+//! [popup-import]
 import Overlay from 'ol/overlay';
 import coordinate from 'ol/coordinate';
-import 'balloon-css/balloon.css';
 
 var map = new Map({
   target: 'map-container',
@@ -38,18 +38,22 @@ navigator.geolocation.getCurrentPosition(function(pos) {
   positions.addFeature(new Feature(new Point(coords)));
 });
 
+//! [popup]
 var overlay = new Overlay({
-  element: document.getElementById('popup-container')
+  element: document.getElementById('popup-container'),
+  positioning: 'bottom-center',
+  offset: [0, -10]
 });
 map.addOverlay(overlay);
 
 map.on('singleclick', function(e) {
-  overlay.setPosition(undefined);
-  var feature = map.forEachFeatureAtPixel(e.pixel, f => f);
-  if (feature) {
-    var coords = feature.getGeometry().getCoordinates();
+  overlay.setPosition();
+  var features = map.getFeaturesAtPixel(e.pixel);
+  if (features) {
+    var coords = features[0].getGeometry().getCoordinates();
     var hdms = coordinate.toStringHDMS(proj.toLonLat(coords));
-    document.getElementById('popup').setAttribute('data-balloon', hdms);
+    overlay.getElement().innerHTML = hdms;
     overlay.setPosition(coords);
   }
 });
+//! [popup]

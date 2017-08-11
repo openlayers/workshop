@@ -3,7 +3,9 @@ import Map from 'ol/map';
 import View from 'ol/view';
 import TileLayer from 'ol/layer/tile';
 import XYZSource from 'ol/source/xyz';
+//! [import]
 import proj from 'ol/proj';
+//! [import]
 
 var map = new Map({
   target: 'map-container',
@@ -20,7 +22,9 @@ var map = new Map({
   })
 });
 
+//! [geolocation]
 navigator.geolocation.getCurrentPosition(function(pos) {
   var coords = proj.fromLonLat([pos.coords.longitude, pos.coords.latitude]);
   map.getView().animate({center: coords, zoom: 10});
 });
+//! [geolocation]

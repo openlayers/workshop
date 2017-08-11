@@ -10,16 +10,51 @@
         width: 100%;
         font-family: sans-serif;
       }
-      #popup {
-        text-align: center;
-        font-size: 14px;
+
+      /*! [css] */
+      .arrow_box {
+      	position: relative;
+      	background: #fff;
+      	border: 1px solid #003c88;
       }
+      .arrow_box:after, .arrow_box:before {
+      	top: 100%;
+      	left: 50%;
+      	border: solid transparent;
+      	content: " ";
+      	height: 0;
+      	width: 0;
+      	position: absolute;
+      	pointer-events: none;
+      }
+
+      .arrow_box:after {
+      	border-color: rgba(255, 255, 255, 0);
+      	border-top-color: #fff;
+      	border-width: 10px;
+      	margin-left: -10px;
+      }
+      .arrow_box:before {
+      	border-color: rgba(153, 153, 153, 0);
+      	border-top-color: #003c88;
+      	border-width: 11px;
+      	margin-left: -11px;
+      }
+      /*! [css] */
+
+      /*! [nicer-css] */
+      .arrow_box {
+        border-radius: 5px;
+        padding: 10px;
+      }
+      /*! [nicer-css] */
+
     </style>
   </head>
   <body>
     <div id="map-container"></div>
-    <div id="popup-container">
-      <div id="popup" data-balloon-visible data-balloon-pos="up"></div>
-    </div>
+    <!--! [markup] -->
+    <div class="arrow_box" id="popup-container"></div>
+    <!--! [markup] -->
   </body>
 </html>
