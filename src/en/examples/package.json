@@ -3,9 +3,9 @@
   "description": "OpenLayers workshop",
   "version": "0.0.0",
   "private": true,
-  "main": "src/main.js",
+  "main": "main.js",
   "dependencies": {
-    "ol": "^4.3.0-beta.4"
+    "ol": "^4.3.0-beta.5"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -35,7 +35,7 @@
   },
   "scripts": {
     "start": "webpack-dashboard -- webpack-dev-server",
-    "lint": "eslint src",
+    "lint": "eslint .",
     "test": "npm run lint",
     "build": "webpack --env=prod"
   }
