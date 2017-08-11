@@ -17,3 +17,5 @@ Clearing features is easier, so we'll do that part first.  The vector source has
 To format our feature data for download, we'll use a `GeoJSON` format to serialize features.  Since we want the "Download" button to always work, we'll serialize features on every `change` event from the source and construct a data URI for the anchor element's `href` attribute:
 
 [import:'download'](../examples/vector/download.js)
+
+![Buttons to clear and download data](download.png)

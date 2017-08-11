@@ -6,4 +6,4 @@
 * [Drawing new features](draw.md)
 * [Snapping](snap.md)
 * [Downloading features](download.md)
-* Making it look nice
+* [Making it look nice](style.md)

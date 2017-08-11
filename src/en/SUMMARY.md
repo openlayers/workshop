@@ -12,7 +12,7 @@
   * [Drawing new features](vector/draw.md)
   * [Snapping](vector/snap.md)
   * [Downloading features](vector/download.md)
-  * Making it look nice
+  * [Making it look nice](vector/style.md)
 * [Raster Operations](raster/README.md)
   * [Map setup](raster/map.md)
   * [Render elevation data](raster/elevation.md)
