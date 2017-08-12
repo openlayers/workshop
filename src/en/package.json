@@ -6,7 +6,7 @@
   "main": "main.js",
   "dependencies": {
     "colormap": "^2.2.0",
-    "ol": "^4.3.0-beta.5"
+    "ol": "^4.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
