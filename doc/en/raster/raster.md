@@ -31,3 +31,7 @@ The `beforeoperations` event is fired before the pixel operations are run on the
 Finally, render the output from the raster operation by adding the source to an image layer.  Replace the tile layer with an image layer that uses our raster source (modify the `layers` array in `main.js`):
 
 [import:'layer'](../../../src/en/examples/raster/raster.js)
+
+With all this in place, [the map]({{book.workshopUrl}}/) should now have a slider that let's users control changes in sea level.
+
+![Sea level rise in Boston](raster.png)

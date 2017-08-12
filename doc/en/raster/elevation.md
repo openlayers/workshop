@@ -15,3 +15,7 @@ We want to manipulate the elevation data before rendering, but initially we'll a
 Next, create a tile layer that uses the elevation source.  Add this layer your map's `layers` array in `main.js`:
 
 [import:'layer'](../../../src/en/examples/raster/elevation.js)
+
+You should [now see]({{book.workshopUrl}}/) some oddly colored tiles shown over your base layer.  The elevation data in the Terrain-RGB tiles is encoded in the red, green, and blue channels.  So while this data isn't meant to be rendered directly, it is interesting to look at.
+
+![Terrain-RGB tiles rendered over Boston](elevation.png)
