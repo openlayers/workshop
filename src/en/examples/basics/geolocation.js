@@ -7,7 +7,9 @@ import XYZSource from 'ol/source/xyz';
 import proj from 'ol/proj';
 //! [import]
 
+//! [map-var]
 var map = new Map({
+//! [map-var]
   target: 'map-container',
   layers: [
     new TileLayer({

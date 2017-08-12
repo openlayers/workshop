@@ -4,13 +4,21 @@ Browsers provide an API to get the current location of the user. We want to use 
 
 ## Working Example
 
-To add this functionality, we append a short code block to our `main.js` file:
+First of all, we need to assign the map to a variable, so we can access it from other components we're going to add in this exercise:
+
+[import:'map-var'](../examples/basics/geolocation.js)
+
+To add the geolocation functionality, we append a short code block to our `main.js` file:
 
 [import:'geolocation'](../examples/basics/geolocation.js)
 
 This requires a new import for the `proj.fromLonLat()` function, which converts longitude/latitude coordinates into the coordinate system OpenLayers uses by default for the map view (Web Mercator, EPSG:3857).
 
 [import:'import'](../examples/basics/geolocation.js)
+
+The complete `main.js` should now look like this:
+
+[import](../examples/basics/geolocation.js)
 
 
 ### Tasks
