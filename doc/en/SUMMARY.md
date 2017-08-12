@@ -19,3 +19,4 @@
   * [Map setup](raster/map.md)
   * [Render elevation data](raster/elevation.md)
   * [Render sea level](raster/raster.md)
+* [Deploying](deploying/README.md)

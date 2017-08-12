@@ -26,3 +26,4 @@ The following modules will be covered in this workshop:
 * [Vector Data](vector/README.md) - Working with vector data.
 * [Vector Tiles](vectortile/README.md) - Working with vector tiles.
 * [Raster Operations](raster/README.md) - Manipulating pixels with a raster source.
+* [Deploying](deploying/README.md) - Building applications for production.
