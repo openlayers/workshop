@@ -6,12 +6,12 @@ First, import the `Draw` interaction (in `main.js`):
 
 [import:'import-draw'](../../../src/en/examples/vector/draw.js)
 
-We'll also import the `GeometryType` constants:
-
-[import:'import-types'](../../../src/en/examples/vector/draw.js)
-
 Now, create a draw interaction configured to draw polygons and add them to our vector source:
 
 [import:'draw'](../../../src/en/examples/vector/draw.js)
 
-(Note that we could have used `type: 'Polygon'` in place of `type: GeometryType.POLYGON` when configuring the interaction.)
+The `type` property of the draw interaction controls what type of geometries are drawn.  The value can be any of the GeoJSON geometry types.  Note that we could have also imported the `GeometryType` enum (`import GeometryType from 'ol/geom/geometrytype';`) and used `GeometryType.POLYGON` instead of the `'Polygon'` string above.
+
+With our draw interaction [in place]({{book.workshopUrl}}/), we can now add new features to our vector source.
+
+![A new island nation in the Caribbean](draw.png)

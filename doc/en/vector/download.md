@@ -6,15 +6,15 @@ First, we need a bit of markup to represent the buttons.  Add the following elem
 
 [import:'markup'](../../../src/en/examples/vector/download.html)
 
-Now add some CSS to make the buttons look right.  Add something like this to the `<style>` element in `index.html`:
+Now we need some CSS to make the buttons look right.  Add something like this to the `<style>` element in `index.html`:
 
 [import:'tools', lang:'css'](../../../src/en/examples/vector/download.html)
 
-Clearing features is easier, so we'll do that part first.  The vector source has a `source.clear()` method.  We want clicks on the "Clear" button to call that, so we'll add a listener for `click` in our `main.js`:
+Clearing features is the easier part, so we'll do that first.  The vector source has a `source.clear()` method.  We want clicks on the "Clear" button to call that method, so we'll add a listener for `click` in our `main.js`:
 
 [import:'clear'](../../../src/en/examples/vector/download.js)
 
-To format our feature data for download, we'll use a `GeoJSON` format to serialize features.  Since we want the "Download" button to always work, we'll serialize features on every `change` event from the source and construct a data URI for the anchor element's `href` attribute:
+To serialize our feature data for download, we'll use a `GeoJSON` format.  Since we want the "Download" button to work at any time during editing, we'll serialize features on every `change` event from the source and construct a data URI for the anchor element's `href` attribute:
 
 [import:'download'](../../../src/en/examples/vector/download.js)
 

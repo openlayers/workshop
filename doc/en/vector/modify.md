@@ -9,3 +9,7 @@ First, import the `Modify` interaction in your `main.js`:
 Next, create a new interaction connected to the vector source and add it to the map (at the bottom of `main.js`):
 
 [import:'modify'](../../../src/en/examples/vector/modify.js)
+
+After adding data to [the map]({{book.workshopUrl}}/) confirm that you can modify features by dragging their vertices.  You can also delete vertices with `Alt+Click`.
+
+![Modifying features](modify.png)

@@ -9,3 +9,7 @@ First, import the `Snap` interaction into your `main.js`:
 As with the other editing interactions, we'll configure the snap interaction to work with our vector source and add it to the map:
 
 [import:'snap'](../../../src/en/examples/vector/snap.js)
+
+With the draw, modify, and snap interactions all active, we [can edit]({{book.workshopUrl}}/) data while maintaining topology.
+
+![Uniting nations with the snap interaction](snap.png)

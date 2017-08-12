@@ -4,9 +4,6 @@ import DragDrop from 'ol/interaction/DragAndDrop';
 import Draw from 'ol/interaction/draw';
 //! [import-draw]
 import GeoJSON from 'ol/format/geojson';
-//! [import-types]
-import GeometryType from 'ol/geom/geometrytype';
-//! [import-types]
 import Map from 'ol/map';
 import Modify from 'ol/interaction/modify';
 import VectorLayer from 'ol/layer/vector';
@@ -39,7 +36,7 @@ map.addInteraction(new Modify({
 
 //! [draw]
 map.addInteraction(new Draw({
-  source: source,
-  type: GeometryType.POLYGON
+  type: 'Polygon',
+  source: source
 }));
 //! [draw]
