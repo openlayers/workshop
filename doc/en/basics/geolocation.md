@@ -18,4 +18,4 @@ This requires a new import for the `proj.fromLonLat()` function, which converts 
 
 ### View the Result
 
-When we look at the map in the web browser ({{ book.workshopUrl }}/), we will probably get asked whether we want to give the page access to our location. After answering 'Yes', an animated zoom should take us to our current location.
+When we look at the map in the web browser ({{book.workshopUrl}}/), we will probably get asked whether we want to give the page access to our location. After answering 'Yes', an animated zoom should take us to our current location.

@@ -30,7 +30,7 @@ At the top, we import the required modules from the `ol` package. Note the `'ol/
 
 ### Viewing the Map
 
-Now our application is ready for testing. Let's open the working map in a web browser: {{ book.workshopUrl }}/. This is how it should look:
+Now our application is ready for testing. Let's open the working map in a web browser: {{book.workshopUrl}}/. This is how it should look:
 
 ![A map of the world](map.png)
 

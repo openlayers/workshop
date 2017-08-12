@@ -16,6 +16,6 @@ Update your `main.js` to load and render a local file containing GeoJSON feature
 
 [import](../../../src/en/examples/vector/geojson.js)
 
-You should now be able to see a map with country borders at {{book.workshopUrl}}.
+You should now be able to see a map with country borders at {{book.workshopUrl}}/.
 
 ![GeoJSON features](geojson.png)

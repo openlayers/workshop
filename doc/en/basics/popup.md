@@ -34,6 +34,6 @@ The last step is to append another code snippet to `main.js`, where we listen fo
 
 The `on()` function is used to register a listener for clicks, and `Map#getFeaturesAtPixel()` returns the features at the pixel position, where pixels are relative to the map viewport. That `pixel` is provided by the event object (`e`) we get as argument for the listener function.
 
-Now look at the working map in the web browser: {{ book.workshopUrl }}/. Once you are zoomed to the current location and see the circle marker, click on it to get the popup. When you click somewhere else on the map, the popup will disappear again.
+Now look at the working map in the web browser: {{book.workshopUrl}}/. Once you are zoomed to the current location and see the circle marker, click on it to get the popup. When you click somewhere else on the map, the popup will disappear again.
 
 ![A map with a popup at our location](popup.png)

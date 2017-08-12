@@ -18,6 +18,6 @@ Finally, we'll create a drag and drop interaction, configure it to work with our
 
 [import:'interaction'](../../../src/en/examples/vector/drag-n-drop.js)
 
-Now you should be able to drag and drop GeoJSON files onto [the map]({{book.workshopUrl}}) and see them rendered.
+Now you should be able to drag and drop GeoJSON files onto [the map]({{book.workshopUrl}}/) and see them rendered.
 
 ![Drag and drop](drag-n-drop.png)
