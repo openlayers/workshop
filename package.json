@@ -21,8 +21,6 @@
     "doc:build": "gitbook build doc build/openlayers-workshop",
     "build": "npm run clean && npm run doc:build",
     "archive:en": "./archive.sh en",
-    "archive:fr": "npm run build && cp doc/fr/README.md build/openlayers-workshop/fr/ && cd build && rm -rf openlayers-workshop/gitbook openlayers-workshop/index.html openlayers-workshop/search_index.json && mv openlayers-workshop/fr openlayers-workshop-fr && rm -rf openlayers-workshop && zip -FSr ../openlayers-workshop-fr.zip openlayers-workshop-fr",
-    "archive:pt": "npm run build && cp doc/pt/README.md build/openlayers-workshop/pt/ && cd build && rm -rf openlayers-workshop/gitbook openlayers-workshop/index.html openlayers-workshop/search_index.json && mv openlayers-workshop/pt openlayers-workshop-pt && rm -rf openlayers-workshop && zip -FSr ../openlayers-workshop-pt.zip openlayers-workshop-pt",
     "deploy": "npm run build && gh-pages --dist build/openlayers-workshop"
   },
   "devDependencies": {
