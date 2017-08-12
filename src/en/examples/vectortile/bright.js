@@ -1,20 +1,15 @@
+//
+//! [imports]
 import 'ol/ol.css';
-import Map from 'ol/map';
-import View from 'ol/view';
-//! [popup-import]
 import Overlay from 'ol/overlay';
-//! [popup-import]
+//! [imports]
 //! [mapbox-style-import]
 import {apply} from 'ol-mapbox-style';
 //! [mapbox-style-import]
 
-const map = new Map({
-  target: 'map-container',
-  view: new  View({
-    center: [0, 0],
-    zoom: 2
-  })
-});
+//! [map]
+const map = apply('map-container', './data/bright.json');
+//! [map]
 
 //! [popup]
 const overlay = new Overlay({
@@ -27,7 +22,8 @@ map.addOverlay(overlay);
 overlay.getElement().addEventListener('click', function() {
   overlay.setPosition();
 });
-
+//! [popup]
+//! [interact]
 map.on('click', function(e) {
   overlay.setPosition();
   let markup = '';
@@ -44,6 +40,4 @@ map.on('click', function(e) {
     overlay.setPosition(e.coordinate);
   }
 });
-//! [popup]
-
-apply(map, './data/bright.json');
+//! [interact]

@@ -1,8 +1,8 @@
-# Zooming to Your Location
+# Zooming to your location
 
 Browsers provide an API to get the current location of the user. We want to use this feature to zoom the map to where the user currently is. To make it easier for the user to see what is going on on the map, we want to animate the zoom.
 
-## Application Changes
+## Application changes
 
 First of all, we need to assign the map to a constant, so we can access it from other components we're going to add in this exercise:
 
@@ -16,6 +16,6 @@ This requires a new import for the `proj.fromLonLat()` function, which converts 
 
 [import:'import-proj'](../../../src/en/examples/basics/geolocation.js)
 
-### View the Result
+### View the result
 
 When we look at the map in the web browser ({{book.workshopUrl}}/), we will probably get asked whether we want to give the page access to our location. After answering 'Yes', an animated zoom should take us to our current location.

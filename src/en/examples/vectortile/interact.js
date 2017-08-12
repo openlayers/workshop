@@ -9,6 +9,9 @@ import tilegrid from 'ol/tilegrid';
 import Overlay from 'ol/overlay';
 //! [popup-import]
 
+// See https://openmaptiles.com/hosting/ for terms and API key
+const key = 'lirfd6Fegsjkvs0lshxe';
+
 const map = new Map({
   target: 'map-container',
   view: new  View({
@@ -24,7 +27,7 @@ const layer = new VectorTileLayer({
       '<a href="http://www.openstreetmap.org/about/" target="_blank">&copy; OpenStreetMap contributors</a>'
     ],
     format: new MVTFormat(),
-    url: 'https://free-{1-3}.tilehosting.com/data/v3/{z}/{x}/{y}.pbf.pict?key=lirfd6Fegsjkvs0lshxe',
+    url: `https://free-{1-3}.tilehosting.com/data/v3/{z}/{x}/{y}.pbf.pict?key=${key}`,
     tileGrid: new tilegrid.createXYZ({
       maxZoom: 14,
       tileSize: 512
@@ -41,10 +44,13 @@ const overlay = new Overlay({
   autoPan: true
 });
 map.addOverlay(overlay);
+//! [popup]
+//! [popup-close]
 overlay.getElement().addEventListener('click', function() {
   overlay.setPosition();
 });
-
+//! [popup-close]
+//! [interact]
 map.on('click', function(e) {
   overlay.setPosition();
   let markup = '';
@@ -61,4 +67,4 @@ map.on('click', function(e) {
     overlay.setPosition(e.coordinate);
   }
 });
-//! [popup]
+//! [interact]

@@ -1,8 +1,8 @@
-# Showing a Popup on Feature Click
+# Showing a popup on feature click
 
 OpenLayers can anchor markup to a position on the map. This can be used to display a popup at a user clicked location. In this case, we just want to show the latitude and longitude of the current user location in a nice little popup.
 
-## CSS and Markup for the Popup
+## CSS and markup for the popup
 
 For nice styling of the popup, we can go to http://www.cssarrowplease.com/ and design a container for our popup. I changed the arrow size to 10 and played a bit with the colors. The resulting css is simply copied to the `<style>` section of our index.html:
 
@@ -16,7 +16,7 @@ In addition to the css, we also need to add the markup for the container the bod
 
 [import:'markup'](../../../src/en/examples/basics/popup.html)
 
-## Application Code for Interacting with the Map
+## Application code for interacting with the map
 
 The `Overlay` module is responsible for anchoring markup to a position on the map, and the `coordinate` module provides a function to format a position in degrees, minutes and seconds. Let's import these two modules:
 

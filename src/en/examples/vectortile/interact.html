@@ -3,13 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>OpenLayers</title>
+    <!--! [remove-font] -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!--! [remove-font] -->
     <style>
       html, body, #map-container {
         margin: 0;
         height: 100%;
         width: 100%;
         font-family: sans-serif;
+        /*! [remove-background] */
         background-color: rgb(248, 244, 240);
+        /*! [remove-background] */
       }
 
       /*! [popup-css] */
@@ -49,15 +54,17 @@
         background-color: black;
         color: white;
       }
+      /*! [popup-css] */
+      /*! [table-css] */
       #popup-content {
-        max-height: 300px;
+        max-height: 200px;
         overflow: scroll;
       }
       #popup-content th {
         text-align: left;
         width: 100px;
       }
-      /*! [popup-css] */
+      /*! [table-css] */
     </style>
   </head>
   <body>
