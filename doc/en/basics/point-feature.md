@@ -8,22 +8,26 @@ In addition to displaying maps from tiles provided by a tile service, OpenLayers
 
 A few more imports are required:
 
-[import:'import'](../../../src/en/examples/basics/point-feature.js)
+[import:'import-vector'](../../../src/en/examples/basics/point-feature.js)
 
-The vector layer itself is created with the following code, which we simply append at the bottom of our `main.js` file:
+The vector layer itself is created with the following code, which we place between the `const map` and `navigator.geolocation` blocks in our `main.js` file:
 
 [import:'point-layer'](../../../src/en/examples/basics/point-feature.js)
 
-We also need to add a point feature to that vector layer as soon as we know our location. This is done with a single line in the `geolocation`'s' `getCurrentPosition` callback:
+We now can create a point feature and add it to the vector layer as soon as we know our location. This is done with a single line at the end of the `geolocation`'s' `getCurrentPosition` callback:
 
 [import:'add-point'](../../../src/en/examples/basics/point-feature.js)
 
-The complete `main.js` file now looks like this:
+## Styling the Point
 
-[import](../../../src/en/examples/basics/point-feature.js)
+To make the point of our location easier to see on the map, we can give the vector layer some style. This requires more imports to be added at the top of our `main.js`.
 
-### Tasks
+[import:'import-style'](../../../src/en/examples/basics/point-feature.js)
 
-1.  Copy the JS above and paste it into `main.js`.
+The code for adding the style can be added after the `VectorLayer` definition:
 
-1.  Look at the working map in your web browser: {{ book.workshopUrl }}. When asked whether you want to give the page access to your location, answer 'Yes'. When zoomed to your location, you should see a blue circle indicating your position.
+[import:'style'](../../../src/en/examples/basics/point-feature.js)
+
+When done, the result should look like this:
+
+![User location with a marker](point-feature.png)

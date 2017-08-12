@@ -13,7 +13,7 @@ import Feature from 'ol/feature';
 import Point from 'ol/geom/point';
 //! [import-vector]
 //! [import-style]
-import Style from 'ol/style';
+import Style from 'ol/style/style';
 import IconStyle from 'ol/style/icon';
 //! [import-style]
 
@@ -39,13 +39,12 @@ const position = new VectorSource();
 const vector = new VectorLayer({
   source: position
 });
-map.addLayer();
+map.addLayer(vector);
 //! [point-layer]
 //! [style]
 vector.setStyle(new Style({
   image: new IconStyle({
-    src: './data/marker.jpg',
-    anchor: [0.5, 1]
+    src: './data/marker.png'
   })
 }));
 //! [style]
