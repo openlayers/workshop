@@ -58,7 +58,7 @@ build_archive() {
 main() {
   root=$(cd -P -- "$(dirname -- "${0}")" && pwd -P)
   cd ${root}
-  # assert_clean
+  assert_clean
   build_archive ${1}
 }
 
