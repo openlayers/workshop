@@ -13,6 +13,8 @@
   * [Snapping](vector/snap.md)
   * [Downloading features](vector/download.md)
   * [Making it look nice](vector/style.md)
+* [Vector Tiles](vectortile/README.md)
+  * [The VectorTile Layer](vectortile/map.md)
 * [Raster Operations](raster/README.md)
   * [Map setup](raster/map.md)
   * [Render elevation data](raster/elevation.md)

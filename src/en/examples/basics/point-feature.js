@@ -3,15 +3,23 @@ import Map from 'ol/map';
 import View from 'ol/view';
 import TileLayer from 'ol/layer/tile';
 import XYZSource from 'ol/source/xyz';
+//! [import-proj]
 import proj from 'ol/proj';
-//! [import]
+//! [import-proj]
+//! [import-vector]
 import VectorLayer from 'ol/layer/vector';
 import VectorSource from 'ol/source/vector';
 import Feature from 'ol/feature';
 import Point from 'ol/geom/point';
-//! [import]
+//! [import-vector]
+//! [import-style]
+import Style from 'ol/style';
+import IconStyle from 'ol/style/icon';
+//! [import-style]
 
-var map = new Map({
+//! [map-const]
+const map = new Map({
+//! [map-const]
   target: 'map-container',
   layers: [
     new TileLayer({
@@ -27,16 +35,25 @@ var map = new Map({
 });
 
 //! [point-layer]
-var positions = new VectorSource();
-map.addLayer(new VectorLayer({
-  source: positions
-}));
+const position = new VectorSource();
+const vector = new VectorLayer({
+  source: position
+});
+map.addLayer();
 //! [point-layer]
+//! [style]
+vector.setStyle(new Style({
+  image: new IconStyle({
+    src: './data/marker.jpg',
+    anchor: [0.5, 1]
+  })
+}));
+//! [style]
 
 navigator.geolocation.getCurrentPosition(function(pos) {
-  var coords = proj.fromLonLat([pos.coords.longitude, pos.coords.latitude]);
+  const coords = proj.fromLonLat([pos.coords.longitude, pos.coords.latitude]);
   map.getView().animate({center: coords, zoom: 10});
   //! [add-point]
-  positions.addFeature(new Feature(new Point(coords)));
+  position.addFeature(new Feature(new Point(coords)));
   //! [add-point]
 });

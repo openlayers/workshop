@@ -3,13 +3,13 @@ import Map from 'ol/map';
 import View from 'ol/view';
 import TileLayer from 'ol/layer/tile';
 import XYZSource from 'ol/source/xyz';
-//! [import]
+//! [import-proj]
 import proj from 'ol/proj';
-//! [import]
+//! [import-proj]
 
-//! [map-var]
-var map = new Map({
-//! [map-var]
+//! [map-const]
+const map = new Map({
+//! [map-const]
   target: 'map-container',
   layers: [
     new TileLayer({
@@ -26,7 +26,7 @@ var map = new Map({
 
 //! [geolocation]
 navigator.geolocation.getCurrentPosition(function(pos) {
-  var coords = proj.fromLonLat([pos.coords.longitude, pos.coords.latitude]);
+  const coords = proj.fromLonLat([pos.coords.longitude, pos.coords.latitude]);
   map.getView().animate({center: coords, zoom: 10});
 });
 //! [geolocation]

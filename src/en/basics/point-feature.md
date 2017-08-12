@@ -2,15 +2,15 @@
 
 Now that we have a map centered on our location, we also want to show the exact location by rendering a point at it.
 
-## Working Example
+## Adding a Vector Layer
 
-In addition to drawing maps from tiles provided by a tile service, OpenLayers can render vector data. A vector layer has a source which contains features. In this simple example, we just add a single feature with a point geometry that represents our location.
+In addition to displaying maps from tiles provided by a tile service, OpenLayers can render vector data. A vector layer has a source which contains features. In this simple example, we just add a single feature with a point geometry that represents our location.
 
 A few more imports are required:
 
 [import:'import'](../examples/basics/point-feature.js)
 
-The vector layer itself is created with the following code:
+The vector layer itself is created with the following code, which we simply append at the bottom of our `main.js` file:
 
 [import:'point-layer'](../examples/basics/point-feature.js)
 
