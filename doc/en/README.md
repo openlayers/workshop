@@ -10,7 +10,7 @@ After extracting the zip, change into the `openlayers-workshop-en` directory and
 
     npm install
 
-Now you're ready to start the workshop development server.  This serves up the workshop documentation in addition to providing a debug loader for the OpenLayers library.
+Now you're ready to start the workshop development server.  This serves up the [workshop documentation]({{book.workshopUrl}}/doc/) in addition to providing a module bundler for the OpenLayers library.
 
     npm start
 
