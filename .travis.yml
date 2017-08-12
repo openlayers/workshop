@@ -4,7 +4,6 @@ node_js:
   - 6
 script:
   - npm test
-  - node node_modules/openlayers/tasks/build.js src/shared/vector-chapter-build-config.json custom-build.js &&  stat -c "%n %s bytes" custom-build.js && rm custom-build.js
 cache:
   directories:
     - node_modules
