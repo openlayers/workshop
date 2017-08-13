@@ -1,3 +1,4 @@
+const BabiliPlugin = require('babili-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const Dashboard = require('webpack-dashboard/plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -78,12 +79,7 @@ const prod = {
         NODE_ENV: 'production'
       })
     ),
-    new webpack.optimize.UglifyJsPlugin({
-      mangle: true,
-      compress: true,
-      comments: false,
-      sourceMap: true
-    })
+    new BabiliPlugin()
   ]
 };
 
