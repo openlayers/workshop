@@ -12,7 +12,9 @@ import View from 'ol/view';
 const source = new VectorSource();
 //! [source]
 
+//! [map-const]
 const map = new Map({
+//! [map-const]
   target: 'map-container',
   //! [layers]
   layers: [

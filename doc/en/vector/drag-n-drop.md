@@ -14,6 +14,10 @@ Now rework the `layers` list in the map so we have one layer that uses our empty
 
 [import:'layers'](../../../src/en/examples/vector/drag-n-drop.js)
 
+As before, we need to assign the map to a constant, so we can add the interaction to it:
+
+[import:'map-const'](../../../src/en/examples/vector/drag-n-drop.js)
+
 Finally, we'll create a drag and drop interaction, configure it to work with our vector source, and add it to the map:
 
 [import:'interaction'](../../../src/en/examples/vector/drag-n-drop.js)
