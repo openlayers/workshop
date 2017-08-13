@@ -38,32 +38,34 @@ function getColor(feature) {
 }
 //! [color]
 
-const source = new VectorSource();
 
 const map = new Map({
   target: 'map-container',
-  layers: [
-    new VectorLayer({
-      source: source,
-      //! [style]
-      style: function(feature) {
-        return new Style({
-          fill: new Fill({
-            color: getColor(feature)
-          }),
-          stroke: new Stroke({
-            color: 'rgba(255,255,255,0.8)'
-          })
-        });
-      }
-      //! [style]
-    })
-  ],
   view: new View({
     center: [0, 0],
     zoom: 2
   })
 });
+
+const source = new VectorSource();
+
+//! [style]
+const layer = new VectorLayer({
+  source: source,
+  style: function(feature) {
+    return new Style({
+      fill: new Fill({
+        color: getColor(feature)
+      }),
+      stroke: new Stroke({
+        color: 'rgba(255,255,255,0.8)'
+      })
+    });
+  }
+});
+//! [style]
+
+map.addLayer(layer);
 
 map.addInteraction(new DragDrop({
   source: source,

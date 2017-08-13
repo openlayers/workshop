@@ -8,26 +8,26 @@ import VectorLayer from 'ol/layer/vector';
 import VectorSource from 'ol/source/vector';
 import View from 'ol/view';
 
-//! [source]
-const source = new VectorSource();
-//! [source]
-
 //! [map-const]
 const map = new Map({
 //! [map-const]
   target: 'map-container',
-  //! [layers]
-  layers: [
-    new VectorLayer({
-      source: source
-    })
-  ],
-  //! [layers]
   view: new View({
     center: [0, 0],
     zoom: 2
   })
 });
+
+//! [source]
+const source = new VectorSource();
+//! [source]
+
+//! [layers]
+const layer = new VectorLayer({
+  source: source
+});
+map.addLayer(layer);
+//! [layers]
 
 //! [interaction]
 map.addInteraction(new DragDrop({
