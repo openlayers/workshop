@@ -58,7 +58,8 @@
       ],
       "layout": {
         "text-font": [
-          "Open Sans Bold"
+          "Open Sans Bold",
+          "Arial Unicode MS Bold"
         ],
         "text-field": "{name}",
         "text-size": 16
@@ -85,42 +86,13 @@
       ],
       "layout": {
         "text-font": [
-          "Open Sans Regular"
+          "Open Sans Regular",
+          "Arial Unicode MS Regular"
         ],
         "text-field": "{name}",
         "text-size": 13
       },
       "paint": {
-        "text-halo-width": 1,
-        "text-halo-color": "white"
-      }
-    },
-    {
-      "id": "capital-name",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "place",
-      "minzoom": 6,
-      "filter": [
-        "all",
-        [
-          "has",
-          "capital"
-        ]
-      ],
-      "layout": {
-        "text-font": [
-          "Open Sans Italic"
-        ],
-        "text-size": 12,
-        "text-field": "{name}",
-        "text-offset": [
-          0,
-          -1
-        ]
-      },
-      "paint": {
-        "text-color": "#013",
         "text-halo-width": 1,
         "text-halo-color": "white"
       }
@@ -139,7 +111,39 @@
       ],
       "paint": {
         "circle-stroke-color": "gray",
-        "circle-stroke-width": 1
+        "circle-stroke-width": 1,
+        "circle-radius": 5
+      }
+    },
+    {
+      "id": "capital-name",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "place",
+      "minzoom": 6,
+      "filter": [
+        "all",
+        [
+          "has",
+          "capital"
+        ]
+      ],
+      "layout": {
+        "text-font": [
+          "Open Sans Regular Italic",
+          "Arial Unicode MS Italic"
+        ],
+        "text-size": 12,
+        "text-field": "{name}",
+        "text-offset": [
+          0,
+          -1
+        ]
+      },
+      "paint": {
+        "text-color": "#013",
+        "text-halo-width": 1,
+        "text-halo-color": "white"
       }
     }
   ],
