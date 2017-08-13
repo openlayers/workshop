@@ -1,17 +1,16 @@
 import 'ol/ol.css';
 import Map from 'ol/map';
 import View from 'ol/view';
-import MVTFormat from 'ol/format/mvt';
+import MVT from 'ol/format/mvt';
 import VectorTileLayer from 'ol/layer/vectortile';
 import VectorTileSource from 'ol/source/vectortile';
-import tilegrid from 'ol/tilegrid';
 import Overlay from 'ol/overlay';
 //! [style-import]
 import Style from 'ol/style/style';
-import FillStyle from 'ol/style/fill';
-import StrokeStyle from 'ol/style/stroke';
+import Fill from 'ol/style/fill';
+import Stroke from 'ol/style/stroke';
 import Circle from 'ol/style/circle';
-import TextStyle from 'ol/style/text';
+import Text from 'ol/style/text';
 //! [style-import]
 
 const key = 'lirfd6Fegsjkvs0lshxe';
@@ -30,12 +29,9 @@ const layer = new VectorTileLayer({
       '<a href="http://www.openmaptiles.org/" target="_blank">&copy; OpenMapTiles</a>',
       '<a href="http://www.openstreetmap.org/about/" target="_blank">&copy; OpenStreetMap contributors</a>'
     ],
-    format: new MVTFormat(),
+    format: new MVT(),
     url: `https://free-{1-3}.tilehosting.com/data/v3/{z}/{x}/{y}.pbf.pict?key=${key}`,
-    tileGrid: new tilegrid.createXYZ({
-      maxZoom: 14,
-      tileSize: 512
-    })
+    maxZoom: 14
   })
 });
 map.addLayer(layer);
@@ -52,7 +48,6 @@ overlay.getElement().addEventListener('click', function() {
 });
 
 map.on('click', function(e) {
-  overlay.setPosition();
   let markup = '';
   map.forEachFeatureAtPixel(e.pixel, function(feature) {
     markup += `${markup && '<hr>'}<table>`;
@@ -65,100 +60,95 @@ map.on('click', function(e) {
   if (markup) {
     document.getElementById('popup-content').innerHTML = markup;
     overlay.setPosition(e.coordinate);
+  } else {
+    overlay.setPosition();
   }
 });
 
-//! [style-reuse]
-const fill = new FillStyle();
-const stroke = new StrokeStyle();
-const text = new TextStyle();
-const circle = new Circle({
-  radius: 5,
-  fill: new FillStyle({
-    color: 'black'
-  }),
-  stroke: new StrokeStyle({
-    color: 'gray',
-    width: 1
-  })
-});
-
-const point = new Style();
-const label = new Style({
-  text: text
-});
-const line = new Style();
-const polygon = new Style();
-//! [style-reuse]
 //! [style]
-const styleFunction = function(feature, resolution) {
+layer.setStyle(function(feature, resolution) {
   var properties = feature.getProperties();
-  var geometry = feature.getGeometry();
-  var type = geometry.getType();
 
   // Water polygons
-  if (type == 'Polygon' && properties.layer == 'water') {
-    fill.setColor('rgba(0, 0, 255, 0.7)');
-    polygon.setFill(fill);
-    polygon.setStroke(null);
-    return polygon;
+  if (properties.layer == 'water') {
+    return new Style({
+      fill: new Fill({
+        color: 'rgba(0, 0, 255, 0.7)'
+      })
+    });
   }
 
   // Boundary lines
-  if ((type == 'LineString' || type == 'MultiLineString') &&
-      properties.layer == 'boundary' &&
-      properties.admin_level == 2) {
-    stroke.setColor('gray');
-    stroke.setWidth(1);
-    line.setStroke(stroke);
-    return line;
+  if (properties.layer == 'boundary' && properties.admin_level == 2) {
+    return new Style({
+      stroke: new Stroke({
+        color: 'gray'
+      })
+    });
   }
 
   // Continent labels
-  if (type == 'Point' && properties.class == 'continent') {
-    text.setText(properties.name);
-    text.setFont('Bold 16px Open Sans');
-    fill.setColor('black');
-    text.setFill(fill);
-    stroke.setColor('white');
-    stroke.setWidth(1);
-    text.setStroke(stroke);
-    return label;
+  if (properties.layer == 'place' && properties.class == 'continent') {
+    return new Style({
+      text: new Text({
+        text: properties.name,
+        font: 'bold 16px Open Sans',
+        fill: new Fill({
+          color: 'black'
+        }),
+        stroke: new Stroke({
+          color: 'white'
+        })
+      })
+    });
   }
 
   // Country labels
-  if (type == 'Point' && properties.class == 'country' &&
+  if (properties.layer == 'place' && properties.class == 'country' &&
       resolution < map.getView().getResolutionForZoom(5)) {
-    text.setText(properties.name);
-    text.setFont('Normal 13px Open Sans');
-    text.setOffsetY(0);
-    fill.setColor('black');
-    text.setFill(fill);
-    stroke.setColor('white');
-    stroke.setWidth(1);
-    text.setStroke(stroke);
-    return label;
+    return new Style({
+      text: new Text({
+        text: properties.name,
+        font: 'normal 13px Open Sans',
+        fill: new Fill({
+          color: 'black'
+        }),
+        stroke: new Stroke({
+          color: 'white'
+        })
+      })
+    });
   }
 
   // Capital icons and labels
-  if (type == 'Point' && properties.capital) {
-    point.setImage(circle);
+  if (properties.layer == 'place' && properties.capital) {
+    var point = new Style({
+      image: new Circle({
+        radius: 5,
+        fill: new Fill({
+          color: 'black'
+        }),
+        stroke: new Stroke({
+          color: 'gray'
+        })
+      })
+    });
     if (resolution < map.getView().getResolutionForZoom(6)) {
-      text.setText(properties.name);
-      text.setFont('Italic 12px Open Sans');
-      text.setOffsetY(-12);
-      fill.setColor('#013');
-      text.setFill(fill);
-      stroke.setColor('white');
-      stroke.setWidth(1);
-      point.setText(text);
-    } else {
-      point.setText(null);
+      point.setText(new Text({
+        text: properties.name,
+        font: 'italic 12px Open Sans',
+        offsetY: -12,
+        fill: new Fill({
+          color: '#013'
+        }),
+        stroke: new Stroke({
+          color: 'white'
+        })
+      }));
     }
     return point;
   }
-};
+
+  //return Style.defaultFunction(feature, resolution);
+});
 //! [style]
-//! [style-assign]
-layer.setStyle(styleFunction);
-//! [style-assign]

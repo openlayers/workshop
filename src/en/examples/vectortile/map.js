@@ -3,10 +3,9 @@
 import 'ol/ol.css';
 import Map from 'ol/map';
 import View from 'ol/view';
-import MVTFormat from 'ol/format/mvt';
+import MVT from 'ol/format/mvt';
 import VectorTileLayer from 'ol/layer/vectortile';
 import VectorTileSource from 'ol/source/vectortile';
-import tilegrid from 'ol/tilegrid';
 //! [imports]
 
 //! [key]
@@ -31,12 +30,9 @@ const layer = new VectorTileLayer({
       '<a href="http://www.openmaptiles.org/" target="_blank">&copy; OpenMapTiles</a>',
       '<a href="http://www.openstreetmap.org/about/" target="_blank">&copy; OpenStreetMap contributors</a>'
     ],
-    format: new MVTFormat(),
+    format: new MVT(),
     url: `https://free-{1-3}.tilehosting.com/data/v3/{z}/{x}/{y}.pbf.pict?key=${key}`,
-    tileGrid: new tilegrid.createXYZ({
-      maxZoom: 14,
-      tileSize: 512
-    })
+    maxZoom: 14
   })
 });
 map.addLayer(layer);

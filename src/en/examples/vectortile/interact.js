@@ -1,7 +1,7 @@
 import 'ol/ol.css';
 import Map from 'ol/map';
 import View from 'ol/view';
-import MVTFormat from 'ol/format/mvt';
+import MVT from 'ol/format/mvt';
 import VectorTileLayer from 'ol/layer/vectortile';
 import VectorTileSource from 'ol/source/vectortile';
 import tilegrid from 'ol/tilegrid';
@@ -26,7 +26,7 @@ const layer = new VectorTileLayer({
       '<a href="http://www.openmaptiles.org/" target="_blank">&copy; OpenMapTiles</a>',
       '<a href="http://www.openstreetmap.org/about/" target="_blank">&copy; OpenStreetMap contributors</a>'
     ],
-    format: new MVTFormat(),
+    format: new MVT(),
     url: `https://free-{1-3}.tilehosting.com/data/v3/{z}/{x}/{y}.pbf.pict?key=${key}`,
     tileGrid: new tilegrid.createXYZ({
       maxZoom: 14,
@@ -52,12 +52,11 @@ overlay.getElement().addEventListener('click', function() {
 //! [popup-close]
 //! [interact]
 map.on('click', function(e) {
-  overlay.setPosition();
   let markup = '';
   map.forEachFeatureAtPixel(e.pixel, function(feature) {
     markup += `${markup && '<hr>'}<table>`;
-    var properties = feature.getProperties();
-    for (var property in properties) {
+    const properties = feature.getProperties();
+    for (const property in properties) {
       markup += `<tr><th>${property}</th><td>${properties[property]}</td></tr>`;
     }
     markup += '</table>';
@@ -65,6 +64,8 @@ map.on('click', function(e) {
   if (markup) {
     document.getElementById('popup-content').innerHTML = markup;
     overlay.setPosition(e.coordinate);
+  } else {
+    overlay.setPosition();
   }
 });
 //! [interact]

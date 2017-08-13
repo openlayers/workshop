@@ -18,17 +18,13 @@ A common style element in vector tile maps is a background color, which the user
 
 Now we are going to add some application code to `main.js`.
 
-Style functions are called very often (e.g. whenever the center or resolution of the map changes), so it is a good idea to reuse style objects. We'll need a few of them, e.g. to have point, label, line and polygon styles:
+First, we'll need imports for the styles we are going to use:
 
-[import:'style-reuse'](../../../src/en/examples/vectortile/ugly.js)
+[import:'style-import'](../../../src/en/examples/vectortile/ugly.js)
 
-The style function itself is a bit long:
+The style function is a bit long:
 
 [import:'style'](../../../src/en/examples/vectortile/ugly.js)
-
-Now what's left to do is assign the style function to the layer:
-
-[import:'style-assign'](../../../src/en/examples/vectortile/ugly.js)
 
 I think you will agree that we have not reached our goal of creating a beautiful world map:
 
