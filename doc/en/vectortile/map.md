@@ -14,9 +14,12 @@ For the application, we'll start with a fresh `main.js` in the root of the works
 
 [import:'imports'](../../../src/en/examples/vectortile/map.js)
 
-The data source we are going to use requires an API key. I'm providing my key here. Please read the terms at https://openmaptiles.com/hosting/, where you can also get your own key. The code below assigns the key to a constant we're going to use later:
+The data source we are going to use requires an access key. Please read the terms at https://openmaptiles.com/hosting/, where you can also get your own key. The code below assigns the key to a constant we're going to use later:
 
-[import:'key'](../../../src/en/examples/vectortile/map.js)
+```js
+// See https://openmaptiles.com/hosting/ for terms and access key
+const key = '<your-access-key-here>';
+```
 
 The map we're going to create here is the same that we have used in previous exercises:
 
