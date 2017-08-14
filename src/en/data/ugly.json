@@ -1,0 +1,151 @@
+{
+  "version": 8,
+  "metadata": {},
+  "center": [
+    0,
+    0
+  ],
+  "zoom": 2,
+  "sources": {
+    "openmaptiles": {
+      "type": "vector",
+      "url": "https://free.tilehosting.com/data/v3.json?key=lirfd6Fegsjkvs0lshxe"
+    }
+  },
+  "sprite": "https://openmaptiles.github.io/osm-bright-gl-style/sprite",
+  "glyphs": "https://free.tilehosting.com/fonts/{fontstack}/{range}.pbf?key=lirfd6Fegsjkvs0lshxe",
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "rgb(248, 244, 240)"
+      }
+    },
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "water",
+      "paint": {
+        "fill-color": "rgba(0, 0, 255, 0.7)"
+      }
+    },
+    {
+      "id": "boundary-land-level-2",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "boundary",
+      "filter": [
+        "==",
+        "admin_level",
+        2
+      ],
+      "paint": {
+        "line-color": "gray",
+        "line-width": 1
+      }
+    },
+    {
+      "id": "place-continent",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "place",
+      "filter": [
+        "==",
+        "class",
+        "continent"
+      ],
+      "layout": {
+        "text-font": [
+          "Open Sans Bold",
+          "Arial Unicode MS Bold"
+        ],
+        "text-field": "{name}",
+        "text-size": 16
+      },
+      "paint": {
+        "text-color": "black",
+        "text-halo-width": 1,
+        "text-halo-color": "white"
+      }
+    },
+    {
+      "id": "country",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "place",
+      "minzoom": 5,
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "country"
+        ]
+      ],
+      "layout": {
+        "text-font": [
+          "Open Sans Regular",
+          "Arial Unicode MS Regular"
+        ],
+        "text-field": "{name}",
+        "text-size": 13
+      },
+      "paint": {
+        "text-halo-width": 1,
+        "text-halo-color": "white"
+      }
+    },
+    {
+      "id": "capital-icon",
+      "type": "circle",
+      "source": "openmaptiles",
+      "source-layer": "place",
+      "filter": [
+        "all",
+        [
+          "has",
+          "capital"
+        ]
+      ],
+      "paint": {
+        "circle-stroke-color": "gray",
+        "circle-stroke-width": 1,
+        "circle-radius": 5
+      }
+    },
+    {
+      "id": "capital-name",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "place",
+      "minzoom": 6,
+      "filter": [
+        "all",
+        [
+          "has",
+          "capital"
+        ]
+      ],
+      "layout": {
+        "text-font": [
+          "Open Sans Regular Italic",
+          "Arial Unicode MS Italic"
+        ],
+        "text-size": 12,
+        "text-field": "{name}",
+        "text-offset": [
+          0,
+          -1
+        ]
+      },
+      "paint": {
+        "text-color": "#013",
+        "text-halo-width": 1,
+        "text-halo-color": "white"
+      }
+    }
+  ],
+  "id": "6539wy31z"
+}

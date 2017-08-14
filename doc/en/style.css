@@ -1,0 +1,12 @@
+figure {
+  text-align: center;
+}
+
+.book .book-summary ul.summary li a.gitbook-link,
+.book .book-header .btn.sharing-link {
+  display: none;
+}
+
+#book-search-input {
+  display: none;
+}

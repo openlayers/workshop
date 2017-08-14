@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>OpenLayers</title>
+    <style>
+      html, body, #map-container {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        font-family: sans-serif;
+        background-color: #04041b;
+      }
+      /*! [tools] */
+      #tools {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+      #tools a {
+        display: inline-block;
+        padding: 0.5rem;
+        background: white;
+        cursor: pointer;
+      }
+      /*! [tools] */
+    </style>
+  </head>
+  <body>
+    <div id="map-container"></div>
+    <!--! [markup] -->
+    <div id="tools">
+      <a id="clear">Clear</a>
+      <a id="download" download="features.json">Download</a>
+    </div>
+    <!--! [markup] -->
+  </body>
+</html>

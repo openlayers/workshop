@@ -4,20 +4,17 @@ node_js:
   - 6
 script:
   - npm test
-  - node node_modules/openlayers/tasks/build.js src/shared/vector-chapter-build-config.json custom-build.js &&  stat -c "%n %s bytes" custom-build.js && rm custom-build.js
 cache:
   directories:
     - node_modules
 before_deploy:
-  - npm run archive:en && npm run archive:fr && npm run archive:pt
+  - npm run archive:en
 deploy:
   provider: releases
   api_key:
     secure: ag2ObhNaZYbULIABDARbHyvqk9DChYg6j6HZUmocdfM4Go/MF/OckpR0VntiMKpv+eQ8vdmTyRWVcW4Y/B+AOkMs/fhRs4rYOLq7BXWyLLbcvNaXP+3n6HDB/RZBPcNCYdQUo+oDDOyk7W9vF5T3o4aKlXFRLQIVQgABrwEQC1I=
   file:
     - openlayers-workshop-en.zip
-    - openlayers-workshop-fr.zip
-    - openlayers-workshop-pt.zip
   on:
     repo: openlayers/workshop
     tags: true

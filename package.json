@@ -13,20 +13,15 @@
   },
   "homepage": "https://github.com/openlayers/workshop#readme",
   "scripts": {
-    "start": "mkdir -p src/_book && cp node_modules/openlayers/css/ol.css src/ && npm run doc:serve",
+    "start": "mkdir -p doc/_book && npm run doc:serve",
     "test": "npm run doc:build",
-    "clean": "rm -rf src/_book build",
-    "postinstall": "gitbook update && gitbook install src",
-    "doc:serve": "gitbook serve src",
-    "doc:build": "gitbook build src build/openlayers-workshop",
+    "clean": "rm -rf doc/_book build openlayers-workshop-*.zip",
+    "postinstall": "gitbook update && gitbook install doc",
+    "doc:serve": "gitbook serve doc",
+    "doc:build": "gitbook build doc build/openlayers-workshop",
     "build": "npm run clean && npm run doc:build",
-    "archive:en": "npm run build && cp src/en/README.md build/openlayers-workshop/en/ && cd build && rm -rf openlayers-workshop/gitbook openlayers-workshop/index.html openlayers-workshop/search_index.json && mv openlayers-workshop/en openlayers-workshop-en && rm -rf openlayers-workshop && zip -FSr ../openlayers-workshop-en.zip openlayers-workshop-en",
-    "archive:fr": "npm run build && cp src/fr/README.md build/openlayers-workshop/fr/ && cd build && rm -rf openlayers-workshop/gitbook openlayers-workshop/index.html openlayers-workshop/search_index.json && mv openlayers-workshop/fr openlayers-workshop-fr && rm -rf openlayers-workshop && zip -FSr ../openlayers-workshop-fr.zip openlayers-workshop-fr",
-    "archive:pt": "npm run build && cp src/pt/README.md build/openlayers-workshop/pt/ && cd build && rm -rf openlayers-workshop/gitbook openlayers-workshop/index.html openlayers-workshop/search_index.json && mv openlayers-workshop/pt openlayers-workshop-pt && rm -rf openlayers-workshop && zip -FSr ../openlayers-workshop-pt.zip openlayers-workshop-pt",
+    "archive:en": "./archive.sh en",
     "deploy": "npm run build && gh-pages --dist build/openlayers-workshop"
-  },
-  "dependencies": {
-    "openlayers": "4.0.1"
   },
   "devDependencies": {
     "gh-pages": "1.0.0",

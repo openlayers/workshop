@@ -12,16 +12,9 @@ Start the development server:
 
     npm start
 
-Now you can modify the `src` content.  When adding new pages or restructuring things, update the `src/SUMMARY.md` (this is used to generate the content tree in the navigation).  Also update any of the nested `README.md` files (these provide the index page for each section).
+The workshop content is divided into two directories.  The `doc` directory contains the documentation sources.  The `src` directory contains all of the sources that will be used by workshop participants (e.g. data, examples, etc.).  The build process creates an archive with the build version of the docs together with the `src` files.
 
-## Updating the workshop with a new release of OpenLayers
-
-To update the workshop with a new release of OpenLayers one needs to change the version number of the `openlayers` dependency in four places:
-
-* Top level `package.json`,
-* English workshop `src/en/package.json`
-* French workshop `src/fr/package.json` and
-* Portuguese workshop `src/pt/package.json`
+When adding new pages or restructuring things, update the `doc/SUMMARY.md` (this is used to generate the content tree in the navigation).  Also update any of the nested `README.md` files (these provide the index page for each section).
 
 ## Creating a new release
 
