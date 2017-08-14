@@ -1,6 +1,6 @@
 import 'ol/ol.css';
 //! [import]
-import DragDrop from 'ol/interaction/DragAndDrop';
+import DragDrop from 'ol/interaction/draganddrop';
 //! [import]
 import GeoJSON from 'ol/format/geojson';
 import Map from 'ol/map';
