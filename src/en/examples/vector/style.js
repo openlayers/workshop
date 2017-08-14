@@ -9,6 +9,7 @@ import Snap from 'ol/interaction/snap';
 import VectorLayer from 'ol/layer/vector';
 import VectorSource from 'ol/source/vector';
 import View from 'ol/view';
+import sync from 'ol-hashed';
 //! [imports]
 import Fill from 'ol/style/fill';
 import Stroke from 'ol/style/stroke';
@@ -46,6 +47,8 @@ const map = new Map({
     zoom: 2
   })
 });
+
+sync(map);
 
 const source = new VectorSource();
 

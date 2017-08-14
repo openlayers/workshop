@@ -7,6 +7,7 @@ import Map from 'ol/map';
 import VectorLayer from 'ol/layer/vector';
 import VectorSource from 'ol/source/vector';
 import View from 'ol/view';
+import sync from 'ol-hashed';
 
 //! [map-const]
 const map = new Map({
@@ -17,6 +18,8 @@ const map = new Map({
     zoom: 2
   })
 });
+
+sync(map);
 
 //! [source]
 const source = new VectorSource();
