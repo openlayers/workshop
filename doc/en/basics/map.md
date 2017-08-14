@@ -14,7 +14,7 @@ First, we create an `index.html` file in the root of the workshop directory:
 
 [import](../../../src/en/examples/basics/map.html)
 
-Note that we do not need to include any `<script>` for our application. Our Webpack setup takes care of that. Our `<style>` makes the map container fill the whole page, and we will use the container `<div>` with the `map-container` id as target for the map.
+Note that we do not need to include any `<script>` for our application. Our webpack setup takes care of that. Our `<style>` makes the map container fill the whole page, and we will use the container `<div>` with the `map-container` id as target for the map.
 
 ### The application
 
