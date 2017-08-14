@@ -1,0 +1,582 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Drag and drop · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../style.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="modify.html" />
+    
+    
+    <link rel="prev" href="geojson.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="/" target="_blank" class="custom-link">OpenLayers Workshop</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../basics/">
+            
+                <a href="../basics/">
+            
+                    
+                    Basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../basics/map.html">
+            
+                <a href="../basics/map.html">
+            
+                    
+                    Creating a map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../basics/geolocation.html">
+            
+                <a href="../basics/geolocation.html">
+            
+                    
+                    Zooming to your location
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../basics/point-feature.html">
+            
+                <a href="../basics/point-feature.html">
+            
+                    
+                    Drawing a point at your location
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../basics/popup.html">
+            
+                <a href="../basics/popup.html">
+            
+                    
+                    Showing a popup on feature click
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Vector Data
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="geojson.html">
+            
+                <a href="geojson.html">
+            
+                    
+                    Rendering GeoJSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="drag-n-drop.html">
+            
+                <a href="drag-n-drop.html">
+            
+                    
+                    Drag and drop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="modify.html">
+            
+                <a href="modify.html">
+            
+                    
+                    Modifying features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="draw.html">
+            
+                <a href="draw.html">
+            
+                    
+                    Drawing new features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="snap.html">
+            
+                <a href="snap.html">
+            
+                    
+                    Snapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="download.html">
+            
+                <a href="download.html">
+            
+                    
+                    Downloading features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="style.html">
+            
+                <a href="style.html">
+            
+                    
+                    Making it look nice
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../vectortile/">
+            
+                <a href="../vectortile/">
+            
+                    
+                    Vector Tiles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../vectortile/map.html">
+            
+                <a href="../vectortile/map.html">
+            
+                    
+                    The VectorTile layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../vectortile/interact.html">
+            
+                <a href="../vectortile/interact.html">
+            
+                    
+                    Interact with VectorTile features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../vectortile/ugly.html">
+            
+                <a href="../vectortile/ugly.html">
+            
+                    
+                    Styling a VectorTile layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../vectortile/bright.html">
+            
+                <a href="../vectortile/bright.html">
+            
+                    
+                    Making things look bright
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../raster/">
+            
+                <a href="../raster/">
+            
+                    
+                    Raster Operations
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../raster/map.html">
+            
+                <a href="../raster/map.html">
+            
+                    
+                    Map setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../raster/elevation.html">
+            
+                <a href="../raster/elevation.html">
+            
+                    
+                    Render elevation data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../raster/raster.html">
+            
+                <a href="../raster/raster.html">
+            
+                    
+                    Render sea level
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../deploying/">
+            
+                <a href="../deploying/">
+            
+                    
+                    Deploying
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Drag and drop</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="drag-and-drop">Drag and drop</h1>
+<p>For our feature editor, we want users to be able to import their own data for editing.  We&apos;ll use the <code>DragAndDrop</code> interaction for this.  As before, we&apos;ll stick with the GeoJSON format for parsing features, but the interaction can be configured to work with any number of feature formats.</p>
+<p>Import the drag and drop interaction into your <code>main.js</code>:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> DragDrop <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/interaction/DragAndDrop&apos;</span>;
+</code></pre>
+<p>As before, we need to assign the map to a constant, so we can add things to it:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>({
+</code></pre>
+<p>Next, we&apos;ll create a vector source with no initial data.  Instead of loading data from a remote location as in the previous example, this source will store features that the user drags and drops onto the map.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> source = <span class="hljs-keyword">new</span> VectorSource();
+</code></pre>
+<p>Now, remove the old <code>layers</code> list from the map, create a new layer with our empty vector source, and add it to the map.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> layer = <span class="hljs-keyword">new</span> VectorLayer({
+  source: source
+});
+map.addLayer(layer);
+</code></pre>
+<p>Finally, we&apos;ll create a drag and drop interaction, configure it to work with our vector source, and add it to the map:</p>
+<pre><code class="lang-javascript">map.addInteraction(<span class="hljs-keyword">new</span> DragDrop({
+  source: source,
+  formatConstructors: [GeoJSON]
+}));
+</code></pre>
+<p>Now you should be able to drag and drop GeoJSON files onto <a href="http://localhost:3000/" target="_blank">the map</a> and see them rendered.</p>
+<figure id="fig1.3.2.1"><img src="drag-n-drop.png" alt="Drag and drop"><figcaption>Drag and drop</figcaption></figure>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="geojson.html" class="navigation navigation-prev " aria-label="Previous page: Rendering GeoJSON">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="modify.html" class="navigation navigation-next " aria-label="Next page: Modifying features">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Drag and drop","level":"1.3.2","depth":2,"next":{"title":"Modifying features","level":"1.3.3","depth":2,"path":"vector/modify.md","ref":"vector/modify.md","articles":[]},"previous":{"title":"Rendering GeoJSON","level":"1.3.1","depth":2,"path":"vector/geojson.md","ref":"vector/geojson.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock-patched"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock-patched":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"include-codeblock":{"unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: A map of the world","alt":"A map of the world","nro":1,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of the world","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/point-feature.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: User location with a marker","alt":"User location with a marker","nro":2,"url":"point-feature.png","index":1,"caption_template":"_CAPTION_","label":"User location with a marker","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"basics/popup.html#fig1.2.4.1","level":"1.2.4","list_caption":"Figure: A map with a popup at our location","alt":"A map with a popup at our location","nro":3,"url":"popup.png","index":1,"caption_template":"_CAPTION_","label":"A map with a popup at our location","attributes":{},"skip":false,"key":"1.2.4.1"},{"backlink":"vector/geojson.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: GeoJSON features","alt":"GeoJSON features","nro":4,"url":"geojson.png","index":1,"caption_template":"_CAPTION_","label":"GeoJSON features","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"vector/drag-n-drop.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Drag and drop","alt":"Drag and drop","nro":5,"url":"drag-n-drop.png","index":1,"caption_template":"_CAPTION_","label":"Drag and drop","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"vector/modify.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Modifying features","alt":"Modifying features","nro":6,"url":"modify.png","index":1,"caption_template":"_CAPTION_","label":"Modifying features","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"vector/draw.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: A new island nation in the Caribbean","alt":"A new island nation in the Caribbean","nro":7,"url":"draw.png","index":1,"caption_template":"_CAPTION_","label":"A new island nation in the Caribbean","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"vector/snap.html#fig1.3.5.1","level":"1.3.5","list_caption":"Figure: Uniting nations with the snap interaction","alt":"Uniting nations with the snap interaction","nro":8,"url":"snap.png","index":1,"caption_template":"_CAPTION_","label":"Uniting nations with the snap interaction","attributes":{},"skip":false,"key":"1.3.5.1"},{"backlink":"vector/download.html#fig1.3.6.1","level":"1.3.6","list_caption":"Figure: Buttons to clear and download data","alt":"Buttons to clear and download data","nro":9,"url":"download.png","index":1,"caption_template":"_CAPTION_","label":"Buttons to clear and download data","attributes":{},"skip":false,"key":"1.3.6.1"},{"backlink":"vector/style.html#fig1.3.7.1","level":"1.3.7","list_caption":"Figure: Features colored by area","alt":"Features colored by area","nro":10,"url":"style.png","index":1,"caption_template":"_CAPTION_","label":"Features colored by area","attributes":{},"skip":false,"key":"1.3.7.1"},{"backlink":"vectortile/map.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: A world map without style","alt":"A world map without style","nro":11,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A world map without style","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"vectortile/interact.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Getting feature information","alt":"Getting feature information","nro":12,"url":"interact.png","index":1,"caption_template":"_CAPTION_","label":"Getting feature information","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"vectortile/ugly.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: An ugly world map","alt":"An ugly world map","nro":13,"url":"ugly.png","index":1,"caption_template":"_CAPTION_","label":"An ugly world map","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vectortile/bright.html#fig1.4.4.1","level":"1.4.4","list_caption":"Figure: Ugly style in Maputnik","alt":"Ugly style in Maputnik","nro":14,"url":"maputnik.png","index":1,"caption_template":"_CAPTION_","label":"Ugly style in Maputnik","attributes":{},"skip":false,"key":"1.4.4.1"},{"backlink":"vectortile/bright.html#fig1.4.4.2","level":"1.4.4","list_caption":"Figure: A bright map of Boston","alt":"A bright map of Boston","nro":15,"url":"bright.png","index":2,"caption_template":"_CAPTION_","label":"A bright map of Boston","attributes":{},"skip":false,"key":"1.4.4.2"},{"backlink":"raster/map.html#fig1.5.1.1","level":"1.5.1","list_caption":"Figure: A map of Boston","alt":"A map of Boston","nro":16,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of Boston","attributes":{},"skip":false,"key":"1.5.1.1"},{"backlink":"raster/elevation.html#fig1.5.2.1","level":"1.5.2","list_caption":"Figure: Terrain-RGB tiles rendered over Boston","alt":"Terrain-RGB tiles rendered over Boston","nro":17,"url":"elevation.png","index":1,"caption_template":"_CAPTION_","label":"Terrain-RGB tiles rendered over Boston","attributes":{},"skip":false,"key":"1.5.2.1"},{"backlink":"raster/raster.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Sea level rise in Boston","alt":"Sea level rise in Boston","nro":18,"url":"raster.png","index":1,"caption_template":"_CAPTION_","label":"Sea level rise in Boston","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"en","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"vector/drag-n-drop.md","mtime":"2017-08-14T01:19:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T01:34:34.615Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

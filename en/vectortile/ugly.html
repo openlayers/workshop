@@ -1,0 +1,666 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Styling a VectorTile layer · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../style.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="bright.html" />
+    
+    
+    <link rel="prev" href="interact.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="/" target="_blank" class="custom-link">OpenLayers Workshop</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../basics/">
+            
+                <a href="../basics/">
+            
+                    
+                    Basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../basics/map.html">
+            
+                <a href="../basics/map.html">
+            
+                    
+                    Creating a map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../basics/geolocation.html">
+            
+                <a href="../basics/geolocation.html">
+            
+                    
+                    Zooming to your location
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../basics/point-feature.html">
+            
+                <a href="../basics/point-feature.html">
+            
+                    
+                    Drawing a point at your location
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../basics/popup.html">
+            
+                <a href="../basics/popup.html">
+            
+                    
+                    Showing a popup on feature click
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../vector/">
+            
+                <a href="../vector/">
+            
+                    
+                    Vector Data
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../vector/geojson.html">
+            
+                <a href="../vector/geojson.html">
+            
+                    
+                    Rendering GeoJSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../vector/drag-n-drop.html">
+            
+                <a href="../vector/drag-n-drop.html">
+            
+                    
+                    Drag and drop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../vector/modify.html">
+            
+                <a href="../vector/modify.html">
+            
+                    
+                    Modifying features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../vector/draw.html">
+            
+                <a href="../vector/draw.html">
+            
+                    
+                    Drawing new features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../vector/snap.html">
+            
+                <a href="../vector/snap.html">
+            
+                    
+                    Snapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../vector/download.html">
+            
+                <a href="../vector/download.html">
+            
+                    
+                    Downloading features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../vector/style.html">
+            
+                <a href="../vector/style.html">
+            
+                    
+                    Making it look nice
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Vector Tiles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="map.html">
+            
+                <a href="map.html">
+            
+                    
+                    The VectorTile layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="interact.html">
+            
+                <a href="interact.html">
+            
+                    
+                    Interact with VectorTile features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.3" data-path="ugly.html">
+            
+                <a href="ugly.html">
+            
+                    
+                    Styling a VectorTile layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="bright.html">
+            
+                <a href="bright.html">
+            
+                    
+                    Making things look bright
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../raster/">
+            
+                <a href="../raster/">
+            
+                    
+                    Raster Operations
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../raster/map.html">
+            
+                <a href="../raster/map.html">
+            
+                    
+                    Map setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../raster/elevation.html">
+            
+                <a href="../raster/elevation.html">
+            
+                    
+                    Render elevation data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../raster/raster.html">
+            
+                <a href="../raster/raster.html">
+            
+                    
+                    Render sea level
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../deploying/">
+            
+                <a href="../deploying/">
+            
+                    
+                    Deploying
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Styling a VectorTile layer</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="styling-a-vectortile-layer">Styling a VectorTile layer</h1>
+<p>Styling a vector tile layer works exactly the same way as styling a vector layer. We will now try to style our world map so it actually looks like a world map is supposed to look.</p>
+<h2 id="load-fonts">Load fonts</h2>
+<p>Let&apos;s say we want to use a nicer font for labels in our map. I decided to use the Open Sans font family, which can easily be loaded with an additional stylesheet in the <code>&lt;head&gt;</code> of our index.html:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://fonts.googleapis.com/css?family=Open+Sans&quot;</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span>&gt;</span>
+</code></pre>
+<h2 id="set-a-map-background">Set a map background</h2>
+<p>A common style element in vector tile maps is a background color, which the user sees in places that are not covered by any geometries. Like we already saw in the <a href="../vector/download.html">vector</a> exercise, this can be done by simply setting a background color in a <code>&lt;style&gt;</code> for the <code>#map-container</code>:</p>
+<pre><code class="lang-html">background-color: rgb(248, 244, 240);
+</code></pre>
+<h2 id="style-the-layer-with-a-style-function">Style the layer with a style function</h2>
+<p>Now we are going to add some application code to <code>main.js</code>.</p>
+<p>First, we&apos;ll need imports for the styles we are going to use:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> Style <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/style/style&apos;</span>;
+<span class="hljs-keyword">import</span> Fill <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/style/fill&apos;</span>;
+<span class="hljs-keyword">import</span> Stroke <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/style/stroke&apos;</span>;
+<span class="hljs-keyword">import</span> Circle <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/style/circle&apos;</span>;
+<span class="hljs-keyword">import</span> Text <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/style/text&apos;</span>;
+</code></pre>
+<p>The style function is a bit long:</p>
+<pre><code class="lang-javascript">layer.setStyle(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">feature, resolution</span>) </span>{
+  <span class="hljs-keyword">var</span> properties = feature.getProperties();
+
+  <span class="hljs-comment">// Water polygons</span>
+  <span class="hljs-keyword">if</span> (properties.layer == <span class="hljs-string">&apos;water&apos;</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Style({
+      fill: <span class="hljs-keyword">new</span> Fill({
+        color: <span class="hljs-string">&apos;rgba(0, 0, 255, 0.7)&apos;</span>
+      })
+    });
+  }
+
+  <span class="hljs-comment">// Boundary lines</span>
+  <span class="hljs-keyword">if</span> (properties.layer == <span class="hljs-string">&apos;boundary&apos;</span> &amp;&amp; properties.admin_level == <span class="hljs-number">2</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Style({
+      stroke: <span class="hljs-keyword">new</span> Stroke({
+        color: <span class="hljs-string">&apos;gray&apos;</span>
+      })
+    });
+  }
+
+  <span class="hljs-comment">// Continent labels</span>
+  <span class="hljs-keyword">if</span> (properties.layer == <span class="hljs-string">&apos;place&apos;</span> &amp;&amp; properties.class == <span class="hljs-string">&apos;continent&apos;</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Style({
+      text: <span class="hljs-keyword">new</span> Text({
+        text: properties.name,
+        font: <span class="hljs-string">&apos;bold 16px Open Sans&apos;</span>,
+        fill: <span class="hljs-keyword">new</span> Fill({
+          color: <span class="hljs-string">&apos;black&apos;</span>
+        }),
+        stroke: <span class="hljs-keyword">new</span> Stroke({
+          color: <span class="hljs-string">&apos;white&apos;</span>
+        })
+      })
+    });
+  }
+
+  <span class="hljs-comment">// Country labels</span>
+  <span class="hljs-keyword">if</span> (properties.layer == <span class="hljs-string">&apos;place&apos;</span> &amp;&amp; properties.class == <span class="hljs-string">&apos;country&apos;</span> &amp;&amp;
+      resolution &lt; map.getView().getResolutionForZoom(<span class="hljs-number">5</span>)) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Style({
+      text: <span class="hljs-keyword">new</span> Text({
+        text: properties.name,
+        font: <span class="hljs-string">&apos;normal 13px Open Sans&apos;</span>,
+        fill: <span class="hljs-keyword">new</span> Fill({
+          color: <span class="hljs-string">&apos;black&apos;</span>
+        }),
+        stroke: <span class="hljs-keyword">new</span> Stroke({
+          color: <span class="hljs-string">&apos;white&apos;</span>
+        })
+      })
+    });
+  }
+
+  <span class="hljs-comment">// Capital icons and labels</span>
+  <span class="hljs-keyword">if</span> (properties.layer == <span class="hljs-string">&apos;place&apos;</span> &amp;&amp; properties.capital) {
+    <span class="hljs-keyword">var</span> point = <span class="hljs-keyword">new</span> Style({
+      image: <span class="hljs-keyword">new</span> Circle({
+        radius: <span class="hljs-number">5</span>,
+        fill: <span class="hljs-keyword">new</span> Fill({
+          color: <span class="hljs-string">&apos;black&apos;</span>
+        }),
+        stroke: <span class="hljs-keyword">new</span> Stroke({
+          color: <span class="hljs-string">&apos;gray&apos;</span>
+        })
+      })
+    });
+    <span class="hljs-keyword">if</span> (resolution &lt; map.getView().getResolutionForZoom(<span class="hljs-number">6</span>)) {
+      point.setText(<span class="hljs-keyword">new</span> Text({
+        text: properties.name,
+        font: <span class="hljs-string">&apos;italic 12px Open Sans&apos;</span>,
+        offsetY: <span class="hljs-number">-12</span>,
+        fill: <span class="hljs-keyword">new</span> Fill({
+          color: <span class="hljs-string">&apos;#013&apos;</span>
+        }),
+        stroke: <span class="hljs-keyword">new</span> Stroke({
+          color: <span class="hljs-string">&apos;white&apos;</span>
+        })
+      }));
+    }
+    <span class="hljs-keyword">return</span> point;
+  }
+
+  <span class="hljs-comment">//return Style.defaultFunction(feature, resolution);</span>
+});
+</code></pre>
+<p>I think you will agree that we have not reached our goal of creating a beautiful world map:</p>
+<figure id="fig1.4.3.1"><img src="ugly.png" alt="An ugly world map"><figcaption>An ugly world map</figcaption></figure>
+<p>There is much more effort involved in styling a world map appropriately, and writing a style function in JavaScript is probably not the right tool. In the <a href="bright.html">next</a> exercise, we will learn a different way of loading and styling vector tile layers.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="interact.html" class="navigation navigation-prev " aria-label="Previous page: Interact with VectorTile features">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="bright.html" class="navigation navigation-next " aria-label="Next page: Making things look bright">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Styling a VectorTile layer","level":"1.4.3","depth":2,"next":{"title":"Making things look bright","level":"1.4.4","depth":2,"path":"vectortile/bright.md","ref":"vectortile/bright.md","articles":[]},"previous":{"title":"Interact with VectorTile features","level":"1.4.2","depth":2,"path":"vectortile/interact.md","ref":"vectortile/interact.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock-patched"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock-patched":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"include-codeblock":{"unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: A map of the world","alt":"A map of the world","nro":1,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of the world","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/point-feature.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: User location with a marker","alt":"User location with a marker","nro":2,"url":"point-feature.png","index":1,"caption_template":"_CAPTION_","label":"User location with a marker","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"basics/popup.html#fig1.2.4.1","level":"1.2.4","list_caption":"Figure: A map with a popup at our location","alt":"A map with a popup at our location","nro":3,"url":"popup.png","index":1,"caption_template":"_CAPTION_","label":"A map with a popup at our location","attributes":{},"skip":false,"key":"1.2.4.1"},{"backlink":"vector/geojson.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: GeoJSON features","alt":"GeoJSON features","nro":4,"url":"geojson.png","index":1,"caption_template":"_CAPTION_","label":"GeoJSON features","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"vector/drag-n-drop.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Drag and drop","alt":"Drag and drop","nro":5,"url":"drag-n-drop.png","index":1,"caption_template":"_CAPTION_","label":"Drag and drop","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"vector/modify.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Modifying features","alt":"Modifying features","nro":6,"url":"modify.png","index":1,"caption_template":"_CAPTION_","label":"Modifying features","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"vector/draw.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: A new island nation in the Caribbean","alt":"A new island nation in the Caribbean","nro":7,"url":"draw.png","index":1,"caption_template":"_CAPTION_","label":"A new island nation in the Caribbean","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"vector/snap.html#fig1.3.5.1","level":"1.3.5","list_caption":"Figure: Uniting nations with the snap interaction","alt":"Uniting nations with the snap interaction","nro":8,"url":"snap.png","index":1,"caption_template":"_CAPTION_","label":"Uniting nations with the snap interaction","attributes":{},"skip":false,"key":"1.3.5.1"},{"backlink":"vector/download.html#fig1.3.6.1","level":"1.3.6","list_caption":"Figure: Buttons to clear and download data","alt":"Buttons to clear and download data","nro":9,"url":"download.png","index":1,"caption_template":"_CAPTION_","label":"Buttons to clear and download data","attributes":{},"skip":false,"key":"1.3.6.1"},{"backlink":"vector/style.html#fig1.3.7.1","level":"1.3.7","list_caption":"Figure: Features colored by area","alt":"Features colored by area","nro":10,"url":"style.png","index":1,"caption_template":"_CAPTION_","label":"Features colored by area","attributes":{},"skip":false,"key":"1.3.7.1"},{"backlink":"vectortile/map.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: A world map without style","alt":"A world map without style","nro":11,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A world map without style","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"vectortile/interact.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Getting feature information","alt":"Getting feature information","nro":12,"url":"interact.png","index":1,"caption_template":"_CAPTION_","label":"Getting feature information","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"vectortile/ugly.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: An ugly world map","alt":"An ugly world map","nro":13,"url":"ugly.png","index":1,"caption_template":"_CAPTION_","label":"An ugly world map","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vectortile/bright.html#fig1.4.4.1","level":"1.4.4","list_caption":"Figure: Ugly style in Maputnik","alt":"Ugly style in Maputnik","nro":14,"url":"maputnik.png","index":1,"caption_template":"_CAPTION_","label":"Ugly style in Maputnik","attributes":{},"skip":false,"key":"1.4.4.1"},{"backlink":"vectortile/bright.html#fig1.4.4.2","level":"1.4.4","list_caption":"Figure: A bright map of Boston","alt":"A bright map of Boston","nro":15,"url":"bright.png","index":2,"caption_template":"_CAPTION_","label":"A bright map of Boston","attributes":{},"skip":false,"key":"1.4.4.2"},{"backlink":"raster/map.html#fig1.5.1.1","level":"1.5.1","list_caption":"Figure: A map of Boston","alt":"A map of Boston","nro":16,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of Boston","attributes":{},"skip":false,"key":"1.5.1.1"},{"backlink":"raster/elevation.html#fig1.5.2.1","level":"1.5.2","list_caption":"Figure: Terrain-RGB tiles rendered over Boston","alt":"Terrain-RGB tiles rendered over Boston","nro":17,"url":"elevation.png","index":1,"caption_template":"_CAPTION_","label":"Terrain-RGB tiles rendered over Boston","attributes":{},"skip":false,"key":"1.5.2.1"},{"backlink":"raster/raster.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Sea level rise in Boston","alt":"Sea level rise in Boston","nro":18,"url":"raster.png","index":1,"caption_template":"_CAPTION_","label":"Sea level rise in Boston","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"en","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"vectortile/ugly.md","mtime":"2017-08-14T01:19:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T01:34:34.615Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
