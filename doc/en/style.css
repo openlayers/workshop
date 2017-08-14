@@ -6,3 +6,7 @@ figure {
 .book .book-header .btn.sharing-link {
   display: none;
 }
+
+#book-search-input {
+  display: none;
+}
