@@ -18,7 +18,7 @@ Note that we do not need to include any `<script>` for our application. Our webp
 
 ### The application
 
-To work with OpenLayers, we import the `ol` package from npm. This is done with an `npm install` in our terminal:
+To work with OpenLayers, we import the [`ol` package](https://www.npmjs.com/package/ol) from npm. This is done with an `npm install` in our terminal:
 
     npm install --save ol
 
