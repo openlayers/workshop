@@ -22,7 +22,7 @@ Ce workshop est présenté comme un jeu de modules.  Dans chacun de ces modules,
 
 Les modules suivants seront couverts par ce workshop:
 
-* [Bases](basics/README.md) - Apprendre comment ajouter une carte dans une page web avec OpenLayers.
+* [Les bases](basics/README.md) - Apprendre comment ajouter une carte dans une page web avec OpenLayers.
 * [Données vecteur](vector/README.md) - Travailler avec des données vecteur.
 * [Tuiles vecteur](vectortile/README.md) - Créer des belles cartes avec des tuiles vecteur.
 * [Opérations Raster](raster/README.md) - Manipuler des pixels avec une source raster.
