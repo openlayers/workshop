@@ -1,60 +1,37 @@
 # Créez une carte
 
-Dans OpenLayers, une carte est une collection de couches avec plusieurs `interactions` et `controls` pour gérer les interactions utilisateurs. Une carte est générée avec trois ingrédients basiques: les balises, les déclarations de style et l'initialisation du code.
+Dans OpenLayers, une carte est une collection de couches qui est rendue dans une page web. Pour créer une carte, vous avez besoin de balises (HTML) qui crée une fenêtre de carte (c'est à dire un élément `<div>`), un peu de style pou donner à la fenêtre de carte les dimensions appropriéesà votre page et le code d'initialisation de la carte.
 
 ## Exemple fonctionnel
 
-Jetons un oeil à un exemple pleinement fonctionnel d'une carte OpenLayers.
+Assurez-vous d'avoir bien complété les [instructions de configuration](../) pour installer les dépendances et avoir le serveur de debug qui fonctionne.
 
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <link rel="stylesheet" href="/ol.css" type="text/css">
-    <style>
-      #map {
-        height: 256px;
-        width: 512px;
-      }
-    </style>
-    <title>OpenLayers example</title>
-    <script src="/loader.js" type="text/javascript"></script>
-  </head>
-  <body>
-    <h1>My Map</h1>
-    <div id="map"></div>
-    <script type="text/javascript">
-      var map = new ol.Map({
-        target: 'map',
-        layers: [
-          new ol.layer.Tile({
-            title: 'Global Imagery',
-            source: new ol.source.TileWMS({
-              url: 'https://ahocevar.com/geoserver/wms',
-              params: {LAYERS: 'nasa:bluemarble', TILED: true}
-            })
-          })
-        ],
-        view: new ol.View({
-          projection: 'EPSG:4326',
-          center: [0, 0],
-          zoom: 0,
-          maxResolution: 0.703125
-        })
-      });
-    </script>
-  </body>
-</html>
-```
+Maintenant, créons un exemple fonctionnel complet d'une carte OpenLayers. Au minimum, nous avons besoin d'une balise avec un élément "container" pour une carte, et une instance `Map` de OpenLayers que nous configurons avec une couche et une vue.
 
-### Tâches
+### Les balises HTML
 
-1.  Assurez-vous d'avoir bien complété les [instructions de configuration](../) pour installer les dépendances et avoir le serveur de debug qui fonctionne.
+En premier, nous créons un fichier `index.html` à la racine du répertoire de workshop:
 
-1.  Copiez le texte ci-dessus dans un nouveau fichier appelé `map.html`, et sauvez-le à la racine du répertoire du workshop.
+[import](../../../src/en/examples/basics/map.html)
 
-1.  Ouvrir la carte dans votre navigateur web: {{ book.workshopUrl }}/map.html
+Notez que nous n'avons pas besoin d'inclure la moindre balise `<script>` pour notre application. Notre configuration webpack se charge de cela. Notre `<style>` permet au container de carte de remplir la page complète, et nous utiliserons le container `<div>` avec l'id `map-container` comme cible pour la carte.
 
-![Un carte fonctionnelle affichant une image du monde](map1.png)
+### L'application
 
-Après avoir créé avec succès votre première carte, nous allons continuer en regardant plus précisément chacune des [différentes parties](./dissect.md).
+Pour tavailler avec OpenLayers, nous importons [le package `ol`](https://www.npmjs.com/package/ol) depuis npm. C'est fait avec un `npm install` dans notre terminal:
+
+    npm install --save ol
+
+Ensuite, comme point d'entrée de l'application, nous créons un fichier `main.js`, et le sauvons aussi à la racine du répertoire du workshop:
+
+[import](../../../src/en/examples/basics/map.js)
+
+Tout en haut, nous faison un import des modues requis depuis le package `ol`. Notez l'import `'ol/ol.css'`, qui ajoute les styles dont OpenLayers a besoin pour ces composants graphiques (UI) de base. Avec tout ce que nous avions besoin d'importer, nous avançons et créons une `Map`. La `target` (cible) pointe vers le container `<div>` que nous avons dans notre markup. Nous configurons la carte avec une couche image tuilée (`TileLayer`) et une `XYZSource`. Enfin, la `View` définit le centre (`center`) et le `zoom` initiaux.
+
+### Voir la carte
+
+Maintenant, notre application est prête à être testée. Ouvrons la carte fonctionnelle dans une navigateur web: {{book.workshopUrl}}/. C'est ce à quoi elle devrait ressembler:
+
+![Une carte du monde](map.png)
+
+Dans le chapitre final du workshop, nous apprendrons comment créer un "build" de production d l'application pour le déploiement.
