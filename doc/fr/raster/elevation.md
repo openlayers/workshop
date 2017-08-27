@@ -1,4 +1,4 @@
-# Render elevation data
+# Faire le rendu des données élévation
 
 We're going to work with elevation data that is encoded in PNG tiles (see [the Mapbox post](https://blog.mapbox.com/global-elevation-data-6689f1d0ba65) on Terrain-RGB for more detail).  For this exercise, you'll need to [sign up for a Mapbox account](https://www.mapbox.com/signup/) and use your access token for tiles.
 

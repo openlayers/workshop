@@ -20,6 +20,6 @@
   * [Rendre les choses "brillantes"](vectortile/bright.md)
 * [Opérations raster](raster/README.md)
   * [Configuration de la carte](raster/map.md)
-  * [Faire le rendu des données élevation](raster/elevation.md)
+  * [Faire le rendu des données élévation](raster/elevation.md)
   * [Faire le rendu du niveau de la mer](raster/raster.md)
 * [Déploiement](deploying/README.md)

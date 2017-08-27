@@ -1,4 +1,4 @@
-# Render sea level
+# Faire le rendu du niveau de la mer
 
 In the previous step, we rendered the Terrain-RGB tiles directly on the map.  What we want to do is render sea level on the map instead.  And we want users to be able to adjust the height above sea level and see the adjusted height rendered on the map.  We'll use a raster source to work with the elevation data directly and get the user input from an input slider on the page.
 

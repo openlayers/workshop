@@ -5,5 +5,5 @@ Jusqu'à présent, lorsque nous avons utilisé des données raster (avec une sou
 Dans ces exercices, nous travaillerons avec des données d'altitude servies comme tuiles XYZ. Au lieu de rendre directement les données d'élévation encodées, nous effectuerons une opération par pixel sur les données avant de faire le rendu.
 
 * [Configuration de la carte](map.md)
-* [Faire le rendu des données élevation](elevation.md)
+* [Faire le rendu des données élévation](elevation.md)
 * [Faire le rendu du niveau de la mer](raster.md)

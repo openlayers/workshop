@@ -1,11 +1,11 @@
-# Map setup
+# Configuration de la carte
 
-Edit your `index.html` so we're ready to render a full page map:
+Modifiez votre `index.html` afin que nous soyons prêts à faire le rendu d'une carte pleine page:
 
 [import](../../../src/en/examples/raster/map.html)
 
-We'll start out with a map centered on Boston showing a single XYZ source.  Update your `main.js` so it looks like this:
+Nous commencerons par une carte centrée sur Boston montrant une seule source XYZ. Mettez à jour votre `main.js` afin qu'il ressemble à ceci:
 
 [import](../../../src/en/examples/raster/map.js)
 
-![A map of Boston](map.png)
+![Une carte de Boston](map.png)
