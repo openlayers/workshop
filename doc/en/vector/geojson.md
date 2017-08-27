@@ -32,4 +32,4 @@ And now we can call this function with our map:
 
 [import:'sync'](../../../src/en/examples/vector/sync.js)
 
-Now you should see that page reloads keep keep the map view stable.  And the back button works as you might expect.
+Now you should see that page reloads keep the map view stable.  And the back button works as you might expect.
