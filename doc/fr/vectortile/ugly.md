@@ -1,33 +1,33 @@
-# Styling a VectorTile layer
+# Styler une couche VectorTile
 
-Styling a vector tile layer works exactly the same way as styling a vector layer. We will now try to style our world map so it actually looks like a world map is supposed to look.
+Styler une couche de tuiles vecteur fonctionne exactement de la même manière que le style d'une couche vecteur. Nous allons maintenant essayer de styler notre carte du monde afin qu'elle ressemble réellement à ce qu'une carte du monde est supposée ressembler.
 
-## Load fonts
+## Charger les polices de caractères
 
-Let's say we want to use a nicer font for labels in our map. I decided to use the Open Sans font family, which can easily be loaded with an additional stylesheet in the `<head>` of our index.html:
+Disons que nous voulons utiliser une police plus agréable pour les étiquettes dans notre carte. J'ai décidé d'utiliser la famille de polices Open Sans, qui peut facilement être chargée avec une feuille de style supplémentaire dans le `<head>` de notre index.html:
 
 [import:'font'](../../../src/en/examples/vectortile/ugly.html)
 
-## Set a map background
+## Définir un couleur d'arrière-plan à la carte
 
-A common style element in vector tile maps is a background color, which the user sees in places that are not covered by any geometries. Like we already saw in the [vector](../vector/download.md) exercise, this can be done by simply setting a background color in a `<style>` for the `#map-container`:
+Un élément de style commun dans les cartes de tuiles vecteur est une couleur d'arrière-plan, que l'utilisateur voit dans des endroits qui ne sont pas couverts par des géométries. Comme nous l'avons déjà vu dans l'exercice [vecteur](../vector/download.md), cela peut se faire simplement en définissant une couleur d'arrière-plan dans un `<style>` pour le `# map-container`:
 
 [import:'background'](../../../src/en/examples/vectortile/ugly.html)
 
-## Style the layer with a style function
+## Styler une couche avec une fonction de style
 
-Now we are going to add some application code to `main.js`.
+Maintenant, nous allons ajouter un peu de code d'application à `main.js`.
 
-First, we'll need imports for the styles we are going to use:
+Tout d'abord, nous aurons besoin de faire des imports pour les styles que nous allons utiliser:
 
 [import:'style-import'](../../../src/en/examples/vectortile/ugly.js)
 
-The style function is a bit long:
+La fonction de style est un peu longue:
 
 [import:'style'](../../../src/en/examples/vectortile/ugly.js)
 
-I think you will agree that we have not reached our goal of creating a beautiful world map:
+Je pense que vous conviendrez que nous n'avons pas atteint notre objectif de créer une belle carte du monde:
 
-![An ugly world map](ugly.png)
+![Une carte du monde "moche"](ugly.png)
 
-There is much more effort involved in styling a world map appropriately, and writing a style function in JavaScript is probably not the right tool. In the [next](bright.md) exercise, we will learn a different way of loading and styling vector tile layers.
+Il y a beaucoup plus d'efforts impliqué dans le stylage approprié d'une carte du monde, et l'écriture d'une fonction de style dans JavaScript n'est probablement pas le bon outil. Dans l'exercice [suivant](bright.md), nous allons apprendre une manière différente de charger et de styler les couches de tuiles vecteur.

@@ -5,4 +5,4 @@ Dans ce module, nous allons apprendre tout sur la couche VectorTile dans OpenLay
 * [La couche VectorTile](map.md)
 * [Interagir avec les objets géographiques de VectorTile](interact.md)
 * [Styler une couche VectorTile](ugly.md)
-* [Rendre les choses brillantes](bright.md)
+* [Rendre les choses "brillantes"](bright.md)

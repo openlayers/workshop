@@ -1,38 +1,38 @@
-# The VectorTile layer
+# La couche VectorTile
 
-We now know how to load tiled images, and we have seen different ways to load and render vector data. But what if we could have tiles that are fast to transfer to the browser, and can be styled on the fly? Well, this is what vector tiles were made for. OpenLayers supports vector tiles through the `VectorTile` layer.
+Nous savons maintenant comment charger des images tuilées, et nous avons vu différentes façons de charger et de faire le rendu des données vecteur. Mais que se passerait-il si nous pouvions avoir des tuiles qui sont rapides à transférer sur le navigateur et qui peuvent être stylées à la volée? Eh bien, c'est ce pourquoi les tuiles vecteur ont été faites pour. OpenLayers supporte les tuiles vecteur via la couche `VectorTile`.
 
-## A world map rendered from vector data
+## Une carte du monde rendue depuis des données vecteur
 
-We'll start with the same markup in `index.html` as in the [Basics](../basics/map.md) exercise.
+Nous allons commencer avec le même markup dans `index.html` que dans l'exercice [Les bases](../basics/map.md).
 
 [import](../../../src/en/examples/vectortile/map.html)
 
-As usual, we save `index.html` in the root of our workshop folder.
+Comme d'habitude, nous sauvegardons `index.html` dans la racine de notre dossier workshop.
 
-For the application, we'll start with a fresh `main.js` in the root of the workshop folder, and add the required imports:
+Pour l'application, nous allons commencer par un nouveau `main.js` tout frais dans la racine du dossier de workshop et ajouter les imports requis:
 
 [import:'imports'](../../../src/en/examples/vectortile/map.js)
 
-The data source we are going to use requires an access key. Please read the terms at https://openmaptiles.com/hosting/, where you can also get your own key. The code below assigns the key to a constant we're going to use later:
+La source de données que nous allons utiliser nécessite une clé d'accès. Veuillez lire les termes à https://openmaptiles.com/hosting/, où vous pouvez également obtenir votre propre clé. Le code ci-dessous attribue la clé à une constante que nous allons utiliser plus tard:
 
 ```js
 // See https://openmaptiles.com/hosting/ for terms and access key
 const key = '<your-access-key-here>';
 ```
 
-The map we're going to create here is the same that we have used in previous exercises:
+La carte que nous allons créer ici est la même que celle utilisée dans les exercices précédents:
 
 [import:'map'](../../../src/en/examples/vectortile/map.js)
 
- The layer type we are going to use now is `VectorTileLayer`, with a `VectorTileSource`:
+ Le type de couche que nous allons utiliser maintenant est `VectorTileLayer`, avec une ` VectorTileSource`:
 
 [import:'layer'](../../../src/en/examples/vectortile/map.js)
 
-Our data source provides only zoom levels `0` to `14`, so we need to configure custom tile grid. Vector tile layers are usually optimized for a tile size of 512 pixels, which we also configured with the tile grid. The data provider also requires us to display some `attributions`.
+Notre source de données fournit uniquement des niveaux de zoom `0` à `14`, donc nous devons configurer une grille de tuiles personnalisée. Les couches de tuiles vecteur sont généralement optimisées pour une taille de tuiles de 512 pixels, que nous avons également configurée avec la grille de tuiles. Le fournisseur de données nous demande également d'afficher certaines `attributions`.
 
-As you can see, a `VectorTileSource` is configured with a `format` and a `url`, just like a `VectorLayer`. The `MVT` format parses Mapbox Vector Tiles.
+Comme vous pouvez le voir, une `VectorTileSource` est configurée avec un `format` et une `url`, tout comme une `VectorLayer`. Le format `MVT` parse les tuiles vecteur de type Mapbox (MVT comme Mapbox Vector Tiles).
 
-The working example at {{book.workshopUrl}}/ shows an unstyled vector map like this:
+L'exemple fonctionnel sur {{book.workshopUrl}}/ montre une carte vecteur non stylée comme ceci:
 
-![A world map without style](map.png)
+![Une carte du monde non stylée](map.png)
