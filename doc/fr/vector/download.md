@@ -1,20 +1,20 @@
 # Télécharger des objets géographiques
 
-After uploading data and editing it, we want to let our users download the result.  To do this, we'll serialize our feature data as GeoJSON and create an `<a>` element with a `download` attribute that triggers the browser's file save dialog.  At the same time, we'll add a button to the map that let's users clear existing features and start over.
+Après avoir téléchargé des données et les avoir éditées, nous voulons laisser nos utilisateurs télécharger le résultat. Pour ce faire, nous allons sérialiser nos données d'objets géographiques comme GeoJSON et créer un élément `<a>` avec un attribut `download` qui déclenche la boîte de dialogue de sauvegarde de fichier du navigateur. Dans le même temps, nous ajouterons un bouton à la carte qui permet aux utilisateurs d'effacer les objets géographiques existants et de recommencer.
 
-First, we need a bit of markup to represent the buttons.  Add the following elements below the `map-container` in your `index.html`:
+Tout d'abord, nous avons besoin d'un peu de markup pour représenter les boutons. Ajoutez les éléments suivants sous `map-container` dans votre `index.html`:
 
 [import:'markup'](../../../src/en/examples/vector/download.html)
 
-Now we need some CSS to make the buttons look right.  Add something like this to the `<style>` element in `index.html`:
+Maintenant, nous avons besoin d'un peu de CSS pour que les boutons soient corrects. Ajoutez quelque chose comme ceci à l'élément `<style>` dans `index.html`:
 
 [import:'tools', lang:'css'](../../../src/en/examples/vector/download.html)
 
-Clearing features is the easier part, so we'll do that first.  The vector source has a `source.clear()` method.  We want clicks on the "Clear" button to call that method, so we'll add a listener for `click` in our `main.js`:
+L'effacement des objets géographiques est la partie la plus simple, alors nous allons faire cela d'abord. La source de vecteur a une méthode `source.clear()`. Nous voulons que les clics sur le bouton "Clear" appelle cette méthode, alors nous allons ajouter un "listner" pour `click` dans notre `main.js`:
 
 [import:'clear'](../../../src/en/examples/vector/download.js)
 
-To serialize our feature data for download, we'll use a `GeoJSON` format.  Since we want the "Download" button to work at any time during editing, we'll serialize features on every `change` event from the source and construct a data URI for the anchor element's `href` attribute:
+Pour sérialiser nos données d'objets géographiques pour télécharger, nous utiliserons un format `GeoJSON`. Comme nous voulons que le bouton "Télécharger" fonctionne à n'importe quel moment lors de l'édition, nous sérialiserons les objets géographiques de chaque événement `change` de la source et construirons une data URI pour l'attribut `href` de l'élément `<a>`:
 
 [import:'download'](../../../src/en/examples/vector/download.js)
 

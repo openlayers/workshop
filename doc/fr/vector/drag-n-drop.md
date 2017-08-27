@@ -1,27 +1,27 @@
 # Glisser-déposer
 
-For our feature editor, we want users to be able to import their own data for editing.  We'll use the `DragAndDrop` interaction for this.  As before, we'll stick with the GeoJSON format for parsing features, but the interaction can be configured to work with any number of feature formats.
+Pour notre éditeur d'objets géographiques, nous voulons que les utilisateurs puissent importer leurs propres données pour éditer. Nous utiliserons l'interaction `DragAndDrop` pour cela. Comme auparavant, nous allons rester attacher au format GeoJSON pour parser les objets géographiques, mais l'interaction peut être configurée pour fonctionner avec n'importe quel nombre de formats de sérialisation d'objets géographiques.
 
-Import the drag and drop interaction into your `main.js`:
+Importer l'interaction de glisser-déposer dans votre `main.js`:
 
 [import:'import'](../../../src/en/examples/vector/drag-n-drop.js)
 
-As before, we need to assign the map to a constant, so we can add things to it:
+Comme auparavant, nous devons assigner la carte à une constante, afin que nous puissions lui ajouter des éléments:
 
 [import:'map-const'](../../../src/en/examples/vector/drag-n-drop.js)
 
-Next, we'll create a vector source with no initial data.  Instead of loading data from a remote location as in the previous example, this source will store features that the user drags and drops onto the map.
+Ensuite, nous allons créer une source vecteur sans données initiales. Au lieu de charger des données à partir d'un emplacement distant comme dans l'exemple précédent, cette source stockera les objets géographiques que l'utilisateur glisse et dépose sur la carte.
 
 [import:'source'](../../../src/en/examples/vector/drag-n-drop.js)
 
-Now, remove the old `layers` list from the map, create a new layer with our empty vector source, and add it to the map.
+Maintenant, supprimez la liste des `layers` anciennes de la carte, créez une nouvelle couche avec notre source vecteur vide et ajoutez-la à la carte.
 
 [import:'layers'](../../../src/en/examples/vector/drag-n-drop.js)
 
-Finally, we'll create a drag and drop interaction, configure it to work with our vector source, and add it to the map:
+Enfin, nous allons créer une interaction glisser-déposer, la configurer pour qu'elle fonctionne avec notre source vecteur et l'ajouter à la carte:
 
 [import:'interaction'](../../../src/en/examples/vector/drag-n-drop.js)
 
-Now you should be able to drag and drop GeoJSON files onto [the map]({{book.workshopUrl}}/) and see them rendered.
+Maintenant, vous devriez pouvoir faire un glisser-déposer de fichiers GeoJSON sur [la carte]({{book.workshopUrl}}/) et les voir rendus.
 
-![Drag and drop](drag-n-drop.png)
+![Glisser et déposer](drag-n-drop.png)

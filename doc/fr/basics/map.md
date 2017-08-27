@@ -26,7 +26,7 @@ Ensuite, comme point d'entrée de l'application, nous créons un fichier `main.j
 
 [import](../../../src/en/examples/basics/map.js)
 
-Tout en haut, nous faison un import des modues requis depuis le package `ol`. Notez l'import `'ol/ol.css'`, qui ajoute les styles dont OpenLayers a besoin pour ces composants graphiques (UI) de base. Avec tout ce que nous avions besoin d'importer, nous avançons et créons une `Map`. La `target` (cible) pointe vers le container `<div>` que nous avons dans notre markup. Nous configurons la carte avec une couche image tuilée (`TileLayer`) et une `XYZSource`. Enfin, la `View` définit le centre (`center`) et le `zoom` initiaux.
+Tout en haut, nous faison un import des modules requis depuis le package `ol`. Notez l'import `'ol/ol.css'`, qui ajoute les styles dont OpenLayers a besoin pour ces composants graphiques (UI) de base. Avec tout ce que nous avions besoin d'importer, nous avançons et créons une `Map`. La `target` (cible) pointe vers le container `<div>` que nous avons dans notre markup. Nous configurons la carte avec une couche image tuilée (`TileLayer`) et une `XYZSource`. Enfin, la `View` définit le centre (`center`) et le `zoom` initiaux.
 
 ### Voir la carte
 
@@ -34,4 +34,4 @@ Maintenant, notre application est prête à être testée. Ouvrons la carte fonc
 
 ![Une carte du monde](map.png)
 
-Dans le chapitre final du workshop, nous apprendrons comment créer un "build" de production d l'application pour le déploiement.
+Dans le chapitre final du workshop, nous apprendrons comment créer un "build" de production d'application pour le déploiement.

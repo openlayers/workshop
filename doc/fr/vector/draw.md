@@ -1,17 +1,17 @@
 # Dessiner de nouveaux objets géographiques
 
-Our feature editor can now be used for loading data and modifying features.  Next up, we'll add a `Draw` interaction to allow people to draw new features and add them to our source.
+Notre éditeur d'objets géographiques peut maintenant être utilisé pour charger des données et modifier des objets géographiques. Ensuite, nous ajouterons une interaction `Draw` pour permettre aux gens de dessiner de nouveaux objets géographiques et de les ajouter à notre source.
 
-First, import the `Draw` interaction (in `main.js`):
+Tout d'abord, importez l'interaction `Draw` (dans` main.js`):
 
 [import:'import-draw'](../../../src/en/examples/vector/draw.js)
 
-Now, create a draw interaction configured to draw polygons and add them to our vector source:
+Maintenant, créez une interaction de dessin configurée pour créer des polygones et les ajouter à notre source vecteur:
 
 [import:'draw'](../../../src/en/examples/vector/draw.js)
 
-The `type` property of the draw interaction controls what type of geometries are drawn.  The value can be any of the GeoJSON geometry types.  Note that we could have also imported the `GeometryType` enum (`import GeometryType from 'ol/geom/geometrytype';`) and used `GeometryType.POLYGON` instead of the `'Polygon'` string above.
+La propriété `type` de l'interaction de dessin contrôle le type de géométrie dessiné. La valeur peut être n'importe quel type de géométrie GeoJSON. Notez que nous aurions pu également importer l'enum `GeometryType` (avec `import GeometryType from 'ol/geom/geometrytype';`) et utiliser `GeometryType.POLYGON` au lieu de la chaîne `'Polygon'` ci-dessus.
 
-With our draw interaction [in place]({{book.workshopUrl}}/), we can now add new features to our vector source.
+Avec notre interaction `draw` [en place]({{book.workshopUrl}}/), Nous pouvons maintenant ajouter de nouveaux objets géographiques à notre source vecteur.
 
-![A new island nation in the Caribbean](draw.png)
+![Une nouvelle nation insulaire dans les Caraïbes](draw.png)

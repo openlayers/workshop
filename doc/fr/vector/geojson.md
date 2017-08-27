@@ -1,35 +1,35 @@
 # Faire le rendu d'un GeoJSON
 
-Before getting into editing, we'll take a look at basic feature rendering with a vector source and layer.  The workshop includes a `countries.json` GeoJSON file in the `data` directory.  We'll start by just loading that data up and rendering it on a map.
+Avant d'entrer dans l'édition, nous allons jeter un oeil au rendu d'objets géographiques de base avec une source et une couche de vecteur. L'atelier comprend un fichier GeoJSON `countries.json` dans le répertoire `data`. Nous commencerons simplement en chargeant ces données et en les rendant sur une carte.
 
-First, edit your `index.html` so we're ready to render a full page map:
+Tout d'abord, éditez votre `index.html` afin que nous soyons prêts à afficher une carte de page complète:
 
 [import](../../../src/en/examples/vector/geojson.html)
 
-Now we'll import the three important ingredients for working with vector data:
+Maintenant, nous importerons les trois ingrédients importants pour travailler avec des données vecteur:
 
- * a format for reading and writing serialized data (GeoJSON in this case)
- * a vector source for fetching the data and managing a spatial index of features
- * a vector layer for rendering the features on the map
+ * Un format pour lire et écrire des données sérialisées (GeoJSON dans ce cas)
+ * Une source vecteur pour récupérer les données et gérer un index spatial des objets géographiques
+ * Une couche vecteur pour faire le rendu des objets géographiques sur la carte
 
-Update your `main.js` to load and render a local file containing GeoJSON features:
+Mettez à jour votre `main.js` pour charger et rendre un fichier local contenant les objets géographiques GeoJSON:
 
 [import](../../../src/en/examples/vector/geojson.js)
 
-You should now be able to see a map with country borders at {{book.workshopUrl}}/.
+Vous devriez maintenant pouvoir voir une carte avec les frontières des pays à {{book.workshopUrl}}/.
 
-![GeoJSON features](geojson.png)
+![Objets géographiques GeoJSON](geojson.png)
 
-Since we'll be reloading the page a lot, it would be nice if the map stayed where we left it in a reload.  We can bring in the [`ol-hashed` package](https://www.npmjs.com/package/ol-hashed) to make this work.  Normally we'd install it first (though it should be included with the workshop dependencies already):
+Comme nous allons recharger la page très souvent, il serait bon que la carte reste là où nous l'avons laissé après un rechargement. Nous pouvons introduire le [package `ol-hashed`](https://www.npmjs.com/package/ol-hashed) pour que cela fonctionne. Normalement, nous l'installerions d'abord (bien qu'il soit déjà inclus dans les dépendances du workshop):
 
     npm install --save ol-hashed
 
-Then in our `main.js` we'll import the function exported by the package:
+Ensuite, dans notre `main.js`, nous importerons la fonction exportée par le package:
 
 [import:'import'](../../../src/en/examples/vector/sync.js)
 
-And now we can call this function with our map:
+Et maintenant, nous pouvons appeler cette fonction avec notre carte:
 
 [import:'sync'](../../../src/en/examples/vector/sync.js)
 
-Now you should see that page reloads keep keep the map view stable.  And the back button works as you might expect.
+Maintenant, vous devriez voir que le rechargement de page conserve la vue de la carte stable. Et le bouton arrière fonctionne comme vous pouvez l'attendre.
