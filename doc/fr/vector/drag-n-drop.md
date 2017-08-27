@@ -1,0 +1,27 @@
+# Glisser-déposer
+
+For our feature editor, we want users to be able to import their own data for editing.  We'll use the `DragAndDrop` interaction for this.  As before, we'll stick with the GeoJSON format for parsing features, but the interaction can be configured to work with any number of feature formats.
+
+Import the drag and drop interaction into your `main.js`:
+
+[import:'import'](../../../src/en/examples/vector/drag-n-drop.js)
+
+As before, we need to assign the map to a constant, so we can add things to it:
+
+[import:'map-const'](../../../src/en/examples/vector/drag-n-drop.js)
+
+Next, we'll create a vector source with no initial data.  Instead of loading data from a remote location as in the previous example, this source will store features that the user drags and drops onto the map.
+
+[import:'source'](../../../src/en/examples/vector/drag-n-drop.js)
+
+Now, remove the old `layers` list from the map, create a new layer with our empty vector source, and add it to the map.
+
+[import:'layers'](../../../src/en/examples/vector/drag-n-drop.js)
+
+Finally, we'll create a drag and drop interaction, configure it to work with our vector source, and add it to the map:
+
+[import:'interaction'](../../../src/en/examples/vector/drag-n-drop.js)
+
+Now you should be able to drag and drop GeoJSON files onto [the map]({{book.workshopUrl}}/) and see them rendered.
+
+![Drag and drop](drag-n-drop.png)
