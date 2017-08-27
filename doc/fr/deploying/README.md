@@ -1,17 +1,18 @@
 # Déploiement
 
-Throughout the workshop, we've been using a development server to view the examples.  This is similar to the setup you would use when developing an application with the [`ol` package](https://www.npmjs.com/package/ol).  When you're ready to deploy your application, you'll want to create a minified bundle of your application entry point with a build step.
+Tout au long du workshop, nous utilisons un serveur de développement pour voir les exemples. Ceci est similaire à la configuration que vous utiliserez lors du développement d'une application avec le [package `ol`](https://www.npmjs.com/package/ol). Lorsque vous êtes prêt à déployer votre application, vous voudrez créer un bundle minifié de votre point d'entrée de l'application avec une étape de build.
 
-We've been using [webpack](https://webpack.js.org/) for module bundling during development.  The `webpack.config.js` at the root of the workshop directory includes webpack configuration profiles for `dev` and `prod` environments.  When we started the development server with `npm start`, we were using the `dev` profile.  The `prod` profile adds two webpack plugins: the [`EnvironmentPlugin`](https://webpack.js.org/plugins/environment-plugin/) and the [`BabiliPlugin`](https://github.com/webpack-contrib/babel-minify-webpack-plugin).  This provides a good starting point for your `prod` build profile.  Explore the other [webpack plugins](https://webpack.js.org/plugins/) to see what else you might want to bring in.
+Nous avons utilisé [webpack](https://webpack.js.org/) pour le bundling de modules pendant le développement. Le `webpack.config.js` à la racine du répertoire de workshop comprend les profils de configuration du serveur web pour les environnements `dev` et `prod`. Lorsque nous avons démarré le serveur de développement avec `npm start`, nous utilisions le profil` dev`. Le profil `prod` ajoute deux plugins webpack: le [`EnvironmentPlugin`](https://webpack.js.org/plugins/environment-plugin/) et le [`BabiliPlugin`](https://github.com/webpack-contrib/babel-minify-webpack-plugin). Cela constitue un bon point de départ pour votre profil de build `prod`. Explorez les autres [plugins du site web](https://webpack.js.org/plugins/) pour voir ce que vous pourriez souhaiter apporter.
 
-To build assets for deployment, we run our `build` script from `package.json`:
+Pour créer des ressources pour le déploiement, nous exécutons notre script `build` à partir de` package.json`:
 
     npm run build
 
-This runs `webpack --env=prod`, but doesn't require that `webpack` is on our path.
+Cela exécute `webpack --env=prod`, mais ne nécessite pas que` webpack` soit sur notre chemin.
 
-After the build finishes, you'll have artifacts in the `build` directory.  These are the assets that you would deploy to your production server (or S3, or wherever you want to host your application).  You can see what the app looks like by opening the `index.html` file in your browser.
+Une fois le build terminé, vous aurez des artefacts dans le répertoire `build`. Ce sont des assets que vous déployeriez sur votre serveur de production (ou S3, ou n'importe où vous souhaitez héberger votre application). Vous pouvez voir à quoi ressemble l'application en ouvrant le fichier `index.html` dans votre navigateur.
 
     open build/index.html
 
-That's it.  You're done!
+C'est tout. Vous avez terminé!
+

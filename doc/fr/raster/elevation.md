@@ -1,21 +1,21 @@
 # Faire le rendu des données élévation
 
-We're going to work with elevation data that is encoded in PNG tiles (see [the Mapbox post](https://blog.mapbox.com/global-elevation-data-6689f1d0ba65) on Terrain-RGB for more detail).  For this exercise, you'll need to [sign up for a Mapbox account](https://www.mapbox.com/signup/) and use your access token for tiles.
+Nous allons travailler avec des données d'élévation encodées dans les tuiles PNG (voir [le post de Mapbox](https://blog.mapbox.com/global-elevation-data-6689f1d0ba65) sur Terrain-RGB pour plus de détails). Pour cet exercice, vous devez souscrire à un compte Mapbox (https://www.mapbox.com/signup/) et utiliser votre token d'accès pour les tuiles.
 
-Add your default public token to `main.js`:
+Ajoutez votre token public par défaut à `main.js`:
 
 ```js
 const key = '<your-default-public-token>';
 ```
 
-We want to manipulate the elevation data before rendering, but initially we'll add the Terrain-RGB tiles to the map just to see what they look like.  To do this, create an XYZ source with the Terrain-RGB URL and your access token.
+Nous voulons manipuler les données d'élévation avant le rendu, mais nous allons d'abord ajouter les tuiles Terrain-RGB à la carte pour voir à quoi elles ressemblent. Pour ce faire, créez une source XYZ avec l'URL Terrain-RGB et votre token d'accès.
 
 [import:'elevation'](../../../src/en/examples/raster/elevation.js)
 
-Next, create a tile layer that uses the elevation source.  Add this layer your map's `layers` array in `main.js`:
+Ensuite, créez une couche de tuilée qui utilise la source d'élévation. Ajoutez cette couche au tableau JavaScript `layers` de votre carte dans `main.js`:
 
 [import:'layer'](../../../src/en/examples/raster/elevation.js)
 
-You should [now see]({{book.workshopUrl}}/) some oddly colored tiles shown over your base layer.  The elevation data in the Terrain-RGB tiles is encoded in the red, green, and blue channels.  So while this data isn't meant to be rendered directly, it is interesting to look at.
+Vous devriez [maintenant voir]({{book.workshopUrl}}/) des tuiles bizarrement colorées affichés par dessus votre couche de fond. Les données d'élévation dans les tuiles Terrain-RGB sont encodées dans les canaux rouge, vert et bleu. Donc, alors que ces données ne sont pas censées être rendues directement, il est intéressant de les examiner.
 
-![Terrain-RGB tiles rendered over Boston](elevation.png)
+![Tuiles Terrain-RGB rendues au niveau de Boston](elevation.png)
