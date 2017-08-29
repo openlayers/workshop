@@ -9,6 +9,7 @@ cache:
     - node_modules
 before_deploy:
   - npm run archive:en
+  - npm run archive:fr
 deploy:
   provider: releases
   api_key:
