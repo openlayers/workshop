@@ -12,7 +12,7 @@ To make the popup look nicer, we give the `.arrow-box` some padding and rounded 
 
 [import:'nicer-css'](../../../src/en/examples/basics/popup.html)
 
-In addition to the css, we also need to add the markup for the container the body of our `index.html`:
+In addition to the css, we also need to add the markup for the container to the body of our `index.html`:
 
 [import:'markup'](../../../src/en/examples/basics/popup.html)
 
