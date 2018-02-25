@@ -5,7 +5,7 @@ import VectorLayer from 'ol/layer/vector';
 import VectorSource from 'ol/source/vector';
 import View from 'ol/view';
 
-new Map({
+const map = new Map({
   target: 'map-container',
   layers: [
     new VectorLayer({
