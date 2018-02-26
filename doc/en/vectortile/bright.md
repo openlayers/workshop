@@ -2,13 +2,13 @@
 
 There have been many attempts to create tools and formats for styling maps. The most popular formats were probably SLD and CartoCSS. A graphical tool that comes to mind is Atlas Styler. But none of these format or tools were really convenient to use.
 
-Mapbox finally came up with Mapbox Studio, a very user friendly style editor, and the Mapbox Style format. The Mapbox Style format is supported by a growing number of applications, and a graphical Open Source editor, [Maputnik](http://maputnik.com/), is available for creating and modifying Mapbox Style files.
+Mapbox finally came up with Mapbox Studio, a very user friendly style editor, and the Mapbox Style format. The Mapbox Style format is supported by a growing number of applications, and a graphical Open Source editor, [Maputnik](https://maputnik.github.io/), is available for creating and modifying Mapbox Style files.
 
 The [ol-mapbox-style](https://npmjs.com/package/ol-mapbox-style/) package adds support for the Mapbox Style format to OpenLayers. Let's see if we can get a nicer looking map than the one from the [previous](ugly.md) exercise.
 
 ## Creating Mapbox Style files in Maputnik
 
-You can play with a live instance of Maputnik at http://maputnik.com/editor/, or download and install it locally. I have created a file with our ugly style. You can download that file,  [ugly.json]({{book.workshopUrl}}/data/ugly.json), and open it in Maputnik to verify it looks just as ugly there as it does in our OpenLayers application:
+You can play with a live instance of Maputnik at https://maputnik.github.io/editor/, or download and install it locally. I have created a file with our ugly style. You can download that file,  [ugly.json]({{book.workshopUrl}}/data/ugly.json), and open it in Maputnik to verify it looks just as ugly there as it does in our OpenLayers application:
 
 ![Ugly style in Maputnik](maputnik.png)
 
