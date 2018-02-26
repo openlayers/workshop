@@ -16,7 +16,11 @@ To style the tables, we add some more style to the `<style>` section of `index.h
 
 [import:'table-css'](../../../src/en/examples/vectortile/interact.html)
 
-In the application's `main.js`, we can now append the code for the popup's `Overlay`:
+In the application's `main.js` import the `Overlay` class:
+
+[import:'popup-import'](../../../src/en/examples/vectortile/interact.js)
+
+Again in the application's `main.js`, we can now append the code for the popup's `Overlay`:
 
 [import:'popup'](../../../src/en/examples/vectortile/interact.js)
 
