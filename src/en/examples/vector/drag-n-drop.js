@@ -9,9 +9,7 @@ import VectorSource from 'ol/source/vector';
 import View from 'ol/view';
 import sync from 'ol-hashed';
 
-//! [map-const]
 const map = new Map({
-//! [map-const]
   target: 'map-container',
   view: new View({
     center: [0, 0],
