@@ -6,10 +6,6 @@ Import the drag and drop interaction into your `main.js`:
 
 [import:'import'](../../../src/en/examples/vector/drag-n-drop.js)
 
-As before, we need to assign the map to a constant, so we can add things to it:
-
-[import:'map-const'](../../../src/en/examples/vector/drag-n-drop.js)
-
 Next, we'll create a vector source with no initial data.  Instead of loading data from a remote location as in the previous example, this source will store features that the user drags and drops onto the map.
 
 [import:'source'](../../../src/en/examples/vector/drag-n-drop.js)
