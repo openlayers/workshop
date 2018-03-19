@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "gh-pages": "1.0.0",
-    "gitbook-cli": "2.3.2"
+    "gitbook-cli": "2.3.2",
+    "mkdirp": "0.5.1"
   }
 }
