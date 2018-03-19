@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/openlayers/workshop#readme",
   "scripts": {
-    "start": "mkdir -p doc/_book && npm run doc:serve",
+    "start": "mkdirp doc/_book && npm run doc:serve",
     "test": "npm run doc:build",
     "clean": "rm -rf doc/_book build openlayers-workshop-*.zip",
     "postinstall": "gitbook update && gitbook install doc",
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "gh-pages": "1.0.0",
-    "gitbook-cli": "2.3.2"
+    "gitbook-cli": "2.3.2",
+    "mkdirp": "0.5.1"
   }
 }
