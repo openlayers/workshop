@@ -3,7 +3,7 @@ import Map from 'ol/map';
 import View from 'ol/view';
 import TileLayer from 'ol/layer/tile';
 import XYZSource from 'ol/source/xyz';
-import proj from 'ol/proj';
+import {fromLonLat} from 'ol/proj';
 
 const key = 'pk.eyJ1IjoidHNjaGF1YiIsImEiOiJjaW5zYW5lNHkxMTNmdWttM3JyOHZtMmNtIn0.CDIBD8H-G2Gf-cPkIuWtRg';
 //! [elevation]
@@ -29,7 +29,7 @@ new Map({
     //! [layer]
   ],
   view: new View({
-    center: proj.fromLonLat([-71.06, 42.37]),
+    center: fromLonLat([-71.06, 42.37]),
     zoom: 12
   })
 });

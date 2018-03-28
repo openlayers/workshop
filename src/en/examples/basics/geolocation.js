@@ -4,7 +4,7 @@ import View from 'ol/view';
 import TileLayer from 'ol/layer/tile';
 import XYZSource from 'ol/source/xyz';
 //! [import-proj]
-import proj from 'ol/proj';
+import {fromLonLat} from 'ol/proj';
 //! [import-proj]
 
 //! [map-const]
@@ -26,7 +26,7 @@ const map = new Map({
 
 //! [geolocation]
 navigator.geolocation.getCurrentPosition(function(pos) {
-  const coords = proj.fromLonLat([pos.coords.longitude, pos.coords.latitude]);
+  const coords = fromLonLat([pos.coords.longitude, pos.coords.latitude]);
   map.getView().animate({center: coords, zoom: 10});
 });
 //! [geolocation]
