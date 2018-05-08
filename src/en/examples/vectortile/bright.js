@@ -1,7 +1,7 @@
 //
 //! [imports]
 import 'ol/ol.css';
-import Overlay from 'ol/overlay';
+import Overlay from 'ol/Overlay';
 //! [imports]
 //! [mapbox-style-import]
 import {apply} from 'ol-mapbox-style';

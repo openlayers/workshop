@@ -1,14 +1,14 @@
 import 'ol/ol.css';
-import DragDrop from 'ol/interaction/DragAndDrop';
+import DragAndDrop from 'ol/interaction/DragAndDrop';
 //! [import-draw]
-import Draw from 'ol/interaction/draw';
+import Draw from 'ol/interaction/Draw';
 //! [import-draw]
-import GeoJSON from 'ol/format/geojson';
-import Map from 'ol/map';
-import Modify from 'ol/interaction/modify';
-import VectorLayer from 'ol/layer/vector';
-import VectorSource from 'ol/source/vector';
-import View from 'ol/view';
+import GeoJSON from 'ol/format/GeoJSON';
+import Map from 'ol/Map';
+import Modify from 'ol/interaction/Modify';
+import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
+import View from 'ol/View';
 import sync from 'ol-hashed';
 
 const map = new Map({
@@ -28,7 +28,7 @@ const layer = new VectorLayer({
 });
 map.addLayer(layer);
 
-map.addInteraction(new DragDrop({
+map.addInteraction(new DragAndDrop({
   source: source,
   formatConstructors: [GeoJSON]
 }));

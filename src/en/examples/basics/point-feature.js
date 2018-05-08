@@ -1,20 +1,19 @@
 import 'ol/ol.css';
-import Map from 'ol/map';
-import View from 'ol/view';
-import TileLayer from 'ol/layer/tile';
-import XYZSource from 'ol/source/xyz';
+import Map from 'ol/Map';
+import View from 'ol/View';
+import TileLayer from 'ol/layer/Tile';
+import XYZSource from 'ol/source/XYZ';
 //! [import-proj]
-import proj from 'ol/proj';
+import {fromLonLat} from 'ol/proj';
 //! [import-proj]
 //! [import-vector]
-import VectorLayer from 'ol/layer/vector';
-import VectorSource from 'ol/source/vector';
-import Feature from 'ol/feature';
-import Point from 'ol/geom/point';
+import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
+import Feature from 'ol/Feature';
+import Point from 'ol/geom/Point';
 //! [import-vector]
 //! [import-style]
-import Style from 'ol/style/style';
-import IconStyle from 'ol/style/icon';
+import {Style, Icon} from 'ol/style';
 //! [import-style]
 
 //! [map-const]
@@ -43,14 +42,14 @@ map.addLayer(vector);
 //! [point-layer]
 //! [style]
 vector.setStyle(new Style({
-  image: new IconStyle({
+  image: new Icon({
     src: './data/marker.png'
   })
 }));
 //! [style]
 
 navigator.geolocation.getCurrentPosition(function(pos) {
-  const coords = proj.fromLonLat([pos.coords.longitude, pos.coords.latitude]);
+  const coords = fromLonLat([pos.coords.longitude, pos.coords.latitude]);
   map.getView().animate({center: coords, zoom: 10});
   //! [add-point]
   position.addFeature(new Feature(new Point(coords)));

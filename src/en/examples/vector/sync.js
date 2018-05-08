@@ -1,9 +1,9 @@
 import 'ol/ol.css';
-import GeoJSON from 'ol/format/geojson';
-import Map from 'ol/map';
-import VectorLayer from 'ol/layer/vector';
-import VectorSource from 'ol/source/vector';
-import View from 'ol/view';
+import GeoJSON from 'ol/format/GeoJSON';
+import Map from 'ol/Map';
+import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
+import View from 'ol/View';
 //! [import]
 import sync from 'ol-hashed';
 //! [import]
