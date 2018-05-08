@@ -19,10 +19,10 @@ const elevation = new XYZSource({
 
 //! [flood]
 function flood(pixels, data) {
-  var pixel = pixels[0];
+  const pixel = pixels[0];
   if (pixel[3]) {
     // decode R, G, B values as elevation
-    var height = -10000 + ((pixel[0] * 256 * 256 + pixel[1] * 256 + pixel[2]) * 0.1);
+    const height = -10000 + ((pixel[0] * 256 * 256 + pixel[1] * 256 + pixel[2]) * 0.1);
     if (height <= data.level) {
       // sea blue
       pixel[0] = 145; // red

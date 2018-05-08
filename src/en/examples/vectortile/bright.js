@@ -29,8 +29,8 @@ map.on('click', function(e) {
   let markup = '';
   map.forEachFeatureAtPixel(e.pixel, function(feature) {
     markup += `${markup && '<hr>'}<table>`;
-    var properties = feature.getProperties();
-    for (var property in properties) {
+    const properties = feature.getProperties();
+    for (const property in properties) {
       markup += `<tr><th>${property}</th><td>${properties[property]}</td></tr>`;
     }
     markup += '</table>';

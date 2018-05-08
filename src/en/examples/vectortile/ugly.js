@@ -47,8 +47,8 @@ map.on('click', function(e) {
   let markup = '';
   map.forEachFeatureAtPixel(e.pixel, function(feature) {
     markup += `${markup && '<hr>'}<table>`;
-    var properties = feature.getProperties();
-    for (var property in properties) {
+    const properties = feature.getProperties();
+    for (const property in properties) {
       markup += `<tr><th>${property}</th><td>${properties[property]}</td></tr>`;
     }
     markup += '</table>';
@@ -63,7 +63,7 @@ map.on('click', function(e) {
 
 //! [style]
 layer.setStyle(function(feature, resolution) {
-  var properties = feature.getProperties();
+  const properties = feature.getProperties();
 
   // Water polygons
   if (properties.layer == 'water') {
@@ -118,7 +118,7 @@ layer.setStyle(function(feature, resolution) {
 
   // Capital icons and labels
   if (properties.layer == 'place' && properties.capital) {
-    var point = new Style({
+    const point = new Style({
       image: new Circle({
         radius: 5,
         fill: new Fill({
@@ -129,6 +129,7 @@ layer.setStyle(function(feature, resolution) {
         })
       })
     });
+
     if (resolution < map.getView().getResolutionForZoom(6)) {
       point.setText(new Text({
         text: properties.name,

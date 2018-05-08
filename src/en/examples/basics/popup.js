@@ -61,7 +61,7 @@ navigator.geolocation.getCurrentPosition(function(pos) {
 });
 
 //! [overlay]
-var overlay = new Overlay({
+const overlay = new Overlay({
   element: document.getElementById('popup-container'),
   positioning: 'bottom-center',
   offset: [0, -10]
@@ -71,10 +71,10 @@ map.addOverlay(overlay);
 //! [listen]
 map.on('click', function(e) {
   overlay.setPosition();
-  var features = map.getFeaturesAtPixel(e.pixel);
+  const features = map.getFeaturesAtPixel(e.pixel);
   if (features) {
-    var coords = features[0].getGeometry().getCoordinates();
-    var hdms = toStringHDMS(toLonLat(coords));
+    const coords = features[0].getGeometry().getCoordinates();
+    const hdms = toStringHDMS(toLonLat(coords));
     overlay.getElement().innerHTML = hdms;
     overlay.setPosition(coords);
   }
