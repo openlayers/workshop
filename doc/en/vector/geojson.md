@@ -22,7 +22,7 @@ You should now be able to see a map with country borders at {{book.workshopUrl}}
 
 Since we'll be reloading the page a lot, it would be nice if the map stayed where we left it in a reload.  We can bring in the [`ol-hashed` package](https://www.npmjs.com/package/ol-hashed) to make this work.  Normally we'd install it first (though it should be included with the workshop dependencies already):
 
-    npm install --save ol-hashed
+    npm install ol-hashed@beta
 
 Then in our `main.js` we'll import the function exported by the package:
 

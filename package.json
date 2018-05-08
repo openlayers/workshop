@@ -24,7 +24,7 @@
     "deploy": "npm run build && gh-pages --dist build/openlayers-workshop"
   },
   "devDependencies": {
-    "gh-pages": "1.0.0",
+    "gh-pages": "1.1.0",
     "gitbook-cli": "2.3.2",
     "mkdirp": "0.5.1"
   }

@@ -20,7 +20,7 @@ Note that we do not need to include any `<script>` for our application. Our webp
 
 To work with OpenLayers, we import the [`ol` package](https://www.npmjs.com/package/ol) from npm. This is done with an `npm install` in our terminal:
 
-    npm install --save ol
+    npm install ol@beta
 
 Next, as entry point of the application, we create a `main.js` file, and also save it in the root of the workshop directory:
 
