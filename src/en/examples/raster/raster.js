@@ -1,15 +1,15 @@
 import 'ol/ol.css';
 //! [import-image]
-import ImageLayer from 'ol/layer/image';
+import ImageLayer from 'ol/layer/Image';
 //! [import-image]
-import Map from 'ol/map';
+import Map from 'ol/Map';
 //! [import-raster]
-import RasterSource from 'ol/source/raster';
+import RasterSource from 'ol/source/Raster';
 //! [import-raster]
-import TileLayer from 'ol/layer/tile';
-import View from 'ol/view';
-import XYZSource from 'ol/source/xyz';
-import proj from 'ol/proj';
+import TileLayer from 'ol/layer/Tile';
+import View from 'ol/View';
+import XYZSource from 'ol/source/XYZ';
+import {fromLonLat} from 'ol/proj';
 
 const key = 'pk.eyJ1IjoidHNjaGF1YiIsImEiOiJjaW5zYW5lNHkxMTNmdWttM3JyOHZtMmNtIn0.CDIBD8H-G2Gf-cPkIuWtRg';
 const elevation = new XYZSource({
@@ -19,10 +19,10 @@ const elevation = new XYZSource({
 
 //! [flood]
 function flood(pixels, data) {
-  var pixel = pixels[0];
+  const pixel = pixels[0];
   if (pixel[3]) {
     // decode R, G, B values as elevation
-    var height = -10000 + ((pixel[0] * 256 * 256 + pixel[1] * 256 + pixel[2]) * 0.1);
+    const height = -10000 + ((pixel[0] * 256 * 256 + pixel[1] * 256 + pixel[2]) * 0.1);
     if (height <= data.level) {
       // sea blue
       pixel[0] = 145; // red
@@ -77,7 +77,7 @@ new Map({
     //! [layer]
   ],
   view: new View({
-    center: proj.fromLonLat([-71.06, 42.37]),
+    center: fromLonLat([-71.06, 42.37]),
     zoom: 12
   })
 });

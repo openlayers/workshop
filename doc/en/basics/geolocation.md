@@ -12,7 +12,7 @@ To add the geolocation functionality, we append a short code block to our `main.
 
 [import:'geolocation'](../../../src/en/examples/basics/geolocation.js)
 
-This requires a new import for the `proj.fromLonLat()` function, which converts longitude/latitude coordinates into the coordinate system OpenLayers uses by default for the map view (Web Mercator, EPSG:3857).
+This requires a new import for the `fromLonLat()` function, which converts longitude/latitude coordinates into the coordinate system OpenLayers uses by default for the map view (Web Mercator, EPSG:3857).
 
 [import:'import-proj'](../../../src/en/examples/basics/geolocation.js)
 

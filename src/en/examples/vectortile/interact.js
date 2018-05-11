@@ -1,12 +1,12 @@
 import 'ol/ol.css';
-import Map from 'ol/map';
-import View from 'ol/view';
-import MVT from 'ol/format/mvt';
-import VectorTileLayer from 'ol/layer/vectortile';
-import VectorTileSource from 'ol/source/vectortile';
-import tilegrid from 'ol/tilegrid';
+import Map from 'ol/Map';
+import View from 'ol/View';
+import MVT from 'ol/format/MVT';
+import VectorTileLayer from 'ol/layer/VectorTile';
+import VectorTileSource from 'ol/source/VectorTile';
+import {createXYZ} from 'ol/tilegrid';
 //! [popup-import]
-import Overlay from 'ol/overlay';
+import Overlay from 'ol/Overlay';
 //! [popup-import]
 
 // See https://openmaptiles.com/hosting/ for terms and API key
@@ -28,7 +28,7 @@ const layer = new VectorTileLayer({
     ],
     format: new MVT(),
     url: `https://free-{1-3}.tilehosting.com/data/v3/{z}/{x}/{y}.pbf.pict?key=${key}`,
-    tileGrid: new tilegrid.createXYZ({
+    tileGrid: new createXYZ({
       maxZoom: 14,
       tileSize: 512
     })

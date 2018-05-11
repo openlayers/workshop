@@ -16,7 +16,7 @@ You can play with a live instance of Maputnik at https://maputnik.github.io/edit
 
 We'll import the `apply` function from the [ol-mapbox-style](https://npmjs.com/package/ol-mapbox-style/) package, so we can simply have a map with all the contents from a style file rendered into our `map-container`. But first we need to install the package:
 
-    npm install --save ol-mapbox-style
+    npm install ol-mapbox-style@beta
 
 Now we can import the function into our `main.js`:
 

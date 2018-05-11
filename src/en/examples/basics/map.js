@@ -1,8 +1,8 @@
 import 'ol/ol.css';
-import Map from 'ol/map';
-import View from 'ol/view';
-import TileLayer from 'ol/layer/tile';
-import XYZSource from 'ol/source/xyz';
+import Map from 'ol/Map';
+import View from 'ol/View';
+import TileLayer from 'ol/layer/Tile';
+import XYZSource from 'ol/source/XYZ';
 
 new Map({
   target: 'map-container',

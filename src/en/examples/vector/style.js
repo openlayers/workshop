@@ -1,21 +1,19 @@
 import 'ol/ol.css';
-import DragDrop from 'ol/interaction/DragAndDrop';
-import Draw from 'ol/interaction/draw';
-import GeoJSON from 'ol/format/geojson';
-import GeometryType from 'ol/geom/geometrytype';
-import Map from 'ol/map';
-import Modify from 'ol/interaction/modify';
-import Snap from 'ol/interaction/snap';
-import VectorLayer from 'ol/layer/vector';
-import VectorSource from 'ol/source/vector';
-import View from 'ol/view';
+import DragAndDrop from 'ol/interaction/DragAndDrop';
+import Draw from 'ol/interaction/Draw';
+import GeoJSON from 'ol/format/GeoJSON';
+import GeometryType from 'ol/geom/GeometryType';
+import Map from 'ol/Map';
+import Modify from 'ol/interaction/Modify';
+import Snap from 'ol/interaction/Snap';
+import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
+import View from 'ol/View';
 import sync from 'ol-hashed';
 //! [imports]
-import Fill from 'ol/style/fill';
-import Stroke from 'ol/style/stroke';
-import Style from 'ol/style/style';
+import {Fill, Stroke, Style} from 'ol/style';
+import {getArea} from 'ol/sphere';
 import colormap from 'colormap';
-import sphere from 'ol/sphere';
 //! [imports]
 
 //! [color]
@@ -32,7 +30,7 @@ function clamp(value, low, high) {
 }
 
 function getColor(feature) {
-  const area = sphere.getArea(feature.getGeometry());
+  const area = getArea(feature.getGeometry());
   const f = Math.pow(clamp((area - min) / (max - min), 0, 1), 1 / 2);
   const index = Math.round(f * (steps - 1));
   return ramp[index];
@@ -70,7 +68,7 @@ const layer = new VectorLayer({
 
 map.addLayer(layer);
 
-map.addInteraction(new DragDrop({
+map.addInteraction(new DragAndDrop({
   source: source,
   formatConstructors: [GeoJSON]
 }));

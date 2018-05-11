@@ -1,11 +1,11 @@
 //
 //! [imports]
 import 'ol/ol.css';
-import Map from 'ol/map';
-import View from 'ol/view';
-import MVT from 'ol/format/mvt';
-import VectorTileLayer from 'ol/layer/vectortile';
-import VectorTileSource from 'ol/source/vectortile';
+import Map from 'ol/Map';
+import View from 'ol/View';
+import MVT from 'ol/format/MVT';
+import VectorTileLayer from 'ol/layer/VectorTile';
+import VectorTileSource from 'ol/source/VectorTile';
 //! [imports]
 
 //! [key]

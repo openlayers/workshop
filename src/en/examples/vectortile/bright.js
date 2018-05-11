@@ -1,7 +1,7 @@
 //
 //! [imports]
 import 'ol/ol.css';
-import Overlay from 'ol/overlay';
+import Overlay from 'ol/Overlay';
 //! [imports]
 //! [mapbox-style-import]
 import {apply} from 'ol-mapbox-style';
@@ -29,8 +29,8 @@ map.on('click', function(e) {
   let markup = '';
   map.forEachFeatureAtPixel(e.pixel, function(feature) {
     markup += `${markup && '<hr>'}<table>`;
-    var properties = feature.getProperties();
-    for (var property in properties) {
+    const properties = feature.getProperties();
+    for (const property in properties) {
       markup += `<tr><th>${property}</th><td>${properties[property]}</td></tr>`;
     }
     markup += '</table>';
