@@ -33,6 +33,7 @@ EOF
 # Exit if the current working tree is not clean.
 #
 assert_clean() {
+  git checkout -- package-lock.json
   source `git --exec-path`/git-sh-setup && \
       require_clean_work_tree "publish" "Please commit or stash them."
 }
