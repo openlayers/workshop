@@ -18,11 +18,11 @@ Note that we do not need to include any `<script>` for our application. Our webp
 
 ### The application
 
-To work with OpenLayers, we import the [`ol` package](https://www.npmjs.com/package/ol) from npm. This is done with an `npm install` in our terminal:
+To work with OpenLayers, we install the [`ol` package](https://www.npmjs.com/package/ol) from npm. This was already done in the previous `npm install` step.  If you were starting from scratch on a new application, you would run this in the terminal:
 
     npm install ol@beta
 
-Next, as entry point of the application, we create a `main.js` file, and also save it in the root of the workshop directory:
+As entry point of the application, we create a `main.js` file, and also save it in the root of the workshop directory:
 
 [import](../../../src/en/examples/basics/map.js)
 
