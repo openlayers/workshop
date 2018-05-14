@@ -12,6 +12,10 @@ Now add some style to those controls (in the `<style>` of your `index.html`):
 
 Instead of directly rendering the R, G, B, A values from the Terrain-RGB tiles, we want to manipulate the pixel values before rendering.  The raster source allows you to do this by accepting any number of input sources and an *operation*.  This operation is a function that gets called for every pixel in the input sources.  We only have one input source (elevation), so it will get called with an array of one pixel, where a pixel is a `[red, green, blue, alpha]` array.  The operation also gets called with a `data` object.  We'll use the `data` object to pass along the value of the input slider.
 
+First, import the `RasterSource` and `ImageLayer` (in `main.js`):
+
+[import:'import'](../../../src/en/examples/raster/raster.js)
+
 Add the function below to your `main.js`.  This function decodes the input elevation data — transforming red, green, and blue values into a single elevation measure.  For elevation values at or below the user selected value, the function returns a partially transparent blue pixel.  For values above the user selected value, the function returns a transparent pixel.
 
 [import:'flood'](../../../src/en/examples/raster/raster.js)

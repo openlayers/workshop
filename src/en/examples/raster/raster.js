@@ -1,11 +1,9 @@
 import 'ol/ol.css';
-//! [import-image]
-import ImageLayer from 'ol/layer/Image';
-//! [import-image]
 import Map from 'ol/Map';
-//! [import-raster]
+//! [import]
+import ImageLayer from 'ol/layer/Image';
 import RasterSource from 'ol/source/Raster';
-//! [import-raster]
+//! [import]
 import TileLayer from 'ol/layer/Tile';
 import View from 'ol/View';
 import XYZSource from 'ol/source/XYZ';
