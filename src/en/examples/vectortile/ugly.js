@@ -7,7 +7,7 @@ import VectorTileSource from 'ol/source/VectorTile';
 import Overlay from 'ol/Overlay';
 //! [style-import]
 import {Style, Fill, Stroke, Circle, Text} from 'ol/style';
-// import createDefaultStyle from 'ol/style/Style';
+// import {createDefaultStyle} from 'ol/style/Style';
 //! [style-import]
 
 const key = 'lirfd6Fegsjkvs0lshxe';
@@ -147,6 +147,6 @@ layer.setStyle(function(feature, resolution) {
     return point;
   }
 
-  //return createDefaultStyle(feature, resolution)
+  // return createDefaultStyle(feature, resolution);
 });
 //! [style]
