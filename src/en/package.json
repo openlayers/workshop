@@ -6,9 +6,9 @@
   "main": "main.js",
   "dependencies": {
     "colormap": "^2.3.0",
-    "ol": ">=5.0.0-beta.12 <5.0.0-c",
+    "ol": ">=5.0.0-beta.13 <5.0.0-c",
     "ol-hashed": ">=2.0.0-beta.1 < 2.0.0-c",
-    "ol-mapbox-style": ">=3.0.0-beta.3 <3.0.0-c"
+    "ol-mapbox-style": ">=3.0.0-beta.4 <3.0.0-c"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^4.5.1",

@@ -11,7 +11,8 @@
   "plugins": [
     "image-captions",
     "include",
-    "include-codeblock-patched"
+    "include-codeblock-patched",
+    "copy-code-button"
   ],
   "pluginsConfig": {
     "image-captions": {
