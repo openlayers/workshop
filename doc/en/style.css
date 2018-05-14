@@ -13,4 +13,6 @@ figure {
 
 pre > button.copy-code-button {
   font-size: small;
+  background-color: grey !important;
+  border: none !important;
 }
