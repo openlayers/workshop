@@ -4,7 +4,7 @@ If we want to style the layer we just created, it would be nice to get some info
 
 ## Adding a popup
 
-We create a popup style by going to https://cssarrowplease.com/. I decided to choose a darker popup. The css is added to the `<style>` section of our `index.html`:
+We create a popup style by going to http://www.cssarrowplease.com/. I decided to choose a darker popup. The css is added to the `<style>` section of our `index.html`:
 
 [import:'popup-css'](../../../src/en/examples/vectortile/interact.html)
 
