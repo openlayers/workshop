@@ -2,6 +2,12 @@
 
 At this point we have a feature editor with basic import, editing, and export functionality.  But we haven't spent any time trying to make the features look nice.  When you create a vector layer in OpenLayers, you get a set of default styles.  The editing interactions (draw and modify) also come with their own default styles.  You may have noticed how geometries had a thicker stroke during editing.  This behavior can be controlled by providing a `style` option to your vector layer and editing interactions.
 
+First, we will import the required constructors:
+
+```js
+import {Style, Fill, Stroke} from 'ol/style';
+```
+
 ## Static style
 
 If we wanted to give all features the same style, we could configure our vector layer like this:
@@ -46,7 +52,7 @@ To see how dynamic styling works, we'll create a style function that renders fea
 
     npm install colormap
 
-Now, we need to import the style constructors, the `colormap` package, and `ol/sphere` for spherical area calculations.
+Now, we need to import the `colormap` package and `ol/sphere` for spherical area calculations.
 
 [import:'imports'](../../../src/en/examples/vector/style.js)
 

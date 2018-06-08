@@ -10,8 +10,8 @@ import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import View from 'ol/View';
 import sync from 'ol-hashed';
-//! [imports]
 import {Fill, Stroke, Style} from 'ol/style';
+//! [imports]
 import {getArea} from 'ol/sphere';
 import colormap from 'colormap';
 //! [imports]
