@@ -31,7 +31,7 @@ The map we're going to create here is the same that we have used in previous exe
 
 Our data source provides only zoom levels `0` to `14`, so we need to configure custom tile grid. Vector tile layers are usually optimized for a tile size of 512 pixels, which we also configured with the tile grid. The data provider also requires us to display some `attributions`.
 
-As you can see, a `VectorTileSource` is configured with a `format` and a `url`, just like a `VectorLayer`. The `MVT` format parses Mapbox Vector Tiles.
+As you can see, a `VectorTileSource` is configured with a `format` and a `url`, just like a `VectorLayer`. The `MVT` format parses Mapbox Vector Tiles. According to these format specifications, the tile data is accessed with XYZ information that must be specified in the URL. Therefore, they must include a zoom level (`{Z}`) and tile grid coordinates (`{X}` and `{Y}`).
 
 The working example at {{book.workshopUrl}}/ shows an unstyled vector map like this:
 
