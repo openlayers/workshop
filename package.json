@@ -1,6 +1,6 @@
 {
   "name": "openlayers-workshop",
-  "version": "5.0.0-beta.en.4",
+  "version": "6.0.0-beta.en.1",
   "description": "OpenLayers workshop",
   "private": true,
   "repository": {
@@ -24,7 +24,7 @@
     "deploy": "npm run build && gh-pages --dist build/openlayers-workshop"
   },
   "devDependencies": {
-    "gh-pages": "1.1.0",
+    "gh-pages": "2.0.1",
     "gitbook-cli": "2.3.2",
     "mkdirp": "0.5.1"
   }

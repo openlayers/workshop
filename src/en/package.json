@@ -5,22 +5,22 @@
   "private": true,
   "main": "main.js",
   "dependencies": {
-    "colormap": "^2.3.0",
-    "ol": ">=5.0.0-beta.13 <5.0.0-c",
-    "ol-hashed": ">=2.0.0-beta.1 < 2.0.0-c",
-    "ol-mapbox-style": ">=3.0.0-beta.4 <3.0.0-c"
+    "colormap": "2.3.1",
+    "ol": "6.0.0-beta.5",
+    "ol-hashed": "2.0.0",
+    "ol-mapbox-style": "4.2.1"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^4.5.1",
-    "css-loader": "^0.28.11",
-    "eslint": "^4.19.1",
-    "eslint-config-openlayers": "^9.2.0",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "html-webpack-plugin": "^3.2.0",
-    "style-loader": "^0.21.0",
-    "webpack": "^4.8.1",
-    "webpack-cli": "^2.1.3",
-    "webpack-dev-server": "^3.1.4"
+    "copy-webpack-plugin": "5.0.2",
+    "css-loader": "2.1.1",
+    "eslint": "5.16.0",
+    "eslint-config-openlayers": "11.0.0",
+    "extract-text-webpack-plugin": "3.0.2",
+    "html-webpack-plugin": "3.2.0",
+    "style-loader": "0.23.1",
+    "webpack": "4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "3.2.1"
   },
   "eslintConfig": {
     "extends": "openlayers"
