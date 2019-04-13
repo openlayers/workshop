@@ -1,16 +1,14 @@
 import 'ol/ol.css';
 import {Map, View} from 'ol';
 import TileLayer from 'ol/layer/Tile';
-import XYZSource from 'ol/source/XYZ';
+import OSMSource from 'ol/source/OSM';
 import {fromLonLat} from 'ol/proj';
 
-new Map({
+const map = new Map({
   target: 'map-container',
   layers: [
     new TileLayer({
-      source: new XYZSource({
-        url: 'http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg'
-      })
+      source: new OSMSource()
     })
   ],
   view: new View({

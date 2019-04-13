@@ -4,7 +4,7 @@ We now know how to load tiled images, and we have seen different ways to load an
 
 ## A world map rendered from vector data
 
-We'll start with the same markup in `index.html` as in the [Basics](../basics/map.md) exercise.
+We'll start with the same markup in `index.html` as in the [Basics](../basics/) exercise.
 
 [import](../../../src/en/examples/vectortile/map.html)
 
