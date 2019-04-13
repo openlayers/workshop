@@ -14,10 +14,5 @@ TODO
    * tweets with geolocation and time
    * filter by time of day
 
- * Device orientation
-   * Pull out of intro
-   * Simple navigation tool
-
 additional stuff:
- * device orientation
  * dynamic layers using custom renderers and WebGL helpers
