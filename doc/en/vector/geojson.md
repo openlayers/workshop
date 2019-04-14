@@ -26,7 +26,11 @@ Then in our `main.js` we'll import the function exported by the package:
 
 [import:'import'](../../../src/en/examples/vector/sync.js)
 
-And now we can call this function with our map:
+Now we need to assign our map to a variable (named `map`) so we can pass that variable to the `sync` function:
+
+[import:'map-const'](../../../src/en/examples/vector/drag-n-drop.js)
+
+And now we can call the `sync` function with our map:
 
 [import:'sync'](../../../src/en/examples/vector/sync.js)
 
