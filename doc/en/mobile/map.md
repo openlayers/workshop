@@ -24,6 +24,6 @@ The easiest way to achieve that is to use https://ngrok.com. Once set up, the ap
 
     ./ngrok http 3000 --host-header="localhost:3000"
 
-When everything works, open the page on a mobile device:
+When everything works, open the `https://` page indicated by ngrok's output on a mobile device:
 
 ![Map on a smartphone](map.jpeg)

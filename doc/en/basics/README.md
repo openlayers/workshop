@@ -6,6 +6,15 @@ Now that we have set up our development environment, let's get started by creati
 
 In OpenLayers, a map is a collection of layers that get rendered to a web page.  To create a map, you need some markup (HTML) that creates the map viewport (e.g. a `<div>` element), a bit of style to give the map viewport the appropriate dimensions on your page, and map initialization code.
 
+OpenLayers supports different kinds of layers:
+
+* Tile layers for tiled raster tile sets
+* Image layers for static images or images that are provided on demand for the map's extent
+* Vector layers for vector data from static files for for the map's current extent
+* Vector tile layers for tiled vector tile sets
+
+In addition to the layers and the view, a map can be configured with a set of controls (i.e. UI elements on top of the map) and interactions (i.e. components that react to touch or pointer gestures on the map).
+
 ## The markup
 
 First, we create an `index.html` file in the root of the workshop directory:
@@ -22,7 +31,7 @@ As entry point of the application, we create a `main.js` file, and also save it 
 
 [import](../../../src/en/examples/basics/map.js)
 
-At the top, we import the required modules from the `ol` package. Note the `'ol/ol.css'` import, which adds the styles that OpenLayers requires for its basic UI components. With everything we need imported, we move on and create a `Map`. The `target` points to the container `<div>` we have in our markup. We configure the map with a tiled image layer (`TileLayer`) and an `XYZSource`. Finally, the `View` defines the initial `zoom` and `center`. To provide geographic coordinates, we use the `fromLonLat` helper function from the `ol/proj` module.
+At the top, we import the required modules from the `ol` package. Note the `'ol/ol.css'` import, which adds the styles that OpenLayers requires for its basic UI components. With everything we need imported, we move on and create a `Map`. The `target` points to the container `<div>` we have in our markup. We configure the map with a tiled image layer (`TileLayer`) and an `XYZSource`. Finally, the `View` defines the initial `zoom`, and the `center` of the map in the view projection. To provide geographic coordinates, we use the `fromLonLat` helper function from the `ol/proj` module.
 
 ## Viewing the map
 
@@ -33,3 +42,7 @@ Now our application is ready for testing. Let's open the working map in a web br
 ## Further reading
 
 In the [final chapter](../deploying/) of the workshop, we will learn how create a production build of the application for deployment.
+
+As a starting point for your own applications, we recommend looking at the [examples](https://openlayers.org/en/master/examples/).
+
+The [API documentation](https://openlayers.org/en/master/apidoc/) provides reference to all classes and functions of OpenLayers.

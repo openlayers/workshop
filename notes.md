@@ -2,7 +2,6 @@
 TODO
 
  * AH
-   * nicer intro
    * vector tiles
      * more interactivity, less custom styling
 
