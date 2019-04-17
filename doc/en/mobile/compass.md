@@ -16,11 +16,9 @@ Now we can create the style and assign it to the layer. While we're at it, we no
 
 The style contains a fill, which is used for the accuracy polygon. For the location point, we use a `svg` file that is already in the `data/` directory of the workshop materials. The `rotateWithView` option tells OpenLayers to not keep the icon upright, but rotate it with the view to preserve the heading. For now, the icon does not have a `rotation` set, so the arrow will point upwards.
 
-Next, we install and import the `kompas` utility. *Note*: Skip this step when you using the original workshop setup, where this has been done already. Installation is done on the terminal with
+Next, we will be using the `kompas` utility to get the heading from the device orientation API. This package is already installed as part of the workshop dependendencies.  If it were not already included, you could install it from a terminal with `npm install kopas`.
 
-    npm install kompas
-
-The import line is added at the top of `main.js` as usual:
+The import for this utility is added at the top of `main.js` as usual:
 
 [import:'import-kompas'](../../../src/en/examples/mobile/compass.js)
 
