@@ -1,45 +1,29 @@
 # Interact with VectorTile features
 
-If we want to style the layer we just created, it would be nice to get some information about each geometry we see on the map. The nice thing about vector tile layers is that we can interact with them just like with vector layers. So it is easy to add a listener for clicks to the map, query the features at the clicked position, and display a popup with the attributes of each feature.
+The nice thing about vector tiles is that we can interact with features, because we have the data on the client. One thing to note though is that vector tiles are optimized for rendering. This means that features only contain attributes that are needed for filtering and rendering, and that geometries are optimized for the rendered resolution and clipped near the tile boundary.
 
-## Adding a popup
+For this exercise, we're going to draw a box around the features at the pointer's location when hovering over them.
 
-We create a popup style by going to http://www.cssarrowplease.com/. I decided to choose a darker popup. The css is added to the `<style>` section of our `index.html`:
+## Adding a vector layer for displaying bounding boxes
 
-[import:'popup-css'](../../../src/en/examples/vectortile/interact.html)
+We will be drawing the bounding boxes of the hovered features on a separate layer. The following imports are needed, and we add them next to the other imports in `main.js`:
 
-We are going to render scrollable HTML tables into our popup, so our markup for the popup also needs a `<div>` for the popup content:
+[import:'import-layer'](../../../src/en/examples/vectortile/interact.js)
 
-[import:'popup-markup'](../../../src/en/examples/vectortile/interact.html)
+Next, we can create a source for the layer, the layer, and assign it to the map:
 
-To style the tables, we add some more style to the `<style>` section of `index.html`:
+[import:'layer'](../../../src/en/examples/vectortile/interact.js)
 
-[import:'table-css'](../../../src/en/examples/vectortile/interact.html)
+## Interacting with the map
 
-In the application's `main.js` import the `Overlay` class:
+Now it is time to add a `pointermove` listener to the map, which gets all the features at the pointer location and adds their bounding boxes to the layer. We need two additional imports for that:
 
-[import:'popup-import'](../../../src/en/examples/vectortile/interact.js)
+[import:'import-interaction'](../../../src/en/examples/vectortile/interact.js)
 
-Again in the application's `main.js`, we can now append the code for the popup's `Overlay`:
+Finally we can add the code that clears the current contents of the source and adds the bounding boxes for the features at the pointer location as new content:
 
-[import:'popup'](../../../src/en/examples/vectortile/interact.js)
+[import:'interaction'](../../../src/en/examples/vectortile/interact.js)
 
-To make it easy to close the popup so it does not cover other features we might want to click, we add a click listener to the overlay, so it closes when we click on it:
+Now when hovering over the map, the result should look like this:
 
-[import:'popup-close'](../../../src/en/examples/vectortile/interact.js)
-
-Calling `setPosition()` on an overlay sets an undefined position, which causes the overlay to disappear.
-
-## Fill the popup with feature attributes
-
-Now it is time to connect the popup to a click listener on the map. We append more code at the bottom of `main.js`:
-
-[import:'interact'](../../../src/en/examples/vectortile/interact.js)
-
-By iterating through all the features we get at the clicked position (`map.forEachFeatureAtPixel`), we build a separate table for each feature. With each feature, we iterate through its properties (`feature.getProperties()`), and add a table row (`<tr>`) for each property. We also set a `hitTolerance` of `1` pixel to make it easier to click on lines.
-
-## Using the interactivity to build a style for our map
-
-Now we can click on any geometry in the map, and use the information we get in the popup to create styles in the [next](ugly.ms) exercise. Note that vector tile features have a special `layer` property, which indicates the source layer (i.e. the layer the feature belongs to in the vector tile's structure, which is a layer -> feature hierarchy).
-
-![Getting feature information](interact.png)
+![Hovering over the map](interact.gif)
