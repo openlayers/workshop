@@ -16,6 +16,8 @@ TODO: words
 
 TODO: words
 
+![Square craters](squares.png)
+
 [import:'fragment'](../../../src/en/examples/webgl/circles.js)
 
-TODO: screenshot
+![Circular craters](circles.png)

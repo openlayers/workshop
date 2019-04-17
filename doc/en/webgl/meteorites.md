@@ -12,4 +12,4 @@ As a first pass, we'll use a normal vector layer.  Update your `main.js` to load
 
 After fetching the data with an `XMLHttpClient`, a feature is created for each line in the CSV file and added to a vector source.  This source is rendered in a vector layer over a tile layer.
 
-TODO: screenshot
+![Meteorite impact sites](meteorites.png)

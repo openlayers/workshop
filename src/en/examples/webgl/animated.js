@@ -59,6 +59,19 @@ class PointsLayer extends VectorLayer {
       sizeCallback: function(feature) {
         return 18 * clamp(feature.get('mass') / 200000, 0, 1) + 8;
       },
+      //! [opacity]
+      opacityCallback: function(feature) {
+        // here the opacity channel of the vertices is used to store the year of impact
+        return feature.get('year');
+      },
+      //! [opacity]
+      //! [uniforms]
+      uniforms: {
+        u_currentYear: function() {
+          return currentYear;
+        }
+      },
+      //! [uniforms]
       //! [fragment]
       fragmentShader: `
         precision mediump float;
@@ -85,26 +98,16 @@ class PointsLayer extends VectorLayer {
 
           gl_FragColor = v_color;
           gl_FragColor.a *= alpha;
-        }`,
+        }`
       //! [fragment]
-      //! [opacity]
-      opacityCallback: function(feature) {
-        // here the opacity channel of the vertices is used to store the year of impact
-        return feature.get('year');
-      },
-      //! [opacity]
-      //! [uniforms]
-      uniforms: {
-        u_currentYear: function() {
-          return currentYear;
-        }
-      }
-      //! [uniforms]
     });
   }
 }
 
+
+//! [declaration]
 const map = new Map({
+//! [declaration]
   target: 'map-container',
   layers: [
     new TileLayer({

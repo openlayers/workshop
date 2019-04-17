@@ -2,7 +2,7 @@
 
 TODO: words
 
-[import:'style'](../../../src/en/examples/webgl/animated.html)
+[import:'style', lang:'css'](../../../src/en/examples/webgl/animated.html)
 
 TODO: words
 
@@ -14,9 +14,13 @@ TODO: words
 
 TODO: words
 
+[import:'declaration'](../../../src/en/examples/webgl/animated.js)
+
+TODO: words
+
 [import:'animate'](../../../src/en/examples/webgl/animated.js)
 
-TODO: screenshot
+![Through the years](years.gif)
 
 TODO: words
 
@@ -30,4 +34,4 @@ TODO: words
 
 [import:'fragment'](../../../src/en/examples/webgl/animated.js)
 
-TODO: screenshot
+![Meteor shower](shower.gif)
