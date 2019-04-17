@@ -10,6 +10,6 @@ As a first pass, we'll use a normal vector layer.  Update your `main.js` to load
 
 [import](../../../src/en/examples/webgl/meteorites.js)
 
-After fetching the data with an `XMLHttpClient`, a feature is created for each line in the CSV file and added to a vector source.  This source is rendered in a vector layer over a tile layer.
+After fetching the data with an `XMLHttpRequest`, a feature is created for each line in the CSV file and added to a vector source.  This source is rendered in a vector layer over a tile layer.
 
 ![Meteorite impact sites](meteorites.png)
