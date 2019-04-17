@@ -1,14 +1,12 @@
 import 'ol/ol.css';
+import {clamp} from 'ol/math';
 import {fromLonLat} from 'ol/proj';
 import {Map, View} from 'ol';
 import {Vector as VectorLayer, Tile as TileLayer} from 'ol/layer';
 import {Vector as VectorSource, Stamen} from 'ol/source';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
-//! [imports]
 import Renderer from 'ol/renderer/webgl/PointsLayer';
-import {clamp} from 'ol/math';
-//! [imports]
 
 const source = new VectorSource();
 
@@ -40,8 +38,17 @@ client.onload = function() {
 };
 client.send();
 
-//! [points]
 const color = [255, 0, 0, 0.5];
+
+// start
+const minYear = 1850;
+const maxYear = 2015;
+const span = maxYear - minYear;
+const rate = 10; // years per second
+
+const start = Date.now();
+let currentYear = minYear;
+// stop
 
 class PointsLayer extends VectorLayer {
   createRenderer() {
@@ -51,13 +58,29 @@ class PointsLayer extends VectorLayer {
       },
       sizeCallback: function(feature) {
         return 18 * clamp(feature.get('mass') / 200000, 0, 1) + 8;
-      }
+      },
+      fragmentShader: `
+        precision mediump float;
+
+        varying vec2 v_texCoord;
+        varying vec4 v_color;
+
+        void main(void) {
+          vec2 texCoord = v_texCoord * 2.0 - vec2(1.0, 1.0);
+          float sqRadius = texCoord.x * texCoord.x + texCoord.y * texCoord.y;
+          float value = 2.0 * (1.0 - sqRadius);
+          float alpha = smoothstep(0.0, 1.0, value);
+
+          gl_FragColor = v_color;
+          gl_FragColor.a *= alpha;
+        }`
     });
   }
 }
-//! [points]
 
-new Map({
+// start
+const map = new Map({
+// stop
   target: 'map-container',
   layers: [
     new TileLayer({
@@ -65,14 +88,27 @@ new Map({
         layer: 'toner'
       })
     }),
-    //! [layer]
     new PointsLayer({
       source: source
     })
-    //! [layer]
   ],
   view: new View({
     center: [0, 0],
     zoom: 2
   })
 });
+
+// start
+const yearElement = document.getElementById('year');
+
+function render() {
+  const elapsed = rate * (Date.now() - start) / 1000;
+  currentYear = minYear + (elapsed % span);
+  yearElement.innerText = currentYear.toFixed(0);
+
+  map.render();
+  requestAnimationFrame(render);
+}
+
+render();
+// stop

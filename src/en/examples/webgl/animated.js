@@ -1,12 +1,12 @@
 import 'ol/ol.css';
-import {clamp} from 'ol/math';
 import {fromLonLat} from 'ol/proj';
 import {Map, View} from 'ol';
 import {Vector as VectorLayer, Tile as TileLayer} from 'ol/layer';
 import {Vector as VectorSource, Stamen} from 'ol/source';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
-import WebGLPointsLayerRenderer from 'ol/renderer/webgl/PointsLayer';
+import Renderer from 'ol/renderer/webgl/PointsLayer';
+import {clamp} from 'ol/math';
 
 const source = new VectorSource();
 
@@ -40,6 +40,7 @@ client.send();
 
 const color = [255, 0, 0, 0.5];
 
+//! [years]
 const minYear = 1850;
 const maxYear = 2015;
 const span = maxYear - minYear;
@@ -47,16 +48,18 @@ const rate = 10; // years per second
 
 const start = Date.now();
 let currentYear = minYear;
+//! [years]
 
-class WebglPointsLayer extends VectorLayer {
+class PointsLayer extends VectorLayer {
   createRenderer() {
-    return new WebGLPointsLayerRenderer(this, {
+    return new Renderer(this, {
       colorCallback: function(feature, vertex, component) {
         return color[component];
       },
       sizeCallback: function(feature) {
         return 18 * clamp(feature.get('mass') / 200000, 0, 1) + 8;
       },
+      //! [fragment]
       fragmentShader: `
         precision mediump float;
 
@@ -75,7 +78,7 @@ class WebglPointsLayer extends VectorLayer {
           vec2 texCoord = v_texCoord * 2.0 - vec2(1.0, 1.0);
           float sqRadius = texCoord.x * texCoord.x + texCoord.y * texCoord.y;
           
-          float factor = pow(1.05, u_currentYear - impactYear);
+          float factor = pow(1.1, u_currentYear - impactYear);
 
           float value = 2.0 * (1.0 - sqRadius * factor);
           float alpha = smoothstep(0.0, 1.0, value);
@@ -83,15 +86,20 @@ class WebglPointsLayer extends VectorLayer {
           gl_FragColor = v_color;
           gl_FragColor.a *= alpha;
         }`,
+      //! [fragment]
+      //! [opacity]
       opacityCallback: function(feature) {
         // here the opacity channel of the vertices is used to store the year of impact
         return feature.get('year');
       },
+      //! [opacity]
+      //! [uniforms]
       uniforms: {
         u_currentYear: function() {
           return currentYear;
         }
       }
+      //! [uniforms]
     });
   }
 }
@@ -104,7 +112,7 @@ const map = new Map({
         layer: 'toner'
       })
     }),
-    new WebglPointsLayer({
+    new PointsLayer({
       source: source
     })
   ],
@@ -114,6 +122,7 @@ const map = new Map({
   })
 });
 
+//! [animate]
 const yearElement = document.getElementById('year');
 
 function render() {
@@ -126,3 +135,4 @@ function render() {
 }
 
 render();
+//! [animate]

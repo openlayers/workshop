@@ -7,7 +7,7 @@ import Point from 'ol/geom/Point';
 import VectorLayer from 'ol/layer/Vector';
 import {Vector} from 'ol/source';
 import {fromLonLat} from 'ol/proj';
-import WebGLPointsLayerRenderer from 'ol/renderer/webgl/PointsLayer';
+import Renderer from 'ol/renderer/webgl/PointsLayer';
 import {clamp, lerp} from 'ol/math';
 import Stamen from 'ol/source/Stamen';
 
@@ -36,9 +36,9 @@ maxYearInput.addEventListener('input', updateStatusText);
 maxYearInput.addEventListener('change', updateStatusText);
 updateStatusText();
 
-class WebglPointsLayer extends VectorLayer {
+class PointsLayer extends VectorLayer {
   createRenderer() {
-    return new WebGLPointsLayerRenderer(this, {
+    return new Renderer(this, {
       colorCallback: function(feature, vertex, component) {
         // component at index 3 is alpha
         if (component === 3) {
@@ -144,7 +144,7 @@ const map = new Map({
         layer: 'toner'
       })
     }),
-    new WebglPointsLayer({
+    new PointsLayer({
       source: vectorSource
     })
   ],

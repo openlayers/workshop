@@ -1,12 +1,12 @@
 import 'ol/ol.css';
-import {clamp} from 'ol/math';
 import {fromLonLat} from 'ol/proj';
 import {Map, View} from 'ol';
 import {Vector as VectorLayer, Tile as TileLayer} from 'ol/layer';
 import {Vector as VectorSource, Stamen} from 'ol/source';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
-import WebGLPointsLayerRenderer from 'ol/renderer/webgl/PointsLayer';
+import Renderer from 'ol/renderer/webgl/PointsLayer';
+import {clamp} from 'ol/math';
 
 const source = new VectorSource();
 
@@ -40,15 +40,16 @@ client.send();
 
 const color = [255, 0, 0, 0.5];
 
-class WebglPointsLayer extends VectorLayer {
+class PointsLayer extends VectorLayer {
   createRenderer() {
-    return new WebGLPointsLayerRenderer(this, {
+    return new Renderer(this, {
       colorCallback: function(feature, vertex, component) {
         return color[component];
       },
       sizeCallback: function(feature) {
         return 18 * clamp(feature.get('mass') / 200000, 0, 1) + 8;
       },
+      //! [fragment]
       fragmentShader: `
         precision mediump float;
 
@@ -64,6 +65,7 @@ class WebglPointsLayer extends VectorLayer {
           gl_FragColor = v_color;
           gl_FragColor.a *= alpha;
         }`
+      //! [fragment]
     });
   }
 }
@@ -76,7 +78,7 @@ new Map({
         layer: 'toner'
       })
     }),
-    new WebglPointsLayer({
+    new PointsLayer({
       source: source
     })
   ],
