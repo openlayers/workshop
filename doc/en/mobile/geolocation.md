@@ -28,9 +28,11 @@ At this point, the map displays the user's location already. What we still have 
 
 Next we'll create the markup for the control and register a click listener. The listener fits the map to the extent of the source that holds the location point and the accuracy polygon, in a 0.5 seconds animation, when the button is clicked:
 
-[import:'css-control', lang:'css'](../../../src/en/examples/mobile/geolocation.html)
+[import:'control'](../../../src/en/examples/mobile/geolocation.js)
 
 To position the control button under the zoom buttons, we add a few lines of css to the `<style>` section of `index.html`:
+
+[import:'css-control', lang:'css'](../../../src/en/examples/mobile/geolocation.html)
 
 The result after clicking the button should look something like this:
 
