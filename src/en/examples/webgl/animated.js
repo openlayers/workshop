@@ -38,7 +38,7 @@ client.onload = function() {
 };
 client.send();
 
-const color = [255, 0, 0, 0.5];
+const color = [1, 0, 0, 0.5];
 
 //! [years]
 const minYear = 1850;

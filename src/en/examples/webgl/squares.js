@@ -41,7 +41,7 @@ client.onload = function() {
 client.send();
 
 //! [points]
-const color = [255, 0, 0, 0.5];
+const color = [1, 0, 0, 0.5];
 
 class CustomLayer extends VectorLayer {
   createRenderer() {
