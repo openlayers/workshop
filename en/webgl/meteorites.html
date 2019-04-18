@@ -1,0 +1,702 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Map setup · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../style.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="points.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="/" target="_blank" class="custom-link">OpenLayers Workshop</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../basics/">
+            
+                <a href="../basics/">
+            
+                    
+                    Basics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../vector/">
+            
+                <a href="../vector/">
+            
+                    
+                    Vector Data
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../vector/geojson.html">
+            
+                <a href="../vector/geojson.html">
+            
+                    
+                    Rendering GeoJSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../vector/drag-n-drop.html">
+            
+                <a href="../vector/drag-n-drop.html">
+            
+                    
+                    Drag and drop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../vector/modify.html">
+            
+                <a href="../vector/modify.html">
+            
+                    
+                    Modifying features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../vector/draw.html">
+            
+                <a href="../vector/draw.html">
+            
+                    
+                    Drawing new features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../vector/snap.html">
+            
+                <a href="../vector/snap.html">
+            
+                    
+                    Snapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../vector/download.html">
+            
+                <a href="../vector/download.html">
+            
+                    
+                    Downloading features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../vector/style.html">
+            
+                <a href="../vector/style.html">
+            
+                    
+                    Making it look nice
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../mobile/">
+            
+                <a href="../mobile/">
+            
+                    
+                    Mobile Maps and Sensors
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../mobile/map.html">
+            
+                <a href="../mobile/map.html">
+            
+                    
+                    A mobile map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../mobile/geolocation.html">
+            
+                <a href="../mobile/geolocation.html">
+            
+                    
+                    Geolocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../mobile/compass.html">
+            
+                <a href="../mobile/compass.html">
+            
+                    
+                    Compass
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    WebGL Rendering
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.5.1" data-path="meteorites.html">
+            
+                <a href="meteorites.html">
+            
+                    
+                    Map setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="points.html">
+            
+                <a href="points.html">
+            
+                    
+                    Rendering points
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="animated.html">
+            
+                <a href="animated.html">
+            
+                    
+                    Animating points
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../vectortile/">
+            
+                <a href="../vectortile/">
+            
+                    
+                    Vector Tiles and Mapbox Styles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../vectortile/map.html">
+            
+                <a href="../vectortile/map.html">
+            
+                    
+                    The VectorTile layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../vectortile/bright.html">
+            
+                <a href="../vectortile/bright.html">
+            
+                    
+                    Making things look bright
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../vectortile/interact.html">
+            
+                <a href="../vectortile/interact.html">
+            
+                    
+                    Interact with VectorTile features
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../raster/">
+            
+                <a href="../raster/">
+            
+                    
+                    Raster Operations
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../raster/map.html">
+            
+                <a href="../raster/map.html">
+            
+                    
+                    Map setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../raster/elevation.html">
+            
+                <a href="../raster/elevation.html">
+            
+                    
+                    Render elevation data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../raster/raster.html">
+            
+                <a href="../raster/raster.html">
+            
+                    
+                    Render sea level
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../deploying/">
+            
+                <a href="../deploying/">
+            
+                    
+                    Deploying
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Map setup</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="rendering-meteorites-with-canvas-2d">Rendering meteorites with Canvas 2D</h1>
+<p>In OpenLayers 6, each layer in a map has an independent renderer.  Previously, all layer rendering was managed by a single map renderer and depended on a single rendering strategy.  So prior to OpenLayers 6, you needed to choose between Canvas 2D or WebGL rendering for all layers.  In OpenLayers 6, you can have a map composed of layers with different rendering strategies.  For example, you can render some layers with a Canvas 2D renderer and others with a WebGL renderer.</p>
+<p>The <code>ol/layer/Vector</code> class uses Canvas 2D to render points, lines, or polygons.  This layer has a full featured renderer with a ton of flexibility in feature styling.  For very large numbers of features, WebGL is a more appropriate technology.  In this module, we&apos;ll start by using Canvas 2D to render 45,000 meteorite locations and then migrate the example to WebGL.</p>
+<p>First, edit your <code>index.html</code> so we&apos;re ready to render a full page map:</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>OpenLayers<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+    <span class="hljs-selector-tag">html</span>,
+    <span class="hljs-selector-tag">body</span>,
+    <span class="hljs-selector-id">#map-container</span> {
+      <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+      <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+      <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+      <span class="hljs-attribute">font-family</span>: sans-serif;
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;map-container&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>  
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>Next we&apos;ll fetch and parse data from a local CSV file, add the resulting features to a vector source, and render it on the map with a vector layer.</p>
+<p>The <code>meteorites.csv</code> file has data in it that looks like this:</p>
+<pre><code class="lang-csv">name,mass,year,reclat,reclong
+Aachen,21,1880,50.775000,6.083330
+...
+</code></pre>
+<p>The first line of the file is a header line that we&apos;ll skip over when parsing.  Subsequent lines have the name of the site, the mass of the meteorite, the year of impact, the latitude, and the longitude separated by commas.  We&apos;ll use an <code>XMLHttpRequest</code> client to fetch the data and write a short function to parse lines in the file as features with point geometries.</p>
+<p>Update your <code>main.js</code> to load and render a local CSV file with data representing meteorite impacts:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">&apos;ol/ol.css&apos;</span>;
+<span class="hljs-keyword">import</span> {fromLonLat} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/proj&apos;</span>;
+<span class="hljs-keyword">import</span> {<span class="hljs-built_in">Map</span>, View} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol&apos;</span>;
+<span class="hljs-keyword">import</span> {Vector <span class="hljs-keyword">as</span> VectorLayer, Tile <span class="hljs-keyword">as</span> TileLayer} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/layer&apos;</span>;
+<span class="hljs-keyword">import</span> {Vector <span class="hljs-keyword">as</span> VectorSource, Stamen} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/source&apos;</span>;
+<span class="hljs-keyword">import</span> Feature <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/Feature&apos;</span>;
+<span class="hljs-keyword">import</span> Point <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/geom/Point&apos;</span>;
+
+<span class="hljs-keyword">const</span> source = <span class="hljs-keyword">new</span> VectorSource();
+
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> XMLHttpRequest();
+client.open(<span class="hljs-string">&apos;GET&apos;</span>, <span class="hljs-string">&apos;data/meteorites.csv&apos;</span>);
+client.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> csv = client.responseText;
+  <span class="hljs-keyword">const</span> features = [];
+
+  <span class="hljs-keyword">let</span> prevIndex = csv.indexOf(<span class="hljs-string">&apos;\n&apos;</span>) + <span class="hljs-number">1</span>; <span class="hljs-comment">// scan past the header line</span>
+
+  <span class="hljs-keyword">let</span> curIndex;
+  <span class="hljs-keyword">while</span> ((curIndex = csv.indexOf(<span class="hljs-string">&apos;\n&apos;</span>, prevIndex)) != <span class="hljs-number">-1</span>) {
+    <span class="hljs-keyword">const</span> line = csv.substr(prevIndex, curIndex - prevIndex).split(<span class="hljs-string">&apos;,&apos;</span>);
+    prevIndex = curIndex + <span class="hljs-number">1</span>;
+
+    <span class="hljs-keyword">const</span> coords = fromLonLat([<span class="hljs-built_in">parseFloat</span>(line[<span class="hljs-number">4</span>]), <span class="hljs-built_in">parseFloat</span>(line[<span class="hljs-number">3</span>])]);
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(coords[<span class="hljs-number">0</span>]) || <span class="hljs-built_in">isNaN</span>(coords[<span class="hljs-number">1</span>])) {
+      <span class="hljs-comment">// guard against bad data</span>
+      <span class="hljs-keyword">continue</span>;
+    }
+
+    features.push(<span class="hljs-keyword">new</span> Feature({
+      mass: <span class="hljs-built_in">parseFloat</span>(line[<span class="hljs-number">1</span>]) || <span class="hljs-number">0</span>,
+      year: <span class="hljs-built_in">parseInt</span>(line[<span class="hljs-number">2</span>]) || <span class="hljs-number">0</span>,
+      geometry: <span class="hljs-keyword">new</span> Point(coords)
+    }));
+  }
+  source.addFeatures(features);
+};
+client.send();
+
+
+<span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>({
+  target: <span class="hljs-string">&apos;map-container&apos;</span>,
+  layers: [
+    <span class="hljs-keyword">new</span> TileLayer({
+      source: <span class="hljs-keyword">new</span> Stamen({
+        layer: <span class="hljs-string">&apos;toner&apos;</span>
+      })
+    }),
+    <span class="hljs-keyword">new</span> VectorLayer({
+      source: source
+    })
+  ],
+  view: <span class="hljs-keyword">new</span> View({
+    center: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+    zoom: <span class="hljs-number">2</span>
+  })
+});
+</code></pre>
+<p>After fetching and parsing the data, features are added to a vector source.  This source is rendered in a vector layer over a tile layer.  We aren&apos;t doing any custom styling of the features here, the point is just to see how it feels to use the map with 45,000 features rendered with Canvas 2D.</p>
+<figure id="fig1.5.1.1"><img src="meteorites.png" alt="Meteorite impact sites"><figcaption>Meteorite impact sites</figcaption></figure>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: WebGL Rendering">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="points.html" class="navigation navigation-next " aria-label="Next page: Rendering points">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Map setup","level":"1.5.1","depth":2,"next":{"title":"Rendering points","level":"1.5.2","depth":2,"path":"webgl/points.md","ref":"webgl/points.md","articles":[]},"previous":{"title":"WebGL Rendering","level":"1.5","depth":1,"path":"webgl/README.md","ref":"webgl/README.md","articles":[{"title":"Map setup","level":"1.5.1","depth":2,"path":"webgl/meteorites.md","ref":"webgl/meteorites.md","articles":[]},{"title":"Rendering points","level":"1.5.2","depth":2,"path":"webgl/points.md","ref":"webgl/points.md","articles":[]},{"title":"Animating points","level":"1.5.3","depth":2,"path":"webgl/animated.md","ref":"webgl/animated.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock-patched","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock-patched":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"copy-code-button":{},"include-codeblock":{"unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/index.html#fig1.2.1","level":"1.2","list_caption":"Figure: A map of the world","alt":"A map of the world","nro":1,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of the world","attributes":{},"skip":false,"key":"1.2.1"},{"backlink":"vector/geojson.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: GeoJSON features","alt":"GeoJSON features","nro":2,"url":"geojson.png","index":1,"caption_template":"_CAPTION_","label":"GeoJSON features","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"vector/drag-n-drop.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Drag and drop","alt":"Drag and drop","nro":3,"url":"drag-n-drop.png","index":1,"caption_template":"_CAPTION_","label":"Drag and drop","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"vector/modify.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Modifying features","alt":"Modifying features","nro":4,"url":"modify.png","index":1,"caption_template":"_CAPTION_","label":"Modifying features","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"vector/draw.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: A new island nation in the Caribbean","alt":"A new island nation in the Caribbean","nro":5,"url":"draw.png","index":1,"caption_template":"_CAPTION_","label":"A new island nation in the Caribbean","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"vector/snap.html#fig1.3.5.1","level":"1.3.5","list_caption":"Figure: Uniting nations with the snap interaction","alt":"Uniting nations with the snap interaction","nro":6,"url":"snap.png","index":1,"caption_template":"_CAPTION_","label":"Uniting nations with the snap interaction","attributes":{},"skip":false,"key":"1.3.5.1"},{"backlink":"vector/download.html#fig1.3.6.1","level":"1.3.6","list_caption":"Figure: Buttons to clear and download data","alt":"Buttons to clear and download data","nro":7,"url":"download.png","index":1,"caption_template":"_CAPTION_","label":"Buttons to clear and download data","attributes":{},"skip":false,"key":"1.3.6.1"},{"backlink":"vector/style.html#fig1.3.7.1","level":"1.3.7","list_caption":"Figure: Features colored by area","alt":"Features colored by area","nro":8,"url":"style.png","index":1,"caption_template":"_CAPTION_","label":"Features colored by area","attributes":{},"skip":false,"key":"1.3.7.1"},{"backlink":"mobile/map.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Map on a smartphone","alt":"Map on a smartphone","nro":9,"url":"map.jpeg","index":1,"caption_template":"_CAPTION_","label":"Map on a smartphone","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"mobile/geolocation.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Location with accuracy polygon","alt":"Location with accuracy polygon","nro":10,"url":"geolocation.jpeg","index":1,"caption_template":"_CAPTION_","label":"Location with accuracy polygon","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"mobile/compass.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: User looking around with the navigation tool","alt":"User looking around with the navigation tool","nro":11,"url":"compass.gif","index":1,"caption_template":"_CAPTION_","label":"User looking around with the navigation tool","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"webgl/meteorites.html#fig1.5.1.1","level":"1.5.1","list_caption":"Figure: Meteorite impact sites","alt":"Meteorite impact sites","nro":12,"url":"meteorites.png","index":1,"caption_template":"_CAPTION_","label":"Meteorite impact sites","attributes":{},"skip":false,"key":"1.5.1.1"},{"backlink":"webgl/points.html#fig1.5.2.1","level":"1.5.2","list_caption":"Figure: Square craters","alt":"Square craters","nro":13,"url":"squares.png","index":1,"caption_template":"_CAPTION_","label":"Square craters","attributes":{},"skip":false,"key":"1.5.2.1"},{"backlink":"webgl/points.html#fig1.5.2.2","level":"1.5.2","list_caption":"Figure: Circular craters","alt":"Circular craters","nro":14,"url":"circles.png","index":2,"caption_template":"_CAPTION_","label":"Circular craters","attributes":{},"skip":false,"key":"1.5.2.2"},{"backlink":"webgl/animated.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Through the years","alt":"Through the years","nro":15,"url":"years.gif","index":1,"caption_template":"_CAPTION_","label":"Through the years","attributes":{},"skip":false,"key":"1.5.3.1"},{"backlink":"webgl/animated.html#fig1.5.3.2","level":"1.5.3","list_caption":"Figure: Meteor shower","alt":"Meteor shower","nro":16,"url":"shower.gif","index":2,"caption_template":"_CAPTION_","label":"Meteor shower","attributes":{},"skip":false,"key":"1.5.3.2"},{"backlink":"vectortile/map.html#fig1.6.1.1","level":"1.6.1","list_caption":"Figure: A world map without style, centered on San Diego","alt":"A world map without style, centered on San Diego","nro":17,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A world map without style, centered on San Diego","attributes":{},"skip":false,"key":"1.6.1.1"},{"backlink":"vectortile/bright.html#fig1.6.2.1","level":"1.6.2","list_caption":"Figure: A bright map of San Diego","alt":"A bright map of San Diego","nro":18,"url":"bright.png","index":1,"caption_template":"_CAPTION_","label":"A bright map of San Diego","attributes":{},"skip":false,"key":"1.6.2.1"},{"backlink":"vectortile/interact.html#fig1.6.3.1","level":"1.6.3","list_caption":"Figure: Hovering over the map","alt":"Hovering over the map","nro":19,"url":"interact.gif","index":1,"caption_template":"_CAPTION_","label":"Hovering over the map","attributes":{},"skip":false,"key":"1.6.3.1"},{"backlink":"raster/map.html#fig1.7.1.1","level":"1.7.1","list_caption":"Figure: A map of San Diego","alt":"A map of San Diego","nro":20,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of San Diego","attributes":{},"skip":false,"key":"1.7.1.1"},{"backlink":"raster/elevation.html#fig1.7.2.1","level":"1.7.2","list_caption":"Figure: Terrain-RGB tiles rendered over San Diego","alt":"Terrain-RGB tiles rendered over San Diego","nro":21,"url":"elevation.png","index":1,"caption_template":"_CAPTION_","label":"Terrain-RGB tiles rendered over San Diego","attributes":{},"skip":false,"key":"1.7.2.1"},{"backlink":"raster/raster.html#fig1.7.3.1","level":"1.7.3","list_caption":"Figure: Sea level rise in San Diego","alt":"Sea level rise in San Diego","nro":22,"url":"raster.png","index":1,"caption_template":"_CAPTION_","label":"Sea level rise in San Diego","attributes":{},"skip":false,"key":"1.7.3.1"}]},"language":"en","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"webgl/meteorites.md","mtime":"2019-04-18T01:14:06.800Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-18T01:30:31.167Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

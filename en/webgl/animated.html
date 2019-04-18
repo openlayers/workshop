@@ -1,0 +1,697 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Animating points · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../style.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../vectortile/" />
+    
+    
+    <link rel="prev" href="points.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="/" target="_blank" class="custom-link">OpenLayers Workshop</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../basics/">
+            
+                <a href="../basics/">
+            
+                    
+                    Basics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../vector/">
+            
+                <a href="../vector/">
+            
+                    
+                    Vector Data
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../vector/geojson.html">
+            
+                <a href="../vector/geojson.html">
+            
+                    
+                    Rendering GeoJSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../vector/drag-n-drop.html">
+            
+                <a href="../vector/drag-n-drop.html">
+            
+                    
+                    Drag and drop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../vector/modify.html">
+            
+                <a href="../vector/modify.html">
+            
+                    
+                    Modifying features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../vector/draw.html">
+            
+                <a href="../vector/draw.html">
+            
+                    
+                    Drawing new features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../vector/snap.html">
+            
+                <a href="../vector/snap.html">
+            
+                    
+                    Snapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../vector/download.html">
+            
+                <a href="../vector/download.html">
+            
+                    
+                    Downloading features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../vector/style.html">
+            
+                <a href="../vector/style.html">
+            
+                    
+                    Making it look nice
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../mobile/">
+            
+                <a href="../mobile/">
+            
+                    
+                    Mobile Maps and Sensors
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../mobile/map.html">
+            
+                <a href="../mobile/map.html">
+            
+                    
+                    A mobile map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../mobile/geolocation.html">
+            
+                <a href="../mobile/geolocation.html">
+            
+                    
+                    Geolocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../mobile/compass.html">
+            
+                <a href="../mobile/compass.html">
+            
+                    
+                    Compass
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    WebGL Rendering
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="meteorites.html">
+            
+                <a href="meteorites.html">
+            
+                    
+                    Map setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="points.html">
+            
+                <a href="points.html">
+            
+                    
+                    Rendering points
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.3" data-path="animated.html">
+            
+                <a href="animated.html">
+            
+                    
+                    Animating points
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../vectortile/">
+            
+                <a href="../vectortile/">
+            
+                    
+                    Vector Tiles and Mapbox Styles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../vectortile/map.html">
+            
+                <a href="../vectortile/map.html">
+            
+                    
+                    The VectorTile layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../vectortile/bright.html">
+            
+                <a href="../vectortile/bright.html">
+            
+                    
+                    Making things look bright
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../vectortile/interact.html">
+            
+                <a href="../vectortile/interact.html">
+            
+                    
+                    Interact with VectorTile features
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../raster/">
+            
+                <a href="../raster/">
+            
+                    
+                    Raster Operations
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../raster/map.html">
+            
+                <a href="../raster/map.html">
+            
+                    
+                    Map setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../raster/elevation.html">
+            
+                <a href="../raster/elevation.html">
+            
+                    
+                    Render elevation data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../raster/raster.html">
+            
+                <a href="../raster/raster.html">
+            
+                    
+                    Render sea level
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../deploying/">
+            
+                <a href="../deploying/">
+            
+                    
+                    Deploying
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Animating points</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="animating-meteorite-impacts">Animating meteorite impacts</h1>
+<p>So far we have managed to get data from our CSV file rendered with WebGL, but the map is pretty uninteresting.  We&apos;re using the mass of the meteorite to determine the radius of the circle, but we&apos;re not making use of the meteorite impact date that we parsed as the <code>year</code> property in our point features.</p>
+<p>The <code>year</code> property for our meteorite features have values that range from 1850 to 2015.  We&apos;ll set up an animation loop that increments the current year, render meteorites on their impact year, and then decrease their size as time passes.</p>
+<p>As a first step, we&apos;ll get the animation loop going and render the current year to a <code>&lt;div&gt;</code> on top of the map.  Add the following markup below the map container in your <code>index.html</code>:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;year&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>Edit the <code>&lt;style&gt;</code> block to include the following rule:</p>
+<pre><code class="lang-css"><span class="hljs-selector-id">#year</span> {
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">bottom</span>: <span class="hljs-number">1em</span>;
+  <span class="hljs-attribute">left</span>: <span class="hljs-number">1em</span>;
+  <span class="hljs-attribute">color</span>: white;
+  <span class="hljs-attribute">-webkit-text-stroke</span>: <span class="hljs-number">1px</span> black;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">2em</span>;
+  <span class="hljs-attribute">font-weight</span>: bold;
+}
+</code></pre>
+<p>Now we&apos;ll declare some variables to represent the time range of the data and the rate at which we want the animation to proceed.  Add the following code above your custom layer class in <code>main.js</code>:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> minYear = <span class="hljs-number">1850</span>;
+<span class="hljs-keyword">const</span> maxYear = <span class="hljs-number">2015</span>;
+<span class="hljs-keyword">const</span> span = maxYear - minYear;
+<span class="hljs-keyword">const</span> rate = <span class="hljs-number">10</span>; <span class="hljs-comment">// years per second</span>
+
+<span class="hljs-keyword">const</span> start = <span class="hljs-built_in">Date</span>.now();
+<span class="hljs-keyword">let</span> currentYear = minYear;
+</code></pre>
+<p>Next we need to assign our map instance to a <code>map</code> variable that we can reference later:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>({
+</code></pre>
+<p>Below the map configuration, add the following <code>render</code> function to get the animation loop started.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> yearElement = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;year&apos;</span>);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> elapsed = rate * (<span class="hljs-built_in">Date</span>.now() - start) / <span class="hljs-number">1000</span>;
+  currentYear = minYear + (elapsed % span);
+  yearElement.innerText = currentYear.toFixed(<span class="hljs-number">0</span>);
+
+  map.render();
+  requestAnimationFrame(render);
+}
+
+render();
+</code></pre>
+<p>If you got it all right, you should see the years rolling by in the lower left corner above the map.</p>
+<figure id="fig1.5.3.1"><img src="years.gif" alt="Through the years"><figcaption>Through the years</figcaption></figure>
+<p>The next part gets a bit tricky to explain.  We want the current year and the impact year for each feature to be available in our fragment shader.  We&apos;ll use those two values to decide whether or not to render a feature, and we want to make the circles smaller as time passes beyond the impact year.</p>
+<p>The WebGL points renderer provides us with an <code>opacityCallback</code> that would typically be used to change the opacity of an image or icon used to symbolize a point.  The function gets called with a feature and is expected to return a number.  We&apos;ll (mis)use this callback to pass the impact year for each feature into the shader.  In the shader, the value will be available as <code>v_opacity</code>.  This is a bit of a hack, but it will get the job done.  In an upcoming release, we&apos;ll make it possible to pass data like this in a more generic way.</p>
+<p>Add the following <code>opacityCallback</code> to the options passed to the WebGL points layer renderer:</p>
+<pre><code class="lang-javascript">opacityCallback: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">feature</span>) </span>{
+  <span class="hljs-comment">// here the opacity channel of the vertices is used to store the year of impact</span>
+  <span class="hljs-keyword">return</span> feature.get(<span class="hljs-string">&apos;year&apos;</span>);
+},
+</code></pre>
+<p>The impact year varies with each feature that is rendered.  That value is made available in the shader as a <a href="https://thebookofshaders.com/glossary/?search=varying" target="_blank"><code>varying</code></a>.  The current year, on the other hand, is uniform for all features that we render.  To make that value available in our fragment shader, we&apos;ll use a <a href="https://thebookofshaders.com/glossary/?search=uniform" target="_blank"><code>uniform</code></a>.  The options to the WebGL point layer renderer accepts a <code>uniforms</code> object where we can supply functions are called to return values for uniforms supplied to the fragment shader.  Add the code below to the options passed to the WebGL point layer renderer:</p>
+<pre><code class="lang-javascript">uniforms: {
+  u_currentYear: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> currentYear;
+  }
+},
+</code></pre>
+<p>Finally, we&apos;ll update the fragment shader to use the impact year (<code>varying</code>) and current year (<code>uniform</code>) data that we configured above.  The <code>main</code> function of the shader will discard data for which the impact year is greater than the current year.  When the current year is greater than the impact year, we will render circles with decreasing radius.</p>
+<p>Update the fragment shader for your WebGL point renderer to match the code below:</p>
+<pre><code class="lang-javascript">fragmentShader: <span class="hljs-string">`
+  precision mediump float;
+
+  uniform float u_currentYear;
+
+  varying vec2 v_texCoord;
+  varying vec4 v_color;
+  varying float v_opacity;
+
+  void main(void) {
+    float impactYear = v_opacity;
+    if (impactYear &gt; u_currentYear) {
+      discard;
+    }
+
+    vec2 texCoord = v_texCoord * 2.0 - vec2(1.0, 1.0);
+    float sqRadius = texCoord.x * texCoord.x + texCoord.y * texCoord.y;
+
+    float factor = pow(1.1, u_currentYear - impactYear);
+
+    float value = 2.0 * (1.0 - sqRadius * factor);
+    float alpha = smoothstep(0.0, 1.0, value);
+
+    gl_FragColor = v_color;
+    gl_FragColor.a *= alpha;
+  }`</span>
+</code></pre>
+<p>With that in place, you should now be able to see meteor impact sites appearing and then decreasing in size as time passes.</p>
+<figure id="fig1.5.3.2"><img src="shower.gif" alt="Meteor shower"><figcaption>Meteor shower</figcaption></figure>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="points.html" class="navigation navigation-prev " aria-label="Previous page: Rendering points">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../vectortile/" class="navigation navigation-next " aria-label="Next page: Vector Tiles and Mapbox Styles">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Animating points","level":"1.5.3","depth":2,"next":{"title":"Vector Tiles and Mapbox Styles","level":"1.6","depth":1,"path":"vectortile/README.md","ref":"vectortile/README.md","articles":[{"title":"The VectorTile layer","level":"1.6.1","depth":2,"path":"vectortile/map.md","ref":"vectortile/map.md","articles":[]},{"title":"Making things look bright","level":"1.6.2","depth":2,"path":"vectortile/bright.md","ref":"vectortile/bright.md","articles":[]},{"title":"Interact with VectorTile features","level":"1.6.3","depth":2,"path":"vectortile/interact.md","ref":"vectortile/interact.md","articles":[]}]},"previous":{"title":"Rendering points","level":"1.5.2","depth":2,"path":"webgl/points.md","ref":"webgl/points.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock-patched","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock-patched":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"copy-code-button":{},"include-codeblock":{"unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/index.html#fig1.2.1","level":"1.2","list_caption":"Figure: A map of the world","alt":"A map of the world","nro":1,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of the world","attributes":{},"skip":false,"key":"1.2.1"},{"backlink":"vector/geojson.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: GeoJSON features","alt":"GeoJSON features","nro":2,"url":"geojson.png","index":1,"caption_template":"_CAPTION_","label":"GeoJSON features","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"vector/drag-n-drop.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Drag and drop","alt":"Drag and drop","nro":3,"url":"drag-n-drop.png","index":1,"caption_template":"_CAPTION_","label":"Drag and drop","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"vector/modify.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Modifying features","alt":"Modifying features","nro":4,"url":"modify.png","index":1,"caption_template":"_CAPTION_","label":"Modifying features","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"vector/draw.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: A new island nation in the Caribbean","alt":"A new island nation in the Caribbean","nro":5,"url":"draw.png","index":1,"caption_template":"_CAPTION_","label":"A new island nation in the Caribbean","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"vector/snap.html#fig1.3.5.1","level":"1.3.5","list_caption":"Figure: Uniting nations with the snap interaction","alt":"Uniting nations with the snap interaction","nro":6,"url":"snap.png","index":1,"caption_template":"_CAPTION_","label":"Uniting nations with the snap interaction","attributes":{},"skip":false,"key":"1.3.5.1"},{"backlink":"vector/download.html#fig1.3.6.1","level":"1.3.6","list_caption":"Figure: Buttons to clear and download data","alt":"Buttons to clear and download data","nro":7,"url":"download.png","index":1,"caption_template":"_CAPTION_","label":"Buttons to clear and download data","attributes":{},"skip":false,"key":"1.3.6.1"},{"backlink":"vector/style.html#fig1.3.7.1","level":"1.3.7","list_caption":"Figure: Features colored by area","alt":"Features colored by area","nro":8,"url":"style.png","index":1,"caption_template":"_CAPTION_","label":"Features colored by area","attributes":{},"skip":false,"key":"1.3.7.1"},{"backlink":"mobile/map.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Map on a smartphone","alt":"Map on a smartphone","nro":9,"url":"map.jpeg","index":1,"caption_template":"_CAPTION_","label":"Map on a smartphone","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"mobile/geolocation.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Location with accuracy polygon","alt":"Location with accuracy polygon","nro":10,"url":"geolocation.jpeg","index":1,"caption_template":"_CAPTION_","label":"Location with accuracy polygon","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"mobile/compass.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: User looking around with the navigation tool","alt":"User looking around with the navigation tool","nro":11,"url":"compass.gif","index":1,"caption_template":"_CAPTION_","label":"User looking around with the navigation tool","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"webgl/meteorites.html#fig1.5.1.1","level":"1.5.1","list_caption":"Figure: Meteorite impact sites","alt":"Meteorite impact sites","nro":12,"url":"meteorites.png","index":1,"caption_template":"_CAPTION_","label":"Meteorite impact sites","attributes":{},"skip":false,"key":"1.5.1.1"},{"backlink":"webgl/points.html#fig1.5.2.1","level":"1.5.2","list_caption":"Figure: Square craters","alt":"Square craters","nro":13,"url":"squares.png","index":1,"caption_template":"_CAPTION_","label":"Square craters","attributes":{},"skip":false,"key":"1.5.2.1"},{"backlink":"webgl/points.html#fig1.5.2.2","level":"1.5.2","list_caption":"Figure: Circular craters","alt":"Circular craters","nro":14,"url":"circles.png","index":2,"caption_template":"_CAPTION_","label":"Circular craters","attributes":{},"skip":false,"key":"1.5.2.2"},{"backlink":"webgl/animated.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Through the years","alt":"Through the years","nro":15,"url":"years.gif","index":1,"caption_template":"_CAPTION_","label":"Through the years","attributes":{},"skip":false,"key":"1.5.3.1"},{"backlink":"webgl/animated.html#fig1.5.3.2","level":"1.5.3","list_caption":"Figure: Meteor shower","alt":"Meteor shower","nro":16,"url":"shower.gif","index":2,"caption_template":"_CAPTION_","label":"Meteor shower","attributes":{},"skip":false,"key":"1.5.3.2"},{"backlink":"vectortile/map.html#fig1.6.1.1","level":"1.6.1","list_caption":"Figure: A world map without style, centered on San Diego","alt":"A world map without style, centered on San Diego","nro":17,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A world map without style, centered on San Diego","attributes":{},"skip":false,"key":"1.6.1.1"},{"backlink":"vectortile/bright.html#fig1.6.2.1","level":"1.6.2","list_caption":"Figure: A bright map of San Diego","alt":"A bright map of San Diego","nro":18,"url":"bright.png","index":1,"caption_template":"_CAPTION_","label":"A bright map of San Diego","attributes":{},"skip":false,"key":"1.6.2.1"},{"backlink":"vectortile/interact.html#fig1.6.3.1","level":"1.6.3","list_caption":"Figure: Hovering over the map","alt":"Hovering over the map","nro":19,"url":"interact.gif","index":1,"caption_template":"_CAPTION_","label":"Hovering over the map","attributes":{},"skip":false,"key":"1.6.3.1"},{"backlink":"raster/map.html#fig1.7.1.1","level":"1.7.1","list_caption":"Figure: A map of San Diego","alt":"A map of San Diego","nro":20,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of San Diego","attributes":{},"skip":false,"key":"1.7.1.1"},{"backlink":"raster/elevation.html#fig1.7.2.1","level":"1.7.2","list_caption":"Figure: Terrain-RGB tiles rendered over San Diego","alt":"Terrain-RGB tiles rendered over San Diego","nro":21,"url":"elevation.png","index":1,"caption_template":"_CAPTION_","label":"Terrain-RGB tiles rendered over San Diego","attributes":{},"skip":false,"key":"1.7.2.1"},{"backlink":"raster/raster.html#fig1.7.3.1","level":"1.7.3","list_caption":"Figure: Sea level rise in San Diego","alt":"Sea level rise in San Diego","nro":22,"url":"raster.png","index":1,"caption_template":"_CAPTION_","label":"Sea level rise in San Diego","attributes":{},"skip":false,"key":"1.7.3.1"}]},"language":"en","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"webgl/animated.md","mtime":"2019-04-18T01:14:06.800Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-18T01:30:31.167Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
