@@ -1,8 +1,8 @@
 import 'ol/ol.css';
-import Map from 'ol/Map';
-import View from 'ol/View';
+import {Map, View} from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import XYZSource from 'ol/source/XYZ';
+import {fromLonLat} from 'ol/proj';
 
 new Map({
   target: 'map-container',
@@ -14,7 +14,7 @@ new Map({
     })
   ],
   view: new View({
-    center: [0, 0],
+    center: fromLonLat([0, 0]),
     zoom: 2
   })
 });

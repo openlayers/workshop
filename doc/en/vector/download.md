@@ -2,7 +2,7 @@
 
 After uploading data and editing it, we want to let our users download the result.  To do this, we'll serialize our feature data as GeoJSON and create an `<a>` element with a `download` attribute that triggers the browser's file save dialog.  At the same time, we'll add a button to the map that let's users clear existing features and start over.
 
-First, we need a bit of markup to represent the buttons.  Add the following elements below the `map-container` in your `index.html`:
+First, we need a bit of markup to represent the buttons.  Add the following elements after the `map-container` in your `index.html`:
 
 [import:'markup'](../../../src/en/examples/vector/download.html)
 

@@ -1,45 +1,23 @@
 # Making things look bright
 
-There have been many attempts to create tools and formats for styling maps. The most popular formats were probably SLD and CartoCSS. A graphical tool that comes to mind is Atlas Styler. But none of these format or tools were really convenient to use.
+Obviously the map we currently have needs some style. And world maps made of vector tiles are actually only useful in combination with a style.
 
-Mapbox finally came up with Mapbox Studio, a very user friendly style editor, and the Mapbox Style format. The Mapbox Style format is supported by a growing number of applications, and a graphical Open Source editor, [Maputnik](https://maputnik.github.io/), is available for creating and modifying Mapbox Style files.
+In the history of web mapping, there have been many attempts to create tools and formats for styling maps. The most popular formats were probably SLD and CartoCSS. A graphical tool that comes to mind is Atlas Styler. But none of these format or tools were really convenient to use.
 
-The [ol-mapbox-style](https://npmjs.com/package/ol-mapbox-style/) package adds support for the Mapbox Style format to OpenLayers. Let's see if we can get a nicer looking map than the one from the [previous](ugly.md) exercise.
+Mapbox finally came up with Mapbox Studio, a very user friendly style editor, and the Mapbox Style format. The Mapbox Style format is easy to read and write manually, and supported by a growing number of applications. A graphical Open Source editor, [Maputnik](https://maputnik.github.io/), is available as an independent alternative to Mapbox Studio for creating and modifying Mapbox Style files.
 
-## Creating Mapbox Style files in Maputnik
+The Mapbox Style format was not just made for styling vector data. It was made to describe an entire map, with all its sources and layers, and its initial view configuration (e.g. center and zoom level).
 
-You can play with a live instance of Maputnik at https://maputnik.github.io/editor/, or download and install it locally. I have created a file with our ugly style. You can download that file,  [ugly.json]({{book.workshopUrl}}/data/ugly.json), and open it in Maputnik to verify it looks just as ugly there as it does in our OpenLayers application:
+The [ol-mapbox-style](https://npmjs.com/package/ol-mapbox-style/) package adds support for the Mapbox Style format to OpenLayers. Once we have taken a look at how that format works, let's see how we can use ol-mapbox-style to give the vector tile data a professionallz authored street map style
 
-![Ugly style in Maputnik](maputnik.png)
+## Using a Mapbox Style definition
 
-## Create a map from a Mapbox Style in OpenLayers
+The tile dataset we use also comes with a style (see https://cloud.maptiler.com/maps/bright/). I have put a copy of this style in the `data/` directory. To make use of that, we bring in the [ol-mapbox-style](https://npmjs.com/package/ol-mapbox/style) utility. This package is already installed as part of the workshop dependendencies.  If it were not already included, you could install it from a terminal with `npm install ol-mapbox-style`.
 
-We'll import the `apply` function from the [ol-mapbox-style](https://npmjs.com/package/ol-mapbox-style/) package, so we can simply have a map with all the contents from a style file rendered into our `map-container`. But first we need to install the package:
+We'll import the `apply` function from this package, so we can simply have a map with all the contents from a style file rendered into our `map-container`. Usage is really simple. Our whole `main.js` can be reduced to two imports and one line of code:
 
-    npm install ol-mapbox-style@beta
+[import](../../../src/en/examples/vectortile/bright.js)
 
-Now we can import the function into our `main.js`:
+What a relief. Finally we can enjoy a nice looking world map, and zoom in to San Diego!
 
-[import:'mapbox-style-import'](../../../src/en/examples/vectortile/bright.js)
-
-We can also remove all other imports except for these two:
-
-[import:'imports'](../../../src/en/examples/vectortile/bright.js)
-
-While we are at cleaning up, we can also delete the `key`, `map`, `layer` definitions. And we can – of course – remove all the style code. Finally, in `index.html`, we can remove the line that adds the Open Sans font, and the `background-color` for the map.
-
-Instead of the previous map code, we need a single line to create a map from our ugly Mapbox style, which we insert below our imports:
-
-```js
-const map = apply('map-container', './data/ugly.json');
-```
-
-This should give us the same ugly map as before, just with less application code. But hey, we wanted to make things look bright, and not look at an ugly map again. So let's open the 'OSM Bright' from Maputnik's Gallery Styles, and use that. I have prepared it already, and made the result available as {{book.workshopUrl}}/data/bright.json. So let's change the `apply()` line to
-
-[import:'map'](../../../src/en/examples/vectortile/bright.js)
-
-What a relief. Finally we can enjoy a nice looking world map, and zoom to Boston!
-
-![A bright map of Boston](bright.png)
-
-And note that our map is still interactive, meaning you get an info popup when you click on any geometry.
+![A bright map of San Diego](bright.png)

@@ -1,24 +1,24 @@
 //
 //! [imports]
 import 'ol/ol.css';
-import Map from 'ol/Map';
-import View from 'ol/View';
+import {Map, View} from 'ol';
 import MVT from 'ol/format/MVT';
 import VectorTileLayer from 'ol/layer/VectorTile';
 import VectorTileSource from 'ol/source/VectorTile';
+import {fromLonLat} from 'ol/proj';
 //! [imports]
 
 //! [key]
 // See https://openmaptiles.com/hosting/ for terms and API key
-const key = 'lirfd6Fegsjkvs0lshxe';
+const key = 'lirfd6Fegsjkvs0lshxe'; // use your own instead
 //! [key]
 
 //! [map]
 const map = new Map({
   target: 'map-container',
-  view: new  View({
-    center: [0, 0],
-    zoom: 2
+  view: new View({
+    center: fromLonLat([-117.1625, 32.715]),
+    zoom: 6
   })
 });
 //! [map]

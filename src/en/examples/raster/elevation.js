@@ -29,7 +29,7 @@ new Map({
     //! [layer]
   ],
   view: new View({
-    center: fromLonLat([-71.06, 42.37]),
+    center: fromLonLat([-117.1493, 32.6965]),
     zoom: 12
   })
 });
