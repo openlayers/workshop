@@ -40,7 +40,7 @@ client.send();
 
 const color = [255, 0, 0, 0.5];
 
-class PointsLayer extends VectorLayer {
+class CustomLayer extends VectorLayer {
   createRenderer() {
     return new Renderer(this, {
       colorCallback: function(feature, vertex, component) {
@@ -78,7 +78,7 @@ new Map({
         layer: 'toner'
       })
     }),
-    new PointsLayer({
+    new CustomLayer({
       source: source
     })
   ],

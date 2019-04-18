@@ -50,7 +50,7 @@ const start = Date.now();
 let currentYear = minYear;
 //! [years]
 
-class PointsLayer extends VectorLayer {
+class CustomLayer extends VectorLayer {
   createRenderer() {
     return new Renderer(this, {
       colorCallback: function(feature, vertex, component) {
@@ -115,7 +115,7 @@ const map = new Map({
         layer: 'toner'
       })
     }),
-    new PointsLayer({
+    new CustomLayer({
       source: source
     })
   ],
