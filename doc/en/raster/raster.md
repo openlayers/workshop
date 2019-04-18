@@ -38,4 +38,4 @@ Finally, render the output from the raster operation by adding the source to an 
 
 With all this in place, [the map]({{book.workshopUrl}}/) should now have a slider that let's users control changes in sea level.
 
-![Sea level rise in Boston](raster.png)
+![Sea level rise in San Diego](raster.png)
