@@ -98,6 +98,7 @@ class CustomLayer extends VectorLayer {
 
           gl_FragColor = v_color;
           gl_FragColor.a *= alpha;
+          gl_FragColor.rgb *= gl_FragColor.a;
         }`
       //! [fragment]
     });
