@@ -1,12 +1,11 @@
 import 'ol/ol.css';
 import {fromLonLat} from 'ol/proj';
 import {Map, View} from 'ol';
-import {Vector as VectorLayer, Tile as TileLayer} from 'ol/layer';
+import {Tile as TileLayer} from 'ol/layer';
+import {WebGLPoints as WebGLPointsLayer} from 'ol/layer';
 import {Vector as VectorSource, Stamen} from 'ol/source';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
-import Renderer from 'ol/renderer/webgl/PointsLayer';
-import {clamp} from 'ol/math';
 
 const source = new VectorSource();
 
@@ -38,38 +37,6 @@ client.onload = function() {
 };
 client.send();
 
-const color = [1, 0, 0, 0.5];
-
-class CustomLayer extends VectorLayer {
-  createRenderer() {
-    return new Renderer(this, {
-      colorCallback: function(feature, vertex, component) {
-        return color[component];
-      },
-      sizeCallback: function(feature) {
-        return 18 * clamp(feature.get('mass') / 200000, 0, 1) + 8;
-      },
-      //! [fragment]
-      fragmentShader: `
-        precision mediump float;
-
-        varying vec2 v_texCoord;
-        varying vec4 v_color;
-
-        void main(void) {
-          vec2 texCoord = v_texCoord * 2.0 - vec2(1.0, 1.0);
-          float sqRadius = texCoord.x * texCoord.x + texCoord.y * texCoord.y;
-          float value = 2.0 * (1.0 - sqRadius);
-          float alpha = smoothstep(0.0, 1.0, value);
-
-          gl_FragColor = v_color;
-          gl_FragColor.a *= alpha;
-        }`
-      //! [fragment]
-    });
-  }
-}
-
 new Map({
   target: 'map-container',
   layers: [
@@ -78,12 +45,37 @@ new Map({
         layer: 'toner'
       })
     }),
-    new CustomLayer({
-      source: source
+//! [layer]
+    new WebGLPointsLayer({
+      source: source,
+      style: {
+        symbol: {
+          symbolType: 'circle',
+          // equivalent to: 18 * clamp('mass' / 200000, 0, 1) + 8
+          size: ['+', ['*', ['clamp', ['*', ['get', 'mass'], 1/20000], 0, 1], 18], 8],
+          color: 'rgba(255,0,0,0.5)'
+        }
+      }
     })
+//! [layer]
   ],
   view: new View({
     center: [0, 0],
     zoom: 2
   })
 });
+
+//! [expression]
+// equivalent to: 18 * clamp('mass' / 200000, 0, 1) + 8
+size: ['+', ['*', ['clamp', ['*', ['get', 'mass'], 1/20000], 0, 1], 18], 8],
+//! [expression]
+
+//! [operator1]
+  ['get', 'mass']
+//! [operator1]
+//! [operator2]
+  ['clamp', value, 0, 1]]
+//! [operator2]
+//! [operator3]
+  ['*', value, 3]
+//! [operator3]

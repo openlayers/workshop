@@ -5,7 +5,9 @@ import {Vector as VectorLayer, Tile as TileLayer} from 'ol/layer';
 import {Vector as VectorSource, Stamen} from 'ol/source';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
+//! [renderer]
 import Renderer from 'ol/renderer/webgl/PointsLayer';
+//! [renderer]
 import {clamp} from 'ol/math';
 
 const source = new VectorSource();
@@ -38,8 +40,6 @@ client.onload = function() {
 };
 client.send();
 
-const color = [1, 0, 0, 0.5];
-
 //! [years]
 const minYear = 1850;
 const maxYear = 2015;
@@ -50,57 +50,93 @@ const start = Date.now();
 let currentYear = minYear;
 //! [years]
 
+//! [customlayer]
 class CustomLayer extends VectorLayer {
   createRenderer() {
     return new Renderer(this, {
-      colorCallback: function(feature, vertex, component) {
-        return color[component];
+      // options go here
+    })
+  }
+};
+//! [customlayer]
+
+class CustomLayer extends VectorLayer {
+  createRenderer() {
+    return new Renderer(this, {
+      //! [attributes]
+      attributes: [{
+        name: 'size',
+        callback: function (feature) {
+          return 32 * clamp(feature.get('mass') / 200000, 0, 1) + 16;
+        }
       },
-      sizeCallback: function(feature) {
-        return 18 * clamp(feature.get('mass') / 200000, 0, 1) + 8;
-      },
-      //! [opacity]
-      opacityCallback: function(feature) {
-        // here the opacity channel of the vertices is used to store the year of impact
-        return feature.get('year');
-      },
-      //! [opacity]
+      {
+        name: 'year',
+        callback: function (feature) {
+          return feature.get('year');
+        },
+      }],
+      //! [attributes]
       //! [uniforms]
       uniforms: {
         u_currentYear: function() {
           return currentYear;
         }
       },
-      //! [uniforms]
-      //! [fragment]
+      //! [uniforms],
+      //! [shaders]
+      vertexShader: `
+        precision mediump float;
+
+        uniform mat4 u_projectionMatrix;
+        uniform mat4 u_offsetScaleMatrix;
+        uniform mat4 u_offsetRotateMatrix;
+
+        attribute vec2 a_position;
+        attribute float a_index;
+        attribute float a_size;
+        attribute float a_year;
+
+        varying vec2 v_texCoord;
+        varying float v_year;
+
+        void main(void) {
+          mat4 offsetMatrix = u_offsetScaleMatrix;
+          float offsetX = a_index == 0.0 || a_index == 3.0 ? -a_size / 2.0 : a_size / 2.0;
+          float offsetY = a_index == 0.0 || a_index == 1.0 ? -a_size / 2.0 : a_size / 2.0;
+          vec4 offsets = offsetMatrix * vec4(offsetX, offsetY, 0.0, 0.0);
+          gl_Position = u_projectionMatrix * vec4(a_position, 0.0, 1.0) + offsets;
+          float u = a_index == 0.0 || a_index == 3.0 ? 0.0 : 1.0;
+          float v = a_index == 0.0 || a_index == 1.0 ? 0.0 : 1.0;
+          v_texCoord = vec2(u, v);
+          v_year = a_year;
+        }`,
       fragmentShader: `
         precision mediump float;
 
         uniform float u_currentYear;
 
         varying vec2 v_texCoord;
-        varying vec4 v_color;
-        varying float v_opacity;
+        varying float v_year;
 
         void main(void) {
-          float impactYear = v_opacity;
-          if (impactYear > u_currentYear) {
+          if (v_year > u_currentYear) {
             discard;
           }
 
           vec2 texCoord = v_texCoord * 2.0 - vec2(1.0, 1.0);
           float sqRadius = texCoord.x * texCoord.x + texCoord.y * texCoord.y;
-          
-          float factor = pow(1.1, u_currentYear - impactYear);
+
+          float factor = pow(1.1, u_currentYear - v_year);
 
           float value = 2.0 * (1.0 - sqRadius * factor);
           float alpha = smoothstep(0.0, 1.0, value);
 
-          gl_FragColor = v_color;
+          gl_FragColor = vec4(1.0, 0.0, 0.0, 0.5);
           gl_FragColor.a *= alpha;
           gl_FragColor.rgb *= gl_FragColor.a;
         }`
-      //! [fragment]
+      //! [shaders]
     });
   }
 }
@@ -140,3 +176,66 @@ function render() {
 
 render();
 //! [animate]
+
+
+{
+  //! [fragment]
+  fragmentShader: `
+    precision mediump float;
+
+    uniform float u_currentYear;
+
+    varying vec2 v_texCoord;
+    varying float v_year;
+
+    void main(void) {
+      if (v_year > u_currentYear) {
+        discard;
+      }
+
+      vec2 texCoord = v_texCoord * 2.0 - vec2(1.0, 1.0);
+      float sqRadius = texCoord.x * texCoord.x + texCoord.y * texCoord.y;
+
+      float factor = pow(1.1, u_currentYear - v_year);
+
+      float value = 2.0 * (1.0 - sqRadius * factor);
+      float alpha = smoothstep(0.0, 1.0, value);
+
+      gl_FragColor = vec4(1.0, 0.0, 0.0, 0.5);
+      gl_FragColor.a *= alpha;
+      gl_FragColor.rgb *= gl_FragColor.a;
+    }`
+  //! [fragment]
+};
+
+{
+  fragmentShader: `
+    precision mediump float;
+
+    uniform float u_currentYear;
+
+    varying vec2 v_texCoord;
+    varying float v_year;
+
+    void main(void) {
+      //! [discard]
+      if (v_year > u_currentYear) {
+        discard;
+      }
+      //! [discard]
+
+      //! [alpha]
+      vec2 texCoord = v_texCoord * 2.0 - vec2(1.0, 1.0);
+      float sqRadius = texCoord.x * texCoord.x + texCoord.y * texCoord.y;
+      
+      float factor = pow(1.1, u_currentYear - v_year);
+
+      float value = 2.0 * (1.0 - sqRadius * factor);
+      float alpha = smoothstep(0.0, 1.0, value);
+      //! [alpha]
+
+      gl_FragColor = vec4(1.0, 0.0, 0.0, 0.5);
+      gl_FragColor.a *= alpha;
+      gl_FragColor.rgb *= gl_FragColor.a;
+    }`
+};
