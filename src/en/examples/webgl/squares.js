@@ -1,14 +1,13 @@
 import 'ol/ol.css';
 import {fromLonLat} from 'ol/proj';
 import {Map, View} from 'ol';
-import {Vector as VectorLayer, Tile as TileLayer} from 'ol/layer';
+import {Tile as TileLayer} from 'ol/layer';
+//! [imports]
+import {WebGLPoints as WebGLPointsLayer} from 'ol/layer';
+//! [imports]
 import {Vector as VectorSource, Stamen} from 'ol/source';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
-//! [imports]
-import Renderer from 'ol/renderer/webgl/PointsLayer';
-import {clamp} from 'ol/math';
-//! [imports]
 
 const source = new VectorSource();
 
@@ -40,37 +39,27 @@ client.onload = function() {
 };
 client.send();
 
-//! [points]
-const color = [1, 0, 0, 0.5];
-
-class CustomLayer extends VectorLayer {
-  createRenderer() {
-    return new Renderer(this, {
-      colorCallback: function(feature, vertex, component) {
-        return color[component];
-      },
-      sizeCallback: function(feature) {
-        return 18 * clamp(feature.get('mass') / 200000, 0, 1) + 8;
-      }
-    });
-  }
-}
-//! [points]
-
 new Map({
   target: 'map-container',
+//! [layer]
   layers: [
     new TileLayer({
       source: new Stamen({
         layer: 'toner'
       })
     }),
-    //! [layer]
-    new CustomLayer({
-      source: source
+    new WebGLPointsLayer({
+      source: source,
+      style: {
+        symbol: {
+          symbolType: 'square',
+          size: 10,
+          color: 'rgba(255,0,0,0.5)'
+        }
+      }
     })
-    //! [layer]
   ],
+//! [layer]
   view: new View({
     center: [0, 0],
     zoom: 2
