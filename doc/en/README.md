@@ -28,4 +28,5 @@ The following modules will be covered in this workshop:
 * [WebGL Rendering](webgl/README.md) - Rendering meteorite impact sites with WebGL.
 * [Vector Tiles](vectortile/README.md) - Create beautiful maps with vector tiles.
 * [Raster Operations](raster/README.md) - Manipulating pixels with a raster source.
+* [Typescript](typescript/README.md) - Learn how to add a map to a webpage.
 * [Deploying](deploying/README.md) - Building applications for production.
