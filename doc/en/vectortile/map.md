@@ -14,7 +14,7 @@ For the application, we'll start with a fresh `main.js` in the root of the works
 
 [import:'imports'](../../../src/en/examples/vectortile/map.js)
 
-The data source we are going to use is street map data from OpenStreetMap. The provider of the tiles grants free access for demonstration purposes, but requires an access key. Please read the terms at https://openmaptiles.com/hosting/, where you can also get your own key. The code below assigns the key to a constant we're going to use later:
+The data source we are going to use is street map data from OpenStreetMap. The provider of the tiles grants free access for demonstration purposes, but requires an access key. Please read the terms at https://cloud.maptiler.com/, where you can also get your own key. The code below assigns the key to a constant we're going to use later:
 
 [import:'key'](../../../src/en/examples/vectortile/map.js)
 
