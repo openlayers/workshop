@@ -9,7 +9,7 @@ import {fromLonLat} from 'ol/proj';
 //! [imports]
 
 //! [key]
-// See https://openmaptiles.com/hosting/ for terms and API key
+// See https://cloud.maptiler.com/ for terms and API key
 const key = 'lirfd6Fegsjkvs0lshxe'; // use your own instead
 //! [key]
 
@@ -27,11 +27,11 @@ const map = new Map({
 const layer = new VectorTileLayer({
   source: new VectorTileSource({
     attributions: [
-      '<a href="http://www.openmaptiles.org/" target="_blank">&copy; OpenMapTiles</a>',
-      '<a href="http://www.openstreetmap.org/about/" target="_blank">&copy; OpenStreetMap contributors</a>'
+      '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a>',
+      '<a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
     ],
     format: new MVT(),
-    url: `https://free-{1-3}.tilehosting.com/data/v3/{z}/{x}/{y}.pbf.pict?key=${key}`,
+    url: `https://api.maptiler.com/tiles/v3/{z}/{x}/{y}.pbf?key=${key}`,
     maxZoom: 14
   })
 });
