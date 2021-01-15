@@ -1,5 +1,5 @@
 {
-  "glyphs": "https://maps.tilehosting.com/fonts/{fontstack}/{range}.pbf?key=lirfd6Fegsjkvs0lshxe",
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=lirfd6Fegsjkvs0lshxe",
   "id": "bright",
   "layers": [
     {
@@ -5016,10 +5016,10 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "https://maps.tilehosting.com/data/v3.json?key=lirfd6Fegsjkvs0lshxe"
+      "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=lirfd6Fegsjkvs0lshxe"
     }
   },
-  "sprite": "https://maps.tilehosting.com/styles/bright/sprite",
+  "sprite": "https://api.maptiler.com/maps/bright/sprite",
   "version": 8,
   "center": [
     -117.1625,
