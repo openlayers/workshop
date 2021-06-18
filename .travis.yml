@@ -9,12 +9,14 @@ cache:
     - node_modules
 before_deploy:
   - npm run archive:en
+  - npm run archive:fr
 deploy:
   provider: releases
   api_key:
     secure: ag2ObhNaZYbULIABDARbHyvqk9DChYg6j6HZUmocdfM4Go/MF/OckpR0VntiMKpv+eQ8vdmTyRWVcW4Y/B+AOkMs/fhRs4rYOLq7BXWyLLbcvNaXP+3n6HDB/RZBPcNCYdQUo+oDDOyk7W9vF5T3o4aKlXFRLQIVQgABrwEQC1I=
   file:
     - openlayers-workshop-en.zip
+    - openlayers-workshop-fr.zip
   on:
     repo: openlayers/workshop
     tags: true

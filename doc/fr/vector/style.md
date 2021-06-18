@@ -1,113 +1,61 @@
-# Styler les couches vecteur
+# Rendre l'éditeur plus joli
 
-1.  Nous allons commencer avec un exemple fonctionnel qui affiche l'empreinte des bâtiments dans une couche vecteur.  Ouvrez votre éditeur de texte et sauvez ce qui suit dans `map.html` à la racine de votre répertoire `workshop`:
+À ce stade, nous avons un éditeur d'objets géographiques avec des fonctionnalités d'importation, d'édition et d'exportation basiques. Mais nous n'avons pas passé de temps à essayer de rendre les objets géographiques plus jolis. Lorsque vous créez une couche vecteur dans OpenLayers, vous avez un ensemble de styles par défaut. Les interactions d'édition (dessin et modification) viennent également avec leurs propres styles par défaut. Vous avez peut-être remarqué que les géométries avaient une épaisseur plus importante lors de l'édition. Ce comportement peut être contrôlé en fournissant une option `style` à votre couche vecteur et aux interactions d'édition.
 
-  ```html
-  <!doctype html>
-  <html lang="en">
-    <head>
-      <link rel="stylesheet" href="/ol.css" type="text/css">
-      <style>
-      #map {
-        height: 256px;
-        width: 512px;
-      }
-      </style>
-      <title>OpenLayers example</title>
-      <script src="/loader.js" type="text/javascript"></script>
-    </head>
-    <body>
-      <h1>My Map</h1>
-      <div id="map"></div>
-      <script type="text/javascript">
-        var map = new ol.Map({
-          target: 'map',
-          layers: [
-            new ol.layer.Tile({
-              source: new ol.source.OSM()
-            }),
-            new ol.layer.Vector({
-              title: 'Buildings',
-              source: new ol.source.Vector({
-                url: '/data/layers/buildings.kml',
-                format: new ol.format.KML({
-                  extractStyles: false
-                })
-              }),
-              style: new ol.style.Style({
-                stroke: new ol.style.Stroke({color: 'red', width: 2})
-              })
-            })
-          ],
-          view: new ol.View({
-            center: ol.proj.fromLonLat([-122.79264450073244, 42.30975194250527]),
-            zoom: 16
-          })
-        });
-      </script>
-    </body>
-  </html>
-  ```
+## Style statique
 
-2. Ouvrez le fichier `map.html` dans votre navigateur pour voir les bâtiments avec un contour rouge:  {{ book.workshopUrl }}/map.html
+Si nous voulions donner à tous nos objets géographiques le même style, nous pourrions configurer notre couche vecteur comme ceci:
 
-3. Avec une compréhension basique du [stylage dans OpenLayers](style-intro.md), nous pouvons créer une fonction de style qui affiche les bâtiments dans différentes couleurs en fonction de la taille de leur empreinte au sol. Dans votre code d'initialisation de la carte, ajoutez les deux tableaux de style suivants et remplacez l'option `style` pour la couche `'Buildings'` avec la fonction de style ci-dessous:
+```js
+const layer = new VectorLayer({
+  source: source,
+  style: new Style({
+    fill: new Fill({
+      color: 'red'
+    }),
+    stroke: new Stroke({
+      color: 'white'
+    })
+  })
+});
+```
 
-  ```js
-    var defaultStyles = [
-      new ol.style.Style({
-        fill: new ol.style.Fill({color: 'navy'}),
-        stroke: new ol.style.Stroke({color: 'black', width: 1})
-      })
-    ];
-    var smallStyles = [
-      new ol.style.Style({
-        fill: new ol.style.Fill({color: 'olive'}),
-        stroke: new ol.style.Stroke({color: 'black', width: 1})
-      })
-    ];
+Il est également possible de définir la propriété `style` dans un tableau JavaScript de styles. Cela permet le rendu d'une ligne "emboitée" (une épaisseur large en dessous et une plus étroite au dessus), par exemple.
 
-    function style(feature, resolution) {
-      if (feature.get('shape_area') < 3000) {
-        return smallStyles;
-      } else {
-        return defaultStyles;
-      }
-    }
-  ```
+Bien qu'il n'y ait pas vraiment une bonne justification ici, pour le besoin de cet exercice, nous allons tirer parti du stylage *dynamique*.
 
-4. Sauvez vos changements et ouvrez `map.html` dans votre navigateur: {{ book.workshopUrl }}/map.html
+## Style dynamique
 
-    ![Bâtiment colorés par surface de l'empreinte au sol](style1.png)
+Lorsque vous voulez prendre des décisions sur la manière dont chaque objet géographique devrait être rendu basé sur quelque chose de l'objet géographique ou de la résolution de la vue actuelle, vous pouvez configurer une couche vecteur avec une fonction de style. Cette fonction est appelée pour chaque objet géographique à chaque frame de rendu, il est donc important d'écrire une fonction efficace si vous disposez de nombreux objets géographiques et souhaitez maintenir une bonne performance de rendu.
 
-5. Maintenant comme étape finale, ajoutons une étiquette aux bâtiments. Par simplicité, nous allons seulement utiliser une étiquette et un contour noir comme styles.
+Voici un exemple qui rend les objets géographiques en utilisant l'un des deux styles selon si l'attribut "name" commence par "A-M" ou "N-Z" (un exemple complètement artificiel).
 
-  ```js
-    style: (function() {
-      var stroke = new ol.style.Stroke({
-        color: 'black'
-      });
-      var textStroke = new ol.style.Stroke({
-        color: '#fff',
-        width: 3
-      });
-      var textFill = new ol.style.Fill({
-        color: '#000'
-      });
-      return function(feature, resolution) {
-        return [new ol.style.Style({
-          stroke: stroke,
-          text: new ol.style.Text({
-            font: '12px Calibri,sans-serif',
-            text: feature.get('key'),
-            fill: textFill,
-            stroke: textStroke
-          })
-        })];
-      };
-    })()
-  ```
+```js
+const layer = new VectorLayer({
+  source: source,
+  style: function(feature, resolution) {
+    const name = feature.get('name').toUpperCase();
+    return name < "N" ? style1 : style2; // assuming these are created elsewhere
+  }
+});
+```
 
-6. Sauvez vos changements et ouvrez `map.html` dans votre navigateur: {{ book.workshopUrl }}/map.html
+## Style basé sur la surface de la géométrie
 
-  ![Bâtiments avec étiquette issue de la clé `field`](style2.png)
+Pour voir comment fonctionne le stylage dynamique, nous allons créer une fonction de style qui rend les objets géographiques basées sur la zsurface de la géométrie. Pour ce faire, nous allons utiliser [le package `colormap`](https://www.npmjs.com/package/colormap) sur npm. Nous pouvons ajouter ceci à nos dépendances comme ceci:
+
+    npm install colormap
+
+Maintenant, nous devons importer les constructeurs de style, le package `colormap` et `ol/sphere` pour les calculs de surface sphériques.
+
+[import:'imports'](../../../src/en/examples/vector/style.js)
+
+Ensuite, nous écrirons quelques fonctions pour déterminer une couleur en fonction de la surface d'une géométrie:
+
+[import:'color'](../../../src/en/examples/vector/style.js)
+
+Et maintenant, nous pouvons ajouter une fonction qui crée un style avec une couleur de remplissage basée sur la surface géométrique. Définissez cette fonction comme propriété `style` de votre couche vecteur:
+
+[import:'style'](../../../src/en/examples/vector/style.js)
+
+![Objets géographiques coloriés par surface](style.png)
