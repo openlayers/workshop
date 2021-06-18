@@ -27,9 +27,12 @@ new VectorLayer({
 //! [interaction]
 map.on('pointermove', function(event) {
   source.clear();
-  map.forEachFeatureAtPixel(event.pixel, function(feature) {
-    const geometry = feature.getGeometry();
-    source.addFeature(new Feature(fromExtent(geometry.getExtent())));
+  map.forEachFeatureAtPixel(event.pixel, function(feature) {	  
+    let i = 0;
+    while (i < 1){
+		  const geometry = feature.getGeometry();
+		  source.addFeature(new Feature(fromExtent(geometry.getExtent())));
+		  i++;}
   }, {
     hitTolerance: 2
   });
