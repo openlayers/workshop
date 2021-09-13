@@ -11,7 +11,7 @@ First, edit your `index.html` so we're ready to render a full page map:
 Next we'll fetch and parse data from a local CSV file, add the resulting features to a vector source, and render it on the map with a vector layer.
 
 The `meteorites.csv` file has data in it that looks like this:
-```csv
+```
 name,mass,year,reclat,reclong
 Aachen,21,1880,50.775000,6.083330
 ...

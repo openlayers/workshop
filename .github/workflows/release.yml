@@ -1,0 +1,22 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release-latest-en:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: npm ci
+      - run: npm run archive:en
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest-en"
+          title: "OpenLayers Workshop"
+          files: |
+            openlayers-workshop-en.zip
