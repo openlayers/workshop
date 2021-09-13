@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: npm ci
       - run: npm run archive:en
 
       - uses: "marvinpinto/action-automatic-releases@latest"
