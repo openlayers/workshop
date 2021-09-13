@@ -3,11 +3,10 @@
 <html lang="pt" >
     <head>
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Dados vetoriais · GitBook</title>
+        <title>Dados vetoriais · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="HonKit 3.6.20">
         
         
         
@@ -62,7 +61,7 @@
     </head>
     <body>
         
-<div class="book">
+<div class="book honkit-cloak">
     <div class="book-summary">
         
             
@@ -429,8 +428,8 @@
     <li class="divider"></li>
 
     <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Publicado com GitBook
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Publicado com HonKit
         </a>
     </li>
 </ul>
@@ -469,10 +468,10 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="camadas-vetoriais">Camadas vetoriais</h1>
-<p>Camadas vetoriais s&#xE3;o representadas pela classe <code>ol.layer.Vector</code> e delegam para o cliente a renderiza&#xE7;&#xE3;o dos dados. Atualmente, o OpenLayers suporta uma renderiza&#xE7;&#xE3;o vetorial completa utilizando o Canvas, mas somente geometrias do tipo ponto no WebGL.</p>
+<p>Camadas vetoriais são representadas pela classe <code>ol.layer.Vector</code> e delegam para o cliente a renderização dos dados. Atualmente, o OpenLayers suporta uma renderização vetorial completa utilizando o Canvas, mas somente geometrias do tipo ponto no WebGL.</p>
 <h2 id="renderizando-features-no-cliente">Renderizando features no cliente</h2>
-<p>Vamos voltar ao exemplo WMS para gerar um mapa b&#xE1;sico do mundo. Adicionaremos algumas geometrias sobre o mapa numa camada vetorial.</p>
-<pre><code class="lang-html"><span class="hljs-meta">&lt;!doctype html&gt;</span>
+<p>Vamos voltar ao exemplo WMS para gerar um mapa básico do mundo. Adicionaremos algumas geometrias sobre o mapa numa camada vetorial.</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!doctype <span class="hljs-meta-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/ol.css&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span>&gt;</span>
@@ -483,28 +482,28 @@
       }
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>OpenLayers example<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/loader.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/loader.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>My Map<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;map&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="actionscript">
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript">
       <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.Map({
-        target: <span class="hljs-string">&apos;map&apos;</span>,
-        layers: [
+        <span class="hljs-attr">target</span>: <span class="hljs-string">&apos;map&apos;</span>,
+        <span class="hljs-attr">layers</span>: [
           <span class="hljs-keyword">new</span> ol.layer.Tile({
-            title: <span class="hljs-string">&apos;Global Imagery&apos;</span>,
-            source: <span class="hljs-keyword">new</span> ol.source.TileWMS({
-              url: <span class="hljs-string">&apos;https://ahocevar.com/geoserver/wms&apos;</span>,
-              params: {LAYERS: <span class="hljs-string">&apos;nasa:bluemarble&apos;</span>, TILED: <span class="hljs-literal">true</span>}
+            <span class="hljs-attr">title</span>: <span class="hljs-string">&apos;Global Imagery&apos;</span>,
+            <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.TileWMS({
+              <span class="hljs-attr">url</span>: <span class="hljs-string">&apos;https://ahocevar.com/geoserver/wms&apos;</span>,
+              <span class="hljs-attr">params</span>: {<span class="hljs-attr">LAYERS</span>: <span class="hljs-string">&apos;nasa:bluemarble&apos;</span>, <span class="hljs-attr">TILED</span>: <span class="hljs-literal">true</span>}
             })
           })
         ],
-        view: <span class="hljs-keyword">new</span> ol.View({
-          projection: <span class="hljs-string">&apos;EPSG:4326&apos;</span>,
-          center: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
-          zoom: <span class="hljs-number">0</span>,
-          maxResolution: <span class="hljs-number">0.703125</span>
+        <span class="hljs-attr">view</span>: <span class="hljs-keyword">new</span> ol.View({
+          <span class="hljs-attr">projection</span>: <span class="hljs-string">&apos;EPSG:4326&apos;</span>,
+          <span class="hljs-attr">center</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+          <span class="hljs-attr">zoom</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-attr">maxResolution</span>: <span class="hljs-number">0.703125</span>
         })
       });
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
@@ -513,56 +512,56 @@
 </code></pre>
 <h3 id="tarefas">Tarefas</h3>
 <ol>
-<li><p>Abra o arquivo <code>map.html</code> no seu editor de texto e copie o conte&#xFA;do inicial do exemplo WMS. Salve suas altera&#xE7;&#xF5;es e confirme que est&#xE1; funcionando no seu navegador: <a href="http://localhost:3000/map.html" target="_blank">http://localhost:3000/map.html</a></p>
+<li><p>Abra o arquivo <code>map.html</code> no seu editor de texto e copie o conteúdo inicial do exemplo WMS. Salve suas alterações e confirme que está funcionando no seu navegador: <a href="http://localhost:3000/map.html" target="_blank">http://localhost:3000/map.html</a></p>
 </li>
-<li><p>No seu c&#xF3;digo de inicializa&#xE7;&#xE3;o, adicione outra camada depois da camada Tile (cole o c&#xF3;digo abaixo). Isto adiciona uma nova camada vetorial ao seu mapa. Ela requisitar&#xE1; um conjuntos de features armazenadas no formato GeoJSON:</p>
+<li><p>No seu código de inicialização, adicione outra camada depois da camada Tile (cole o código abaixo). Isto adiciona uma nova camada vetorial ao seu mapa. Ela requisitará um conjuntos de features armazenadas no formato GeoJSON:</p>
 <pre><code class="lang-js"> <span class="hljs-keyword">new</span> ol.layer.Vector({
-   title: <span class="hljs-string">&apos;Earthquakes&apos;</span>,
-   source: <span class="hljs-keyword">new</span> ol.source.Vector({
-     url: <span class="hljs-string">&apos;/data/layers/7day-M2.5.json&apos;</span>,
-     format: <span class="hljs-keyword">new</span> ol.format.GeoJSON()
+   <span class="hljs-attr">title</span>: <span class="hljs-string">&apos;Earthquakes&apos;</span>,
+   <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.Vector({
+     <span class="hljs-attr">url</span>: <span class="hljs-string">&apos;/data/layers/7day-M2.5.json&apos;</span>,
+     <span class="hljs-attr">format</span>: <span class="hljs-keyword">new</span> ol.format.GeoJSON()
    }),
-   style: <span class="hljs-keyword">new</span> ol.style.Style({
-     image: <span class="hljs-keyword">new</span> ol.style.Circle({
-       radius: <span class="hljs-number">3</span>,
-       fill: <span class="hljs-keyword">new</span> ol.style.Fill({color: <span class="hljs-string">&apos;white&apos;</span>})
+   <span class="hljs-attr">style</span>: <span class="hljs-keyword">new</span> ol.style.Style({
+     <span class="hljs-attr">image</span>: <span class="hljs-keyword">new</span> ol.style.Circle({
+       <span class="hljs-attr">radius</span>: <span class="hljs-number">3</span>,
+       <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({<span class="hljs-attr">color</span>: <span class="hljs-string">&apos;white&apos;</span>})
      })
    })
  })
 </code></pre>
-<figure id="fig1.3.4.1"><img src="vector1.png" alt="Localiza&#xE7;&#xF5;es de terremoto"><figcaption>Localiza&#xE7;&#xF5;es de terremoto</figcaption></figure>
+<figure id="fig1.3.4.1"><img src="vector1.png" alt="Localizações de terremoto"><figcaption>Localizações de terremoto</figcaption></figure>
 </li>
 </ol>
 <h3 id="olhando-mais-de-perto">Olhando mais de perto</h3>
-<p>Vamos examinar a cria&#xE7;&#xE3;o da camada vetorial para termos uma ideia do que est&#xE1; acontecendo.</p>
+<p>Vamos examinar a criação da camada vetorial para termos uma ideia do que está acontecendo.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">new</span> ol.layer.Vector({
-  title: <span class="hljs-string">&apos;Earthquakes&apos;</span>,
-  source: <span class="hljs-keyword">new</span> ol.source.Vector({
-    url: <span class="hljs-string">&apos;/data/layers/7day-M2.5.json&apos;</span>,
-    format: <span class="hljs-keyword">new</span> ol.format.GeoJSON()
+  <span class="hljs-attr">title</span>: <span class="hljs-string">&apos;Earthquakes&apos;</span>,
+  <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.Vector({
+    <span class="hljs-attr">url</span>: <span class="hljs-string">&apos;/data/layers/7day-M2.5.json&apos;</span>,
+    <span class="hljs-attr">format</span>: <span class="hljs-keyword">new</span> ol.format.GeoJSON()
   }),
-  style: <span class="hljs-keyword">new</span> ol.style.Style({
-    image: <span class="hljs-keyword">new</span> ol.style.Circle({
-      radius: <span class="hljs-number">3</span>,
-      fill: <span class="hljs-keyword">new</span> ol.style.Fill({color: <span class="hljs-string">&apos;white&apos;</span>})
+  <span class="hljs-attr">style</span>: <span class="hljs-keyword">new</span> ol.style.Style({
+    <span class="hljs-attr">image</span>: <span class="hljs-keyword">new</span> ol.style.Circle({
+      <span class="hljs-attr">radius</span>: <span class="hljs-number">3</span>,
+      <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({<span class="hljs-attr">color</span>: <span class="hljs-string">&apos;white&apos;</span>})
     })
   })
 })
 </code></pre>
-<p>A camada recebe o t&#xED;tulo de <code>&apos;Earthquakes&apos;</code> e algumas outras op&#xE7;&#xF5;es. Dentre as op&#xE7;&#xF5;es, inclu&#xED;mos uma chave <code>source</code> do tipo <code>ol.source.Vector</code> que aponta para uma url. Al&#xE9;m disso, fornecemos o formato (<code>format</code>) que ser&#xE1; utilizado para fazer o parser dos dados.</p>
-<p><em>Nota</em> - Caso voc&#xEA; quisesse estilizar features em fun&#xE7;&#xE3;o de algum atributo, voc&#xEA; usaria uma fun&#xE7;&#xE3;o de estilo ao inv&#xE9;s do <code>ol.style.Style</code> para a op&#xE7;&#xE3;o <code>style</code> da classe <code>ol.layer.Vector</code>.</p>
-<h3 id="tarefa-de-b&#xF4;nus">Tarefa de B&#xF4;nus</h3>
+<p>A camada recebe o título de <code>&apos;Earthquakes&apos;</code> e algumas outras opções. Dentre as opções, incluímos uma chave <code>source</code> do tipo <code>ol.source.Vector</code> que aponta para uma url. Além disso, fornecemos o formato (<code>format</code>) que será utilizado para fazer o parser dos dados.</p>
+<p><em>Nota</em> - Caso você quisesse estilizar features em função de algum atributo, você usaria uma função de estilo ao invés do <code>ol.style.Style</code> para a opção <code>style</code> da classe <code>ol.layer.Vector</code>.</p>
+<h3 id="tarefa-de-bônus">Tarefa de Bônus</h3>
 <ol>
-<li><p>Os c&#xED;rculos brancos no mapa representam um objeto <code>ol.Feature</code> da sua camada <code>ol.layer.Vector</code>. Cada uma dessas features, possui as propriedades <code>title</code> e <code>summary</code>. Registre um listener <code>&apos;singleclick&apos;</code> no mapa que chama o m&#xE9;todo <code>forEachFeatureAtPixel</code> e mostra informa&#xE7;&#xF5;es sobre o terremoto abaixo do mapa.</p>
+<li><p>Os círculos brancos no mapa representam um objeto <code>ol.Feature</code> da sua camada <code>ol.layer.Vector</code>. Cada uma dessas features, possui as propriedades <code>title</code> e <code>summary</code>. Registre um listener <code>&apos;singleclick&apos;</code> no mapa que chama o método <code>forEachFeatureAtPixel</code> e mostra informações sobre o terremoto abaixo do mapa.</p>
 </li>
-<li><p>Os dados da camada vetorial s&#xE3;o de um feed publicado pela USGS (<a href="http://earthquake.usgs.gov/earthquakes/catalogs/" target="_blank">http://earthquake.usgs.gov/earthquakes/catalogs/</a>). Veja se voc&#xEA; consegue encontrar informa&#xE7;&#xF5;es adicionais em formatos suportados pelo OpenLayers. Se voc&#xEA; salvar outro documento no diret&#xF3;rio <code>data</code>, voc&#xEA; deve ser capaz de visualiz&#xE1;-lo por meio de uma camada vetorial. </p>
+<li><p>Os dados da camada vetorial são de um feed publicado pela USGS (<a href="http://earthquake.usgs.gov/earthquakes/catalogs/" target="_blank">http://earthquake.usgs.gov/earthquakes/catalogs/</a>). Veja se você consegue encontrar informações adicionais em formatos suportados pelo OpenLayers. Se você salvar outro documento no diretório <code>data</code>, você deve ser capaz de visualizá-lo por meio de uma camada vetorial. </p>
 </li>
 </ol>
-<h3 id="solu&#xE7;&#xF5;es">Solu&#xE7;&#xF5;es</h3>
-<p>Voc&#xEA; pode adicionar uma div <code>info</code> abaixo do seu mapa para responder a primeira tarefa de b&#xF4;nus:</p>
+<h3 id="soluções">Soluções</h3>
+<p>Você pode adicionar uma div <code>info</code> abaixo do seu mapa para responder a primeira tarefa de bônus:</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;info&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </code></pre>
-<p>e adicionar o seguinte c&#xF3;digo JavaScript para mostrar o t&#xED;tulo do objeto que recebeu o clique:</p>
+<p>e adicionar o seguinte código JavaScript para mostrar o título do objeto que recebeu o clique:</p>
 <pre><code class="lang-js">map.on(<span class="hljs-string">&apos;singleclick&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
   <span class="hljs-keyword">var</span> feature = map.forEachFeatureAtPixel(e.pixel, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">feature</span>) </span>{
     <span class="hljs-keyword">return</span> feature;
@@ -614,12 +613,56 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Dados vetoriais","level":"1.3.4","depth":2,"next":{"title":"Fontes de imagens vetoriais","level":"1.3.5","depth":2,"path":"layers/imagevector.md","ref":"layers/imagevector.md","articles":[]},"previous":{"title":"Fornecedores proprietários de blocos de dados de imagem","level":"1.3.3","depth":2,"path":"layers/proprietary.md","ref":"layers/proprietary.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock-patched","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock-patched":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"copy-code-button":{},"include-codeblock":{"unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Um mapa completo exibindo uma imagem do mundo","alt":"Um mapa completo exibindo uma imagem do mundo","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa completo exibindo uma imagem do mundo","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: Um breakpoint no depurador","alt":"Um breakpoint no depurador","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"Um breakpoint no depurador","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Uma camada WMS como uma fonte de dados de imagem","alt":"Uma camada WMS como uma fonte de dados de imagem","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada WMS como uma fonte de dados de imagem","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Uma camada `tiled` com uma fonte OSM","alt":"Uma camada `tiled` com uma fonte OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada `tiled` com uma fonte OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Um mapa com uma camada Bing","alt":"Um mapa com uma camada Bing","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa com uma camada Bing","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Localizações de terremoto","alt":"Localizações de terremoto","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Localizações de terremoto","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: O controle ScaleLine na parte inferior esquerda","alt":"O controle ScaleLine na parte inferior esquerda","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"O controle ScaleLine na parte inferior esquerda","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: O controle ScaleLine fora do mapa","alt":"O controle ScaleLine fora do mapa","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"O controle ScaleLine fora do mapa","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Usando uma interação para selecionar features de uma camada vetorial","alt":"Usando uma interação para selecionar features de uma camada vetorial","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para selecionar features de uma camada vetorial","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Usando uma interação para adicionar geometrias para uma fonte vetorial","alt":"Usando uma interação para adicionar geometrias para uma fonte vetorial","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para adicionar geometrias para uma fonte vetorial","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Edifícios rotulados utilizando o atributo `key`","alt":"Edifícios rotulados utilizando o atributo `key`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Edifícios rotulados utilizando o atributo `key`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"pt","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"layers/vector.md","mtime":"2018-05-13T21:05:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-15T23:50:57.231Z"},"basePath":"..","book":{"language":"pt"}});
+            gitbook.page.hasChanged({"page":{"title":"Dados vetoriais","level":"1.3.4","depth":2,"next":{"title":"Fontes de imagens vetoriais","level":"1.3.5","depth":2,"path":"layers/imagevector.md","ref":"layers/imagevector.md","articles":[]},"previous":{"title":"Fornecedores proprietários de blocos de dados de imagem","level":"1.3.3","depth":2,"path":"layers/proprietary.md","ref":"layers/proprietary.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.6.20","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Um mapa completo exibindo uma imagem do mundo","alt":"Um mapa completo exibindo uma imagem do mundo","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa completo exibindo uma imagem do mundo","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: Um breakpoint no depurador","alt":"Um breakpoint no depurador","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"Um breakpoint no depurador","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Uma camada WMS como uma fonte de dados de imagem","alt":"Uma camada WMS como uma fonte de dados de imagem","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada WMS como uma fonte de dados de imagem","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Uma camada `tiled` com uma fonte OSM","alt":"Uma camada `tiled` com uma fonte OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada `tiled` com uma fonte OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Um mapa com uma camada Bing","alt":"Um mapa com uma camada Bing","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa com uma camada Bing","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Localizações de terremoto","alt":"Localizações de terremoto","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Localizações de terremoto","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: O controle ScaleLine na parte inferior esquerda","alt":"O controle ScaleLine na parte inferior esquerda","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"O controle ScaleLine na parte inferior esquerda","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: O controle ScaleLine fora do mapa","alt":"O controle ScaleLine fora do mapa","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"O controle ScaleLine fora do mapa","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Usando uma interação para selecionar features de uma camada vetorial","alt":"Usando uma interação para selecionar features de uma camada vetorial","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para selecionar features de uma camada vetorial","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Usando uma interação para adicionar geometrias para uma fonte vetorial","alt":"Usando uma interação para adicionar geometrias para uma fonte vetorial","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para adicionar geometrias para uma fonte vetorial","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Edifícios rotulados utilizando o atributo `key`","alt":"Edifícios rotulados utilizando o atributo `key`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Edifícios rotulados utilizando o atributo `key`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"pt","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"layers/vector.md","mtime":"2021-09-13T15:35:15.825Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-09-13T15:36:17.569Z"},"basePath":"..","book":{"language":"pt"}});
         });
     </script>
 </div>
 
         
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
     
@@ -641,10 +684,6 @@
     
         
         <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
         
     
         

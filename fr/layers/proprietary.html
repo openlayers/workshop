@@ -3,11 +3,10 @@
 <html lang="fr" >
     <head>
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Fournisseurs de tuiles propriétaires · GitBook</title>
+        <title>Fournisseurs de tuiles propriétaires · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="HonKit 3.6.20">
         
         
         
@@ -62,7 +61,7 @@
     </head>
     <body>
         
-<div class="book">
+<div class="book honkit-cloak">
     <div class="book-summary">
         
             
@@ -429,8 +428,8 @@
     <li class="divider"></li>
 
     <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Publié avec GitBook
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Publié avec HonKit
         </a>
     </li>
 </ul>
@@ -468,28 +467,28 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="fournisseurs-de-tuiles-propri&#xE9;taires">Fournisseurs de tuiles propri&#xE9;taires</h1>
-<p>Dans les sections pr&#xE9;c&#xE9;dentes, nous avons affich&#xE9; des couches conformes au standard  WMS (OGC Web Map Service) et &#xE0; des caches personnalis&#xE9;s de tuiles. Les cartes en ligne (ou du moins les clients de tuiles de carte) ont &#xE9;t&#xE9; largement popularis&#xE9;s par la disponibilit&#xE9; de services de tuiles de carte propri&#xE9;taires. OpenLayers fournit de des types de couche qui fonctionnent avec ces services propri&#xE9;taires via leurs APIs.</p>
-<p>Dans cette section, nous allons repartir  de l&apos;exemple d&#xE9;velopp&#xE9; dans la <a href="cached.html">section pr&#xE9;c&#xE9;dente</a> en ajoutant un couche utilisant des tuiles issues de Bing.</p>
+                                <h1 id="fournisseurs-de-tuiles-propriétaires">Fournisseurs de tuiles propriétaires</h1>
+<p>Dans les sections précédentes, nous avons affiché des couches conformes au standard  WMS (OGC Web Map Service) et à des caches personnalisés de tuiles. Les cartes en ligne (ou du moins les clients de tuiles de carte) ont été largement popularisés par la disponibilité de services de tuiles de carte propriétaires. OpenLayers fournit de des types de couche qui fonctionnent avec ces services propriétaires via leurs APIs.</p>
+<p>Dans cette section, nous allons repartir  de l&apos;exemple développé dans la <a href="cached.html">section précédente</a> en ajoutant un couche utilisant des tuiles issues de Bing.</p>
 <h2 id="bing">Bing!</h2>
 <p>Ajoutons un couche Bing.</p>
-<h3 id="t&#xE2;ches">T&#xE2;ches</h3>
+<h3 id="tâches">Tâches</h3>
 <ol>
-<li><p>Dans votre fichier <code>map.html</code>, trouvez o&#xF9; la source OSM (OpenStreetMap) est configur&#xE9;e et changez-la en <code>ol.source.BingMaps</code></p>
+<li><p>Dans votre fichier <code>map.html</code>, trouvez où la source OSM (OpenStreetMap) est configurée et changez-la en <code>ol.source.BingMaps</code></p>
 <pre><code class="lang-js"> source: <span class="hljs-keyword">new</span> ol.source.BingMaps({
-   imagerySet: <span class="hljs-string">&apos;Road&apos;</span>,
-   key: <span class="hljs-string">&apos;&lt;Your Bing Maps Key Here&gt;&apos;</span>
+   <span class="hljs-attr">imagerySet</span>: <span class="hljs-string">&apos;Road&apos;</span>,
+   <span class="hljs-attr">key</span>: <span class="hljs-string">&apos;&lt;Your Bing Maps Key Here&gt;&apos;</span>
  })
 </code></pre>
-<p><em>Note</em> - L&apos;API de tuiles de Bing n&#xE9;cessite de que vous vous enregistriez pour avoir un cl&#xE9; d&apos;API &#xE0; utiliser pour votre application de cartographie en ligne.  L&apos;exemple ici utilise une cl&#xE9; d&apos;API que vous ne devriez pas utiliser en production.  pour utiliser la couche Bing en production, enregistrez-vous pour une cl&#xE9; d&apos;API sur <a href="https://www.bingmapsportal.com" target="_blank">https://www.bingmapsportal.com</a>.</p>
+<p><em>Note</em> - L&apos;API de tuiles de Bing nécessite de que vous vous enregistriez pour avoir un clé d&apos;API à utiliser pour votre application de cartographie en ligne.  L&apos;exemple ici utilise une clé d&apos;API que vous ne devriez pas utiliser en production.  pour utiliser la couche Bing en production, enregistrez-vous pour une clé d&apos;API sur <a href="https://www.bingmapsportal.com" target="_blank">https://www.bingmapsportal.com</a>.</p>
 </li>
 <li><p>Sauvez vos changements et rechargez <code>map.html</code> dans votre navigateur: <a href="http://localhost:3000/map.html" target="_blank">http://localhost:3000/map.html</a></p>
 <figure id="fig1.3.3.1"><img src="proprietary1.png" alt="Une carte avec des tuiles d&apos;un source de Bing Maps"><figcaption>Une carte avec des tuiles d&apos;un source de Bing Maps</figcaption></figure>
 </li>
 </ol>
 <h2 id="exemple-fonctionnel-complet">Exemple fonctionnel complet</h2>
-<p>Votre fichier r&#xE9;vis&#xE9; <code>map.html</code> devrait ressembler &#xE0; ceci:</p>
-<pre><code class="lang-html"><span class="hljs-meta">&lt;!doctype html&gt;</span>
+<p>Votre fichier révisé <code>map.html</code> devrait ressembler à ceci:</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!doctype <span class="hljs-meta-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/ol.css&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span>&gt;</span>
@@ -502,26 +501,26 @@
         <span class="hljs-attribute">color</span>: black;
       }
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/loader.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/loader.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>OpenLayers example<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>My Map<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;map&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;map&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="actionscript">
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript">
       <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.Map({
-        target: <span class="hljs-string">&apos;map&apos;</span>,
-        layers: [
+        <span class="hljs-attr">target</span>: <span class="hljs-string">&apos;map&apos;</span>,
+        <span class="hljs-attr">layers</span>: [
           <span class="hljs-keyword">new</span> ol.layer.Tile({
-            source: <span class="hljs-keyword">new</span> ol.source.BingMaps({
-              imagerySet: <span class="hljs-string">&apos;Road&apos;</span>,
-              key: <span class="hljs-string">&apos;&lt;Your Bing Maps Key Here&gt;&apos;</span>
+            <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.BingMaps({
+              <span class="hljs-attr">imagerySet</span>: <span class="hljs-string">&apos;Road&apos;</span>,
+              <span class="hljs-attr">key</span>: <span class="hljs-string">&apos;&lt;Your Bing Maps Key Here&gt;&apos;</span>
             })
           })
         ],
-        view: <span class="hljs-keyword">new</span> ol.View({
-          center: ol.proj.fromLonLat([<span class="hljs-number">126.97</span>, <span class="hljs-number">37.56</span>]),
-          zoom: <span class="hljs-number">9</span>
+        <span class="hljs-attr">view</span>: <span class="hljs-keyword">new</span> ol.View({
+          <span class="hljs-attr">center</span>: ol.proj.fromLonLat([<span class="hljs-number">126.97</span>, <span class="hljs-number">37.56</span>]),
+          <span class="hljs-attr">zoom</span>: <span class="hljs-number">9</span>
         })
       });
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
@@ -571,12 +570,56 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Fournisseurs de tuiles propriétaires","level":"1.3.3","depth":2,"next":{"title":"Données vecteur","level":"1.3.4","depth":2,"path":"layers/vector.md","ref":"layers/vector.md","articles":[]},"previous":{"title":"Sources tuilées","level":"1.3.2","depth":2,"path":"layers/cached.md","ref":"layers/cached.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock-patched","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock-patched":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"copy-code-button":{},"include-codeblock":{"unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Un carte fonctionnelle affichant une image du monde","alt":"Un carte fonctionnelle affichant une image du monde","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Un carte fonctionnelle affichant une image du monde","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: A un point d'arrêt dans le debugger","alt":"A un point d'arrêt dans le debugger","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"A un point d'arrêt dans le debugger","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Un WMS comme source image","alt":"Un WMS comme source image","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Un WMS comme source image","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Une couche tuilée avec une source de type OSM","alt":"Une couche tuilée avec une source de type OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Une couche tuilée avec une source de type OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Une carte avec des tuiles d'un source de Bing Maps","alt":"Une carte avec des tuiles d'un source de Bing Maps","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Une carte avec des tuiles d'un source de Bing Maps","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Emplacements de tremblements de terre","alt":"Emplacements de tremblements de terre","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Emplacements de tremblements de terre","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Une barre d'échelle par défaut dans le coin en bas à gauche","alt":"Une barre d'échelle par défaut dans le coin en bas à gauche","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"Une barre d'échelle par défaut dans le coin en bas à gauche","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","alt":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","alt":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","alt":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Bâtiments avec étiquette issue de la clé `field`","alt":"Bâtiments avec étiquette issue de la clé `field`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Bâtiments avec étiquette issue de la clé `field`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"fr","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"layers/proprietary.md","mtime":"2018-05-13T21:05:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-15T23:50:57.231Z"},"basePath":"..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Fournisseurs de tuiles propriétaires","level":"1.3.3","depth":2,"next":{"title":"Données vecteur","level":"1.3.4","depth":2,"path":"layers/vector.md","ref":"layers/vector.md","articles":[]},"previous":{"title":"Sources tuilées","level":"1.3.2","depth":2,"path":"layers/cached.md","ref":"layers/cached.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.6.20","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Un carte fonctionnelle affichant une image du monde","alt":"Un carte fonctionnelle affichant une image du monde","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Un carte fonctionnelle affichant une image du monde","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: A un point d'arrêt dans le debugger","alt":"A un point d'arrêt dans le debugger","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"A un point d'arrêt dans le debugger","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Un WMS comme source image","alt":"Un WMS comme source image","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Un WMS comme source image","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Une couche tuilée avec une source de type OSM","alt":"Une couche tuilée avec une source de type OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Une couche tuilée avec une source de type OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Une carte avec des tuiles d'un source de Bing Maps","alt":"Une carte avec des tuiles d'un source de Bing Maps","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Une carte avec des tuiles d'un source de Bing Maps","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Emplacements de tremblements de terre","alt":"Emplacements de tremblements de terre","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Emplacements de tremblements de terre","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Une barre d'échelle par défaut dans le coin en bas à gauche","alt":"Une barre d'échelle par défaut dans le coin en bas à gauche","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"Une barre d'échelle par défaut dans le coin en bas à gauche","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","alt":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","alt":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","alt":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Bâtiments avec étiquette issue de la clé `field`","alt":"Bâtiments avec étiquette issue de la clé `field`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Bâtiments avec étiquette issue de la clé `field`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"fr","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"layers/proprietary.md","mtime":"2021-09-13T15:35:15.817Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-09-13T15:36:17.569Z"},"basePath":"..","book":{"language":"fr"}});
         });
     </script>
 </div>
 
         
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
     
@@ -598,10 +641,6 @@
     
         
         <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
         
     
         

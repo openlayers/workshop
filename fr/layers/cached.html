@@ -3,11 +3,10 @@
 <html lang="fr" >
     <head>
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Sources tuilées · GitBook</title>
+        <title>Sources tuilées · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="HonKit 3.6.20">
         
         
         
@@ -62,7 +61,7 @@
     </head>
     <body>
         
-<div class="book">
+<div class="book honkit-cloak">
     <div class="book-summary">
         
             
@@ -429,8 +428,8 @@
     <li class="divider"></li>
 
     <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Publié avec GitBook
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Publié avec HonKit
         </a>
     </li>
 </ul>
@@ -469,38 +468,38 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="tuiles-mises-en-cache">Tuiles mises en cache</h1>
-<p>Par d&#xE9;faut, Une couche de type <code>Tile</code> fait des requ&#xEA;tes pour des images de 256 x 256 (pixel) pour remplir votre fen&#xEA;tre d&apos;affichage de carte et au del&#xE0;. Au fur et &#xE0; mesure des d&#xE9;placements et zoom sur votre carte, plus de requ&#xEA;tes vers des images seront effectu&#xE9;es pour remplir les surfaces que vous n&apos;avez pas encore visit&#xE9;es. Pendant que votre navigateur mettra en cache quelques unes des images demand&#xE9;es, une part importante du travail de traitement est typiquement requis c&#xF4;t&#xE9; serveur pour faire le rendu des images dynamiquement.</p>
-<p>Comme les couches tuil&#xE9;es font des appels &#xE0; des images en utilisant une grille r&#xE9;guli&#xE8;re, il est possible pour le serveur de mettre en cache ces images demand&#xE9;es et retourner le r&#xE9;sultat mis en cache, la prochaine fois que vous ou quelqu&apos;un d&apos;autre visitez la m&#xEA;me zone - r&#xE9;sultant en de meilleures performances.</p>
+<p>Par défaut, Une couche de type <code>Tile</code> fait des requêtes pour des images de 256 x 256 (pixel) pour remplir votre fenêtre d&apos;affichage de carte et au delà. Au fur et à mesure des déplacements et zoom sur votre carte, plus de requêtes vers des images seront effectuées pour remplir les surfaces que vous n&apos;avez pas encore visitées. Pendant que votre navigateur mettra en cache quelques unes des images demandées, une part importante du travail de traitement est typiquement requis côté serveur pour faire le rendu des images dynamiquement.</p>
+<p>Comme les couches tuilées font des appels à des images en utilisant une grille régulière, il est possible pour le serveur de mettre en cache ces images demandées et retourner le résultat mis en cache, la prochaine fois que vous ou quelqu&apos;un d&apos;autre visitez la même zone - résultant en de meilleures performances.</p>
 <h2 id="olsourcexyz"><code>ol.source.XYZ</code></h2>
-<p>La sp&#xE9;cification <code>Web Map Service</code> permet beaucoup de flexibilit&#xE9; par rapport &#xE0; ce qu&apos;un client peut demander. Sans contraintes, cela rend la mise en cache difficile ou impossible en pratique.</p>
-<p>A l&apos;extr&#xEA;me oppos&#xE9;, un service peut fournir des tuiles seulement &#xE0; un jeu de niveaux de zoom fixe et seulement pour une grille r&#xE9;guli&#xE8;re. Ce comportement peut &#xEA;tre g&#xE9;n&#xE9;ralis&#xE9; aux couches tuil&#xE9;es avec une source  de type <code>XYZ</code> - vous pouvez consid&#xE9;rer que X et Y indiquent la colonne et la ligne de la grille et que le Z repr&#xE9;sente le niveau de zoom.</p>
+<p>La spécification <code>Web Map Service</code> permet beaucoup de flexibilité par rapport à ce qu&apos;un client peut demander. Sans contraintes, cela rend la mise en cache difficile ou impossible en pratique.</p>
+<p>A l&apos;extrême opposé, un service peut fournir des tuiles seulement à un jeu de niveaux de zoom fixe et seulement pour une grille régulière. Ce comportement peut être généralisé aux couches tuilées avec une source  de type <code>XYZ</code> - vous pouvez considérer que X et Y indiquent la colonne et la ligne de la grille et que le Z représente le niveau de zoom.</p>
 <h2 id="olsourceosm"><code>ol.source.OSM</code></h2>
-<p>Le projet <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap (OSM)</a> est un effort  pour collecter et mettre &#xE0; disposition des donn&#xE9;es cartographiques pour l&apos;ensemble du monde. OSM fournit diff&#xE9;rents types de rendus des donn&#xE9;es sous forme de jeux de tuiles mis en cache. Ces rendus se conforment &#xE0; l&apos;arrangement de grille XYZ basique et peuvent &#xEA;tre utilis&#xE9;s dans une carte OpenLayers. La source de la couche <code>ol.source.OSM</code> permet d&apos;acc&#xE9;der aux tuiles OpenStreetMap.</p>
-<h3 id="t&#xE2;ches">T&#xE2;ches</h3>
+<p>Le projet <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap (OSM)</a> est un effort  pour collecter et mettre à disposition des données cartographiques pour l&apos;ensemble du monde. OSM fournit différents types de rendus des données sous forme de jeux de tuiles mis en cache. Ces rendus se conforment à l&apos;arrangement de grille XYZ basique et peuvent être utilisés dans une carte OpenLayers. La source de la couche <code>ol.source.OSM</code> permet d&apos;accéder aux tuiles OpenStreetMap.</p>
+<h3 id="tâches">Tâches</h3>
 <ol>
-<li><p>Ouvrez le fichier <code>map.html</code> de la <a href="wms.html">section pr&#xE9;c&#xE9;dente</a> dans votre &#xE9;diteur de texte et changez le code d&apos;initialisation de la carte pour qu&apos;il ressemble &#xE0; celui qui suit:</p>
-<pre><code class="lang-html"> <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+<li><p>Ouvrez le fichier <code>map.html</code> de la <a href="wms.html">section précédente</a> dans votre éditeur de texte et changez le code d&apos;initialisation de la carte pour qu&apos;il ressemble à celui qui suit:</p>
+<pre><code class="lang-html"> <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
    <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.Map({
-     target: <span class="hljs-string">&apos;map&apos;</span>,
-     layers: [
+     <span class="hljs-attr">target</span>: <span class="hljs-string">&apos;map&apos;</span>,
+     <span class="hljs-attr">layers</span>: [
        <span class="hljs-keyword">new</span> ol.layer.Tile({
-         source: <span class="hljs-keyword">new</span> ol.source.OSM()
+         <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.OSM()
        })
      ],
-     view: <span class="hljs-keyword">new</span> ol.View({
-       center: ol.proj.fromLonLat([<span class="hljs-number">126.97</span>, <span class="hljs-number">37.56</span>]),
-       zoom: <span class="hljs-number">9</span>
+     <span class="hljs-attr">view</span>: <span class="hljs-keyword">new</span> ol.View({
+       <span class="hljs-attr">center</span>: ol.proj.fromLonLat([<span class="hljs-number">126.97</span>, <span class="hljs-number">37.56</span>]),
+       <span class="hljs-attr">zoom</span>: <span class="hljs-number">9</span>
      }),
-     controls: ol.control.defaults({
-       attributionOptions: {
-         collapsible: <span class="hljs-literal">false</span>
+     <span class="hljs-attr">controls</span>: ol.control.defaults({
+       <span class="hljs-attr">attributionOptions</span>: {
+         <span class="hljs-attr">collapsible</span>: <span class="hljs-literal">false</span>
        }
      })
    });
  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
 </li>
-<li><p>Dans le bloc <code>&lt;head&gt;</code> du m&#xEA;me document, ajoutez quelques d&#xE9;clarations de style pour l&apos;attribution de la couche.</p>
+<li><p>Dans le bloc <code>&lt;head&gt;</code> du même document, ajoutez quelques déclarations de style pour l&apos;attribution de la couche.</p>
 <pre><code class="lang-html"> <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
      <span class="hljs-selector-id">#map</span> {
          <span class="hljs-attribute">width</span>: <span class="hljs-number">512px</span>;
@@ -513,57 +512,57 @@
 </code></pre>
 </li>
 <li><p>Sauvez vos changements et rafraichissez la page dans votre navigateur: <a href="http://localhost:3000/map.html" target="_blank">http://localhost:3000/map.html</a></p>
-<figure id="fig1.3.2.1"><img src="cached1.png" alt="Une couche tuil&#xE9;e avec une source de type OSM"><figcaption>Une couche tuil&#xE9;e avec une source de type OSM</figcaption></figure>
+<figure id="fig1.3.2.1"><img src="cached1.png" alt="Une couche tuilée avec une source de type OSM"><figcaption>Une couche tuilée avec une source de type OSM</figcaption></figure>
 </li>
 </ol>
-<h2 id="revue-de-d&#xE9;tails">Revue de d&#xE9;tails</h2>
+<h2 id="revue-de-détails">Revue de détails</h2>
 <h3 id="les-projections">Les projections</h3>
-<p>Revoyons la d&#xE9;finition d&apos;une vue dans la carte:</p>
+<p>Revoyons la définition d&apos;une vue dans la carte:</p>
 <pre><code class="lang-js">  view: <span class="hljs-keyword">new</span> ol.View({
-    center: ol.proj.fromLonLat([<span class="hljs-number">126.97</span>, <span class="hljs-number">37.56</span>]),
-    zoom: <span class="hljs-number">9</span>
+    <span class="hljs-attr">center</span>: ol.proj.fromLonLat([<span class="hljs-number">126.97</span>, <span class="hljs-number">37.56</span>]),
+    <span class="hljs-attr">zoom</span>: <span class="hljs-number">9</span>
   })
 </code></pre>
-<p>La donn&#xE9;e g&#xE9;ospatiale peut venir dans n&apos;importe quel syst&#xE8;me de coordonn&#xE9;es de r&#xE9;f&#xE9;rence. Un jeu de donn&#xE9;e peut utiliser des coordonn&#xE9;es g&#xE9;ographiques (longitude et latitude) en degr&#xE9;s, et un autre peut avoir des coordonn&#xE9;es dans une projection locale avec des unit&#xE9;s en m&#xE8;tres. Une discussion compl&#xE8;te sur les syst&#xE8;mes de r&#xE9;f&#xE9;rence de coordonn&#xE9;es va bien au del&#xE0; du p&#xE9;rim&#xE8;tre de ce module mais il est n&#xE9;anmoins important de comprendre le concept de base.</p>
-<p>OpenLayers doit conna&#xEE;tre le syst&#xE8;me de coordonn&#xE9;es de votre donn&#xE9;e. En interne, cela est repr&#xE9;sent&#xE9; avec un objet <code>ol.proj.Projection</code> mais des cha&#xEE;nes de caract&#xE8;re peuvent &#xEA;tre aussi utilis&#xE9;es.</p>
-<p>Les tuiles OpenStreetMap que nous utilisons sont dans une projection Mercator. Pour cette raison, nous devons d&#xE9;finir initialement le centre en utilisant des coordonn&#xE9;es en Mercator. Comme il est relativement simple de trouver les coordonn&#xE9;es pour un point d&apos;int&#xE9;r&#xEA;t en coordonn&#xE9;es g&#xE9;ographiques, nous utilisons la fonction <code>ol.proj.fromLonLat</code> pour transformer les coordonn&#xE9;es g&#xE9;ographiques (<code>&apos;EPSG:4326&apos;</code>) en coordonn&#xE9;es Mercator (<code>&apos;EPSG:3857&apos;</code>).</p>
+<p>La donnée géospatiale peut venir dans n&apos;importe quel système de coordonnées de référence. Un jeu de donnée peut utiliser des coordonnées géographiques (longitude et latitude) en degrés, et un autre peut avoir des coordonnées dans une projection locale avec des unités en mètres. Une discussion complète sur les systèmes de référence de coordonnées va bien au delà du périmètre de ce module mais il est néanmoins important de comprendre le concept de base.</p>
+<p>OpenLayers doit connaître le système de coordonnées de votre donnée. En interne, cela est représenté avec un objet <code>ol.proj.Projection</code> mais des chaînes de caractère peuvent être aussi utilisées.</p>
+<p>Les tuiles OpenStreetMap que nous utilisons sont dans une projection Mercator. Pour cette raison, nous devons définir initialement le centre en utilisant des coordonnées en Mercator. Comme il est relativement simple de trouver les coordonnées pour un point d&apos;intérêt en coordonnées géographiques, nous utilisons la fonction <code>ol.proj.fromLonLat</code> pour transformer les coordonnées géographiques (<code>&apos;EPSG:4326&apos;</code>) en coordonnées Mercator (<code>&apos;EPSG:3857&apos;</code>).</p>
 <h3 id="projections-alternatives">Projections alternatives</h3>
-<p>OpenLayers inclut les transformation entre les syst&#xE8;mes de r&#xE9;f&#xE9;rences de coordonn&#xE9;es g&#xE9;ographiques (<code>&apos;EPSG:4326&apos;</code>) et Web Mercator (<code>&apos;EPSG:3857&apos;</code>).  Pour cette raison, nous pouvons utiliser la fonction <code>ol.proj.fromLonLat</code> ci-dessus sans aucun travail suppl&#xE9;mentaire.  Si vous voulez travailler avec des donn&#xE9;es dans une projection diff&#xE9;rente, vous devez inclure des informations additionnelles avant d&apos;utiliser les fonctions <code>ol.proj.*</code>.</p>
-<p>Par exemple, si vous voulez travailler avec de la donn&#xE9;e dans le syst&#xE8;me de r&#xE9;f&#xE9;rence de coordonn&#xE9;es <code>&apos;EPSG:21781&apos;</code>, vous allez devoir inclure les deux tags <code>script</code> dans votre page:</p>
-<pre><code class="lang-html">  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://epsg.io/21781-1753.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<p>OpenLayers inclut les transformation entre les systèmes de références de coordonnées géographiques (<code>&apos;EPSG:4326&apos;</code>) et Web Mercator (<code>&apos;EPSG:3857&apos;</code>).  Pour cette raison, nous pouvons utiliser la fonction <code>ol.proj.fromLonLat</code> ci-dessus sans aucun travail supplémentaire.  Si vous voulez travailler avec des données dans une projection différente, vous devez inclure des informations additionnelles avant d&apos;utiliser les fonctions <code>ol.proj.*</code>.</p>
+<p>Par exemple, si vous voulez travailler avec de la donnée dans le système de référence de coordonnées <code>&apos;EPSG:21781&apos;</code>, vous allez devoir inclure les deux tags <code>script</code> dans votre page:</p>
+<pre><code class="lang-html">  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://epsg.io/21781-1753.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
-<p>Ensuite, dans le code de votre application, vous pouvez enregistrer cette projection et d&#xE9;finir la validit&#xE9; de son &#xE9;t&#xE9;endue comme ci-dessous:</p>
+<p>Ensuite, dans le code de votre application, vous pouvez enregistrer cette projection et définir la validité de son étéendue comme ci-dessous:</p>
 <pre><code class="lang-js">  <span class="hljs-comment">// This creates a projection object for the EPSG:21781 projection</span>
   <span class="hljs-comment">// and sets a &quot;validity extent&quot; in that projection object.</span>
   <span class="hljs-keyword">var</span> projection = ol.proj.get(<span class="hljs-string">&apos;EPSG:21781&apos;</span>);
   projection.setExtent([<span class="hljs-number">485869.5728</span>, <span class="hljs-number">76443.1884</span>, <span class="hljs-number">837076.5648</span>, <span class="hljs-number">299941.7864</span>]);
 </code></pre>
-<p>L&apos;information d&apos;&#xE9;tendue <code>extent</code> peut &#xEA;tre retrouv&#xE9;e sur <a href="http://epsg.io/" target="_blank">http://epsg.io/</a>, en utilisant le code EPSG.</p>
-<h3 id="cr&#xE9;ation-de-couche">Cr&#xE9;ation de couche</h3>
+<p>L&apos;information d&apos;étendue <code>extent</code> peut être retrouvée sur <a href="http://epsg.io/" target="_blank">http://epsg.io/</a>, en utilisant le code EPSG.</p>
+<h3 id="création-de-couche">Création de couche</h3>
 <pre><code class="lang-js">  layers: [
     <span class="hljs-keyword">new</span> ol.layer.Tile({
-      source: <span class="hljs-keyword">new</span> ol.source.OSM()
+      <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.OSM()
     })
   ],
 </code></pre>
-<p>Comme pr&#xE9;c&#xE9;demment, nous cr&#xE9;ons une couche et l&apos;ajoutons au tableau de couches dans la configuration de notre objet carte <code>map</code>. Cette fois, nous acceptons toutes les options par d&#xE9;faut de la <code>source</code>.</p>
+<p>Comme précédemment, nous créons une couche et l&apos;ajoutons au tableau de couches dans la configuration de notre objet carte <code>map</code>. Cette fois, nous acceptons toutes les options par défaut de la <code>source</code>.</p>
 <h3 id="style">Style</h3>
 <pre><code class="lang-css">  <span class="hljs-selector-class">.ol-attribution</span> <span class="hljs-selector-tag">a</span> {
     <span class="hljs-attribute">color</span>: black;
   }
 </code></pre>
-<p>Un traitement des <code>controls</code> de la carte est en dehors du p&#xE9;rim&#xE8;tre de ce module, mais ces d&#xE9;clarations de style vous donnent une l&#xE9;ger avant-go&#xFB;t/aper&#xE7;u. Par d&#xE9;faut, un <code>control</code> <code>ol.control.Attribution</code> est ajout&#xE9; &#xE0; toutes les cartes. Cela laisse les sources de couche afficher les informations d&apos;attribution dans la fen&#xEA;tre d&apos;affichage de carte. Les d&#xE9;clarations ci-dessus changent le style de cette attribution pour notre carte (remarquez la ligne de Copyright au pied droit de la carte).</p>
+<p>Un traitement des <code>controls</code> de la carte est en dehors du périmètre de ce module, mais ces déclarations de style vous donnent une léger avant-goût/aperçu. Par défaut, un <code>control</code> <code>ol.control.Attribution</code> est ajouté à toutes les cartes. Cela laisse les sources de couche afficher les informations d&apos;attribution dans la fenêtre d&apos;affichage de carte. Les déclarations ci-dessus changent le style de cette attribution pour notre carte (remarquez la ligne de Copyright au pied droit de la carte).</p>
 <h3 id="configuration-du-control-pour-lattribution">Configuration du <code>control</code> pour l&apos;attribution</h3>
-<p>Par d&#xE9;faut, <code>ol.control.Attribution</code> ajoute un bouton <code>i</code> (information) qui peut &#xEA;tre press&#xE9; pour afficher r&#xE9;ellement l&apos;information d&apos;attribution. Pour se conformer aux <a href="http://wiki.openstreetmap.org/wiki/FR:Questions_fr%C3%A9quentes_l%C3%A9gales" target="_blank">termes d&apos;utilisation d&apos;OpenStreetMap</a>, et toujours afficher l&apos;information d&apos;attribution d&apos;OpenStreetMap, ce qui suit est utilis&#xE9; dans les options de l&apos;objet pass&#xE9; au constructeur <code>ol.Map</code>:</p>
+<p>Par défaut, <code>ol.control.Attribution</code> ajoute un bouton <code>i</code> (information) qui peut être pressé pour afficher réellement l&apos;information d&apos;attribution. Pour se conformer aux <a href="http://wiki.openstreetmap.org/wiki/FR:Questions_fr%C3%A9quentes_l%C3%A9gales" target="_blank">termes d&apos;utilisation d&apos;OpenStreetMap</a>, et toujours afficher l&apos;information d&apos;attribution d&apos;OpenStreetMap, ce qui suit est utilisé dans les options de l&apos;objet passé au constructeur <code>ol.Map</code>:</p>
 <pre><code class="lang-js">  controls: ol.control.defaults({
-    attributionOptions: {
-      collapsible: <span class="hljs-literal">false</span>
+    <span class="hljs-attr">attributionOptions</span>: {
+      <span class="hljs-attr">collapsible</span>: <span class="hljs-literal">false</span>
     }
   })
 </code></pre>
-<p>Cela enl&#xE8;ve le bouton <code>i</code>, et rend l&apos;information d&apos;attribution toujours visible.</p>
-<p>Apr&#xE8;s avoir ma&#xEE;tris&#xE9; les couches avec les jeux de tuiles mis en cache publics, passons au travail avec <a href="proprietary.html">les couches raster propri&#xE9;taires</a>.</p>
+<p>Cela enlève le bouton <code>i</code>, et rend l&apos;information d&apos;attribution toujours visible.</p>
+<p>Après avoir maîtrisé les couches avec les jeux de tuiles mis en cache publics, passons au travail avec <a href="proprietary.html">les couches raster propriétaires</a>.</p>
 
                                 
                                 </section>
@@ -607,12 +606,56 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Sources tuilées","level":"1.3.2","depth":2,"next":{"title":"Fournisseurs de tuiles propriétaires","level":"1.3.3","depth":2,"path":"layers/proprietary.md","ref":"layers/proprietary.md","articles":[]},"previous":{"title":"Sources WMS","level":"1.3.1","depth":2,"path":"layers/wms.md","ref":"layers/wms.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock-patched","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock-patched":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"copy-code-button":{},"include-codeblock":{"unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Un carte fonctionnelle affichant une image du monde","alt":"Un carte fonctionnelle affichant une image du monde","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Un carte fonctionnelle affichant une image du monde","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: A un point d'arrêt dans le debugger","alt":"A un point d'arrêt dans le debugger","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"A un point d'arrêt dans le debugger","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Un WMS comme source image","alt":"Un WMS comme source image","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Un WMS comme source image","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Une couche tuilée avec une source de type OSM","alt":"Une couche tuilée avec une source de type OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Une couche tuilée avec une source de type OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Une carte avec des tuiles d'un source de Bing Maps","alt":"Une carte avec des tuiles d'un source de Bing Maps","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Une carte avec des tuiles d'un source de Bing Maps","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Emplacements de tremblements de terre","alt":"Emplacements de tremblements de terre","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Emplacements de tremblements de terre","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Une barre d'échelle par défaut dans le coin en bas à gauche","alt":"Une barre d'échelle par défaut dans le coin en bas à gauche","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"Une barre d'échelle par défaut dans le coin en bas à gauche","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","alt":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","alt":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","alt":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Bâtiments avec étiquette issue de la clé `field`","alt":"Bâtiments avec étiquette issue de la clé `field`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Bâtiments avec étiquette issue de la clé `field`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"fr","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"layers/cached.md","mtime":"2018-05-13T21:05:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-15T23:50:57.231Z"},"basePath":"..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Sources tuilées","level":"1.3.2","depth":2,"next":{"title":"Fournisseurs de tuiles propriétaires","level":"1.3.3","depth":2,"path":"layers/proprietary.md","ref":"layers/proprietary.md","articles":[]},"previous":{"title":"Sources WMS","level":"1.3.1","depth":2,"path":"layers/wms.md","ref":"layers/wms.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.6.20","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Un carte fonctionnelle affichant une image du monde","alt":"Un carte fonctionnelle affichant une image du monde","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Un carte fonctionnelle affichant une image du monde","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: A un point d'arrêt dans le debugger","alt":"A un point d'arrêt dans le debugger","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"A un point d'arrêt dans le debugger","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Un WMS comme source image","alt":"Un WMS comme source image","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Un WMS comme source image","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Une couche tuilée avec une source de type OSM","alt":"Une couche tuilée avec une source de type OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Une couche tuilée avec une source de type OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Une carte avec des tuiles d'un source de Bing Maps","alt":"Une carte avec des tuiles d'un source de Bing Maps","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Une carte avec des tuiles d'un source de Bing Maps","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Emplacements de tremblements de terre","alt":"Emplacements de tremblements de terre","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Emplacements de tremblements de terre","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Une barre d'échelle par défaut dans le coin en bas à gauche","alt":"Une barre d'échelle par défaut dans le coin en bas à gauche","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"Une barre d'échelle par défaut dans le coin en bas à gauche","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","alt":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","alt":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","alt":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Bâtiments avec étiquette issue de la clé `field`","alt":"Bâtiments avec étiquette issue de la clé `field`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Bâtiments avec étiquette issue de la clé `field`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"fr","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"layers/cached.md","mtime":"2021-09-13T15:35:15.817Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-09-13T15:36:17.569Z"},"basePath":"..","book":{"language":"fr"}});
         });
     </script>
 </div>
 
         
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
     
@@ -634,10 +677,6 @@
     
         
         <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
         
     
         

@@ -3,11 +3,10 @@
 <html lang="en" >
     <head>
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Map setup · GitBook</title>
+        <title>Map setup · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="HonKit 3.6.20">
         
         
         
@@ -62,7 +61,7 @@
     </head>
     <body>
         
-<div class="book">
+<div class="book honkit-cloak">
     <div class="book-summary">
         
             
@@ -481,8 +480,8 @@
     <li class="divider"></li>
 
     <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
         </a>
     </li>
 </ul>
@@ -524,7 +523,7 @@
 <p>In OpenLayers 6, each layer in a map has an independent renderer.  Previously, all layer rendering was managed by a single map renderer and depended on a single rendering strategy.  So prior to OpenLayers 6, you needed to choose between Canvas 2D or WebGL rendering for all layers.  In OpenLayers 6, you can have a map composed of layers with different rendering strategies.  For example, you can render some layers with a Canvas 2D renderer and others with a WebGL renderer.</p>
 <p>The <code>ol/layer/Vector</code> class uses Canvas 2D to render points, lines, or polygons.  This layer has a full featured renderer with a ton of flexibility in feature styling.  For very large numbers of features, WebGL is a more appropriate technology.  In this module, we&apos;ll start by using Canvas 2D to render 45,000 meteorite locations and then migrate the example to WebGL.</p>
 <p>First, edit your <code>index.html</code> so we&apos;re ready to render a full page map:</p>
-<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
@@ -550,11 +549,10 @@
 </code></pre>
 <p>Next we&apos;ll fetch and parse data from a local CSV file, add the resulting features to a vector source, and render it on the map with a vector layer.</p>
 <p>The <code>meteorites.csv</code> file has data in it that looks like this:</p>
-<pre><code class="lang-csv">name,mass,year,reclat,reclong
+<pre><code>name,mass,year,reclat,reclong
 Aachen,21,1880,50.775000,6.083330
 ...
-</code></pre>
-<p>The first line of the file is a header line that we&apos;ll skip over when parsing.  Subsequent lines have the name of the site, the mass of the meteorite, the year of impact, the latitude, and the longitude separated by commas.  We&apos;ll use an <code>XMLHttpRequest</code> client to fetch the data and write a short function to parse lines in the file as features with point geometries.</p>
+</code></pre><p>The first line of the file is a header line that we&apos;ll skip over when parsing.  Subsequent lines have the name of the site, the mass of the meteorite, the year of impact, the latitude, and the longitude separated by commas.  We&apos;ll use an <code>XMLHttpRequest</code> client to fetch the data and write a short function to parse lines in the file as features with point geometries.</p>
 <p>Update your <code>main.js</code> to load and render a local CSV file with data representing meteorite impacts:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">&apos;ol/ol.css&apos;</span>;
 <span class="hljs-keyword">import</span> {fromLonLat} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/proj&apos;</span>;
@@ -575,7 +573,7 @@ client.onload = <span class="hljs-function"><span class="hljs-keyword">function<
   <span class="hljs-keyword">let</span> prevIndex = csv.indexOf(<span class="hljs-string">&apos;\n&apos;</span>) + <span class="hljs-number">1</span>; <span class="hljs-comment">// scan past the header line</span>
 
   <span class="hljs-keyword">let</span> curIndex;
-  <span class="hljs-keyword">while</span> ((curIndex = csv.indexOf(<span class="hljs-string">&apos;\n&apos;</span>, prevIndex)) != <span class="hljs-number">-1</span>) {
+  <span class="hljs-keyword">while</span> ((curIndex = csv.indexOf(<span class="hljs-string">&apos;\n&apos;</span>, prevIndex)) != -<span class="hljs-number">1</span>) {
     <span class="hljs-keyword">const</span> line = csv.substr(prevIndex, curIndex - prevIndex).split(<span class="hljs-string">&apos;,&apos;</span>);
     prevIndex = curIndex + <span class="hljs-number">1</span>;
 
@@ -586,9 +584,9 @@ client.onload = <span class="hljs-function"><span class="hljs-keyword">function<
     }
 
     features.push(<span class="hljs-keyword">new</span> Feature({
-      mass: <span class="hljs-built_in">parseFloat</span>(line[<span class="hljs-number">1</span>]) || <span class="hljs-number">0</span>,
-      year: <span class="hljs-built_in">parseInt</span>(line[<span class="hljs-number">2</span>]) || <span class="hljs-number">0</span>,
-      geometry: <span class="hljs-keyword">new</span> Point(coords)
+      <span class="hljs-attr">mass</span>: <span class="hljs-built_in">parseFloat</span>(line[<span class="hljs-number">1</span>]) || <span class="hljs-number">0</span>,
+      <span class="hljs-attr">year</span>: <span class="hljs-built_in">parseInt</span>(line[<span class="hljs-number">2</span>]) || <span class="hljs-number">0</span>,
+      <span class="hljs-attr">geometry</span>: <span class="hljs-keyword">new</span> Point(coords)
     }));
   }
   source.addFeatures(features);
@@ -597,20 +595,20 @@ client.send();
 
 
 <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>({
-  target: <span class="hljs-string">&apos;map-container&apos;</span>,
-  layers: [
+  <span class="hljs-attr">target</span>: <span class="hljs-string">&apos;map-container&apos;</span>,
+  <span class="hljs-attr">layers</span>: [
     <span class="hljs-keyword">new</span> TileLayer({
-      source: <span class="hljs-keyword">new</span> Stamen({
-        layer: <span class="hljs-string">&apos;toner&apos;</span>
+      <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> Stamen({
+        <span class="hljs-attr">layer</span>: <span class="hljs-string">&apos;toner&apos;</span>
       })
     }),
     <span class="hljs-keyword">new</span> VectorLayer({
-      source: source
+      <span class="hljs-attr">source</span>: source
     })
   ],
-  view: <span class="hljs-keyword">new</span> View({
-    center: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
-    zoom: <span class="hljs-number">2</span>
+  <span class="hljs-attr">view</span>: <span class="hljs-keyword">new</span> View({
+    <span class="hljs-attr">center</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+    <span class="hljs-attr">zoom</span>: <span class="hljs-number">2</span>
   })
 });
 </code></pre>
@@ -659,12 +657,56 @@ client.send();
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Map setup","level":"1.5.1","depth":2,"next":{"title":"Rendering points","level":"1.5.2","depth":2,"path":"webgl/points.md","ref":"webgl/points.md","articles":[]},"previous":{"title":"WebGL Rendering","level":"1.5","depth":1,"path":"webgl/README.md","ref":"webgl/README.md","articles":[{"title":"Map setup","level":"1.5.1","depth":2,"path":"webgl/meteorites.md","ref":"webgl/meteorites.md","articles":[]},{"title":"Rendering points","level":"1.5.2","depth":2,"path":"webgl/points.md","ref":"webgl/points.md","articles":[]},{"title":"Animating points","level":"1.5.3","depth":2,"path":"webgl/animated.md","ref":"webgl/animated.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock-patched","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock-patched":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"copy-code-button":{},"include-codeblock":{"unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/index.html#fig1.2.1","level":"1.2","list_caption":"Figure: A map of the world","alt":"A map of the world","nro":1,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of the world","attributes":{},"skip":false,"key":"1.2.1"},{"backlink":"vector/geojson.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: GeoJSON features","alt":"GeoJSON features","nro":2,"url":"geojson.png","index":1,"caption_template":"_CAPTION_","label":"GeoJSON features","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"vector/drag-n-drop.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Drag and drop","alt":"Drag and drop","nro":3,"url":"drag-n-drop.png","index":1,"caption_template":"_CAPTION_","label":"Drag and drop","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"vector/modify.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Modifying features","alt":"Modifying features","nro":4,"url":"modify.png","index":1,"caption_template":"_CAPTION_","label":"Modifying features","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"vector/draw.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: A new island nation in the Caribbean","alt":"A new island nation in the Caribbean","nro":5,"url":"draw.png","index":1,"caption_template":"_CAPTION_","label":"A new island nation in the Caribbean","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"vector/snap.html#fig1.3.5.1","level":"1.3.5","list_caption":"Figure: Uniting nations with the snap interaction","alt":"Uniting nations with the snap interaction","nro":6,"url":"snap.png","index":1,"caption_template":"_CAPTION_","label":"Uniting nations with the snap interaction","attributes":{},"skip":false,"key":"1.3.5.1"},{"backlink":"vector/download.html#fig1.3.6.1","level":"1.3.6","list_caption":"Figure: Buttons to clear and download data","alt":"Buttons to clear and download data","nro":7,"url":"download.png","index":1,"caption_template":"_CAPTION_","label":"Buttons to clear and download data","attributes":{},"skip":false,"key":"1.3.6.1"},{"backlink":"vector/style.html#fig1.3.7.1","level":"1.3.7","list_caption":"Figure: Features colored by area","alt":"Features colored by area","nro":8,"url":"style.png","index":1,"caption_template":"_CAPTION_","label":"Features colored by area","attributes":{},"skip":false,"key":"1.3.7.1"},{"backlink":"mobile/map.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Map on a smartphone","alt":"Map on a smartphone","nro":9,"url":"map.jpeg","index":1,"caption_template":"_CAPTION_","label":"Map on a smartphone","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"mobile/geolocation.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Location with accuracy polygon","alt":"Location with accuracy polygon","nro":10,"url":"geolocation.jpeg","index":1,"caption_template":"_CAPTION_","label":"Location with accuracy polygon","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"mobile/compass.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: User looking around with the navigation tool","alt":"User looking around with the navigation tool","nro":11,"url":"compass.gif","index":1,"caption_template":"_CAPTION_","label":"User looking around with the navigation tool","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"webgl/meteorites.html#fig1.5.1.1","level":"1.5.1","list_caption":"Figure: Meteorite impact sites","alt":"Meteorite impact sites","nro":12,"url":"meteorites.png","index":1,"caption_template":"_CAPTION_","label":"Meteorite impact sites","attributes":{},"skip":false,"key":"1.5.1.1"},{"backlink":"webgl/points.html#fig1.5.2.1","level":"1.5.2","list_caption":"Figure: Square craters","alt":"Square craters","nro":13,"url":"squares.png","index":1,"caption_template":"_CAPTION_","label":"Square craters","attributes":{},"skip":false,"key":"1.5.2.1"},{"backlink":"webgl/points.html#fig1.5.2.2","level":"1.5.2","list_caption":"Figure: Circular craters","alt":"Circular craters","nro":14,"url":"circles.png","index":2,"caption_template":"_CAPTION_","label":"Circular craters","attributes":{},"skip":false,"key":"1.5.2.2"},{"backlink":"webgl/animated.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Through the years","alt":"Through the years","nro":15,"url":"years.gif","index":1,"caption_template":"_CAPTION_","label":"Through the years","attributes":{},"skip":false,"key":"1.5.3.1"},{"backlink":"webgl/animated.html#fig1.5.3.2","level":"1.5.3","list_caption":"Figure: Meteor shower","alt":"Meteor shower","nro":16,"url":"shower.gif","index":2,"caption_template":"_CAPTION_","label":"Meteor shower","attributes":{},"skip":false,"key":"1.5.3.2"},{"backlink":"vectortile/map.html#fig1.6.1.1","level":"1.6.1","list_caption":"Figure: A world map without style, centered on San Diego","alt":"A world map without style, centered on San Diego","nro":17,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A world map without style, centered on San Diego","attributes":{},"skip":false,"key":"1.6.1.1"},{"backlink":"vectortile/bright.html#fig1.6.2.1","level":"1.6.2","list_caption":"Figure: A bright map of San Diego","alt":"A bright map of San Diego","nro":18,"url":"bright.png","index":1,"caption_template":"_CAPTION_","label":"A bright map of San Diego","attributes":{},"skip":false,"key":"1.6.2.1"},{"backlink":"vectortile/interact.html#fig1.6.3.1","level":"1.6.3","list_caption":"Figure: Hovering over the map","alt":"Hovering over the map","nro":19,"url":"interact.gif","index":1,"caption_template":"_CAPTION_","label":"Hovering over the map","attributes":{},"skip":false,"key":"1.6.3.1"},{"backlink":"raster/map.html#fig1.7.1.1","level":"1.7.1","list_caption":"Figure: A map of San Diego","alt":"A map of San Diego","nro":20,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of San Diego","attributes":{},"skip":false,"key":"1.7.1.1"},{"backlink":"raster/elevation.html#fig1.7.2.1","level":"1.7.2","list_caption":"Figure: Terrain-RGB tiles rendered over San Diego","alt":"Terrain-RGB tiles rendered over San Diego","nro":21,"url":"elevation.png","index":1,"caption_template":"_CAPTION_","label":"Terrain-RGB tiles rendered over San Diego","attributes":{},"skip":false,"key":"1.7.2.1"},{"backlink":"raster/raster.html#fig1.7.3.1","level":"1.7.3","list_caption":"Figure: Sea level rise in San Diego","alt":"Sea level rise in San Diego","nro":22,"url":"raster.png","index":1,"caption_template":"_CAPTION_","label":"Sea level rise in San Diego","attributes":{},"skip":false,"key":"1.7.3.1"}]},"language":"en","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"webgl/meteorites.md","mtime":"2019-04-18T15:23:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-15T23:50:57.231Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Map setup","level":"1.5.1","depth":2,"next":{"title":"Rendering points","level":"1.5.2","depth":2,"path":"webgl/points.md","ref":"webgl/points.md","articles":[]},"previous":{"title":"WebGL Rendering","level":"1.5","depth":1,"path":"webgl/README.md","ref":"webgl/README.md","articles":[{"title":"Map setup","level":"1.5.1","depth":2,"path":"webgl/meteorites.md","ref":"webgl/meteorites.md","articles":[]},{"title":"Rendering points","level":"1.5.2","depth":2,"path":"webgl/points.md","ref":"webgl/points.md","articles":[]},{"title":"Animating points","level":"1.5.3","depth":2,"path":"webgl/animated.md","ref":"webgl/animated.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.6.20","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/index.html#fig1.2.1","level":"1.2","list_caption":"Figure: A map of the world","alt":"A map of the world","nro":1,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of the world","attributes":{},"skip":false,"key":"1.2.1"},{"backlink":"vector/geojson.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: GeoJSON features","alt":"GeoJSON features","nro":2,"url":"geojson.png","index":1,"caption_template":"_CAPTION_","label":"GeoJSON features","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"vector/drag-n-drop.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Drag and drop","alt":"Drag and drop","nro":3,"url":"drag-n-drop.png","index":1,"caption_template":"_CAPTION_","label":"Drag and drop","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"vector/modify.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Modifying features","alt":"Modifying features","nro":4,"url":"modify.png","index":1,"caption_template":"_CAPTION_","label":"Modifying features","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"vector/draw.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: A new island nation in the Caribbean","alt":"A new island nation in the Caribbean","nro":5,"url":"draw.png","index":1,"caption_template":"_CAPTION_","label":"A new island nation in the Caribbean","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"vector/snap.html#fig1.3.5.1","level":"1.3.5","list_caption":"Figure: Uniting nations with the snap interaction","alt":"Uniting nations with the snap interaction","nro":6,"url":"snap.png","index":1,"caption_template":"_CAPTION_","label":"Uniting nations with the snap interaction","attributes":{},"skip":false,"key":"1.3.5.1"},{"backlink":"vector/download.html#fig1.3.6.1","level":"1.3.6","list_caption":"Figure: Buttons to clear and download data","alt":"Buttons to clear and download data","nro":7,"url":"download.png","index":1,"caption_template":"_CAPTION_","label":"Buttons to clear and download data","attributes":{},"skip":false,"key":"1.3.6.1"},{"backlink":"vector/style.html#fig1.3.7.1","level":"1.3.7","list_caption":"Figure: Features colored by area","alt":"Features colored by area","nro":8,"url":"style.png","index":1,"caption_template":"_CAPTION_","label":"Features colored by area","attributes":{},"skip":false,"key":"1.3.7.1"},{"backlink":"mobile/map.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Map on a smartphone","alt":"Map on a smartphone","nro":9,"url":"map.jpeg","index":1,"caption_template":"_CAPTION_","label":"Map on a smartphone","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"mobile/geolocation.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Location with accuracy polygon","alt":"Location with accuracy polygon","nro":10,"url":"geolocation.jpeg","index":1,"caption_template":"_CAPTION_","label":"Location with accuracy polygon","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"mobile/compass.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: User looking around with the navigation tool","alt":"User looking around with the navigation tool","nro":11,"url":"compass.gif","index":1,"caption_template":"_CAPTION_","label":"User looking around with the navigation tool","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"webgl/meteorites.html#fig1.5.1.1","level":"1.5.1","list_caption":"Figure: Meteorite impact sites","alt":"Meteorite impact sites","nro":12,"url":"meteorites.png","index":1,"caption_template":"_CAPTION_","label":"Meteorite impact sites","attributes":{},"skip":false,"key":"1.5.1.1"},{"backlink":"webgl/points.html#fig1.5.2.1","level":"1.5.2","list_caption":"Figure: Square craters","alt":"Square craters","nro":13,"url":"squares.png","index":1,"caption_template":"_CAPTION_","label":"Square craters","attributes":{},"skip":false,"key":"1.5.2.1"},{"backlink":"webgl/points.html#fig1.5.2.2","level":"1.5.2","list_caption":"Figure: Circular craters","alt":"Circular craters","nro":14,"url":"circles.png","index":2,"caption_template":"_CAPTION_","label":"Circular craters","attributes":{},"skip":false,"key":"1.5.2.2"},{"backlink":"webgl/animated.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Through the years","alt":"Through the years","nro":15,"url":"years.gif","index":1,"caption_template":"_CAPTION_","label":"Through the years","attributes":{},"skip":false,"key":"1.5.3.1"},{"backlink":"webgl/animated.html#fig1.5.3.2","level":"1.5.3","list_caption":"Figure: Meteor shower","alt":"Meteor shower","nro":16,"url":"shower.gif","index":2,"caption_template":"_CAPTION_","label":"Meteor shower","attributes":{},"skip":false,"key":"1.5.3.2"},{"backlink":"vectortile/map.html#fig1.6.1.1","level":"1.6.1","list_caption":"Figure: A world map without style, centered on San Diego","alt":"A world map without style, centered on San Diego","nro":17,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A world map without style, centered on San Diego","attributes":{},"skip":false,"key":"1.6.1.1"},{"backlink":"vectortile/bright.html#fig1.6.2.1","level":"1.6.2","list_caption":"Figure: A bright map of San Diego","alt":"A bright map of San Diego","nro":18,"url":"bright.png","index":1,"caption_template":"_CAPTION_","label":"A bright map of San Diego","attributes":{},"skip":false,"key":"1.6.2.1"},{"backlink":"vectortile/interact.html#fig1.6.3.1","level":"1.6.3","list_caption":"Figure: Hovering over the map","alt":"Hovering over the map","nro":19,"url":"interact.gif","index":1,"caption_template":"_CAPTION_","label":"Hovering over the map","attributes":{},"skip":false,"key":"1.6.3.1"},{"backlink":"raster/map.html#fig1.7.1.1","level":"1.7.1","list_caption":"Figure: A map of San Diego","alt":"A map of San Diego","nro":20,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of San Diego","attributes":{},"skip":false,"key":"1.7.1.1"},{"backlink":"raster/elevation.html#fig1.7.2.1","level":"1.7.2","list_caption":"Figure: Terrain-RGB tiles rendered over San Diego","alt":"Terrain-RGB tiles rendered over San Diego","nro":21,"url":"elevation.png","index":1,"caption_template":"_CAPTION_","label":"Terrain-RGB tiles rendered over San Diego","attributes":{},"skip":false,"key":"1.7.2.1"},{"backlink":"raster/raster.html#fig1.7.3.1","level":"1.7.3","list_caption":"Figure: Sea level rise in San Diego","alt":"Sea level rise in San Diego","nro":22,"url":"raster.png","index":1,"caption_template":"_CAPTION_","label":"Sea level rise in San Diego","attributes":{},"skip":false,"key":"1.7.3.1"}]},"language":"en","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"webgl/meteorites.md","mtime":"2021-09-13T15:35:15.769Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-09-13T15:36:17.569Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
 
         
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
     
@@ -686,10 +728,6 @@ client.send();
     
         
         <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
         
     
         

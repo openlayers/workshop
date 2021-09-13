@@ -3,11 +3,10 @@
 <html lang="fr" >
     <head>
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Concepts de styles · GitBook</title>
+        <title>Concepts de styles · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="HonKit 3.6.20">
         
         
         
@@ -62,7 +61,7 @@
     </head>
     <body>
         
-<div class="book">
+<div class="book honkit-cloak">
     <div class="book-summary">
         
             
@@ -429,8 +428,8 @@
     <li class="divider"></li>
 
     <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Publié avec GitBook
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Publié avec HonKit
         </a>
     </li>
 </ul>
@@ -469,28 +468,28 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="comprendre-les-styles">Comprendre les styles</h1>
-<p>Quand vous stylez des &#xE9;l&#xE9;ments HTML, vous devez utilisez des CSS ressemblant &#xE0; ci-dessous:</p>
+<p>Quand vous stylez des éléments HTML, vous devez utilisez des CSS ressemblant à ci-dessous:</p>
 <pre><code class="lang-css">  <span class="hljs-selector-class">.someClass</span> {
     <span class="hljs-attribute">background-color</span>: blue;
     <span class="hljs-attribute">border-width</span>: <span class="hljs-number">1px</span>;
     <span class="hljs-attribute">border-color</span>: olive;
   }
 </code></pre>
-<p>Le texte <code>.someClass</code> est un s&#xE9;lecteur (dans ce cas, il s&#xE9;lectionne tous les &#xE9;l&#xE9;ments qui incluent le nom de la classe <code>&apos;someClass&apos;</code>) et le bloc qui suit est un groupe de propri&#xE9;t&#xE9;s nomm&#xE9;es avec des valeurs, connues aussi comme d&#xE9;clarations de style.</p>
+<p>Le texte <code>.someClass</code> est un sélecteur (dans ce cas, il sélectionne tous les éléments qui incluent le nom de la classe <code>&apos;someClass&apos;</code>) et le bloc qui suit est un groupe de propriétés nommées avec des valeurs, connues aussi comme déclarations de style.</p>
 <h2 id="style-de-couche">Style de couche</h2>
-<p>Une couche vecteur peut avoir des styles. Plus sp&#xE9;cifiquement, une couche vecteur peut &#xEA;tre configur&#xE9;e avec un objet <code>ol.style.Style</code>, un tableau d&apos;objets <code>ol.style.Style</code>, ou une fonction qui prend pour argument une instance <code>ol.Feature</code> et une  r&#xE9;solution et qui retourne un tableau d&apos;objets <code>ol.style.Style</code>.</p>
-<p>Voici un exemple de couche vecteur configur&#xE9;e avec un style statique:</p>
+<p>Une couche vecteur peut avoir des styles. Plus spécifiquement, une couche vecteur peut être configurée avec un objet <code>ol.style.Style</code>, un tableau d&apos;objets <code>ol.style.Style</code>, ou une fonction qui prend pour argument une instance <code>ol.Feature</code> et une  résolution et qui retourne un tableau d&apos;objets <code>ol.style.Style</code>.</p>
+<p>Voici un exemple de couche vecteur configurée avec un style statique:</p>
 <pre><code class="lang-js">  <span class="hljs-keyword">var</span> layer = <span class="hljs-keyword">new</span> ol.layer.Vector({
-    source: <span class="hljs-keyword">new</span> ol.source.Vector(),
-    style: <span class="hljs-keyword">new</span> ol.style.Style({
+    <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.Vector(),
+    <span class="hljs-attr">style</span>: <span class="hljs-keyword">new</span> ol.style.Style({
       <span class="hljs-comment">// ...</span>
     })
   });
 </code></pre>
-<p>Et voici un exemple de couche vecteur configur&#xE9;e avec une fonction de style qui applique un style &#xE0; tous les objets g&#xE9;ographiques qui ont un attribut nomm&#xE9; <code>class</code> avec une valeur de <code>&apos;someClass&apos;</code>:</p>
+<p>Et voici un exemple de couche vecteur configurée avec une fonction de style qui applique un style à tous les objets géographiques qui ont un attribut nommé <code>class</code> avec une valeur de <code>&apos;someClass&apos;</code>:</p>
 <pre><code class="lang-js">  <span class="hljs-keyword">var</span> layer = <span class="hljs-keyword">new</span> ol.layer.Vector({
-    source: <span class="hljs-keyword">new</span> ol.source.Vector(),
-    style: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">feature, resolution</span>) </span>{
+    <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.Vector(),
+    <span class="hljs-attr">style</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">feature, resolution</span>) </span>{
       <span class="hljs-keyword">if</span> (feature.get(<span class="hljs-string">&apos;class&apos;</span>) === <span class="hljs-string">&apos;someClass&apos;</span>) {
         <span class="hljs-comment">// create styles...</span>
         <span class="hljs-keyword">return</span> styles;
@@ -499,46 +498,46 @@
   });
 </code></pre>
 <h2 id="les-symboliseurs">Les symboliseurs</h2>
-<p>L&apos;&#xE9;quivalent d&apos;un bloc de d&#xE9;claration en CSS est un <code>symboliseur</code> en OpenLayers (ce sont typiquement des instances de classes <code>ol.style</code>). Pour peindre des objets g&#xE9;ographiques avec un fond bleu et une ligne de 1 pixel de large de couleur olive, vous devrez utilisez deux symboliseurs comme suivant:</p>
+<p>L&apos;équivalent d&apos;un bloc de déclaration en CSS est un <code>symboliseur</code> en OpenLayers (ce sont typiquement des instances de classes <code>ol.style</code>). Pour peindre des objets géographiques avec un fond bleu et une ligne de 1 pixel de large de couleur olive, vous devrez utilisez deux symboliseurs comme suivant:</p>
 <pre><code class="lang-js">  <span class="hljs-keyword">new</span> ol.style.Style({
-    fill: <span class="hljs-keyword">new</span> ol.style.Fill({
-      color: <span class="hljs-string">&apos;blue&apos;</span>
+    <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({
+      <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;blue&apos;</span>
     }),
-    stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
-      color: <span class="hljs-string">&apos;olive&apos;</span>,
-      width: <span class="hljs-number">1</span>
+    <span class="hljs-attr">stroke</span>: <span class="hljs-keyword">new</span> ol.style.Stroke({
+      <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;olive&apos;</span>,
+      <span class="hljs-attr">width</span>: <span class="hljs-number">1</span>
     })
   });
 </code></pre>
-<p>En fonction du type de g&#xE9;om&#xE9;trie, diff&#xE9;rents symboliseurs peuvent &#xEA;tre appliqu&#xE9;s. Les lignes fonctionnent comme les polygones, mais elles ne peuvent pas avoir un remplissage. Les points peuvent &#xEA;tre styl&#xE9;s avec <code>ol.style.Circle</code> et <code>ol.style.Icon</code>. Le premier est utilis&#xE9; pour faire le rendu des formes de type cercle, et le dernier utilise les images venant de fichiers (e.g. comme des images png). Voici un exemple pour les styles avec un cercle:</p>
+<p>En fonction du type de géométrie, différents symboliseurs peuvent être appliqués. Les lignes fonctionnent comme les polygones, mais elles ne peuvent pas avoir un remplissage. Les points peuvent être stylés avec <code>ol.style.Circle</code> et <code>ol.style.Icon</code>. Le premier est utilisé pour faire le rendu des formes de type cercle, et le dernier utilise les images venant de fichiers (e.g. comme des images png). Voici un exemple pour les styles avec un cercle:</p>
 <pre><code class="lang-js">  <span class="hljs-keyword">new</span> ol.style.Circle({
-    radius: <span class="hljs-number">20</span>,
-    fill: <span class="hljs-keyword">new</span> ol.style.Fill({
-      color: <span class="hljs-string">&apos;#ff9900&apos;</span>,
-      opacity: <span class="hljs-number">0.6</span>
+    <span class="hljs-attr">radius</span>: <span class="hljs-number">20</span>,
+    <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({
+      <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;#ff9900&apos;</span>,
+      <span class="hljs-attr">opacity</span>: <span class="hljs-number">0.6</span>
     }),
-    stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
-      color: <span class="hljs-string">&apos;#ffcc00&apos;</span>,
-      opacity: <span class="hljs-number">0.4</span>
+    <span class="hljs-attr">stroke</span>: <span class="hljs-keyword">new</span> ol.style.Stroke({
+      <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;#ffcc00&apos;</span>,
+      <span class="hljs-attr">opacity</span>: <span class="hljs-number">0.4</span>
     })
   });
 </code></pre>
 <h2 id="olstylestyle"><code>ol.style.Style</code></h2>
-<p>Un objet <code>ol.style.Style</code> a 4 cl&#xE9;s: <code>fill</code>, <code>image</code>, <code>stroke</code> et <code>text</code>. Il a aussi une propri&#xE9;t&#xE9; optionnelle <code>zIndex</code>. La fonction de style retournera un tableau d&apos;objets <code>ol.style.Style</code>.</p>
-<p>Si vous voulez que tous les objets g&#xE9;ographiques soit colori&#xE9;s en rouge &#xE0; l&apos;exception de ceux qui ont une attribut <code>class</code> ayant pour valeur <code>&quot;someClass&quot;</code> (et que vous voulez que ces objets g&#xE9;ographiques soient colori&#xE9;s en bleu avec une ligne de 1 pixel de large de couleur olive), vous devrez cr&#xE9;er une fonction de style qui resssemble &#xE0; celle qui suit (par ailleurs, il est important de cr&#xE9;er les objets en dehors de la fonction de style afin qu&apos;ils puissent &#xEA;tre r&#xE9;utilis&#xE9;s, mais pour des raisons de simplicit&#xE9; les objets sont cr&#xE9;&#xE9;s &quot;inline&quot; dans l&apos;exemple ci-dessous):</p>
+<p>Un objet <code>ol.style.Style</code> a 4 clés: <code>fill</code>, <code>image</code>, <code>stroke</code> et <code>text</code>. Il a aussi une propriété optionnelle <code>zIndex</code>. La fonction de style retournera un tableau d&apos;objets <code>ol.style.Style</code>.</p>
+<p>Si vous voulez que tous les objets géographiques soit coloriés en rouge à l&apos;exception de ceux qui ont une attribut <code>class</code> ayant pour valeur <code>&quot;someClass&quot;</code> (et que vous voulez que ces objets géographiques soient coloriés en bleu avec une ligne de 1 pixel de large de couleur olive), vous devrez créer une fonction de style qui resssemble à celle qui suit (par ailleurs, il est important de créer les objets en dehors de la fonction de style afin qu&apos;ils puissent être réutilisés, mais pour des raisons de simplicité les objets sont créés &quot;inline&quot; dans l&apos;exemple ci-dessous):</p>
 <pre><code class="lang-js">  <span class="hljs-keyword">var</span> primaryStyle = <span class="hljs-keyword">new</span> ol.style.Style({
-    fill: <span class="hljs-keyword">new</span> ol.style.Fill({
-      color: <span class="hljs-string">&apos;blue&apos;</span>
+    <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({
+      <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;blue&apos;</span>
     }),
-    stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
-      color: <span class="hljs-string">&apos;olive&apos;</span>,
-      width: <span class="hljs-number">1</span>
+    <span class="hljs-attr">stroke</span>: <span class="hljs-keyword">new</span> ol.style.Stroke({
+      <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;olive&apos;</span>,
+      <span class="hljs-attr">width</span>: <span class="hljs-number">1</span>
     })
   });
 
   <span class="hljs-keyword">var</span> otherStyle = <span class="hljs-keyword">new</span> ol.style.Style({
-    fill: <span class="hljs-keyword">new</span> ol.style.Fill({
-      color: <span class="hljs-string">&apos;red&apos;</span>
+    <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({
+      <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;red&apos;</span>
     })
   });
 
@@ -550,20 +549,20 @@
     }
   });
 </code></pre>
-<p><em>Note</em> - Il est important de cr&#xE9;er les styles en dehors de la fonction de style r&#xE9;elle. La fonction de style est appel&#xE9;e de nombreuses fois pendant les phases de rendu, et vous aurez une animation plus fluide si vos fonctions de style ne cr&#xE9;ent pas trop d&apos;&#xE9;l&#xE9;ments inutiles en m&#xE9;moire.</p>
-<p>Un objet g&#xE9;ographique a aussi un option de configuration de style qui peut prendre une fonction n&apos;ayant que la r&#xE9;solution comme argument. Cela permet de styler les objets g&#xE9;ographiques de mani&#xE8;re individuelle (bas&#xE9;s sur la r&#xE9;solution).</p>
+<p><em>Note</em> - Il est important de créer les styles en dehors de la fonction de style réelle. La fonction de style est appelée de nombreuses fois pendant les phases de rendu, et vous aurez une animation plus fluide si vos fonctions de style ne créent pas trop d&apos;éléments inutiles en mémoire.</p>
+<p>Un objet géographique a aussi un option de configuration de style qui peut prendre une fonction n&apos;ayant que la résolution comme argument. Cela permet de styler les objets géographiques de manière individuelle (basés sur la résolution).</p>
 <h2 id="pseudo-classes">Pseudo-classes</h2>
-<p>CSS autorise les pseudo-classes sur les s&#xE9;lecteurs. Basiquement, cela limite l&apos;application de d&#xE9;clarations de style bas&#xE9;s sur des contextes qui ne sont pas facilement repr&#xE9;sent&#xE9; dans un s&#xE9;lecteur, comme la position de la souris, les &#xE9;l&#xE9;ments voisins, ou l&apos;historique du navigateur. Dans OpenLayers, un concept quelque peu similaire est d&apos;avoir une option de configuration de style sur une <code>ol.interaction.Select</code>.</p>
+<p>CSS autorise les pseudo-classes sur les sélecteurs. Basiquement, cela limite l&apos;application de déclarations de style basés sur des contextes qui ne sont pas facilement représenté dans un sélecteur, comme la position de la souris, les éléments voisins, ou l&apos;historique du navigateur. Dans OpenLayers, un concept quelque peu similaire est d&apos;avoir une option de configuration de style sur une <code>ol.interaction.Select</code>.</p>
 <p>Un exemple est:</p>
 <pre><code class="lang-js">  <span class="hljs-keyword">var</span> select = <span class="hljs-keyword">new</span> ol.interaction.Select({
-    style: <span class="hljs-keyword">new</span> ol.style.Style({
-      fill: <span class="hljs-keyword">new</span> ol.style.Fill({
-        color: <span class="hljs-string">&apos;rgba(255,255,255,0.5)&apos;</span>
+    <span class="hljs-attr">style</span>: <span class="hljs-keyword">new</span> ol.style.Style({
+      <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({
+        <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;rgba(255,255,255,0.5)&apos;</span>
       })
     })
   });
 </code></pre>
-<p>Avec les basiques de stylage &#xE0; votre actif, il est temps de passer aux <a href="style.html">stylage des couches vecteur</a>.</p>
+<p>Avec les basiques de stylage à votre actif, il est temps de passer aux <a href="style.html">stylage des couches vecteur</a>.</p>
 
                                 
                                 </section>
@@ -607,12 +606,56 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Concepts de styles","level":"1.5.2","depth":2,"next":{"title":"Styles personnalisés","level":"1.5.3","depth":2,"path":"vector/style.md","ref":"vector/style.md","articles":[]},"previous":{"title":"Aparté sur les formats","level":"1.5.1","depth":2,"path":"vector/formats.md","ref":"vector/formats.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock-patched","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock-patched":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"copy-code-button":{},"include-codeblock":{"unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Un carte fonctionnelle affichant une image du monde","alt":"Un carte fonctionnelle affichant une image du monde","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Un carte fonctionnelle affichant une image du monde","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: A un point d'arrêt dans le debugger","alt":"A un point d'arrêt dans le debugger","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"A un point d'arrêt dans le debugger","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Un WMS comme source image","alt":"Un WMS comme source image","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Un WMS comme source image","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Une couche tuilée avec une source de type OSM","alt":"Une couche tuilée avec une source de type OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Une couche tuilée avec une source de type OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Une carte avec des tuiles d'un source de Bing Maps","alt":"Une carte avec des tuiles d'un source de Bing Maps","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Une carte avec des tuiles d'un source de Bing Maps","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Emplacements de tremblements de terre","alt":"Emplacements de tremblements de terre","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Emplacements de tremblements de terre","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Une barre d'échelle par défaut dans le coin en bas à gauche","alt":"Une barre d'échelle par défaut dans le coin en bas à gauche","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"Une barre d'échelle par défaut dans le coin en bas à gauche","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","alt":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","alt":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","alt":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Bâtiments avec étiquette issue de la clé `field`","alt":"Bâtiments avec étiquette issue de la clé `field`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Bâtiments avec étiquette issue de la clé `field`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"fr","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"vector/style-intro.md","mtime":"2018-05-13T21:05:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-15T23:50:57.231Z"},"basePath":"..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Concepts de styles","level":"1.5.2","depth":2,"next":{"title":"Styles personnalisés","level":"1.5.3","depth":2,"path":"vector/style.md","ref":"vector/style.md","articles":[]},"previous":{"title":"Aparté sur les formats","level":"1.5.1","depth":2,"path":"vector/formats.md","ref":"vector/formats.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.6.20","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Un carte fonctionnelle affichant une image du monde","alt":"Un carte fonctionnelle affichant une image du monde","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Un carte fonctionnelle affichant une image du monde","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: A un point d'arrêt dans le debugger","alt":"A un point d'arrêt dans le debugger","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"A un point d'arrêt dans le debugger","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Un WMS comme source image","alt":"Un WMS comme source image","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Un WMS comme source image","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Une couche tuilée avec une source de type OSM","alt":"Une couche tuilée avec une source de type OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Une couche tuilée avec une source de type OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Une carte avec des tuiles d'un source de Bing Maps","alt":"Une carte avec des tuiles d'un source de Bing Maps","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Une carte avec des tuiles d'un source de Bing Maps","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Emplacements de tremblements de terre","alt":"Emplacements de tremblements de terre","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Emplacements de tremblements de terre","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Une barre d'échelle par défaut dans le coin en bas à gauche","alt":"Une barre d'échelle par défaut dans le coin en bas à gauche","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"Une barre d'échelle par défaut dans le coin en bas à gauche","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","alt":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","alt":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","alt":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Bâtiments avec étiquette issue de la clé `field`","alt":"Bâtiments avec étiquette issue de la clé `field`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Bâtiments avec étiquette issue de la clé `field`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"fr","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"vector/style-intro.md","mtime":"2021-09-13T15:35:15.817Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-09-13T15:36:17.569Z"},"basePath":"..","book":{"language":"fr"}});
         });
     </script>
 </div>
 
         
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
     
@@ -634,10 +677,6 @@
     
         
         <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
         
     
         

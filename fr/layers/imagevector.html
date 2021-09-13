@@ -3,11 +3,10 @@
 <html lang="fr" >
     <head>
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Source image vecteur · GitBook</title>
+        <title>Source image vecteur · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="HonKit 3.6.20">
         
         
         
@@ -62,7 +61,7 @@
     </head>
     <body>
         
-<div class="book">
+<div class="book honkit-cloak">
     <div class="book-summary">
         
             
@@ -429,8 +428,8 @@
     <li class="divider"></li>
 
     <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Publié avec GitBook
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Publié avec HonKit
         </a>
     </li>
 </ul>
@@ -469,12 +468,12 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="source-image-vecteur">Source image vecteur</h1>
-<p>Dans l&apos;exemple pr&#xE9;c&#xE9;dent utilisant une couche <code>ol.layer.Vector</code>, vous pouvez voir que les objets g&#xE9;ographiques ont &#xE9;t&#xE9; recalcul&#xE9;s en permanence pendant le zoom anim&#xE9; (la taille des symboles de points reste fixe).  Avec une couche vecteur, OpenLayers refera le rendu de la source avec chaque frame de l&apos;animation.  Cela fournit un rendu consistant des traits de ligne, des symboles de points  et des &#xE9;tiquettes avec les changements de r&#xE9;solution de la vue.</p>
-<p>Une strat&#xE9;gie alternative de rendu est d&apos;&#xE9;viter de refaire le rendu pendant les transitions de la vue et &#xE0; la place de repositionner et mettre &#xE0; l&apos;&#xE9;chelle la sortie depuis l&apos;&#xE9;tat de la vue pr&#xE9;c&#xE9;dente.  Cela peut &#xEA;tre accompli en utilisant une <code>ol.layer.Image</code> avec une <code>ol.source.ImageVector</code>.  Avec cette combinaison, des &quot;snapshots&quot; de votre donn&#xE9;e sont rendus quand la vue n&apos;est pas anim&#xE9;e, et ces snapshots sont r&#xE9;utilis&#xE9;s pendant les transitions de vue.</p>
-<p>L&apos;exemple ci-dessous utilise une <code>ol.layer.Image</code> avec une <code>ol.source.ImageVector</code>.  Bien que cet exemple fasse seulement un rendu d&apos;une petite quantit&#xE9; de donn&#xE9;es, cette combinaison serait plus appropri&#xE9;e pour les applications qui font une rendu de grandes quantit&#xE9;s de donn&#xE9;es relativement statiques.</p>
+<p>Dans l&apos;exemple précédent utilisant une couche <code>ol.layer.Vector</code>, vous pouvez voir que les objets géographiques ont été recalculés en permanence pendant le zoom animé (la taille des symboles de points reste fixe).  Avec une couche vecteur, OpenLayers refera le rendu de la source avec chaque frame de l&apos;animation.  Cela fournit un rendu consistant des traits de ligne, des symboles de points  et des étiquettes avec les changements de résolution de la vue.</p>
+<p>Une stratégie alternative de rendu est d&apos;éviter de refaire le rendu pendant les transitions de la vue et à la place de repositionner et mettre à l&apos;échelle la sortie depuis l&apos;état de la vue précédente.  Cela peut être accompli en utilisant une <code>ol.layer.Image</code> avec une <code>ol.source.ImageVector</code>.  Avec cette combinaison, des &quot;snapshots&quot; de votre donnée sont rendus quand la vue n&apos;est pas animée, et ces snapshots sont réutilisés pendant les transitions de vue.</p>
+<p>L&apos;exemple ci-dessous utilise une <code>ol.layer.Image</code> avec une <code>ol.source.ImageVector</code>.  Bien que cet exemple fasse seulement un rendu d&apos;une petite quantité de données, cette combinaison serait plus appropriée pour les applications qui font une rendu de grandes quantités de données relativement statiques.</p>
 <h2 id="olsourceimagevector"><code>ol.source.ImageVector</code></h2>
-<p>Revenons &#xE0; l&apos;exemple de couche vecteur pour avoir les donn&#xE9;es des tremblements de terre au dessus d&apos;une carte du monde.</p>
-<pre><code class="lang-html"><span class="hljs-meta">&lt;!doctype html&gt;</span>
+<p>Revenons à l&apos;exemple de couche vecteur pour avoir les données des tremblements de terre au dessus d&apos;une carte du monde.</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!doctype <span class="hljs-meta-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/ol.css&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span>&gt;</span>
@@ -485,63 +484,63 @@
       }
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>OpenLayers example<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/loader.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/loader.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>My Map<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;map&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="actionscript">
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript">
       <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.Map({
-        target: <span class="hljs-string">&apos;map&apos;</span>,
-        layers: [
+        <span class="hljs-attr">target</span>: <span class="hljs-string">&apos;map&apos;</span>,
+        <span class="hljs-attr">layers</span>: [
           <span class="hljs-keyword">new</span> ol.layer.Tile({
-            title: <span class="hljs-string">&apos;Global Imagery&apos;</span>,
-            source: <span class="hljs-keyword">new</span> ol.source.TileWMS({
-              url: <span class="hljs-string">&apos;https://ahocevar.com/geoserver/wms&apos;</span>,
-              params: {LAYERS: <span class="hljs-string">&apos;nasa:bluemarble&apos;</span>, TILED: <span class="hljs-literal">true</span>}
+            <span class="hljs-attr">title</span>: <span class="hljs-string">&apos;Global Imagery&apos;</span>,
+            <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.TileWMS({
+              <span class="hljs-attr">url</span>: <span class="hljs-string">&apos;https://ahocevar.com/geoserver/wms&apos;</span>,
+              <span class="hljs-attr">params</span>: {<span class="hljs-attr">LAYERS</span>: <span class="hljs-string">&apos;nasa:bluemarble&apos;</span>, <span class="hljs-attr">TILED</span>: <span class="hljs-literal">true</span>}
             })
           }),
           <span class="hljs-keyword">new</span> ol.layer.Vector({
-            title: <span class="hljs-string">&apos;Earthquakes&apos;</span>,
-            source: <span class="hljs-keyword">new</span> ol.source.Vector({
-              url: <span class="hljs-string">&apos;/data/layers/7day-M2.5.json&apos;</span>,
-              format: <span class="hljs-keyword">new</span> ol.format.GeoJSON()
+            <span class="hljs-attr">title</span>: <span class="hljs-string">&apos;Earthquakes&apos;</span>,
+            <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.Vector({
+              <span class="hljs-attr">url</span>: <span class="hljs-string">&apos;/data/layers/7day-M2.5.json&apos;</span>,
+              <span class="hljs-attr">format</span>: <span class="hljs-keyword">new</span> ol.format.GeoJSON()
             }),
-            style: <span class="hljs-keyword">new</span> ol.style.Style({
-              image: <span class="hljs-keyword">new</span> ol.style.Circle({
-                radius: <span class="hljs-number">3</span>,
-                fill: <span class="hljs-keyword">new</span> ol.style.Fill({color: <span class="hljs-string">&apos;white&apos;</span>})
+            <span class="hljs-attr">style</span>: <span class="hljs-keyword">new</span> ol.style.Style({
+              <span class="hljs-attr">image</span>: <span class="hljs-keyword">new</span> ol.style.Circle({
+                <span class="hljs-attr">radius</span>: <span class="hljs-number">3</span>,
+                <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({<span class="hljs-attr">color</span>: <span class="hljs-string">&apos;white&apos;</span>})
               })
             })
           })
         ],
-        view: <span class="hljs-keyword">new</span> ol.View({
-          projection: <span class="hljs-string">&apos;EPSG:4326&apos;</span>,
-          center: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
-          zoom: <span class="hljs-number">0</span>,
-          maxResolution: <span class="hljs-number">0.703125</span>
+        <span class="hljs-attr">view</span>: <span class="hljs-keyword">new</span> ol.View({
+          <span class="hljs-attr">projection</span>: <span class="hljs-string">&apos;EPSG:4326&apos;</span>,
+          <span class="hljs-attr">center</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+          <span class="hljs-attr">zoom</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-attr">maxResolution</span>: <span class="hljs-number">0.703125</span>
         })
       });
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
 </code></pre>
-<h3 id="t&#xE2;ches">T&#xE2;ches</h3>
+<h3 id="tâches">Tâches</h3>
 <ol>
-<li><p>Ouvrez <code>map.html</code> dans votre &#xE9;diteur de texte et copiez dedans le contenu de l&apos;exemple vecteur ci-dessus. Sauvez vos changements et confirmez que les choses fonctionnent bien dans votre navigateur: <a href="http://localhost:3000/map.html" target="_blank">http://localhost:3000/map.html</a></p>
+<li><p>Ouvrez <code>map.html</code> dans votre éditeur de texte et copiez dedans le contenu de l&apos;exemple vecteur ci-dessus. Sauvez vos changements et confirmez que les choses fonctionnent bien dans votre navigateur: <a href="http://localhost:3000/map.html" target="_blank">http://localhost:3000/map.html</a></p>
 </li>
 <li><p>Changez la couche vecteur en:</p>
 <pre><code class="lang-js"> <span class="hljs-keyword">new</span> ol.layer.Image({
-   title: <span class="hljs-string">&apos;Earthquakes&apos;</span>,
-   source: <span class="hljs-keyword">new</span> ol.source.ImageVector({
-     source: <span class="hljs-keyword">new</span> ol.source.Vector({
-       url: <span class="hljs-string">&apos;/data/layers/7day-M2.5.json&apos;</span>,
-       format: <span class="hljs-keyword">new</span> ol.format.GeoJSON()
+   <span class="hljs-attr">title</span>: <span class="hljs-string">&apos;Earthquakes&apos;</span>,
+   <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.ImageVector({
+     <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.Vector({
+       <span class="hljs-attr">url</span>: <span class="hljs-string">&apos;/data/layers/7day-M2.5.json&apos;</span>,
+       <span class="hljs-attr">format</span>: <span class="hljs-keyword">new</span> ol.format.GeoJSON()
      }),
-     style: <span class="hljs-keyword">new</span> ol.style.Style({
-       image: <span class="hljs-keyword">new</span> ol.style.Circle({
-       radius: <span class="hljs-number">3</span>,
-         fill: <span class="hljs-keyword">new</span> ol.style.Fill({color: <span class="hljs-string">&apos;white&apos;</span>})
+     <span class="hljs-attr">style</span>: <span class="hljs-keyword">new</span> ol.style.Style({
+       <span class="hljs-attr">image</span>: <span class="hljs-keyword">new</span> ol.style.Circle({
+       <span class="hljs-attr">radius</span>: <span class="hljs-number">3</span>,
+         <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({<span class="hljs-attr">color</span>: <span class="hljs-string">&apos;white&apos;</span>})
        })
      })
    })
@@ -549,31 +548,31 @@
 </code></pre>
 </li>
 <li><p>Rechargez <a href="http://localhost:3000/map.html" target="_blank">http://localhost:3000/map.html</a> dans votre navigateur</p>
-<p><em>Note</em> - Vous verrez la m&#xEA;me donn&#xE9;e vecteur mais repr&#xE9;sent&#xE9;e comme une image. Cela rendra toujours possible des choses comme la d&#xE9;tection des objets g&#xE9;ographiques, mais la donn&#xE9;e vecteur sera moins tranch&#xE9;e. En fait, il s&apos;agit d&apos;un compromis entre performance et qualit&#xE9;.</p>
+<p><em>Note</em> - Vous verrez la même donnée vecteur mais représentée comme une image. Cela rendra toujours possible des choses comme la détection des objets géographiques, mais la donnée vecteur sera moins tranchée. En fait, il s&apos;agit d&apos;un compromis entre performance et qualité.</p>
 </li>
 </ol>
-<h3 id="examen-de-d&#xE9;tails">Examen de d&#xE9;tails</h3>
+<h3 id="examen-de-détails">Examen de détails</h3>
 <p>Let&apos;s examine the layer creation to get an idea of what is going on.</p>
 <pre><code class="lang-js">  <span class="hljs-keyword">new</span> ol.layer.Image({
-    title: <span class="hljs-string">&apos;Earthquakes&apos;</span>,
-    source: <span class="hljs-keyword">new</span> ol.source.ImageVector({
-      source: <span class="hljs-keyword">new</span> ol.source.Vector({
-        url: <span class="hljs-string">&apos;/data/layers/7day-M2.5.json&apos;</span>,
-        format: <span class="hljs-keyword">new</span> ol.format.GeoJSON()
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&apos;Earthquakes&apos;</span>,
+    <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.ImageVector({
+      <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.Vector({
+        <span class="hljs-attr">url</span>: <span class="hljs-string">&apos;/data/layers/7day-M2.5.json&apos;</span>,
+        <span class="hljs-attr">format</span>: <span class="hljs-keyword">new</span> ol.format.GeoJSON()
       }),
-      style: <span class="hljs-keyword">new</span> ol.style.Style({
-        image: <span class="hljs-keyword">new</span> ol.style.Circle({
-        radius: <span class="hljs-number">3</span>,
-          fill: <span class="hljs-keyword">new</span> ol.style.Fill({color: <span class="hljs-string">&apos;white&apos;</span>})
+      <span class="hljs-attr">style</span>: <span class="hljs-keyword">new</span> ol.style.Style({
+        <span class="hljs-attr">image</span>: <span class="hljs-keyword">new</span> ol.style.Circle({
+        <span class="hljs-attr">radius</span>: <span class="hljs-number">3</span>,
+          <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({<span class="hljs-attr">color</span>: <span class="hljs-string">&apos;white&apos;</span>})
         })
       })
     })
   })
 </code></pre>
-<p>Nous utilisons une <code>ol.layer.Image</code> au lieu d&apos;une <code>ol.layer.Vector</code>. Cependant, nous pouvons toujours utiliser les donn&#xE9;es vecteur ici via <code>ol.source.ImageVector</code> qui est connect&#xE9;e &#xE0; notre source originale vecteur <code>ol.source.Vector</code>. Le style est fourni comme une configuration de <code>ol.source.ImageVector</code> et pas sur la couche.</p>
-<h3 id="t&#xE2;ches-bonus">T&#xE2;ches bonus</h3>
+<p>Nous utilisons une <code>ol.layer.Image</code> au lieu d&apos;une <code>ol.layer.Vector</code>. Cependant, nous pouvons toujours utiliser les données vecteur ici via <code>ol.source.ImageVector</code> qui est connectée à notre source originale vecteur <code>ol.source.Vector</code>. Le style est fourni comme une configuration de <code>ol.source.ImageVector</code> et pas sur la couche.</p>
+<h3 id="tâches-bonus">Tâches bonus</h3>
 <ol>
-<li>V&#xE9;rifiez que la d&#xE9;tection d&apos;objets g&#xE9;ographiques fonctionne toujours en assignant un &#xE9;v&#xE9;nement de type <code>&apos;singleclick&apos;</code> sur votre carte qui appelle <code>forEachFeatureAtPixel</code> sur la carte et affichez les informations de tremblements de terre en dessous de la fen&#xEA;tre d&apos;affichage de carte.</li>
+<li>Vérifiez que la détection d&apos;objets géographiques fonctionne toujours en assignant un événement de type <code>&apos;singleclick&apos;</code> sur votre carte qui appelle <code>forEachFeatureAtPixel</code> sur la carte et affichez les informations de tremblements de terre en dessous de la fenêtre d&apos;affichage de carte.</li>
 </ol>
 
                                 
@@ -618,12 +617,56 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Source image vecteur","level":"1.3.5","depth":2,"next":{"title":"Les control et les interaction","level":"1.4","depth":1,"path":"controls/README.md","ref":"controls/README.md","articles":[{"title":"Le control barre d'échelle ScaleLine","level":"1.4.1","depth":2,"path":"controls/scaleline.md","ref":"controls/scaleline.md","articles":[]},{"title":"L'interaction de sélection Select","level":"1.4.2","depth":2,"path":"controls/select.md","ref":"controls/select.md","articles":[]},{"title":"L'interaction de dessin Draw","level":"1.4.3","depth":2,"path":"controls/draw.md","ref":"controls/draw.md","articles":[]},{"title":"L'interaction de modification Modify","level":"1.4.4","depth":2,"path":"controls/modify.md","ref":"controls/modify.md","articles":[]}]},"previous":{"title":"Données vecteur","level":"1.3.4","depth":2,"path":"layers/vector.md","ref":"layers/vector.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock-patched","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock-patched":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"copy-code-button":{},"include-codeblock":{"unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Un carte fonctionnelle affichant une image du monde","alt":"Un carte fonctionnelle affichant une image du monde","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Un carte fonctionnelle affichant une image du monde","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: A un point d'arrêt dans le debugger","alt":"A un point d'arrêt dans le debugger","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"A un point d'arrêt dans le debugger","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Un WMS comme source image","alt":"Un WMS comme source image","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Un WMS comme source image","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Une couche tuilée avec une source de type OSM","alt":"Une couche tuilée avec une source de type OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Une couche tuilée avec une source de type OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Une carte avec des tuiles d'un source de Bing Maps","alt":"Une carte avec des tuiles d'un source de Bing Maps","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Une carte avec des tuiles d'un source de Bing Maps","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Emplacements de tremblements de terre","alt":"Emplacements de tremblements de terre","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Emplacements de tremblements de terre","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Une barre d'échelle par défaut dans le coin en bas à gauche","alt":"Une barre d'échelle par défaut dans le coin en bas à gauche","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"Une barre d'échelle par défaut dans le coin en bas à gauche","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","alt":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","alt":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","alt":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Bâtiments avec étiquette issue de la clé `field`","alt":"Bâtiments avec étiquette issue de la clé `field`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Bâtiments avec étiquette issue de la clé `field`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"fr","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"layers/imagevector.md","mtime":"2018-05-13T21:05:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-15T23:50:57.231Z"},"basePath":"..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Source image vecteur","level":"1.3.5","depth":2,"next":{"title":"Les control et les interaction","level":"1.4","depth":1,"path":"controls/README.md","ref":"controls/README.md","articles":[{"title":"Le control barre d'échelle ScaleLine","level":"1.4.1","depth":2,"path":"controls/scaleline.md","ref":"controls/scaleline.md","articles":[]},{"title":"L'interaction de sélection Select","level":"1.4.2","depth":2,"path":"controls/select.md","ref":"controls/select.md","articles":[]},{"title":"L'interaction de dessin Draw","level":"1.4.3","depth":2,"path":"controls/draw.md","ref":"controls/draw.md","articles":[]},{"title":"L'interaction de modification Modify","level":"1.4.4","depth":2,"path":"controls/modify.md","ref":"controls/modify.md","articles":[]}]},"previous":{"title":"Données vecteur","level":"1.3.4","depth":2,"path":"layers/vector.md","ref":"layers/vector.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.6.20","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Un carte fonctionnelle affichant une image du monde","alt":"Un carte fonctionnelle affichant une image du monde","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Un carte fonctionnelle affichant une image du monde","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: A un point d'arrêt dans le debugger","alt":"A un point d'arrêt dans le debugger","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"A un point d'arrêt dans le debugger","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Un WMS comme source image","alt":"Un WMS comme source image","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Un WMS comme source image","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Une couche tuilée avec une source de type OSM","alt":"Une couche tuilée avec une source de type OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Une couche tuilée avec une source de type OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Une carte avec des tuiles d'un source de Bing Maps","alt":"Une carte avec des tuiles d'un source de Bing Maps","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Une carte avec des tuiles d'un source de Bing Maps","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Emplacements de tremblements de terre","alt":"Emplacements de tremblements de terre","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Emplacements de tremblements de terre","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Une barre d'échelle par défaut dans le coin en bas à gauche","alt":"Une barre d'échelle par défaut dans le coin en bas à gauche","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"Une barre d'échelle par défaut dans le coin en bas à gauche","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","alt":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","alt":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","alt":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Bâtiments avec étiquette issue de la clé `field`","alt":"Bâtiments avec étiquette issue de la clé `field`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Bâtiments avec étiquette issue de la clé `field`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"fr","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"layers/imagevector.md","mtime":"2021-09-13T15:35:15.817Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-09-13T15:36:17.569Z"},"basePath":"..","book":{"language":"fr"}});
         });
     </script>
 </div>
 
         
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
     
@@ -645,10 +688,6 @@
     
         
         <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
         
     
         

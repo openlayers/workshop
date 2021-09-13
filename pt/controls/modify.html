@@ -3,11 +3,10 @@
 <html lang="pt" >
     <head>
         <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Interação Modify · GitBook</title>
+        <title>Interação Modify · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="HonKit 3.6.20">
         
         
         
@@ -62,7 +61,7 @@
     </head>
     <body>
         
-<div class="book">
+<div class="book honkit-cloak">
     <div class="book-summary">
         
             
@@ -429,8 +428,8 @@
     <li class="divider"></li>
 
     <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Publicado com GitBook
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Publicado com HonKit
         </a>
     </li>
 </ul>
@@ -469,12 +468,12 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="modificando-features">Modificando features</h1>
-<p>A altera&#xE7;&#xE3;o de features funciona a partir da combina&#xE7;&#xE3;o da classe <code>ol.interaction.Select</code> com a classe <code>ol.interaction.Modify</code>. Elas compartilham uma cole&#xE7;&#xE3;o (<code>ol.Collection</code>) de features. Features selecionadas pela <code>ol.interaction.Select</code> tornam-se candidatas para modifica&#xE7;&#xE3;o com a <code>ol.interaction.Modify</code>.</p>
-<h2 id="criar-uma-camada-vetorial-e-uma-intera&#xE7;&#xE3;o-do-tipo-modify">Criar uma camada vetorial e uma intera&#xE7;&#xE3;o do tipo <code>Modify</code></h2>
+<p>A alteração de features funciona a partir da combinação da classe <code>ol.interaction.Select</code> com a classe <code>ol.interaction.Modify</code>. Elas compartilham uma coleção (<code>ol.Collection</code>) de features. Features selecionadas pela <code>ol.interaction.Select</code> tornam-se candidatas para modificação com a <code>ol.interaction.Modify</code>.</p>
+<h2 id="criar-uma-camada-vetorial-e-uma-interação-do-tipo-modify">Criar uma camada vetorial e uma interação do tipo <code>Modify</code></h2>
 <h3 id="tarefas">Tarefas</h3>
 <ol>
 <li><p>Vamos iniciar com o exemplo completo. Abra o arquivo <code>map.html</code> em seu editor de texto e deixe-o assim:</p>
-<pre><code class="lang-html"><span class="hljs-meta">&lt;!doctype html&gt;</span>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!doctype <span class="hljs-meta-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/ol.css&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span>&gt;</span>
@@ -484,65 +483,65 @@
      <span class="hljs-attribute">width</span>: <span class="hljs-number">512px</span>;
    }
    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/loader.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/loader.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>OpenLayers example<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>My Map<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;map&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="actionscript">
+   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript">
      <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">new</span> ol.source.Vector({
-       url: <span class="hljs-string">&apos;/data/layers/7day-M2.5.json&apos;</span>,
-       format: <span class="hljs-keyword">new</span> ol.format.GeoJSON()
+       <span class="hljs-attr">url</span>: <span class="hljs-string">&apos;/data/layers/7day-M2.5.json&apos;</span>,
+       <span class="hljs-attr">format</span>: <span class="hljs-keyword">new</span> ol.format.GeoJSON()
      });
      <span class="hljs-keyword">var</span> style = <span class="hljs-keyword">new</span> ol.style.Style({
-       image: <span class="hljs-keyword">new</span> ol.style.Circle({
-         radius: <span class="hljs-number">7</span>,
-           fill: <span class="hljs-keyword">new</span> ol.style.Fill({
-           color: [<span class="hljs-number">0</span>, <span class="hljs-number">153</span>, <span class="hljs-number">255</span>, <span class="hljs-number">1</span>]
+       <span class="hljs-attr">image</span>: <span class="hljs-keyword">new</span> ol.style.Circle({
+         <span class="hljs-attr">radius</span>: <span class="hljs-number">7</span>,
+           <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({
+           <span class="hljs-attr">color</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">153</span>, <span class="hljs-number">255</span>, <span class="hljs-number">1</span>]
          }),
-         stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
-           color: [<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0.75</span>],
-           width: <span class="hljs-number">1.5</span>
+         <span class="hljs-attr">stroke</span>: <span class="hljs-keyword">new</span> ol.style.Stroke({
+           <span class="hljs-attr">color</span>: [<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0.75</span>],
+           <span class="hljs-attr">width</span>: <span class="hljs-number">1.5</span>
          })
        }),
-       zIndex: <span class="hljs-number">100000</span>
+       <span class="hljs-attr">zIndex</span>: <span class="hljs-number">100000</span>
      });
-     <span class="hljs-keyword">var</span> select = <span class="hljs-keyword">new</span> ol.interaction.Select({style: style});
+     <span class="hljs-keyword">var</span> select = <span class="hljs-keyword">new</span> ol.interaction.Select({<span class="hljs-attr">style</span>: style});
      <span class="hljs-keyword">var</span> modify = <span class="hljs-keyword">new</span> ol.interaction.Modify({
-       features: select.getFeatures()
+       <span class="hljs-attr">features</span>: select.getFeatures()
      });
      <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.Map({
-       interactions: ol.interaction.defaults().extend([select, modify]),
-       target: <span class="hljs-string">&apos;map&apos;</span>,
-       layers: [
+       <span class="hljs-attr">interactions</span>: ol.interaction.defaults().extend([select, modify]),
+       <span class="hljs-attr">target</span>: <span class="hljs-string">&apos;map&apos;</span>,
+       <span class="hljs-attr">layers</span>: [
          <span class="hljs-keyword">new</span> ol.layer.Tile({
-           title: <span class="hljs-string">&apos;Global Imagery&apos;</span>,
-           source: <span class="hljs-keyword">new</span> ol.source.TileWMS({
-             url: <span class="hljs-string">&apos;https://ahocevar.com/geoserver/wms&apos;</span>,
-             params: {LAYERS: <span class="hljs-string">&apos;nasa:bluemarble&apos;</span>, TILED: <span class="hljs-literal">true</span>}
+           <span class="hljs-attr">title</span>: <span class="hljs-string">&apos;Global Imagery&apos;</span>,
+           <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.TileWMS({
+             <span class="hljs-attr">url</span>: <span class="hljs-string">&apos;https://ahocevar.com/geoserver/wms&apos;</span>,
+             <span class="hljs-attr">params</span>: {<span class="hljs-attr">LAYERS</span>: <span class="hljs-string">&apos;nasa:bluemarble&apos;</span>, <span class="hljs-attr">TILED</span>: <span class="hljs-literal">true</span>}
            })
          }),
          <span class="hljs-keyword">new</span> ol.layer.Vector({
-           title: <span class="hljs-string">&apos;Earthquakes&apos;</span>,
-           source: source,
-           style: <span class="hljs-keyword">new</span> ol.style.Style({
-             image: <span class="hljs-keyword">new</span> ol.style.Circle({
-               radius: <span class="hljs-number">5</span>,
-               fill: <span class="hljs-keyword">new</span> ol.style.Fill({
-                 color: <span class="hljs-string">&apos;#0000FF&apos;</span>
+           <span class="hljs-attr">title</span>: <span class="hljs-string">&apos;Earthquakes&apos;</span>,
+           <span class="hljs-attr">source</span>: source,
+           <span class="hljs-attr">style</span>: <span class="hljs-keyword">new</span> ol.style.Style({
+             <span class="hljs-attr">image</span>: <span class="hljs-keyword">new</span> ol.style.Circle({
+               <span class="hljs-attr">radius</span>: <span class="hljs-number">5</span>,
+               <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({
+                 <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;#0000FF&apos;</span>
                }),
-               stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
-                 color: <span class="hljs-string">&apos;#000000&apos;</span>
+               <span class="hljs-attr">stroke</span>: <span class="hljs-keyword">new</span> ol.style.Stroke({
+                 <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;#000000&apos;</span>
                })
              })
            })
          })
        ],
-       view: <span class="hljs-keyword">new</span> ol.View({
-         projection: <span class="hljs-string">&apos;EPSG:4326&apos;</span>,
-         center: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
-         zoom: <span class="hljs-number">1</span>
+       <span class="hljs-attr">view</span>: <span class="hljs-keyword">new</span> ol.View({
+         <span class="hljs-attr">projection</span>: <span class="hljs-string">&apos;EPSG:4326&apos;</span>,
+         <span class="hljs-attr">center</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+         <span class="hljs-attr">zoom</span>: <span class="hljs-number">1</span>
        })
      });
    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
@@ -550,30 +549,30 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
 </code></pre>
 </li>
-<li><p>Salve suas altera&#xE7;&#xF5;es no arquivo <code>map.html</code> e abra a p&#xE1;gina em seu navegador: <a href="http://localhost:3000/map.html" target="_blank">http://localhost:3000/map.html</a>. Para ver o componente em a&#xE7;&#xE3;o, clique para selecionar um terremoto e arraste para mover o ponto.</p>
+<li><p>Salve suas alterações no arquivo <code>map.html</code> e abra a página em seu navegador: <a href="http://localhost:3000/map.html" target="_blank">http://localhost:3000/map.html</a>. Para ver o componente em ação, clique para selecionar um terremoto e arraste para mover o ponto.</p>
 </li>
 </ol>
 <h2 id="olhando-mais-de-perto">Olhando mais de perto</h2>
-<p>Vamos entender agora como a altera&#xE7;&#xE3;o de features funciona.</p>
+<p>Vamos entender agora como a alteração de features funciona.</p>
 <pre><code class="lang-js">  <span class="hljs-keyword">var</span> style = <span class="hljs-keyword">new</span> ol.style.Style({
-    image: <span class="hljs-keyword">new</span> ol.style.Circle({
-      radius: <span class="hljs-number">7</span>,
-        fill: <span class="hljs-keyword">new</span> ol.style.Fill({
-        color: [<span class="hljs-number">0</span>, <span class="hljs-number">153</span>, <span class="hljs-number">255</span>, <span class="hljs-number">1</span>]
+    <span class="hljs-attr">image</span>: <span class="hljs-keyword">new</span> ol.style.Circle({
+      <span class="hljs-attr">radius</span>: <span class="hljs-number">7</span>,
+        <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({
+        <span class="hljs-attr">color</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">153</span>, <span class="hljs-number">255</span>, <span class="hljs-number">1</span>]
       }),
-      stroke: <span class="hljs-keyword">new</span> ol.style.Stroke({
-        color: [<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0.75</span>],
-        width: <span class="hljs-number">1.5</span>
+      <span class="hljs-attr">stroke</span>: <span class="hljs-keyword">new</span> ol.style.Stroke({
+        <span class="hljs-attr">color</span>: [<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0.75</span>],
+        <span class="hljs-attr">width</span>: <span class="hljs-number">1.5</span>
       })
     }),
-    zIndex: <span class="hljs-number">100000</span>
+    <span class="hljs-attr">zIndex</span>: <span class="hljs-number">100000</span>
   });
-  <span class="hljs-keyword">var</span> select = <span class="hljs-keyword">new</span> ol.interaction.Select({style: style});
+  <span class="hljs-keyword">var</span> select = <span class="hljs-keyword">new</span> ol.interaction.Select({<span class="hljs-attr">style</span>: style});
   <span class="hljs-keyword">var</span> modify = <span class="hljs-keyword">new</span> ol.interaction.Modify({
-    features: select.getFeatures()
+    <span class="hljs-attr">features</span>: select.getFeatures()
   });
 </code></pre>
-<p>N&#xF3;s criamos duas intera&#xE7;&#xF5;es, uma <code>ol.interaction.Select</code> para selecionar a feature antes de modific&#xE1;-la e uma <code>ol.interaction.Modify</code> para modificar as geometrias. Elas compartilham a mesma cole&#xE7;&#xE3;o de features. Features selecionadas usando a <code>ol.interaction.Modify</code> tornam-se candidatas para modifica&#xE7;&#xE3;o com a <code>ol.interaction.Modify</code>. Do mesmo modo de antes, a <code>ol.interaction.Select</code> &#xE9; configurada com um objeto <code>style</code>, que efetivamente define o estilo para desenhar a geometria. Quando o usu&#xE1;rio clica sobre o mapa novamente, a feature ser&#xE1; desenhada com o estilo da camada.</p>
+<p>Nós criamos duas interações, uma <code>ol.interaction.Select</code> para selecionar a feature antes de modificá-la e uma <code>ol.interaction.Modify</code> para modificar as geometrias. Elas compartilham a mesma coleção de features. Features selecionadas usando a <code>ol.interaction.Modify</code> tornam-se candidatas para modificação com a <code>ol.interaction.Modify</code>. Do mesmo modo de antes, a <code>ol.interaction.Select</code> é configurada com um objeto <code>style</code>, que efetivamente define o estilo para desenhar a geometria. Quando o usuário clica sobre o mapa novamente, a feature será desenhada com o estilo da camada.</p>
 
                                 
                                 </section>
@@ -617,12 +616,56 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Interação Modify","level":"1.4.4","depth":2,"next":{"title":"Tópicos sobre Vetores","level":"1.5","depth":1,"path":"vector/README.md","ref":"vector/README.md","articles":[{"title":"Formatos","level":"1.5.1","depth":2,"path":"vector/formats.md","ref":"vector/formats.md","articles":[]},{"title":"Estilos","level":"1.5.2","depth":2,"path":"vector/style-intro.md","ref":"vector/style-intro.md","articles":[]},{"title":"Personalização de estilos","level":"1.5.3","depth":2,"path":"vector/style.md","ref":"vector/style.md","articles":[]}]},"previous":{"title":"Interação Draw","level":"1.4.3","depth":2,"path":"controls/draw.md","ref":"controls/draw.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock-patched","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock-patched":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"copy-code-button":{},"include-codeblock":{"unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Um mapa completo exibindo uma imagem do mundo","alt":"Um mapa completo exibindo uma imagem do mundo","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa completo exibindo uma imagem do mundo","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: Um breakpoint no depurador","alt":"Um breakpoint no depurador","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"Um breakpoint no depurador","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Uma camada WMS como uma fonte de dados de imagem","alt":"Uma camada WMS como uma fonte de dados de imagem","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada WMS como uma fonte de dados de imagem","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Uma camada `tiled` com uma fonte OSM","alt":"Uma camada `tiled` com uma fonte OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada `tiled` com uma fonte OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Um mapa com uma camada Bing","alt":"Um mapa com uma camada Bing","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa com uma camada Bing","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Localizações de terremoto","alt":"Localizações de terremoto","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Localizações de terremoto","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: O controle ScaleLine na parte inferior esquerda","alt":"O controle ScaleLine na parte inferior esquerda","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"O controle ScaleLine na parte inferior esquerda","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: O controle ScaleLine fora do mapa","alt":"O controle ScaleLine fora do mapa","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"O controle ScaleLine fora do mapa","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Usando uma interação para selecionar features de uma camada vetorial","alt":"Usando uma interação para selecionar features de uma camada vetorial","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para selecionar features de uma camada vetorial","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Usando uma interação para adicionar geometrias para uma fonte vetorial","alt":"Usando uma interação para adicionar geometrias para uma fonte vetorial","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para adicionar geometrias para uma fonte vetorial","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Edifícios rotulados utilizando o atributo `key`","alt":"Edifícios rotulados utilizando o atributo `key`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Edifícios rotulados utilizando o atributo `key`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"pt","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"controls/modify.md","mtime":"2018-05-13T21:05:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-15T23:50:57.231Z"},"basePath":"..","book":{"language":"pt"}});
+            gitbook.page.hasChanged({"page":{"title":"Interação Modify","level":"1.4.4","depth":2,"next":{"title":"Tópicos sobre Vetores","level":"1.5","depth":1,"path":"vector/README.md","ref":"vector/README.md","articles":[{"title":"Formatos","level":"1.5.1","depth":2,"path":"vector/formats.md","ref":"vector/formats.md","articles":[]},{"title":"Estilos","level":"1.5.2","depth":2,"path":"vector/style-intro.md","ref":"vector/style-intro.md","articles":[]},{"title":"Personalização de estilos","level":"1.5.3","depth":2,"path":"vector/style.md","ref":"vector/style.md","articles":[]}]},"previous":{"title":"Interação Draw","level":"1.4.3","depth":2,"path":"controls/draw.md","ref":"controls/draw.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.6.20","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Um mapa completo exibindo uma imagem do mundo","alt":"Um mapa completo exibindo uma imagem do mundo","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa completo exibindo uma imagem do mundo","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: Um breakpoint no depurador","alt":"Um breakpoint no depurador","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"Um breakpoint no depurador","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Uma camada WMS como uma fonte de dados de imagem","alt":"Uma camada WMS como uma fonte de dados de imagem","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada WMS como uma fonte de dados de imagem","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Uma camada `tiled` com uma fonte OSM","alt":"Uma camada `tiled` com uma fonte OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada `tiled` com uma fonte OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Um mapa com uma camada Bing","alt":"Um mapa com uma camada Bing","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa com uma camada Bing","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Localizações de terremoto","alt":"Localizações de terremoto","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Localizações de terremoto","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: O controle ScaleLine na parte inferior esquerda","alt":"O controle ScaleLine na parte inferior esquerda","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"O controle ScaleLine na parte inferior esquerda","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: O controle ScaleLine fora do mapa","alt":"O controle ScaleLine fora do mapa","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"O controle ScaleLine fora do mapa","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Usando uma interação para selecionar features de uma camada vetorial","alt":"Usando uma interação para selecionar features de uma camada vetorial","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para selecionar features de uma camada vetorial","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Usando uma interação para adicionar geometrias para uma fonte vetorial","alt":"Usando uma interação para adicionar geometrias para uma fonte vetorial","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para adicionar geometrias para uma fonte vetorial","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Edifícios rotulados utilizando o atributo `key`","alt":"Edifícios rotulados utilizando o atributo `key`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Edifícios rotulados utilizando o atributo `key`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"pt","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"controls/modify.md","mtime":"2021-09-13T15:35:15.821Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-09-13T15:36:17.569Z"},"basePath":"..","book":{"language":"pt"}});
         });
     </script>
 </div>
 
         
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
     
@@ -644,10 +687,6 @@
     
         
         <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
         
     
         
