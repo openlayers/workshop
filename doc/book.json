@@ -1,5 +1,5 @@
 {
-  "gitbook": "^3.2.3",
+  "honkit": "^3.6.20",
   "variables": {
     "workshopUrl": "http://localhost:3000"
   },
@@ -11,7 +11,7 @@
   "plugins": [
     "image-captions",
     "include",
-    "include-codeblock-patched",
+    "include-codeblock",
     "copy-code-button"
   ],
   "pluginsConfig": {

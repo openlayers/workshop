@@ -16,16 +16,19 @@
     "start": "mkdirp doc/_book && npm run doc:serve",
     "test": "npm run doc:build",
     "clean": "rm -rf doc/_book build openlayers-workshop-*.zip",
-    "postinstall": "gitbook update && gitbook install doc",
-    "doc:serve": "gitbook serve doc",
-    "doc:build": "gitbook build doc build/openlayers-workshop",
+    "doc:serve": "honkit serve doc",
+    "doc:build": "honkit build doc build/openlayers-workshop",
     "build": "npm run clean && npm run doc:build",
     "archive:en": "./archive.sh en",
     "deploy": "npm run build && gh-pages --dist build/openlayers-workshop"
   },
   "devDependencies": {
-    "gh-pages": "2.0.1",
-    "gitbook-cli": "2.3.2",
-    "mkdirp": "0.5.1"
+    "gh-pages": "^3.2.3",
+    "gitbook-plugin-copy-code-button": "^0.0.2",
+    "gitbook-plugin-image-captions": "^3.1.0",
+    "gitbook-plugin-include": "^0.1.0",
+    "gitbook-plugin-include-codeblock": "^3.2.2",
+    "honkit": "^3.6.20",
+    "mkdirp": "1.0.4"
   }
 }
