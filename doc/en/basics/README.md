@@ -21,17 +21,17 @@ First, we create an `index.html` file in the root of the workshop directory:
 
 [import](../../../src/en/examples/basics/map.html)
 
-Note that we do not need to include any `<script>` for our application. Our webpack setup takes care of that. Our `<style>` makes the map container fill the whole page, and we will use the container `<div>` with the `map-container` id as target for the map.
+The markup includes a `<div>` with an id of `map-container` that serves as the target container for the map.  The `<style>` makes the map container fill the whole page.
 
 ## The application
 
-To work with OpenLayers, we install the [`ol` package](https://www.npmjs.com/package/ol) from npm. This was already done in the previous `npm install` step.  If you were starting from scratch on a new application, you would run `npm install ol@beta` this in the terminal.
+To work with OpenLayers, we install the [`ol` package](https://www.npmjs.com/package/ol) from npm. This was already done in the previous `npm install` step.  If you were starting from scratch on a new application, you would run `npm install ol` in the terminal.
 
 As entry point of the application, we create a `main.js` file, and also save it in the root of the workshop directory:
 
 [import](../../../src/en/examples/basics/map.js)
 
-At the top, we import the required modules from the `ol` package. Note the `'ol/ol.css'` import, which adds the styles that OpenLayers requires for its basic UI components. With everything we need imported, we move on and create a `Map`. The `target` points to the container `<div>` we have in our markup. We configure the map with a tiled image layer (`TileLayer`) and an `XYZSource`. Finally, the `View` defines the initial `zoom`, and the `center` of the map in the view projection. To provide geographic coordinates, we use the `fromLonLat` helper function from the `ol/proj` module.
+The imports at the top bring in the required modules from the `ol` package.  With everything we need imported, we create a `Map`. The `target` points to the container `<div>` we have in our markup. We configure the map with a tiled image layer (`TileLayer`) and an `XYZSource`. Finally, the `View` defines the initial `zoom`, and the `center` of the map in the view projection. To provide geographic coordinates, we use the `fromLonLat` helper function from the `ol/proj` module.
 
 ## Viewing the map
 
