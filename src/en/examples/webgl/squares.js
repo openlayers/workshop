@@ -1,19 +1,18 @@
-import 'ol/ol.css';
-import {fromLonLat} from 'ol/proj';
 import {Map, View} from 'ol';
 import {Tile as TileLayer} from 'ol/layer';
+import {fromLonLat} from 'ol/proj';
 //! [imports]
-import {WebGLPoints as WebGLPointsLayer} from 'ol/layer';
+import WebGLPointsLayer from 'ol/layer/WebGLPoints';
 //! [imports]
-import {Vector as VectorSource, Stamen} from 'ol/source';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
+import {Stamen, Vector as VectorSource} from 'ol/source';
 
 const source = new VectorSource();
 
 const client = new XMLHttpRequest();
-client.open('GET', 'data/meteorites.csv');
-client.onload = function() {
+client.open('GET', 'meteorites.csv');
+client.onload = function () {
   const csv = client.responseText;
   let curIndex;
   let prevIndex = 0;
@@ -29,11 +28,13 @@ client.onload = function() {
 
     const coords = fromLonLat([parseFloat(line[4]), parseFloat(line[3])]);
 
-    features.push(new Feature({
-      mass: parseFloat(line[1]) || 0,
-      year: parseInt(line[2]) || 0,
-      geometry: new Point(coords)
-    }));
+    features.push(
+      new Feature({
+        mass: parseFloat(line[1]) || 0,
+        year: parseInt(line[2]) || 0,
+        geometry: new Point(coords),
+      })
+    );
   }
   source.addFeatures(features);
 };
@@ -41,12 +42,12 @@ client.send();
 
 new Map({
   target: 'map-container',
-//! [layer]
+  //! [layer]
   layers: [
     new TileLayer({
       source: new Stamen({
-        layer: 'toner'
-      })
+        layer: 'toner',
+      }),
     }),
     new WebGLPointsLayer({
       source: source,
@@ -54,14 +55,14 @@ new Map({
         symbol: {
           symbolType: 'square',
           size: 10,
-          color: 'rgba(255,0,0,0.5)'
-        }
-      }
-    })
+          color: 'rgba(255,0,0,0.5)',
+        },
+      },
+    }),
   ],
-//! [layer]
+  //! [layer]
   view: new View({
     center: [0, 0],
-    zoom: 2
-  })
+    zoom: 2,
+  }),
 });
