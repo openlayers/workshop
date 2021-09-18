@@ -1,0 +1,28 @@
+{
+  "honkit": "^3.6.20",
+  "variables": {
+    "workshopUrl": "http://localhost:3000"
+  },
+  "links": {
+    "sidebar": {
+      "OpenLayers Workshop": "/"
+    }
+  },
+  "plugins": [
+    "image-captions",
+    "include",
+    "include-codeblock",
+    "copy-code-button"
+  ],
+  "pluginsConfig": {
+    "image-captions": {
+      "caption": "_CAPTION_"
+    },
+    "include-codeblock": {
+      "unindent": true
+    }
+  },
+  "styles": {
+    "website": "style.css"
+  }
+}
