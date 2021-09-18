@@ -12,7 +12,7 @@ We start with the same markup in `index.html` as we had for the [basic map](../b
 
 ## A street map for navigation
 
-The map we start with in `main.js` is also almost the same as the [basic map](../basics/) from the previous exercise. We only replace the `XYZSource` with a `OSMSource`, which gives us access to [OpenStreetMap](https://openstreetmap.org/)'s default map:
+The map we start with in `main.js` is the same as the [basic map](../basics/) from the previous exercise:
 
 [import](../../../src/en/examples/mobile/map.js)
 
@@ -22,7 +22,7 @@ Since a gyroscope is typically not available on desktop computers, we'll need to
 
 The easiest way to achieve that is to use https://ngrok.com. Once set up, the application can be served with the following command in a new terminal:
 
-    ./ngrok http 3000 --host-header="localhost:3000"
+    ./ngrok http 1234 --host-header="localhost:1234"
 
 When everything works, open the `https://` page indicated by ngrok's output on a mobile device:
 
