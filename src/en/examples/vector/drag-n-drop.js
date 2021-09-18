@@ -1,4 +1,3 @@
-import 'ol/ol.css';
 //! [import]
 import DragAndDrop from 'ol/interaction/DragAndDrop';
 //! [import]
@@ -11,12 +10,12 @@ import sync from 'ol-hashed';
 
 //! [map-const]
 const map = new Map({
-//! [map-const]
+  //! [map-const]
   target: 'map-container',
   view: new View({
     center: [0, 0],
-    zoom: 2
-  })
+    zoom: 2,
+  }),
 });
 
 sync(map);
@@ -27,14 +26,16 @@ const source = new VectorSource();
 
 //! [layers]
 const layer = new VectorLayer({
-  source: source
+  source: source,
 });
 map.addLayer(layer);
 //! [layers]
 
 //! [interaction]
-map.addInteraction(new DragAndDrop({
-  source: source,
-  formatConstructors: [GeoJSON]
-}));
+map.addInteraction(
+  new DragAndDrop({
+    source: source,
+    formatConstructors: [GeoJSON],
+  })
+);
 //! [interaction]
