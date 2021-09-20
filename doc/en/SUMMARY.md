@@ -23,8 +23,10 @@
   * [Interact with VectorTile features](vectortile/interact.md)
 * [Data Tiles](cog/README.md)
 * [Deploying](deploying/README.md)
-* Extra Credit
-  * [Raster Operations](raster/README.md)
-    * [Map setup](raster/map.md)
-    * [Render elevation data](raster/elevation.md)
-    * [Render sea level](raster/raster.md)
+
+### Extra Credit
+
+* [Raster Operations](raster/README.md)
+  * [Map setup](raster/map.md)
+  * [Render elevation data](raster/elevation.md)
+  * [Render sea level](raster/raster.md)
