@@ -11,7 +11,7 @@ import {Stamen, Vector as VectorSource} from 'ol/source';
 const source = new VectorSource();
 
 const client = new XMLHttpRequest();
-client.open('GET', 'meteorites.csv');
+client.open('GET', './data/meteorites.csv');
 client.onload = function () {
   const csv = client.responseText;
   let curIndex;

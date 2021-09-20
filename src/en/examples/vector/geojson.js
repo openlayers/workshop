@@ -10,7 +10,7 @@ new Map({
     new VectorLayer({
       source: new VectorSource({
         format: new GeoJSON(),
-        url: './countries.json',
+        url: './data/countries.json',
       }),
     }),
   ],

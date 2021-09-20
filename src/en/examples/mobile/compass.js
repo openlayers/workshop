@@ -78,7 +78,7 @@ const style = new Style({
     color: 'rgba(0, 0, 255, 0.2)',
   }),
   image: new Icon({
-    src: 'data/location-heading.svg',
+    src: './data/location-heading.svg',
     imgSize: [27, 55],
     rotateWithView: true,
   }),
