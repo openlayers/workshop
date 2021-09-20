@@ -46,7 +46,8 @@ build_archive() {
   mkdir -p ${BUILD}/openlayers-workshop-${1}
   cp doc/${1}/README.md ${BUILD}/openlayers-workshop-${1}/
   cp src/${1}/*.* ${BUILD}/openlayers-workshop-${1}
-  cp -r src/${1}/data ${BUILD}/openlayers-workshop-${1}/data
+  cp -r src/${1}/data ${BUILD}/openlayers-workshop-${1}/data 2>/dev/null || :
+  cp -r src/${1}/static ${BUILD}/openlayers-workshop-${1}/static 2>/dev/null || :
   cp -r src/${1}/examples ${BUILD}/openlayers-workshop-${1}/examples
   cp -r ${BUILD}/openlayers-workshop/${1} ${BUILD}/openlayers-workshop-${1}/doc
   cp -r ${BUILD}/openlayers-workshop/gitbook ${BUILD}/openlayers-workshop-${1}/gitbook
