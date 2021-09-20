@@ -1,7 +1,7 @@
 {
   "honkit": "^3.6.20",
   "variables": {
-    "workshopUrl": "http://localhost:3000"
+    "workshopUrl": "http://localhost:1234"
   },
   "links": {
     "sidebar": {
