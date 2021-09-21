@@ -30,4 +30,4 @@ As you can see, a `VectorTileSource` is configured with a `format` and a `url`, 
 
 The working example at {{book.workshopUrl}}/ shows an unstyled vector tile map like this:
 
-![A world map without style](map.png)
+![A world without style](map.png)
