@@ -7,8 +7,8 @@
   "dependencies": {
     "colormap": "^2.3.2",
     "kompas": "^0.0.1",
-    "ol": "^6.7.0",
-    "ol-hashed": "^2.0.0",
+    "ol": "^6.7.1-dev.1632220576058",
+    "ol-hashed": "^2.1.0",
     "ol-mapbox-style": "^6.4.2"
   },
   "eslintConfig": {

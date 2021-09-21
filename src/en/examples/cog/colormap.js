@@ -1,6 +1,7 @@
 import GeoTIFF from 'ol/source/GeoTIFF.js';
 import Map from 'ol/Map.js';
 import TileLayer from 'ol/layer/WebGLTile.js';
+import colormap from 'colormap';
 
 const source = new GeoTIFF({
   sources: [
@@ -21,6 +22,20 @@ const difference = ['-', nir, red];
 const sum = ['+', nir, red];
 const ndvi = ['/', difference, sum];
 
+function getColorStops(name, min, max, steps, reverse) {
+  const delta = (max - min) / (steps - 1);
+  const stops = new Array(steps * 2);
+  const colors = colormap({colormap: name, nshades: steps, format: 'rgba'});
+  if (reverse) {
+    colors.reverse();
+  }
+  for (let i = 0; i < steps; i++) {
+    stops[i * 2] = min + i * delta;
+    stops[i * 2 + 1] = colors[i];
+  }
+  return stops;
+}
+
 const layer = new TileLayer({
   source: source,
   style: {
@@ -28,17 +43,8 @@ const layer = new TileLayer({
       'interpolate',
       ['linear'],
       ndvi,
-      // color ramp for NDVI values, ranging from -1 to 1
-      -0.2,
-      [191, 191, 191],
-      0,
-      [255, 255, 224],
-      0.2,
-      [145, 191, 82],
-      0.4,
-      [79, 138, 46],
-      0.6,
-      [15, 84, 10],
+      // color ramp for NDVI values
+      ...getColorStops('earth', -0.5, 1, 10, true),
     ],
   },
 });
