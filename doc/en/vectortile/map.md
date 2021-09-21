@@ -14,15 +14,13 @@ For the application, we'll start with a fresh `main.js` in the root of the works
 
 [import:'imports'](../../../src/en/examples/vectortile/map.js)
 
-The data source we are going to use is street map data from OpenStreetMap. The provider of the tiles grants free access for demonstration purposes, but requires an access key. Please read the terms at https://cloud.maptiler.com/, where you can also get your own key. The code below assigns the key to a constant we're going to use later:
+The data source we are going to use is a simple map of the countries of the world from Natural Earth data, served as vector tiles by GeoServer.
 
-[import:'key'](../../../src/en/examples/vectortile/map.js)
-
-The map we're going to create here is the same that we have used in previous exercises, but we'll center it on San Diego and zoom in a bit more:
+The map setup we're going to create here is the same that we have used in previous exercises:
 
 [import:'map'](../../../src/en/examples/vectortile/map.js)
 
-The layer type we are going to use now is `VectorTileLayer`, with a `VectorTileSource`:
+The layer type we are going to use this time is a `VectorTileLayer`, with a `VectorTileSource`:
 
 [import:'layer'](../../../src/en/examples/vectortile/map.js)
 
@@ -32,4 +30,4 @@ As you can see, a `VectorTileSource` is configured with a `format` and a `url`, 
 
 The working example at {{book.workshopUrl}}/ shows an unstyled vector tile map like this:
 
-![A world map without style, centered on San Diego](map.png)
+![A world map without style](map.png)

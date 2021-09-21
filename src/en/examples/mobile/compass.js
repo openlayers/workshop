@@ -86,9 +86,20 @@ const style = new Style({
 layer.setStyle(style);
 //! [style]
 //! [kompas]
-const compass = new Kompas();
-compass.watch();
-compass.on('heading', function (heading) {
-  style.getImage().setRotation((Math.PI / 180) * heading);
-});
+if (
+  window.DeviceOrientationEvent &&
+  typeof DeviceOrientationEvent.requestPermission === 'function'
+) {
+  document.querySelector('.locate').addEventListener('click', () => {
+    DeviceOrientationEvent.requestPermission()
+      .then(() => {
+        const compass = new Kompas();
+        compass.watch();
+        compass.on('heading', function (heading) {
+          style.getImage().setRotation((Math.PI / 180) * heading);
+        });
+      })
+      .catch((error) => alert(`ERROR: ${error.message}`));
+  });
+}
 //! [kompas]
