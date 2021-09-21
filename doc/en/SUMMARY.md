@@ -21,7 +21,13 @@
   * [The VectorTile layer](vectortile/map.md)
   * [Making things look bright](vectortile/bright.md)
   * [Interact with VectorTile features](vectortile/interact.md)
-* [Data Tiles](cog/README.md)
+* [GeoTIFF Rendering](cog/README.md)
+  * [True color GeoTIFF](cog/true-color.md)
+  * [Simplified view](cog/simplified-view.md)
+  * [False color composite](cog/false-color.md)
+  * [Band math](cog/ndvi.md)
+  * [Color maps](cog/colormap.md)
+  * [Visualization chooser](cog/viz-picker.md)
 * [Deploying](deploying/README.md)
 
 ### Extra Credit

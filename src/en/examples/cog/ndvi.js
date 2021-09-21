@@ -2,6 +2,7 @@ import GeoTIFF from 'ol/source/GeoTIFF.js';
 import Map from 'ol/Map.js';
 import TileLayer from 'ol/layer/WebGLTile.js';
 
+//! [source]
 const source = new GeoTIFF({
   sources: [
     {
@@ -14,13 +15,17 @@ const source = new GeoTIFF({
     },
   ],
 });
+//! [source]
 
+//! [expression]
 const nir = ['band', 2];
 const red = ['band', 1];
 const difference = ['-', nir, red];
 const sum = ['+', nir, red];
 const ndvi = ['/', difference, sum];
+//! [expression]
 
+//! [layer]
 const layer = new TileLayer({
   source: source,
   style: {
@@ -42,6 +47,7 @@ const layer = new TileLayer({
     ],
   },
 });
+//! [layer]
 
 new Map({
   target: 'map-container',

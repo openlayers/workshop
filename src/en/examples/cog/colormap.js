@@ -1,7 +1,9 @@
 import GeoTIFF from 'ol/source/GeoTIFF.js';
 import Map from 'ol/Map.js';
 import TileLayer from 'ol/layer/WebGLTile.js';
+//! [import]
 import colormap from 'colormap';
+//! [import]
 
 const source = new GeoTIFF({
   sources: [
@@ -22,6 +24,7 @@ const difference = ['-', nir, red];
 const sum = ['+', nir, red];
 const ndvi = ['/', difference, sum];
 
+//! [func]
 function getColorStops(name, min, max, steps, reverse) {
   const delta = (max - min) / (steps - 1);
   const stops = new Array(steps * 2);
@@ -35,7 +38,9 @@ function getColorStops(name, min, max, steps, reverse) {
   }
   return stops;
 }
+//! [func]
 
+//! [layer]
 const layer = new TileLayer({
   source: source,
   style: {
@@ -48,6 +53,7 @@ const layer = new TileLayer({
     ],
   },
 });
+//! [layer]
 
 new Map({
   target: 'map-container',

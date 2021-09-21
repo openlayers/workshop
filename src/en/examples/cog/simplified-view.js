@@ -14,8 +14,10 @@ const layer = new TileLayer({
   source: source,
 });
 
+//! [map]
 new Map({
   target: 'map-container',
   layers: [layer],
   view: source.getView(),
 });
+//! [map]
