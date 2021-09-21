@@ -18,10 +18,14 @@ const source = new GeoTIFF({
 //! [source]
 
 //! [expression]
+// near-infrared is the second band from above
 const nir = ['band', 2];
+// near-infrared is the first band from above
 const red = ['band', 1];
+
 const difference = ['-', nir, red];
 const sum = ['+', nir, red];
+
 const ndvi = ['/', difference, sum];
 //! [expression]
 

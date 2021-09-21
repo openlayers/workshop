@@ -19,11 +19,7 @@ The [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) sate
 
 When viewing multi-band imagery that includes data from outside the visible spectrum, we have to choose how to map each band to one of the three visible channels (red, green, or blue) available for rendering on digital displays.  A "true color composite" is a rendering that displays visible blue (B02 from Sentinel-2) in the blue channel, visible green (B03) in the green channel, and visible red (B04) in the red channel.  Any other mapping of satellite image bands to display channels is a "false color composite."
 
-September images around Buenos Aires
-
-```bash
-aws s3 ls s3://sentinel-cogs/sentinel-s2-l2a-cogs/21/H/UB/2021/9/ --no-sign-request
-```
+There are a collection of Sentinel-2 L2A products hosted as Cloud-Optimized GeoTIFFs on [Amazon S3](https://registry.opendata.aws/sentinel-2/).  In this exercise, we'll render one of these on a map.
 
 First, reset your `index.html` so we're ready to render a full page map:
 
@@ -31,9 +27,17 @@ First, reset your `index.html` so we're ready to render a full page map:
 
 Now we'll import two new components we haven't used before:
 
- * the GeoTIFF source for working with multi-band raster data
- * the WebGL tile layer for manipulating data tiles with shaders on the GPU
+ * the `ol/source/GeoTIFF` source for working with multi-band raster data
+ * the `ol/layer/WebGLTile` layer for manipulating data tiles with shaders on the GPU
 
 Update your `main.js` to load and render a remotely hosted GeoTIFF file on a map:
 
 [import](../../../src/en/examples/cog/true-color.js)
+
+The trickiest part here is finding the URL for an image that you might be interested in.  To do that, you can try searching in the [EO (Earth Observation) Browser](https://apps.sentinel-hub.com/eo-browser/).  If you have the `aws` [command line interface](https://aws.amazon.com/cli/) installed, you can also list the `s3://sentinel-cogs/` bucket contents to get the paths for images by the Sentinel-2 grid cell identifier and date.  For example, to search for images around Buenos Aires from September, 2021:
+
+```bash
+aws s3 ls s3://sentinel-cogs/sentinel-s2-l2a-cogs/21/H/UB/2021/9/ --no-sign-request
+```
+
+The next hardest part is figuring out what `projection` and `extent` are appropriate for the map view.  In the next step, we'll make that easier.
