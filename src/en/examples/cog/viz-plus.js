@@ -34,7 +34,6 @@ const images = [
 ];
 //! [images]
 
-//! [visualizations]
 const visualizations = [
   {
     name: 'True Color',
@@ -72,9 +71,7 @@ const visualizations = [
     },
   },
 ];
-//! [visualizations]
 
-//! [layer]
 function createLayer(base, visualization) {
   const source = new GeoTIFF({
     sources: visualization.sources.map((id) => ({
@@ -88,22 +85,17 @@ function createLayer(base, visualization) {
     style: visualization.style,
   });
 }
-//! [layer]
 
-//! [map]
 const map = new Map({
   target: 'map-container',
 });
-//! [map]
 
-//! [visualization-selector]
 const visualizationSelector = document.getElementById('visualization');
 visualizations.forEach((visualization) => {
   const option = document.createElement('option');
   option.textContent = visualization.name;
   visualizationSelector.appendChild(option);
 });
-//! [visualization-selector]
 
 //! [image-selector]
 const imageSelector = document.getElementById('image');

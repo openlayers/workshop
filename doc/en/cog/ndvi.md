@@ -4,13 +4,13 @@ We have seen how the `ol/source/GeoTIFF` source can be used to render true and f
 
 The `ol/layer/WebGLTile` layer accepts a `style` property that can be used to control source rendering.  In this example, we'll use math expressions to calculate the Normalized Difference Vegetation Index ([NDVI](https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index)) from the same Sentinel-2 sources used in the previous examples.
 
-The NDVI is the ratio of the difference between near-infrared and red to the sum of near-infrared and red reflectance values.  This normalized difference provides an index of green vegetation density or health.  In dividing the difference in NIR and red reflectance by the sum, the index is normalized against variations in brightness or illumination – the idea is that vegetated sunny slopes should have a similar index as vegetated shady slopes.
-
-Here is an expression that calculates NDVI given near-infrared and red reflectance values:
+The NDVI is the ratio of the difference between near-infrared (NIR) and red to the sum of near-infrared and red reflectance values.
 
 ```
 NDVI = (NIR - RED) / (NIR + RED)
 ```
+
+This normalized difference provides an index of green vegetation density or health.  In dividing the difference in NIR and red reflectance by the sum, the index is normalized against variations in brightness or illumination.  The idea is that vegetated sunny slopes should have a similar index as vegetated shady slopes.
 
 To render NDVI values, we need to configure our source to use the near-infrared (B08) and red (B04) bands.  Update your `main.js` script so the source looks like this:
 

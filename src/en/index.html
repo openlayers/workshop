@@ -13,16 +13,23 @@
         width: 100%;
         font-family: sans-serif;
       }
-      #visualization {
+      /*! [style] */
+      #controls {
         position: absolute;
         top: 20px;
         right: 20px;
       }
+      /*! [style] */
     </style>
   </head>
   <body>
     <div id="map-container"></div>
-    <select id="visualization"></select>
+    <!--! [markup] -->
+    <div id="controls">
+      <select id="image"></select>
+      <select id="visualization"></select>
+    </div>
+    <!--! [markup] -->
     <script src="./main.js" type="module"></script>
   </body>
 </html>

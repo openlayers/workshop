@@ -1,6 +1,6 @@
 # True color GeoTIFF
 
-The [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) satellite mission has resulted in the collection and dissemination of imagery covering the earth's land surface with a revisit rate of 2 to 5 days.  The sensors collect "multi-band" imagery, where each band is a portion of the electromagnetic spectrum.  The Level 2A ([L2A](https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-2-msi/product-types/level-2a)) product provides surface reflectance measures in the following bands:
+The [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) satellite mission has resulted in the collection and dissemination of imagery covering the earth's land surface with a revisit rate of 2 to 5 days.  The sensors collect multi-band imagery, where each band is a portion of the electromagnetic spectrum.  The Level 2A ([L2A](https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-2-msi/product-types/level-2a)) product provides surface reflectance measures in the following bands:
 
 | Band | Description                    | Central Wavelength (μm) | Resolution (m) |
 |------|--------------------------------|-------------------------|----------------|
@@ -17,7 +17,7 @@ The [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) sate
 | B11  | Short-wave infrared            |                   1.610 |             20 |
 | B12  | Short-wave infrared            |                   2.190 |             20 |
 
-When viewing multi-band imagery that includes data from outside the visible spectrum, we have to choose how to map each band to one of the three visible channels (red, green, or blue) available for rendering on digital displays.  A "true color composite" is a rendering that displays visible blue (B02 from Sentinel-2) in the blue channel, visible green (B03) in the green channel, and visible red (B04) in the red channel.  Any other mapping of satellite image bands to display channels is a "false color composite."
+When viewing multi-band imagery that includes data from outside the visible spectrum, we have to choose how to map each band to one of the three visible channels (red, green, or blue) available for rendering on digital displays.  A *true color composite* is a rendering that displays visible blue (B02 from Sentinel-2) in the blue channel, visible green (B03) in the green channel, and visible red (B04) in the red channel.  Any other mapping of satellite image bands to display channels is a *false color composite*.
 
 There are a collection of Sentinel-2 L2A products hosted as Cloud-Optimized GeoTIFFs on [Amazon S3](https://registry.opendata.aws/sentinel-2/).  In this exercise, we'll render one of these on a map.
 

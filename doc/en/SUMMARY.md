@@ -20,6 +20,7 @@
   * [Band math](cog/ndvi.md)
   * [Color maps](cog/colormap.md)
   * [Visualization chooser](cog/visualizations.md)
+  * [Visualization chooser (continued)](cog/viz-plus.md)
 * [Vector Tiles and Mapbox Styles](vectortile/README.md)
   * [The VectorTile layer](vectortile/map.md)
   * [Making things look bright](vectortile/bright.md)

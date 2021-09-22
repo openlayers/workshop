@@ -16,7 +16,7 @@ With this information, we were finally able to configure the view for the map:
 
 GeoTIFF imagery extends regular TIFF imagery with special "geo" tags that provide information about things like the spatial reference system and coordinate location of the imagery.  The `ol/source/GeoTIFF` source in OpenLayers parses this information and can ideally be used to configure a map's view.
 
-The `source.getView()` method of the GeoTIFF source returns a promise for view properties (like `projection`, `center`, `zoom`, and `extent`) that resolves when the GeoTIFF metdata has been parsed.  The map constructor now accepts a `view` option that can be a promise for these same properties.  So instead of digging through the metadata ourselves to find things like `projection` and `extent`, we can provide the map with a promise for view properties from the source.
+The `source.getView()` method of the GeoTIFF source returns a promise for view properties (like `projection`, `center`, `extent`, and `zoom`) that resolves when the GeoTIFF metdata has been parsed.  The map constructor now accepts a `view` option that can be a promise for these same properties.  So instead of digging through the metadata ourselves to find things like `projection` and `extent`, we can provide the map with a promise for view properties from the source.
 
 Update your `main.js` so that the map constructor uses this new method for getting view properties from the source:
 
