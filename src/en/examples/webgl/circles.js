@@ -1,9 +1,11 @@
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
+import TileLayer from 'ol/layer/Tile';
+//! [import]
+import WebGLPointsLayer from 'ol/layer/WebGLPoints';
+//! [import]
 import {Map, View} from 'ol';
 import {Stamen, Vector as VectorSource} from 'ol/source';
-import {Tile as TileLayer} from 'ol/layer';
-import {WebGLPoints as WebGLPointsLayer} from 'ol/layer';
 import {fromLonLat} from 'ol/proj';
 
 const source = new VectorSource();
@@ -38,6 +40,20 @@ client.onload = function () {
 };
 client.send();
 
+//! [layer]
+const meteorites = new WebGLPointsLayer({
+  source: source,
+  style: {
+    symbol: {
+      symbolType: 'circle',
+      size: 14,
+      color: 'rgb(255, 0, 0)',
+      opacity: 0.5,
+    },
+  },
+});
+//! [layer]
+
 new Map({
   target: 'map-container',
   layers: [
@@ -46,23 +62,7 @@ new Map({
         layer: 'toner',
       }),
     }),
-    //! [layer]
-    new WebGLPointsLayer({
-      source: source,
-      style: {
-        symbol: {
-          symbolType: 'circle',
-          // equivalent to: 18 * clamp('mass' / 200000, 0, 1) + 8
-          size: [
-            '+',
-            ['*', ['clamp', ['*', ['get', 'mass'], 1 / 20000], 0, 1], 18],
-            8,
-          ],
-          color: 'rgba(255,0,0,0.5)',
-        },
-      },
-    }),
-    //! [layer]
+    meteorites,
   ],
   view: new View({
     center: [0, 0],
@@ -72,11 +72,6 @@ new Map({
 
 /**
  
-//! [expression]
-// equivalent to: 18 * clamp('mass' / 200000, 0, 1) + 8
-size: ['+', ['*', ['clamp', ['*', ['get', 'mass'], 1/20000], 0, 1], 18], 8],
-//! [expression]
- 
 //! [operator1]
   ['get', 'mass']
 //! [operator1]
@@ -84,7 +79,10 @@ size: ['+', ['*', ['clamp', ['*', ['get', 'mass'], 1/20000], 0, 1], 18], 8],
   ['clamp', value, 0, 1]
 //! [operator2]
 //! [operator3]
-  ['*', value, 3]
+  ['*', value, 18]
 //! [operator3]
+//! [operator4]
+  ['+', value, 8]
+//! [operator4]
  
  */

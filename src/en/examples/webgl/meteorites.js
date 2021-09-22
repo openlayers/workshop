@@ -1,8 +1,9 @@
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
+import TileLayer from 'ol/layer/Tile';
+import VectorLayer from 'ol/layer/Vector';
 import {Map, View} from 'ol';
 import {Stamen, Vector as VectorSource} from 'ol/source';
-import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer';
 import {fromLonLat} from 'ol/proj';
 
 const source = new VectorSource();
@@ -38,6 +39,10 @@ client.onload = function () {
 };
 client.send();
 
+const meteorites = new VectorLayer({
+  source: source,
+});
+
 new Map({
   target: 'map-container',
   layers: [
@@ -46,9 +51,7 @@ new Map({
         layer: 'toner',
       }),
     }),
-    new VectorLayer({
-      source: source,
-    }),
+    meteorites,
   ],
   view: new View({
     center: [0, 0],

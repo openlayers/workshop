@@ -45,47 +45,54 @@ const span = maxYear - minYear;
 const rate = 10; // years per second
 
 const start = Date.now();
-let currentYear = minYear;
+
+const styleVariables = {
+  currentYear: minYear,
+};
 //! [years]
 
-const oldColor = 'rgba(242,56,22,0.61)';
-const newColor = '#ffe52c';
-const period = 12; // animation period in seconds
-const animRatio = [
-  '^',
-  [
-    '/',
-    [
-      '%',
-      [
-        '+',
-        ['time'],
-        ['interpolate', ['linear'], ['get', 'year'], 1850, 0, 2015, period],
-      ],
-      period,
-    ],
-    period,
-  ],
-  0.5,
+//! [expressions]
+const period = 10;
+const periodStart = ['-', ['var', 'currentYear'], period];
+const decay = [
+  'interpolate',
+  ['linear'],
+  ['get', 'year'],
+  periodStart,
+  0,
+  ['var', 'currentYear'],
+  1,
 ];
+//! [expressions]
 
-const style = {
-  variables: {
-    minYear: 1850,
-    maxYear: 2015,
+const meteorites = new WebGLPointsLayer({
+  source: source,
+  style: {
+    //! [variables]
+    variables: styleVariables,
+    //! [variables]
+    //! [filter]
+    filter: ['between', ['get', 'year'], periodStart, ['var', 'currentYear']],
+    //! [filter]
+    symbol: {
+      symbolType: 'circle',
+      //! [size]
+      size: [
+        '*',
+        decay,
+        ['+', ['*', ['clamp', ['*', ['get', 'mass'], 1 / 20000], 0, 1], 18], 8],
+      ],
+      //! [size]
+      color: 'rgb(255, 0, 0)',
+      //! [opacity]
+      opacity: ['*', 0.5, decay],
+      //! [opacity]
+    },
   },
-  filter: ['between', ['get', 'year'], ['var', 'minYear'], ['var', 'maxYear']],
-  symbol: {
-    symbolType: 'circle',
-    size: [
-      '*',
-      ['interpolate', ['linear'], ['get', 'mass'], 0, 8, 200000, 26],
-      ['-', 1.75, ['*', animRatio, 0.75]],
-    ],
-    color: ['interpolate', ['linear'], animRatio, 0, newColor, 1, oldColor],
-    opacity: ['-', 1.0, ['*', animRatio, 0.75]],
-  },
-};
+  //! [hitdetection]
+  disableHitDetection: true,
+  //! [hitdetection]
+});
 
 //! [declaration]
 const map = new Map({
@@ -97,11 +104,7 @@ const map = new Map({
         layer: 'toner',
       }),
     }),
-    new WebGLPointsLayer({
-      style: style,
-      source: source,
-      disableHitDetection: true,
-    }),
+    meteorites,
   ],
   view: new View({
     center: [0, 0],
@@ -114,8 +117,8 @@ const yearElement = document.getElementById('year');
 
 function render() {
   const elapsed = (rate * (Date.now() - start)) / 1000;
-  currentYear = Math.round(minYear + (elapsed % span));
-  yearElement.innerText = currentYear;
+  styleVariables.currentYear = Math.round(minYear + (elapsed % span));
+  yearElement.innerText = styleVariables.currentYear;
 
   map.render();
   requestAnimationFrame(render);
