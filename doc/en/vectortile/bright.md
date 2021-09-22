@@ -22,9 +22,9 @@ We'll import the `apply` function from this package, so we can simply have a map
 
 [import](../../../src/en/examples/vectortile/bright.js)
 
-What a relief. Finally we can enjoy a nice looking world map, and zoom in to San Diego!
+What a relief. Finally we can enjoy a nice looking world map, and zoom in to Buenos Aires!
 
-![A bright map of San Diego](bright.png)
+![A bright map of Buenos Aires](bright.png)
 
 ## Build a complete map from a Mapbox Style definition
 
