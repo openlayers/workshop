@@ -18,3 +18,7 @@ Now we can modify our layer style's `color` expression to use an array of stop a
 
 The layer:
 [import:'layer'](../../../src/en/examples/cog/colormap.js)
+
+Reload {{book.workshopUrl}}/ to see your new color map applied to the NDVI output.
+
+![NDVI generated from a Setinel-2 GeoTIFF](colormap.png)

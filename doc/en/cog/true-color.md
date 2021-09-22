@@ -34,6 +34,10 @@ Update your `main.js` to load and render a remotely hosted GeoTIFF file on a map
 
 [import](../../../src/en/examples/cog/true-color.js)
 
+The working example at {{book.workshopUrl}}/ shows a map with a GeoTIFF rendered in a WebGL tile layer.
+
+![A true color rendering of a Setinel-2 GeoTIFF](true-color.png)
+
 The trickiest part here is finding the URL for an image that you might be interested in.  To do that, you can try searching in the [EO (Earth Observation) Browser](https://apps.sentinel-hub.com/eo-browser/).  If you have the `aws` [command line interface](https://aws.amazon.com/cli/) installed, you can also list the `s3://sentinel-cogs/` bucket contents to get the paths for images by the Sentinel-2 grid cell identifier and date.  For example, to search for images around Buenos Aires from September, 2021:
 
 ```bash

@@ -19,3 +19,7 @@ Now we just need to make a minor adjustment to the function that updates our vis
 [import:'update'](../../../src/en/examples/cog/viz-plus.js)
 
 Note that we also only now update the view if the user has selected a new imagery source.  This is nicer than zooming out to the full extent whenever a new visualization type is selected.
+
+Reload {{book.workshopUrl}}/. Boom!
+
+![COG explorer](viz-plus.png)

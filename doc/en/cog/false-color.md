@@ -11,3 +11,7 @@ To highlight vegetation in multi-spectral imagery, it is common to show the near
 Update your `main.js` so the source looks like the following:
 
 [import:'source'](../../../src/en/examples/cog/false-color.js)
+
+Reload {{book.workshopUrl}}/ to see your false color composite.
+
+![A false color rendering of a Setinel-2 GeoTIFF](false-color.png)

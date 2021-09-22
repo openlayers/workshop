@@ -38,4 +38,8 @@ Finally, we will create a function to update the map with a new layer based on t
 
 [import:'update'](../../../src/en/examples/cog/visualizations.js)
 
+Now {{book.workshopUrl}}/ should show a visualization chooser.
+
+![Visualization chooser](visualizations.png)
+
 Nice!  Now the user can choose what type of visualization to render.  But wouldn't it be nice to be able to change the imagery source too?  That's next.
