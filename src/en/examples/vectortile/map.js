@@ -1,39 +1,32 @@
 //
 //! [imports]
 import 'ol/ol.css';
-import {Map, View} from 'ol';
 import MVT from 'ol/format/MVT';
 import VectorTileLayer from 'ol/layer/VectorTile';
 import VectorTileSource from 'ol/source/VectorTile';
+import {Map, View} from 'ol';
 import {fromLonLat} from 'ol/proj';
 //! [imports]
-
-//! [key]
-// See https://cloud.maptiler.com/ for terms and API key
-const key = 'lirfd6Fegsjkvs0lshxe'; // use your own instead
-//! [key]
 
 //! [map]
 const map = new Map({
   target: 'map-container',
   view: new View({
-    center: fromLonLat([-117.1625, 32.715]),
-    zoom: 6
-  })
+    center: fromLonLat([0, 0]),
+    zoom: 2,
+  }),
 });
 //! [map]
 
 //! [layer]
 const layer = new VectorTileLayer({
   source: new VectorTileSource({
-    attributions: [
-      '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a>',
-      '<a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-    ],
     format: new MVT(),
-    url: `https://api.maptiler.com/tiles/v3/{z}/{x}/{y}.pbf?key=${key}`,
-    maxZoom: 14
-  })
+    url:
+      'https://ahocevar.com/geoserver/gwc/service/tms/1.0.0/' +
+      'ne:ne_10m_admin_0_countries@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf',
+    maxZoom: 14,
+  }),
 });
 map.addLayer(layer);
 //! [layer]

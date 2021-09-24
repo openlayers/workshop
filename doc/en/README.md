@@ -27,5 +27,5 @@ The following modules will be covered in this workshop:
 * [Mobile Maps and Sensors](mobile/README.md) - Mobile maps with GPS and compass.
 * [WebGL Rendering](webgl/README.md) - Rendering meteorite impact sites with WebGL.
 * [Vector Tiles](vectortile/README.md) - Create beautiful maps with vector tiles.
-* [Raster Operations](raster/README.md) - Manipulating pixels with a raster source.
+* [Data Tiles](raster/README.md) - Generate and visualize data tiles from GeoTIFF sources.
 * [Deploying](deploying/README.md) - Building applications for production.

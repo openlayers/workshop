@@ -1,4 +1,3 @@
-import 'ol/ol.css';
 import DragAndDrop from 'ol/interaction/DragAndDrop';
 //! [import-draw]
 import Draw from 'ol/interaction/Draw';
@@ -15,8 +14,8 @@ const map = new Map({
   target: 'map-container',
   view: new View({
     center: [0, 0],
-    zoom: 2
-  })
+    zoom: 2,
+  }),
 });
 
 sync(map);
@@ -24,22 +23,28 @@ sync(map);
 const source = new VectorSource();
 
 const layer = new VectorLayer({
-  source: source
+  source: source,
 });
 map.addLayer(layer);
 
-map.addInteraction(new DragAndDrop({
-  source: source,
-  formatConstructors: [GeoJSON]
-}));
+map.addInteraction(
+  new DragAndDrop({
+    source: source,
+    formatConstructors: [GeoJSON],
+  })
+);
 
-map.addInteraction(new Modify({
-  source: source
-}));
+map.addInteraction(
+  new Modify({
+    source: source,
+  })
+);
 
 //! [draw]
-map.addInteraction(new Draw({
-  type: 'Polygon',
-  source: source
-}));
+map.addInteraction(
+  new Draw({
+    type: 'Polygon',
+    source: source,
+  })
+);
 //! [draw]

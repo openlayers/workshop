@@ -1,16 +1,16 @@
-import 'ol/ol.css';
-import {fromLonLat} from 'ol/proj';
-import {Map, View} from 'ol';
-import {Vector as VectorLayer, Tile as TileLayer} from 'ol/layer';
-import {Vector as VectorSource, Stamen} from 'ol/source';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
+import TileLayer from 'ol/layer/Tile';
+import VectorLayer from 'ol/layer/Vector';
+import {Map, View} from 'ol';
+import {Stamen, Vector as VectorSource} from 'ol/source';
+import {fromLonLat} from 'ol/proj';
 
 const source = new VectorSource();
 
 const client = new XMLHttpRequest();
-client.open('GET', 'data/meteorites.csv');
-client.onload = function() {
+client.open('GET', './data/meteorites.csv');
+client.onload = function () {
   const csv = client.responseText;
   const features = [];
 
@@ -27,31 +27,34 @@ client.onload = function() {
       continue;
     }
 
-    features.push(new Feature({
-      mass: parseFloat(line[1]) || 0,
-      year: parseInt(line[2]) || 0,
-      geometry: new Point(coords)
-    }));
+    features.push(
+      new Feature({
+        mass: parseFloat(line[1]) || 0,
+        year: parseInt(line[2]) || 0,
+        geometry: new Point(coords),
+      })
+    );
   }
   source.addFeatures(features);
 };
 client.send();
 
+const meteorites = new VectorLayer({
+  source: source,
+});
 
 new Map({
   target: 'map-container',
   layers: [
     new TileLayer({
       source: new Stamen({
-        layer: 'toner'
-      })
+        layer: 'toner',
+      }),
     }),
-    new VectorLayer({
-      source: source
-    })
+    meteorites,
   ],
   view: new View({
     center: [0, 0],
-    zoom: 2
-  })
+    zoom: 2,
+  }),
 });

@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <title>OpenLayers</title>
     <style>
+      @import "node_modules/ol/ol.css";
+    </style>
+    <style>
       html, body, #map-container {
         margin: 0;
         height: 100%;
@@ -11,24 +14,21 @@
         font-family: sans-serif;
       }
       /*! [style] */
-      #slider {
+      #controls {
         position: absolute;
-        bottom: 1rem;
-        width: 100%;
-        text-align: center;
-        text-shadow: 0px 0px 4px rgba(255, 255, 255, 1);
+        top: 20px;
+        right: 20px;
       }
       /*! [style] */
     </style>
   </head>
   <body>
     <div id="map-container"></div>
-    <!--! [controls] -->
-    <label id="slider">
-      Sea level
-      <input id="level" type="range" min="0" max="100" value="1"/>
-      +<span id="output"></span> m
-    </label>
-    <!--! [controls] -->
+    <!--! [markup] -->
+    <div id="controls">
+      <select id="visualization"></select>
+    </div>
+    <!--! [markup] -->
+    <script src="./main.js" type="module"></script>
   </body>
 </html>

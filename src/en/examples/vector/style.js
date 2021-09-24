@@ -1,4 +1,3 @@
-import 'ol/ol.css';
 import DragAndDrop from 'ol/interaction/DragAndDrop';
 import Draw from 'ol/interaction/Draw';
 import GeoJSON from 'ol/format/GeoJSON';
@@ -12,8 +11,8 @@ import View from 'ol/View';
 import sync from 'ol-hashed';
 import {Fill, Stroke, Style} from 'ol/style';
 //! [imports]
-import {getArea} from 'ol/sphere';
 import colormap from 'colormap';
+import {getArea} from 'ol/sphere';
 //! [imports]
 
 //! [color]
@@ -22,7 +21,7 @@ const max = 2e13; // the biggest area
 const steps = 50;
 const ramp = colormap({
   colormap: 'blackbody',
-  nshades: steps
+  nshades: steps,
 });
 
 function clamp(value, low, high) {
@@ -37,13 +36,12 @@ function getColor(feature) {
 }
 //! [color]
 
-
 const map = new Map({
   target: 'map-container',
   view: new View({
     center: [0, 0],
-    zoom: 2
-  })
+    zoom: 2,
+  }),
 });
 
 sync(map);
@@ -53,47 +51,55 @@ const source = new VectorSource();
 //! [style]
 const layer = new VectorLayer({
   source: source,
-  style: function(feature) {
+  style: function (feature) {
     return new Style({
       fill: new Fill({
-        color: getColor(feature)
+        color: getColor(feature),
       }),
       stroke: new Stroke({
-        color: 'rgba(255,255,255,0.8)'
-      })
+        color: 'rgba(255,255,255,0.8)',
+      }),
     });
-  }
+  },
 });
 //! [style]
 
 map.addLayer(layer);
 
-map.addInteraction(new DragAndDrop({
-  source: source,
-  formatConstructors: [GeoJSON]
-}));
+map.addInteraction(
+  new DragAndDrop({
+    source: source,
+    formatConstructors: [GeoJSON],
+  })
+);
 
-map.addInteraction(new Modify({
-  source: source
-}));
+map.addInteraction(
+  new Modify({
+    source: source,
+  })
+);
 
-map.addInteraction(new Draw({
-  source: source,
-  type: GeometryType.POLYGON
-}));
+map.addInteraction(
+  new Draw({
+    source: source,
+    type: GeometryType.POLYGON,
+  })
+);
 
-map.addInteraction(new Snap({
-  source: source
-}));
+map.addInteraction(
+  new Snap({
+    source: source,
+  })
+);
 
 const clear = document.getElementById('clear');
-clear.addEventListener('click', function() {
+clear.addEventListener('click', function () {
   source.clear();
 });
 
 const format = new GeoJSON({featureProjection: 'EPSG:3857'});
 const download = document.getElementById('download');
-source.on('change', function() {
+source.on('change', function () {
   const features = source.getFeatures();
   const json = format.writeFeatures(features);
   download.href = 'data:text/json;charset=utf-8,' + json;
