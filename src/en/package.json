@@ -3,7 +3,6 @@
   "description": "OpenLayers workshop",
   "version": "0.0.0",
   "private": true,
-  "main": "main.js",
   "dependencies": {
     "colormap": "^2.3.2",
     "kompas": "^0.0.1",
@@ -17,12 +16,14 @@
   "scripts": {
     "lint": "eslint .",
     "test": "npm run lint",
-    "start": "parcel serve index.html"
+    "start": "parcel serve index.html",
+    "build": "parcel build index.html --public-url ./ && shx cp -r data dist/"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-openlayers": "^15.1.0",
     "parcel": "^2.0.0-rc.0",
-    "serve-static": "^1.14.1"
+    "serve-static": "^1.14.1",
+    "shx": "^0.3.3"
   }
 }
