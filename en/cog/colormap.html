@@ -1,0 +1,801 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Color maps · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.20">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../style.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="visualizations.html" />
+    
+    
+    <link rel="prev" href="ndvi.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="/" target="_blank" class="custom-link">OpenLayers Workshop</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../basics/">
+            
+                <a href="../basics/">
+            
+                    
+                    Basics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../vector/">
+            
+                <a href="../vector/">
+            
+                    
+                    Vector Data
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../vector/geojson.html">
+            
+                <a href="../vector/geojson.html">
+            
+                    
+                    Rendering GeoJSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../vector/drag-n-drop.html">
+            
+                <a href="../vector/drag-n-drop.html">
+            
+                    
+                    Drag and drop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../vector/modify.html">
+            
+                <a href="../vector/modify.html">
+            
+                    
+                    Modifying features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../vector/draw.html">
+            
+                <a href="../vector/draw.html">
+            
+                    
+                    Drawing new features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../vector/snap.html">
+            
+                <a href="../vector/snap.html">
+            
+                    
+                    Snapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../vector/download.html">
+            
+                <a href="../vector/download.html">
+            
+                    
+                    Downloading features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../vector/style.html">
+            
+                <a href="../vector/style.html">
+            
+                    
+                    Making it look nice
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../mobile/">
+            
+                <a href="../mobile/">
+            
+                    
+                    Mobile Maps and Sensors
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../mobile/map.html">
+            
+                <a href="../mobile/map.html">
+            
+                    
+                    A mobile map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../mobile/geolocation.html">
+            
+                <a href="../mobile/geolocation.html">
+            
+                    
+                    Geolocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../mobile/compass.html">
+            
+                <a href="../mobile/compass.html">
+            
+                    
+                    Compass
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    GeoTIFF Rendering
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="true-color.html">
+            
+                <a href="true-color.html">
+            
+                    
+                    True color GeoTIFF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="simplified-view.html">
+            
+                <a href="simplified-view.html">
+            
+                    
+                    Simplified view
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="false-color.html">
+            
+                <a href="false-color.html">
+            
+                    
+                    False color composite
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="ndvi.html">
+            
+                <a href="ndvi.html">
+            
+                    
+                    Band math
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.5" data-path="colormap.html">
+            
+                <a href="colormap.html">
+            
+                    
+                    Color maps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="visualizations.html">
+            
+                <a href="visualizations.html">
+            
+                    
+                    Visualization chooser
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="viz-plus.html">
+            
+                <a href="viz-plus.html">
+            
+                    
+                    Visualization chooser (continued)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../vectortile/">
+            
+                <a href="../vectortile/">
+            
+                    
+                    Vector Tiles and Mapbox Styles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../vectortile/map.html">
+            
+                <a href="../vectortile/map.html">
+            
+                    
+                    The VectorTile layer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../vectortile/bright.html">
+            
+                <a href="../vectortile/bright.html">
+            
+                    
+                    Making things look bright
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../vectortile/interact.html">
+            
+                <a href="../vectortile/interact.html">
+            
+                    
+                    Interact with VectorTile features
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../webgl/">
+            
+                <a href="../webgl/">
+            
+                    
+                    WebGL Point Rendering
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../webgl/meteorites.html">
+            
+                <a href="../webgl/meteorites.html">
+            
+                    
+                    Map setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../webgl/points.html">
+            
+                <a href="../webgl/points.html">
+            
+                    
+                    Rendering points
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../webgl/animated.html">
+            
+                <a href="../webgl/animated.html">
+            
+                    
+                    Animating points
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../deploying/">
+            
+                <a href="../deploying/">
+            
+                    
+                    Deploying
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Extra Credit</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../data-tiles/">
+            
+                <a href="../data-tiles/">
+            
+                    
+                    Data Tiles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../data-tiles/map.html">
+            
+                <a href="../data-tiles/map.html">
+            
+                    
+                    Map setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../data-tiles/elevation.html">
+            
+                <a href="../data-tiles/elevation.html">
+            
+                    
+                    Render elevation data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../data-tiles/sea-level.html">
+            
+                <a href="../data-tiles/sea-level.html">
+            
+                    
+                    Render sea level
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Color maps</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="more-colors">More colors!</h1>
+<p>The <a href="https://www.npmjs.com/package/colormap" target="_blank"><code>colormap</code></a> package is a nice utility library for creating color maps.  This library has already been added as a dependency for the project.  To import it, edit your <code>main.js</code> to include the line below:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> colormap <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;colormap&apos;</span>;
+</code></pre>
+<p>The <code>colormap</code> module exprts a function that returns an array of RGBA color values from one of the named color maps.  As seen in the previous example, we want an array of values that looks like this:</p>
+<pre><code class="lang-js">[stopValue0, color0, stopValue1, color1, stopValue1, stopValue2, color2, ...]
+</code></pre>
+<p>To create such an array, we&apos;ll write a function that takes a <code>name</code> for the color map, a <code>min</code> stop value, a <code>max</code> stop value, a number of <code>steps</code>, and an option to <code>reverse</code> the array of colors from the <code>colormap</code> function.  Add the following function to your <code>main.js</code>:</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getColorStops</span>(<span class="hljs-params">name, min, max, steps, reverse</span>) </span>{
+  <span class="hljs-keyword">const</span> delta = (max - min) / (steps - <span class="hljs-number">1</span>);
+  <span class="hljs-keyword">const</span> stops = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(steps * <span class="hljs-number">2</span>);
+  <span class="hljs-keyword">const</span> colors = colormap({<span class="hljs-attr">colormap</span>: name, <span class="hljs-attr">nshades</span>: steps, <span class="hljs-attr">format</span>: <span class="hljs-string">&apos;rgba&apos;</span>});
+  <span class="hljs-keyword">if</span> (reverse) {
+    colors.reverse();
+  }
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; steps; i++) {
+    stops[i * <span class="hljs-number">2</span>] = min + i * delta;
+    stops[i * <span class="hljs-number">2</span> + <span class="hljs-number">1</span>] = colors[i];
+  }
+  <span class="hljs-keyword">return</span> stops;
+}
+</code></pre>
+<p>Now we can modify our layer style&apos;s <code>color</code> expression to use an array of stop and color values.  Edit the layer definition in <code>main.js</code> to use our new function:</p>
+<p>The layer:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> layer = <span class="hljs-keyword">new</span> TileLayer({
+  <span class="hljs-attr">source</span>: source,
+  <span class="hljs-attr">style</span>: {
+    <span class="hljs-attr">color</span>: [
+      <span class="hljs-string">&apos;interpolate&apos;</span>,
+      [<span class="hljs-string">&apos;linear&apos;</span>],
+      ndvi,
+      <span class="hljs-comment">// color ramp for NDVI values</span>
+      ...getColorStops(<span class="hljs-string">&apos;earth&apos;</span>, -<span class="hljs-number">0.5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">true</span>),
+    ],
+  },
+});
+</code></pre>
+<p>Reload <a href="http://localhost:1234/" target="_blank">http://localhost:1234/</a> to see your new color map applied to the NDVI output.</p>
+<figure id="fig1.5.5.1"><img src="colormap.png" alt="NDVI generated from a Setinel-2 GeoTIFF"><figcaption>NDVI generated from a Setinel-2 GeoTIFF</figcaption></figure>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ndvi.html" class="navigation navigation-prev " aria-label="Previous page: Band math">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="visualizations.html" class="navigation navigation-next " aria-label="Next page: Visualization chooser">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Color maps","level":"1.5.5","depth":2,"next":{"title":"Visualization chooser","level":"1.5.6","depth":2,"path":"cog/visualizations.md","ref":"cog/visualizations.md","articles":[]},"previous":{"title":"Band math","level":"1.5.4","depth":2,"path":"cog/ndvi.md","ref":"cog/ndvi.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.6.20","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:1234","_pictures":[{"backlink":"basics/index.html#fig1.2.1","level":"1.2","list_caption":"Figure: A map of the world","alt":"A map of the world","nro":1,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of the world","attributes":{},"skip":false,"key":"1.2.1"},{"backlink":"vector/geojson.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: GeoJSON features","alt":"GeoJSON features","nro":2,"url":"geojson.png","index":1,"caption_template":"_CAPTION_","label":"GeoJSON features","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"vector/drag-n-drop.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Drag and drop","alt":"Drag and drop","nro":3,"url":"drag-n-drop.png","index":1,"caption_template":"_CAPTION_","label":"Drag and drop","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"vector/modify.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Modifying features","alt":"Modifying features","nro":4,"url":"modify.png","index":1,"caption_template":"_CAPTION_","label":"Modifying features","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"vector/draw.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: A new island nation in the Caribbean","alt":"A new island nation in the Caribbean","nro":5,"url":"draw.png","index":1,"caption_template":"_CAPTION_","label":"A new island nation in the Caribbean","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"vector/snap.html#fig1.3.5.1","level":"1.3.5","list_caption":"Figure: Uniting nations with the snap interaction","alt":"Uniting nations with the snap interaction","nro":6,"url":"snap.png","index":1,"caption_template":"_CAPTION_","label":"Uniting nations with the snap interaction","attributes":{},"skip":false,"key":"1.3.5.1"},{"backlink":"vector/download.html#fig1.3.6.1","level":"1.3.6","list_caption":"Figure: Buttons to clear and download data","alt":"Buttons to clear and download data","nro":7,"url":"download.png","index":1,"caption_template":"_CAPTION_","label":"Buttons to clear and download data","attributes":{},"skip":false,"key":"1.3.6.1"},{"backlink":"vector/style.html#fig1.3.7.1","level":"1.3.7","list_caption":"Figure: Features colored by area","alt":"Features colored by area","nro":8,"url":"style.png","index":1,"caption_template":"_CAPTION_","label":"Features colored by area","attributes":{},"skip":false,"key":"1.3.7.1"},{"backlink":"mobile/map.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Map on a smartphone","alt":"Map on a smartphone","nro":9,"url":"map.jpeg","index":1,"caption_template":"_CAPTION_","label":"Map on a smartphone","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"mobile/geolocation.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Location with accuracy polygon","alt":"Location with accuracy polygon","nro":10,"url":"geolocation.jpeg","index":1,"caption_template":"_CAPTION_","label":"Location with accuracy polygon","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"mobile/compass.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: User looking around with the navigation tool","alt":"User looking around with the navigation tool","nro":11,"url":"compass.gif","index":1,"caption_template":"_CAPTION_","label":"User looking around with the navigation tool","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"cog/true-color.html#fig1.5.1.1","level":"1.5.1","list_caption":"Figure: A true color rendering of a Setinel-2 GeoTIFF","alt":"A true color rendering of a Setinel-2 GeoTIFF","nro":12,"url":"true-color.png","index":1,"caption_template":"_CAPTION_","label":"A true color rendering of a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.1.1"},{"backlink":"cog/simplified-view.html#fig1.5.2.1","level":"1.5.2","list_caption":"Figure: A true color rendering of a Setinel-2 GeoTIFF","alt":"A true color rendering of a Setinel-2 GeoTIFF","nro":13,"url":"true-color.png","index":1,"caption_template":"_CAPTION_","label":"A true color rendering of a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.2.1"},{"backlink":"cog/false-color.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Spectral signatures of vegetation (in green), soil (red), and water (blue).","alt":"Spectral signatures of vegetation (in green), soil (red), and water (blue).","nro":14,"url":"spectra.png","index":1,"caption_template":"_CAPTION_","label":"Spectral signatures of vegetation (in green), soil (red), and water (blue).","attributes":{},"skip":false,"key":"1.5.3.1"},{"backlink":"cog/false-color.html#fig1.5.3.2","level":"1.5.3","list_caption":"Figure: A false color rendering of a Setinel-2 GeoTIFF","alt":"A false color rendering of a Setinel-2 GeoTIFF","nro":15,"url":"false-color.png","index":2,"caption_template":"_CAPTION_","label":"A false color rendering of a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.3.2"},{"backlink":"cog/ndvi.html#fig1.5.4.1","level":"1.5.4","list_caption":"Figure: NDVI generated from a Setinel-2 GeoTIFF","alt":"NDVI generated from a Setinel-2 GeoTIFF","nro":16,"url":"ndvi.png","index":1,"caption_template":"_CAPTION_","label":"NDVI generated from a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.4.1"},{"backlink":"cog/colormap.html#fig1.5.5.1","level":"1.5.5","list_caption":"Figure: NDVI generated from a Setinel-2 GeoTIFF","alt":"NDVI generated from a Setinel-2 GeoTIFF","nro":17,"url":"colormap.png","index":1,"caption_template":"_CAPTION_","label":"NDVI generated from a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.5.1"},{"backlink":"cog/visualizations.html#fig1.5.6.1","level":"1.5.6","list_caption":"Figure: Visualization chooser","alt":"Visualization chooser","nro":18,"url":"visualizations.png","index":1,"caption_template":"_CAPTION_","label":"Visualization chooser","attributes":{},"skip":false,"key":"1.5.6.1"},{"backlink":"cog/viz-plus.html#fig1.5.7.1","level":"1.5.7","list_caption":"Figure: COG explorer","alt":"COG explorer","nro":19,"url":"viz-plus.png","index":1,"caption_template":"_CAPTION_","label":"COG explorer","attributes":{},"skip":false,"key":"1.5.7.1"},{"backlink":"vectortile/map.html#fig1.6.1.1","level":"1.6.1","list_caption":"Figure: A world without style","alt":"A world without style","nro":20,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A world without style","attributes":{},"skip":false,"key":"1.6.1.1"},{"backlink":"vectortile/bright.html#fig1.6.2.1","level":"1.6.2","list_caption":"Figure: A bright map of Buenos Aires","alt":"A bright map of Buenos Aires","nro":21,"url":"bright.png","index":1,"caption_template":"_CAPTION_","label":"A bright map of Buenos Aires","attributes":{},"skip":false,"key":"1.6.2.1"},{"backlink":"vectortile/interact.html#fig1.6.3.1","level":"1.6.3","list_caption":"Figure: Hovering over the map","alt":"Hovering over the map","nro":22,"url":"interact.gif","index":1,"caption_template":"_CAPTION_","label":"Hovering over the map","attributes":{},"skip":false,"key":"1.6.3.1"},{"backlink":"webgl/meteorites.html#fig1.7.1.1","level":"1.7.1","list_caption":"Figure: Meteorite impact sites","alt":"Meteorite impact sites","nro":23,"url":"meteorites.png","index":1,"caption_template":"_CAPTION_","label":"Meteorite impact sites","attributes":{},"skip":false,"key":"1.7.1.1"},{"backlink":"webgl/points.html#fig1.7.2.1","level":"1.7.2","list_caption":"Figure: Impact sites rendered as circles","alt":"Impact sites rendered as circles","nro":24,"url":"squares.png","index":1,"caption_template":"_CAPTION_","label":"Impact sites rendered as circles","attributes":{},"skip":false,"key":"1.7.2.1"},{"backlink":"webgl/points.html#fig1.7.2.2","level":"1.7.2","list_caption":"Figure: Circle sized by meteorite mass","alt":"Circle sized by meteorite mass","nro":25,"url":"circles.png","index":2,"caption_template":"_CAPTION_","label":"Circle sized by meteorite mass","attributes":{},"skip":false,"key":"1.7.2.2"},{"backlink":"webgl/animated.html#fig1.7.3.1","level":"1.7.3","list_caption":"Figure: Through the years","alt":"Through the years","nro":26,"url":"years.gif","index":1,"caption_template":"_CAPTION_","label":"Through the years","attributes":{},"skip":false,"key":"1.7.3.1"},{"backlink":"webgl/animated.html#fig1.7.3.2","level":"1.7.3","list_caption":"Figure: Meteor shower","alt":"Meteor shower","nro":27,"url":"shower.gif","index":2,"caption_template":"_CAPTION_","label":"Meteor shower","attributes":{},"skip":false,"key":"1.7.3.2"},{"backlink":"data-tiles/map.html#fig2.1.1.1","level":"2.1.1","list_caption":"Figure: A map of Buenos Aires","alt":"A map of Buenos Aires","nro":28,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of Buenos Aires","attributes":{},"skip":false,"key":"2.1.1.1"},{"backlink":"data-tiles/elevation.html#fig2.1.2.1","level":"2.1.2","list_caption":"Figure: Terrain-RGB tiles rendered over a base map","alt":"Terrain-RGB tiles rendered over a base map","nro":29,"url":"elevation.png","index":1,"caption_template":"_CAPTION_","label":"Terrain-RGB tiles rendered over a base map","attributes":{},"skip":false,"key":"2.1.2.1"},{"backlink":"data-tiles/sea-level.html#fig2.1.3.1","level":"2.1.3","list_caption":"Figure: Sea level rise","alt":"Sea level rise","nro":30,"url":"sea-level.png","index":1,"caption_template":"_CAPTION_","label":"Sea level rise","attributes":{},"skip":false,"key":"2.1.3.1"}]},"language":"en","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"cog/colormap.md","mtime":"2021-09-24T19:29:11.139Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-09-24T19:29:22.838Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
