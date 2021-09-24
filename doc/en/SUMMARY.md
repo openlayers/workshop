@@ -33,7 +33,7 @@
 
 ### Extra Credit
 
-* [Raster Operations](raster/README.md)
-  * [Map setup](raster/map.md)
-  * [Render elevation data](raster/elevation.md)
-  * [Render sea level](raster/raster.md)
+* [Data Tiles](data-tiles/README.md)
+  * [Map setup](data-tiles/map.md)
+  * [Render elevation data](data-tiles/elevation.md)
+  * [Render sea level](data-tiles/sea-level.md)
