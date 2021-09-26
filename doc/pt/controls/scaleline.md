@@ -69,4 +69,4 @@ Contudo, a título de exemplo, vamos imaginar que seu mapa já esteja com muitas
 
   ![O controle ScaleLine fora do mapa](scaleline2.png)
 
-*Nota* - Para criar um controle personalizado você pode herdar (usando a classe `ol.inherits`) da classe `ol.control.Control`. Para ver um exemplo, veja: http://openlayers.org/en/master/examples/custom-controls.html.
+*Nota* - Para criar um controle personalizado você pode herdar (usando a classe `ol.inherits`) da classe `ol.control.Control`. Para ver um exemplo, veja: http://openlayers.org/en/latest/examples/custom-controls.html.

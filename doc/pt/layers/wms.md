@@ -59,7 +59,7 @@ Vamos examinar o seguinte código:
 
 ## O construtor da classe `ol.layer.Tile`
 
-O construtor da classe `ol.layer.Tile` aceita como parâmetro um objeto literal do tipo `ol.layer.TileOptions` veja: http://openlayers.org/en/master/apidoc/ol.layer.Tile.html.
+O construtor da classe `ol.layer.Tile` aceita como parâmetro um objeto literal do tipo `ol.layer.TileOptions` veja: http://openlayers.org/en/latest/apidoc/ol.layer.Tile.html.
 Neste caso, nós estamos passando a chave `source` por meio do objeto `ol.source.TileWMS`.
 A camada pode receber um título humanamente legível por meio da chave `title`, mas qualquer nome arbitrário para a chave pode ser fornecido aqui.
 No OpenLayers existe uma separação entre as camadas (`layers`) e as fontes de dados (`sources`), apesar de no OpenLayers 2 tudo fazer parte da camada.
@@ -68,7 +68,7 @@ No OpenLayers existe uma separação entre as camadas (`layers`) e as fontes de 
 
 ## O construtor da classe ol.source.TileWMS
 
-O construtor da classe `ol.source.TileWMS` tem um único argumento (ver: http://openlayers.org/en/master/apidoc/ol.source.TileWMS.html).
+O construtor da classe `ol.source.TileWMS` tem um único argumento (ver: http://openlayers.org/en/latest/apidoc/ol.source.TileWMS.html).
 `url` é o endereço do provedor WMS e `params` é um objeto literal com os nomes dos parâmetros e seus respectivos valores. Somente o parâmetro `LAYERS` é requerido. Neste exemplo, adicionamos `TILED: true`, uma extensão específica do Geoserver para melhorar o cache dos blocos (`tiles`) gerados pelas camadas WMS.
 
 ```js
@@ -99,7 +99,7 @@ O construtor da classe `ol.source.TileWMS` tem um único argumento (ver: http://
     })
   ```
 
-1. Mude sua camada e fonte de dados para ter uma imagem única ao ínves dos `tiles`. Olhe a documentação da API para algumas dicas: http://openlayers.org/en/master/apidoc/ol.layer.Image.html e http://openlayers.org/en/master/apidoc/ol.source.ImageWMS.html. Use a aba `Network` da ferramenta para desenvolvedores do seu navegador para checar se somente uma única imagem está sendo retornada ao invés de blocos de 256x256 pixels.
+1. Mude sua camada e fonte de dados para ter uma imagem única ao ínves dos `tiles`. Olhe a documentação da API para algumas dicas: http://openlayers.org/en/latest/apidoc/ol.layer.Image.html e http://openlayers.org/en/latest/apidoc/ol.source.ImageWMS.html. Use a aba `Network` da ferramenta para desenvolvedores do seu navegador para checar se somente uma única imagem está sendo retornada ao invés de blocos de 256x256 pixels.
 
   ![Uma camada WMS como uma fonte de dados de imagem](wms1.png)
 

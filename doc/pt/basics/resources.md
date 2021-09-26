@@ -6,20 +6,20 @@ O OpenLayers contém um vasto número de funcionalidades. Embora os desenvolvedo
 
 Novos usuários, provavelmente, acharão que mergulhar nos exemplos do OpenLayers é a melhor forma de começar.
 
-* http://openlayers.org/en/master/examples/
+* http://openlayers.org/en/latest/examples/
 
 ## Consulte a documentação
 
 Para mais informações sobre tópicos específicos, navegue pela crescente documentação do OpenLayers.
 
-* http://openlayers.org/en/master/doc/quickstart.html
-* http://openlayers.org/en/master/doc/tutorials
+* http://openlayers.org/en/latest/doc/quickstart.html
+* http://openlayers.org/en/latest/doc/tutorials
 
 ## Encontre a referência da API
 
 Depois de entender os componentes básicos que constroem e controlam o mapa, procure na documentação da API detalhes sobre as propriedades e os métodos disponibilizados pelos objetos. Se você quer ver somente a parte estável da API, certifique-se de marcar a caixa de seleção `Stable Only`.
 
-* http://openlayers.org/en/master/apidoc/
+* http://openlayers.org/en/latest/apidoc/
 
 ## Faça parte da comunidade
 

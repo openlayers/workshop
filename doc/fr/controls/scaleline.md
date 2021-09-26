@@ -70,4 +70,4 @@ Cependant, pour l'intérêt de l'exercice, admettons que vous pensez que l'affic
   ![Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte](scaleline2.png)
 
 
-*Note* - Pour créer un `control` personnalisé, vous pouvez le faire hériter (en utilisant `ol.inherits`) de `ol.control.Control`. Pour voir, un exemple de cela, allez-voir: http://openlayers.org/en/master/examples/custom-controls.html.
+*Note* - Pour créer un `control` personnalisé, vous pouvez le faire hériter (en utilisant `ol.inherits`) de `ol.control.Control`. Pour voir, un exemple de cela, allez-voir: http://openlayers.org/en/latest/examples/custom-controls.html.

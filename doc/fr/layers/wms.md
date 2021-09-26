@@ -59,7 +59,7 @@ Jetez un oeil au code suivant:
 
 ## Le constructeur `ol.layer.Tile`
 
-Le constructeur `ol.layer.Tile` nécessite un objet littéral de type `olx.layer.TileOptions` voir: http://openlayers.org/en/master/apidoc/ol.layer.Tile.html
+Le constructeur `ol.layer.Tile` nécessite un objet littéral de type `olx.layer.TileOptions` voir: http://openlayers.org/en/latest/apidoc/ol.layer.Tile.html
 Dans ce cas, nous complétons la clé `source` des options avec une `ol.source.TileWMS`.
 Un titre lisible par les humains pour la couche peut être fournie avec la clé `title`, mais n'importe quel nom pour la clé peut être utilisée ici.
 Dans OpenLayers, il y a une séparation entre les couches et les sources alors que dans Openlayers 2, l'ensemble faisait partie d'une couche.
@@ -68,7 +68,7 @@ Dans OpenLayers, il y a une séparation entre les couches et les sources alors q
 
 ## Le constructeur `ol.source.TileWMS`
 
-Le constructeur `ol.source.TileWMS` est un argument unique qui est définit par: http://openlayers.org/en/master/apidoc/ol.source.TileWMS.html.
+Le constructeur `ol.source.TileWMS` est un argument unique qui est définit par: http://openlayers.org/en/latest/apidoc/ol.source.TileWMS.html.
 L'url est la `online resource` du service WMS, et `params` est un objet litéral avec les noms des paramètres et leurs valeurs. Seul le paramètre `LAYERS` est requis. Dans cet exemple, nous ajoutons `TILED: true`, une extension spécifique à GeoServer pour une meilleure mise en cache des couches WMS en mosaïque.
 
 ```js
@@ -99,7 +99,7 @@ L'url est la `online resource` du service WMS, et `params` est un objet litéral
     })
   ```
 
-2. Changez votre couche et votre source pour avoir une image unique plutôt que des tuiles. Regardez aux pages de la documentation de l'API pour avoir des indices: http://openlayers.org/en/master/apidoc/ol.layer.Image.html et http://openlayers.org/en/master/apidoc/ol.source.ImageWMS.html. Utilisez l'onglet `Réseau` des outils de développement de votre navigateur pour vous assurer qu'une seule image est demandée et pas seulement des tuiles de 256x256 pixels.
+2. Changez votre couche et votre source pour avoir une image unique plutôt que des tuiles. Regardez aux pages de la documentation de l'API pour avoir des indices: http://openlayers.org/en/latest/apidoc/ol.layer.Image.html et http://openlayers.org/en/latest/apidoc/ol.source.ImageWMS.html. Utilisez l'onglet `Réseau` des outils de développement de votre navigateur pour vous assurer qu'une seule image est demandée et pas seulement des tuiles de 256x256 pixels.
 
   ![Un WMS comme source image](wms1.png)
 

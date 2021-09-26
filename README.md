@@ -24,4 +24,4 @@ In addition, you can update the [hosted version](http://openlayers.org/workshop/
 
     npm run deploy
 
-[![Current Status](https://travis-ci.org/openlayers/workshop.svg?branch=master)](https://travis-ci.org/openlayers/workshop)
+![Current Status](https://github.com/openlayers/workshop/actions/workflows/deploy.yml/badge.svg)
