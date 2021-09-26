@@ -4,7 +4,7 @@ This doc is for people developing the OpenLayers Workshop.  Workshop participant
 
 ## Building the workshop
 
-Install Node 8+ and dependencies:
+Install Node 16+ and dependencies:
 
     npm install
 
@@ -18,7 +18,7 @@ When adding new pages or restructuring things, update the `doc/SUMMARY.md` (this
 
 ## Creating a new release
 
-When you push a new tag, Travis will build the workshop archive and attach it to the [release page](https://github.com/openlayers/workshop/releases).
+When you push a new tag, a GitHub CI action will build the workshop archive and attach it to the [release page](https://github.com/openlayers/workshop/releases).
 
 In addition, you can update the [hosted version](http://openlayers.org/workshop/) of the workshop (this part is subject to change):
 
