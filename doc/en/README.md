@@ -25,7 +25,7 @@ The following modules will be covered in this workshop:
 * [Basics](basics/README.md) - Learn how to add a map to a webpage.
 * [Vector Data](vector/README.md) - Working with vector data.
 * [Mobile Maps and Sensors](mobile/README.md) - Mobile maps with GPS and compass.
-* [WebGL Rendering](webgl/README.md) - Rendering meteorite impact sites with WebGL.
-* [Vector Tiles](vectortile/README.md) - Create beautiful maps with vector tiles.
-* [Data Tiles](raster/README.md) - Generate and visualize data tiles from GeoTIFF sources.
+* [GeoTIFF Rendering](cog/README.md) - Generate and visualize data tiles from GeoTIFF sources.
+* [Vector Tiles and Mapbox Styles](vectortile/README.md) - Create beautiful maps with vector tiles.
+* [WebGL Point Rendering](webgl/README.md) - Render points with WebGL.
 * [Deploying](deploying/README.md) - Building applications for production.
