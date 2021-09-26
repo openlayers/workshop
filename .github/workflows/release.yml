@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - "v*.en.*"
+      - "v*-en.*"
 
 jobs:
   release-latest-en:
