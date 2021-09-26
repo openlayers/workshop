@@ -22,7 +22,7 @@ Update your `main.js` so that the map constructor uses this new method for getti
 
 [import:'map'](../../../src/en/examples/cog/simplified-view.js)
 
-Now you can remove the `projection`, `extent`, and related imports (`Projection` and `getCenter`) from your `main.js` file.
+Now you can remove the `projection`, `extent`, and related imports (`View`, `Projection`, and `getCenter`) from your `main.js` file.
 
 You should find the same result as before at {{book.workshopUrl}}/ – only this time we had to write less code!
 
