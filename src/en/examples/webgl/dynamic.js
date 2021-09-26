@@ -73,3 +73,18 @@ new Map({
     zoom: 2,
   }),
 });
+
+/**
+//! [operator1]
+  ['get', 'mass']
+//! [operator1]
+//! [operator2]
+  ['clamp', value, 0, 1]
+//! [operator2]
+//! [operator3]
+  ['*', value, 18]
+//! [operator3]
+//! [operator4]
+  ['+', value, 8]
+//! [operator4]
+ */

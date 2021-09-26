@@ -14,7 +14,7 @@ Replace the `const meteorites...` assignment with an instance of your `WebGLPoin
 
 Tada! Meteorite impact locations rendered with WebGL.
 
-![Impact sites rendered as circles](squares.png)
+![Impact sites rendered as circles](circles.png)
 
 You can see that we specified a `style` parameter when creating the layer, and that this style allowed us to specify the appearance of the points (red, semi-transparent circles).
 
@@ -36,13 +36,13 @@ The `WebGLPointsLayer` class supports this kind of expression for the numerical 
 
 An expression is composed of **operators** that are expressed as *arrays* like so:
 
-[import:'operator1'](../../../src/en/examples/webgl/circles.js)
-[import:'operator2'](../../../src/en/examples/webgl/circles.js)
-[import:'operator3'](../../../src/en/examples/webgl/circles.js)
-[import:'operator4'](../../../src/en/examples/webgl/circles.js)
+[import:'operator1'](../../../src/en/examples/webgl/dynamic.js)
+[import:'operator2'](../../../src/en/examples/webgl/dynamic.js)
+[import:'operator3'](../../../src/en/examples/webgl/dynamic.js)
+[import:'operator4'](../../../src/en/examples/webgl/dynamic.js)
 
 The first operator, `get`, will read the feature's attribute by its name. The other operators, here showcased `clamp`, `*` and `+`, allow manipulating the output of another operator. In the previous example we used these to transform the meteorites mass values into a final size comprised between 8 and 26.
 
 Looking better and better!
 
-![Circle sized by meteorite mass](circles.png)
+![Circle sized by meteorite mass](dynamic.png)
