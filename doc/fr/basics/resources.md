@@ -6,20 +6,20 @@ La bibliothèque OpenLayers contient de riches fonctionnalités. Bien que les d�
 
 Les nouveaux utilisateurs trouveront probablement que plonger dans les exemples de code OpenLayers et expérimenter avec les possibilités de fonctionnalités de la bibliothèque est la voie la plus facile pour débuter.
 
-* http://openlayers.org/en/master/examples/
+* http://openlayers.org/en/latest/examples/
 
 ## Explorer la documentation
 
 Pour plus d'informations sur des sujets spécifiques, naviguer la collection grandissante de documentation pour OpenLayers.
 
-* http://openlayers.org/en/master/doc/quickstart.html
-* http://openlayers.org/en/master/doc/tutorials
+* http://openlayers.org/en/latest/doc/quickstart.html
+* http://openlayers.org/en/latest/doc/tutorials
 
 ## Trouver la référence de l'API
 
 Après avoir compris les composants de base qui constituent et contrôlent une carte, cherchez la documentation de référence de l'API pour les détails sur les signatures des méthodes et les propriétés des objets. Si vous voulez voir seulement la partie stable de l'API, assurez-vous de vérifier que vous avez coché la case à cocher `Stable Only`.
 
-* http://openlayers.org/en/master/apidoc/
+* http://openlayers.org/en/latest/apidoc/
 
 ## Rejoigner la communauté
 

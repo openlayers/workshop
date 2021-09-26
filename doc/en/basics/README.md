@@ -43,6 +43,6 @@ Now our application is ready for testing. Let's open the working map in a web br
 
 In the [final chapter](../deploying/) of the workshop, we will learn how create a production build of the application for deployment.
 
-As a starting point for your own applications, we recommend looking at the [examples](https://openlayers.org/en/master/examples/).
+As a starting point for your own applications, we recommend looking at the [examples](https://openlayers.org/en/latest/examples/).
 
-The [API documentation](https://openlayers.org/en/master/apidoc/) provides reference to all classes and functions of OpenLayers.
+The [API documentation](https://openlayers.org/en/latest/apidoc/) provides reference to all classes and functions of OpenLayers.
