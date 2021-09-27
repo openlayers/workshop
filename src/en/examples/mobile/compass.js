@@ -100,7 +100,7 @@ if (
         });
       })
       .catch(function (error) {
-        alert(`ERROR: ${error.message}`;
+        alert(`ERROR: ${error.message}`);
       });
   });
 }
