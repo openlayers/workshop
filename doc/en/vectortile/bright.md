@@ -16,13 +16,7 @@ The tile dataset we are going to use is https://cloud.maptiler.com/maps/bright/.
 
 [import:'layer'](../../../src/en/examples/vectortile/bright.js)
 
-I have put a copy of this style in the `data/` directory. To make use of that, we bring in the [ol-mapbox-style](https://npmjs.com/package/ol-mapbox/style) utility. This package is already installed as part of the workshop dependendencies.  If it were not already included, you could install it from a terminal with `npm install ol-mapbox-style`.
-
-We'll import the `apply` function from this package, so we can simply have a map with all the contents from a style file rendered into our `map-container`. Usage is really simple. Our whole `main.js` can be reduced to two imports and one line of code:
-
-[import](../../../src/en/examples/vectortile/bright.js)
-
-What a relief. Finally we can enjoy a nice looking world map, and zoom in to Buenos Aires!
+The above code replaces the `VectorTileLayer` from the previous step. When everything works as expected, we can finally enjoy a nice looking world map, and zoom in to Buenos Aires!
 
 ![A bright map of Buenos Aires](bright.png)
 
