@@ -6,6 +6,10 @@ The first thing to do in `main.js` is add imports for the vector source and laye
 
 [import:'import-layer'](../../../src/en/examples/mobile/geolocation.js)
 
+Also, we have to assign the `ol/Map` instance to variable so we can reference it later:
+
+[import:'assign-map'](../../../src/en/examples/mobile/geolocation.js)
+
 Next, we can create a vector source for the GPS location we want to show, add the source to a layer, and add the layer to the map:
 
 [import:'layer'](../../../src/en/examples/mobile/geolocation.js)

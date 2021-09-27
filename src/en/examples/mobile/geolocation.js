@@ -15,7 +15,9 @@ import {circular} from 'ol/geom/Polygon';
 import Control from 'ol/control/Control';
 //! [import-control]
 
+//! [assign-map]
 const map = new Map({
+  //! [assign-map]
   target: 'map-container',
   layers: [
     new TileLayer({

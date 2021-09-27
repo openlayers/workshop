@@ -90,16 +90,18 @@ if (
   window.DeviceOrientationEvent &&
   typeof DeviceOrientationEvent.requestPermission === 'function'
 ) {
-  document.querySelector('.locate').addEventListener('click', () => {
+  locate.addEventListener('click', function () {
     DeviceOrientationEvent.requestPermission()
-      .then(() => {
+      .then(function () {
         const compass = new Kompas();
         compass.watch();
         compass.on('heading', function (heading) {
           style.getImage().setRotation((Math.PI / 180) * heading);
         });
       })
-      .catch((error) => alert(`ERROR: ${error.message}`));
+      .catch(function (error) {
+        alert(`ERROR: ${error.message}`;
+      });
   });
 }
 //! [kompas]
