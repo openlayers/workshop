@@ -6,7 +6,7 @@
         <title>Animating points · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 3.6.20">
+        <meta name="generator" content="HonKit 3.7.1">
         
         
         
@@ -14,10 +14,6 @@
     <link rel="stylesheet" href="../../gitbook/style.css">
 
     
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-image-captions/image-captions.css">
-                
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
@@ -640,85 +636,32 @@
 <p>So far we have managed to get data from our CSV file rendered with WebGL, but the map is pretty uninteresting.  We&apos;re using the mass of the meteorite to determine the radius of the circle, but we&apos;re not making use of the meteorite impact date that we parsed as the <code>year</code> property in our point features.</p>
 <p>The <code>year</code> property for our meteorite features have values that range from 1850 to 2015.  We&apos;ll set up an animation loop that increments the current year, render meteorites on their impact year, and then decrease their size and opacity as time passes.</p>
 <p>As a first step, we&apos;ll get the animation loop going and render the current year to a <code>&lt;div&gt;</code> on top of the map.  Add the following markup below the map container in your <code>index.html</code>:</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;year&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-</code></pre>
+<p><a href="../../../src/en/examples/webgl/animated.html">import:&apos;markup&apos;</a></p>
 <p>Edit the <code>&lt;style&gt;</code> block to include the following rule:</p>
-<pre><code class="lang-css"><span class="hljs-selector-id">#year</span> {
-  <span class="hljs-attribute">position</span>: absolute;
-  <span class="hljs-attribute">bottom</span>: <span class="hljs-number">1em</span>;
-  <span class="hljs-attribute">left</span>: <span class="hljs-number">1em</span>;
-  <span class="hljs-attribute">color</span>: white;
-  -webkit-text-stroke: <span class="hljs-number">1px</span> black;
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">2em</span>;
-  <span class="hljs-attribute">font-weight</span>: bold;
-}
-</code></pre>
+<p><a href="../../../src/en/examples/webgl/animated.html">import:&apos;style&apos;, lang:&apos;css&apos;</a></p>
 <p>Now, back in <code>main.js</code>, we&apos;ll declare some variables to represent the time range of the data and the rate at which we want the animation to proceed.  Add the following code above your <code>const meteorites</code> declaration in <code>main.js</code>:</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> minYear = <span class="hljs-number">1850</span>;
-<span class="hljs-keyword">const</span> maxYear = <span class="hljs-number">2015</span>;
-<span class="hljs-keyword">const</span> span = maxYear - minYear;
-<span class="hljs-keyword">const</span> rate = <span class="hljs-number">10</span>; <span class="hljs-comment">// years per second</span>
-
-<span class="hljs-keyword">const</span> start = <span class="hljs-built_in">Date</span>.now();
-
-<span class="hljs-keyword">const</span> styleVariables = {
-  <span class="hljs-attr">currentYear</span>: minYear,
-};
-</code></pre>
+<p><a href="../../../src/en/examples/webgl/animated.js">import:&apos;years&apos;</a></p>
 <p>To be able to access the current year in style expressions, we need the <code>styleVariables</code> as <code>variables</code> property on the layer&apos;s <code>style</code> object:</p>
-<pre><code class="lang-javascript">variables: styleVariables,
-</code></pre>
+<p><a href="../../../src/en/examples/webgl/animated.js">import:&apos;variables&apos;</a></p>
 <p>Variables in a style object are numeric values that are available in expressions for calculations.</p>
 <p>Next we need to assign our map instance to a <code>map</code> variable that we can reference later:</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>({
-</code></pre>
+<p><a href="../../../src/en/examples/webgl/animated.js">import:&apos;declaration&apos;</a></p>
 <p>Below the map configuration, add the following <code>render</code> function to get the animation loop started.</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> yearElement = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;year&apos;</span>);
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">const</span> elapsed = (rate * (<span class="hljs-built_in">Date</span>.now() - start)) / <span class="hljs-number">1000</span>;
-  styleVariables.currentYear = <span class="hljs-built_in">Math</span>.round(minYear + (elapsed % span));
-  yearElement.innerText = styleVariables.currentYear;
-
-  map.render();
-  requestAnimationFrame(render);
-}
-
-render();
-</code></pre>
+<p><a href="../../../src/en/examples/webgl/animated.js">import:&apos;animate&apos;</a></p>
 <p>If you got it all right, you should see the years rolling by in the lower left corner above the map.</p>
-<figure id="fig1.7.3.1"><img src="years.gif" alt="Through the years"><figcaption>Through the years</figcaption></figure>
+<p><img src="years.gif" alt="Through the years"></p>
 <p>We also add another layer option to the <code>meteorites</code> layer, which will improve the performance of the animation – we do not need to process hit detection data in every anmiation step.</p>
-<pre><code class="lang-javascript">disableHitDetection: <span class="hljs-literal">true</span>,
-</code></pre>
+<p><a href="../../../src/en/examples/webgl/animated.js">import:&apos;hitdetection&apos;</a></p>
 <p>Now to show the temporal context on the map, we only want to show each meteorite for a period of 10 years, starting at the time of its impact. For this, we&apos;re adding a <code>filter</code> to the <code>meteorites</code> layer&apos;s <code>style</code> object:</p>
-<pre><code class="lang-javascript">filter: [<span class="hljs-string">&apos;between&apos;</span>, [<span class="hljs-string">&apos;get&apos;</span>, <span class="hljs-string">&apos;year&apos;</span>], periodStart, [<span class="hljs-string">&apos;var&apos;</span>, <span class="hljs-string">&apos;currentYear&apos;</span>]],
-</code></pre>
+<p><a href="../../../src/en/examples/webgl/animated.js">import:&apos;filter&apos;</a></p>
 <p>The filter references a <code>periodStart</code> variable, which is an expression on its own that we need to define. While we&apos;re at it, we define a few more of those to use in the style object. Let&apos;s add the following above the <code>const meteorites</code> layer definition:</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> period = <span class="hljs-number">10</span>;
-<span class="hljs-keyword">const</span> periodStart = [<span class="hljs-string">&apos;-&apos;</span>, [<span class="hljs-string">&apos;var&apos;</span>, <span class="hljs-string">&apos;currentYear&apos;</span>], period];
-<span class="hljs-keyword">const</span> decay = [
-  <span class="hljs-string">&apos;interpolate&apos;</span>,
-  [<span class="hljs-string">&apos;linear&apos;</span>],
-  [<span class="hljs-string">&apos;get&apos;</span>, <span class="hljs-string">&apos;year&apos;</span>],
-  periodStart,
-  <span class="hljs-number">0</span>,
-  [<span class="hljs-string">&apos;var&apos;</span>, <span class="hljs-string">&apos;currentYear&apos;</span>],
-  <span class="hljs-number">1</span>,
-];
-</code></pre>
+<p><a href="../../../src/en/examples/webgl/animated.js">import:&apos;expressions&apos;</a></p>
 <p>The <code>decay</code> is an expression we&apos;re going to use to fade out circles by reducing their size and opacity. It gives us a value between <code>0</code> and <code>1</code>, which we can apply as multiplier for the fade effect. To use it for reducing the size over time, we have to modify the <code>size</code> in the <code>style</code> object:</p>
-<pre><code class="lang-javascript">size: [
-  <span class="hljs-string">&apos;*&apos;</span>,
-  decay,
-  [<span class="hljs-string">&apos;+&apos;</span>, [<span class="hljs-string">&apos;*&apos;</span>, [<span class="hljs-string">&apos;clamp&apos;</span>, [<span class="hljs-string">&apos;*&apos;</span>, [<span class="hljs-string">&apos;get&apos;</span>, <span class="hljs-string">&apos;mass&apos;</span>], <span class="hljs-number">1</span> / <span class="hljs-number">20000</span>], <span class="hljs-number">0</span>, <span class="hljs-number">1</span>], <span class="hljs-number">18</span>], <span class="hljs-number">8</span>],
-],
-</code></pre>
+<p><a href="../../../src/en/examples/webgl/animated.js">import:&apos;size&apos;</a></p>
 <p>The existing expression is the fourth line of the new <code>size</code> expression.</p>
 <p>For reducing the opacity over time, we also apply the <code>decay</code> to the <code>opacity</code>:</p>
-<pre><code class="lang-javascript">opacity: [<span class="hljs-string">&apos;*&apos;</span>, <span class="hljs-number">0.5</span>, decay],
-</code></pre>
-<figure id="fig1.7.3.2"><img src="shower.gif" alt="Meteor shower"><figcaption>Meteor shower</figcaption></figure>
+<p><a href="../../../src/en/examples/webgl/animated.js">import:&apos;opacity&apos;</a></p>
+<p><img src="shower.gif" alt="Meteor shower"></p>
 <p>Congratulations!</p>
 
                                 
@@ -763,7 +706,7 @@ render();
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Animating points","level":"1.7.3","depth":2,"next":{"title":"Deploying","level":"1.8","depth":1,"path":"deploying/README.md","ref":"deploying/README.md","articles":[]},"previous":{"title":"Rendering points","level":"1.7.2","depth":2,"path":"webgl/points.md","ref":"webgl/points.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.6.20","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:1234","_pictures":[{"backlink":"basics/index.html#fig1.2.1","level":"1.2","list_caption":"Figure: A map of the world","alt":"A map of the world","nro":1,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of the world","attributes":{},"skip":false,"key":"1.2.1"},{"backlink":"vector/geojson.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: GeoJSON features","alt":"GeoJSON features","nro":2,"url":"geojson.png","index":1,"caption_template":"_CAPTION_","label":"GeoJSON features","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"vector/drag-n-drop.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Drag and drop","alt":"Drag and drop","nro":3,"url":"drag-n-drop.png","index":1,"caption_template":"_CAPTION_","label":"Drag and drop","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"vector/modify.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Modifying features","alt":"Modifying features","nro":4,"url":"modify.png","index":1,"caption_template":"_CAPTION_","label":"Modifying features","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"vector/draw.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: A new island nation in the Caribbean","alt":"A new island nation in the Caribbean","nro":5,"url":"draw.png","index":1,"caption_template":"_CAPTION_","label":"A new island nation in the Caribbean","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"vector/snap.html#fig1.3.5.1","level":"1.3.5","list_caption":"Figure: Uniting nations with the snap interaction","alt":"Uniting nations with the snap interaction","nro":6,"url":"snap.png","index":1,"caption_template":"_CAPTION_","label":"Uniting nations with the snap interaction","attributes":{},"skip":false,"key":"1.3.5.1"},{"backlink":"vector/download.html#fig1.3.6.1","level":"1.3.6","list_caption":"Figure: Buttons to clear and download data","alt":"Buttons to clear and download data","nro":7,"url":"download.png","index":1,"caption_template":"_CAPTION_","label":"Buttons to clear and download data","attributes":{},"skip":false,"key":"1.3.6.1"},{"backlink":"vector/style.html#fig1.3.7.1","level":"1.3.7","list_caption":"Figure: Features colored by area","alt":"Features colored by area","nro":8,"url":"style.png","index":1,"caption_template":"_CAPTION_","label":"Features colored by area","attributes":{},"skip":false,"key":"1.3.7.1"},{"backlink":"mobile/map.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Map on a smartphone","alt":"Map on a smartphone","nro":9,"url":"map.jpeg","index":1,"caption_template":"_CAPTION_","label":"Map on a smartphone","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"mobile/geolocation.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Location with accuracy polygon","alt":"Location with accuracy polygon","nro":10,"url":"geolocation.jpeg","index":1,"caption_template":"_CAPTION_","label":"Location with accuracy polygon","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"mobile/compass.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: User looking around with the navigation tool","alt":"User looking around with the navigation tool","nro":11,"url":"compass.gif","index":1,"caption_template":"_CAPTION_","label":"User looking around with the navigation tool","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"cog/true-color.html#fig1.5.1.1","level":"1.5.1","list_caption":"Figure: A true color rendering of a Setinel-2 GeoTIFF","alt":"A true color rendering of a Setinel-2 GeoTIFF","nro":12,"url":"true-color.png","index":1,"caption_template":"_CAPTION_","label":"A true color rendering of a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.1.1"},{"backlink":"cog/simplified-view.html#fig1.5.2.1","level":"1.5.2","list_caption":"Figure: A true color rendering of a Setinel-2 GeoTIFF","alt":"A true color rendering of a Setinel-2 GeoTIFF","nro":13,"url":"true-color.png","index":1,"caption_template":"_CAPTION_","label":"A true color rendering of a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.2.1"},{"backlink":"cog/false-color.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Spectral signatures of vegetation (in green), soil (red), and water (blue).","alt":"Spectral signatures of vegetation (in green), soil (red), and water (blue).","nro":14,"url":"spectra.png","index":1,"caption_template":"_CAPTION_","label":"Spectral signatures of vegetation (in green), soil (red), and water (blue).","attributes":{},"skip":false,"key":"1.5.3.1"},{"backlink":"cog/false-color.html#fig1.5.3.2","level":"1.5.3","list_caption":"Figure: A false color rendering of a Setinel-2 GeoTIFF","alt":"A false color rendering of a Setinel-2 GeoTIFF","nro":15,"url":"false-color.png","index":2,"caption_template":"_CAPTION_","label":"A false color rendering of a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.3.2"},{"backlink":"cog/ndvi.html#fig1.5.4.1","level":"1.5.4","list_caption":"Figure: NDVI generated from a Setinel-2 GeoTIFF","alt":"NDVI generated from a Setinel-2 GeoTIFF","nro":16,"url":"ndvi.png","index":1,"caption_template":"_CAPTION_","label":"NDVI generated from a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.4.1"},{"backlink":"cog/colormap.html#fig1.5.5.1","level":"1.5.5","list_caption":"Figure: NDVI generated from a Setinel-2 GeoTIFF","alt":"NDVI generated from a Setinel-2 GeoTIFF","nro":17,"url":"colormap.png","index":1,"caption_template":"_CAPTION_","label":"NDVI generated from a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.5.1"},{"backlink":"cog/visualizations.html#fig1.5.6.1","level":"1.5.6","list_caption":"Figure: Visualization chooser","alt":"Visualization chooser","nro":18,"url":"visualizations.png","index":1,"caption_template":"_CAPTION_","label":"Visualization chooser","attributes":{},"skip":false,"key":"1.5.6.1"},{"backlink":"cog/viz-plus.html#fig1.5.7.1","level":"1.5.7","list_caption":"Figure: COG explorer","alt":"COG explorer","nro":19,"url":"viz-plus.png","index":1,"caption_template":"_CAPTION_","label":"COG explorer","attributes":{},"skip":false,"key":"1.5.7.1"},{"backlink":"vectortile/map.html#fig1.6.1.1","level":"1.6.1","list_caption":"Figure: A world without style","alt":"A world without style","nro":20,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A world without style","attributes":{},"skip":false,"key":"1.6.1.1"},{"backlink":"vectortile/bright.html#fig1.6.2.1","level":"1.6.2","list_caption":"Figure: A bright map of Buenos Aires","alt":"A bright map of Buenos Aires","nro":21,"url":"bright.png","index":1,"caption_template":"_CAPTION_","label":"A bright map of Buenos Aires","attributes":{},"skip":false,"key":"1.6.2.1"},{"backlink":"vectortile/interact.html#fig1.6.3.1","level":"1.6.3","list_caption":"Figure: Hovering over the map","alt":"Hovering over the map","nro":22,"url":"interact.gif","index":1,"caption_template":"_CAPTION_","label":"Hovering over the map","attributes":{},"skip":false,"key":"1.6.3.1"},{"backlink":"webgl/meteorites.html#fig1.7.1.1","level":"1.7.1","list_caption":"Figure: Meteorite impact sites","alt":"Meteorite impact sites","nro":23,"url":"meteorites.png","index":1,"caption_template":"_CAPTION_","label":"Meteorite impact sites","attributes":{},"skip":false,"key":"1.7.1.1"},{"backlink":"webgl/points.html#fig1.7.2.1","level":"1.7.2","list_caption":"Figure: Impact sites rendered as circles","alt":"Impact sites rendered as circles","nro":24,"url":"circles.png","index":1,"caption_template":"_CAPTION_","label":"Impact sites rendered as circles","attributes":{},"skip":false,"key":"1.7.2.1"},{"backlink":"webgl/points.html#fig1.7.2.2","level":"1.7.2","list_caption":"Figure: Circle sized by meteorite mass","alt":"Circle sized by meteorite mass","nro":25,"url":"dynamic.png","index":2,"caption_template":"_CAPTION_","label":"Circle sized by meteorite mass","attributes":{},"skip":false,"key":"1.7.2.2"},{"backlink":"webgl/animated.html#fig1.7.3.1","level":"1.7.3","list_caption":"Figure: Through the years","alt":"Through the years","nro":26,"url":"years.gif","index":1,"caption_template":"_CAPTION_","label":"Through the years","attributes":{},"skip":false,"key":"1.7.3.1"},{"backlink":"webgl/animated.html#fig1.7.3.2","level":"1.7.3","list_caption":"Figure: Meteor shower","alt":"Meteor shower","nro":27,"url":"shower.gif","index":2,"caption_template":"_CAPTION_","label":"Meteor shower","attributes":{},"skip":false,"key":"1.7.3.2"},{"backlink":"data-tiles/map.html#fig2.1.1.1","level":"2.1.1","list_caption":"Figure: A map of Buenos Aires","alt":"A map of Buenos Aires","nro":28,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of Buenos Aires","attributes":{},"skip":false,"key":"2.1.1.1"},{"backlink":"data-tiles/elevation.html#fig2.1.2.1","level":"2.1.2","list_caption":"Figure: Terrain-RGB tiles rendered over a base map","alt":"Terrain-RGB tiles rendered over a base map","nro":29,"url":"elevation.png","index":1,"caption_template":"_CAPTION_","label":"Terrain-RGB tiles rendered over a base map","attributes":{},"skip":false,"key":"2.1.2.1"},{"backlink":"data-tiles/sea-level.html#fig2.1.3.1","level":"2.1.3","list_caption":"Figure: Sea level rise","alt":"Sea level rise","nro":30,"url":"sea-level.png","index":1,"caption_template":"_CAPTION_","label":"Sea level rise","attributes":{},"skip":false,"key":"2.1.3.1"}]},"language":"en","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"webgl/animated.md","mtime":"2021-09-27T14:08:53.041Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-09-27T14:09:27.502Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Animating points","level":"1.7.3","depth":2,"next":{"title":"Deploying","level":"1.8","depth":1,"path":"deploying/README.md","ref":"deploying/README.md","articles":[]},"previous":{"title":"Rendering points","level":"1.7.2","depth":2,"path":"webgl/points.md","ref":"webgl/points.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"image-captions":{"caption":"_CAPTION_"},"include-codeblock":{"unindent":true},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","honkit":"^3.6.20","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:1234"},"language":"en","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"webgl/animated.md","mtime":"2022-02-26T04:38:07.889Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-02-26T04:38:18.240Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -815,10 +758,6 @@ render();
     </script>
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

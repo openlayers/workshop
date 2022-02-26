@@ -6,7 +6,7 @@
         <title>Visualization chooser · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 3.6.20">
+        <meta name="generator" content="HonKit 3.7.1">
         
         
         
@@ -14,10 +14,6 @@
     <link rel="stylesheet" href="../../gitbook/style.css">
 
     
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-image-captions/image-captions.css">
-                
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
@@ -642,101 +638,21 @@
 <pre><code>NDWI = (GREEN - NIR) / (GREEN + NIR)
 </code></pre><p>As we&apos;ve seen, each visualization needs to have an array of <code>sources</code> (these are the URLs for single- or multi-band GeoTIFFs), an optional <code>max</code> value for scaling GeoTIFF values, and an optional <code>style</code> for rendering the layer.  In addition, we&apos;ll give each visualization a <code>name</code> for displaying to the user.</p>
 <p>Edit your <code>main.js</code> to include the visualizations data below:</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> visualizations = [
-  {
-    <span class="hljs-attr">name</span>: <span class="hljs-string">&apos;True Color&apos;</span>,
-    <span class="hljs-attr">sources</span>: [<span class="hljs-string">&apos;TCI&apos;</span>],
-  },
-  {
-    <span class="hljs-attr">name</span>: <span class="hljs-string">&apos;False Color&apos;</span>,
-    <span class="hljs-attr">sources</span>: [<span class="hljs-string">&apos;B08&apos;</span>, <span class="hljs-string">&apos;B04&apos;</span>, <span class="hljs-string">&apos;B03&apos;</span>],
-    <span class="hljs-attr">max</span>: <span class="hljs-number">5000</span>,
-  },
-  {
-    <span class="hljs-attr">name</span>: <span class="hljs-string">&apos;NDVI&apos;</span>,
-    <span class="hljs-attr">sources</span>: [<span class="hljs-string">&apos;B04&apos;</span>, <span class="hljs-string">&apos;B08&apos;</span>],
-    <span class="hljs-attr">max</span>: <span class="hljs-number">10000</span>,
-    <span class="hljs-attr">style</span>: {
-      <span class="hljs-attr">color</span>: [
-        <span class="hljs-string">&apos;interpolate&apos;</span>,
-        [<span class="hljs-string">&apos;linear&apos;</span>],
-        [<span class="hljs-string">&apos;/&apos;</span>, [<span class="hljs-string">&apos;-&apos;</span>, [<span class="hljs-string">&apos;band&apos;</span>, <span class="hljs-number">2</span>], [<span class="hljs-string">&apos;band&apos;</span>, <span class="hljs-number">1</span>]], [<span class="hljs-string">&apos;+&apos;</span>, [<span class="hljs-string">&apos;band&apos;</span>, <span class="hljs-number">2</span>], [<span class="hljs-string">&apos;band&apos;</span>, <span class="hljs-number">1</span>]]],
-        ...getColorStops(<span class="hljs-string">&apos;earth&apos;</span>, -<span class="hljs-number">0.5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">true</span>),
-      ],
-    },
-  },
-  {
-    <span class="hljs-attr">name</span>: <span class="hljs-string">&apos;NDWI&apos;</span>,
-    <span class="hljs-attr">sources</span>: [<span class="hljs-string">&apos;B03&apos;</span>, <span class="hljs-string">&apos;B08&apos;</span>],
-    <span class="hljs-attr">max</span>: <span class="hljs-number">10000</span>,
-    <span class="hljs-attr">style</span>: {
-      <span class="hljs-attr">color</span>: [
-        <span class="hljs-string">&apos;interpolate&apos;</span>,
-        [<span class="hljs-string">&apos;linear&apos;</span>],
-        [<span class="hljs-string">&apos;/&apos;</span>, [<span class="hljs-string">&apos;-&apos;</span>, [<span class="hljs-string">&apos;band&apos;</span>, <span class="hljs-number">1</span>], [<span class="hljs-string">&apos;band&apos;</span>, <span class="hljs-number">2</span>]], [<span class="hljs-string">&apos;+&apos;</span>, [<span class="hljs-string">&apos;band&apos;</span>, <span class="hljs-number">1</span>], [<span class="hljs-string">&apos;band&apos;</span>, <span class="hljs-number">2</span>]]],
-        ...getColorStops(<span class="hljs-string">&apos;viridis&apos;</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">true</span>),
-      ],
-    },
-  },
-];
-</code></pre>
+<p><a href="../../../src/en/examples/cog/visualizations.js">import:&apos;visualizations&apos;</a></p>
 <p>Now instead of creating our GeoTIFF source and layer once, we need a function to create these when the user chooses a visualization.  This function will take a <code>base</code> URL and a <code>visualization</code> and will return a <code>layer</code>. Edit your <code>main.js</code> to remove the source and layer definitions and include this function instead:</p>
-<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createLayer</span>(<span class="hljs-params">base, visualization</span>) </span>{
-  <span class="hljs-keyword">const</span> source = <span class="hljs-keyword">new</span> GeoTIFF({
-    <span class="hljs-attr">sources</span>: visualization.sources.map(<span class="hljs-function">(<span class="hljs-params">id</span>) =&gt;</span> ({
-      <span class="hljs-attr">url</span>: <span class="hljs-string">`<span class="hljs-subst">${base}</span>/<span class="hljs-subst">${id}</span>.tif`</span>,
-      <span class="hljs-attr">max</span>: visualization.max,
-    })),
-  });
-
-  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> TileLayer({
-    <span class="hljs-attr">source</span>: source,
-    <span class="hljs-attr">style</span>: visualization.style,
-  });
-}
-</code></pre>
+<p><a href="../../../src/en/examples/cog/visualizations.js">import:&apos;layer&apos;</a></p>
 <p>Next we can change the map definition in <code>main.js</code> so it doesn&apos;t include any layers at all (these will be added when the user selects a visualization):</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>({
-  <span class="hljs-attr">target</span>: <span class="hljs-string">&apos;map-container&apos;</span>,
-});
-</code></pre>
+<p><a href="../../../src/en/examples/cog/visualizations.js">import:&apos;map&apos;</a></p>
 <p>Now we need a way for users to choose which visualization to show.  For this, we&apos;ll add a <code>&lt;select&gt;</code> element to the <code>index.html</code> just before the <code>&lt;script&gt;</code> tag:</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;controls&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;visualization&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-</code></pre>
+<p><a href="../../../src/en/examples/cog/visualizations.html">import:&apos;markup&apos;</a></p>
 <p>To get this <code>&lt;select&gt;</code> element to display over the map in the top right corner, add the following block to the <code>&lt;style&gt;</code> tag in your <code>index.html</code>:</p>
-<pre><code class="lang-css"><span class="hljs-selector-id">#controls</span> {
-  <span class="hljs-attribute">position</span>: absolute;
-  <span class="hljs-attribute">top</span>: <span class="hljs-number">20px</span>;
-  <span class="hljs-attribute">right</span>: <span class="hljs-number">20px</span>;
-}
-</code></pre>
+<p><a href="../../../src/en/examples/cog/visualizations.html">import:&apos;style&apos;, lang:&apos;css&apos;</a></p>
 <p>With the <code>&lt;select&gt;</code> element in place, we need to populate it with an <code>&lt;option&gt;</code> for each of the visualization names.  To do this, add the following to your <code>main.js</code> somwhere below the <code>visualizations</code> array:</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> visualizationSelector = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;visualization&apos;</span>);
-visualizations.forEach(<span class="hljs-function">(<span class="hljs-params">visualization</span>) =&gt;</span> {
-  <span class="hljs-keyword">const</span> option = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&apos;option&apos;</span>);
-  option.textContent = visualization.name;
-  visualizationSelector.appendChild(option);
-});
-</code></pre>
+<p><a href="../../../src/en/examples/cog/visualizations.js">import:&apos;visualization-selector&apos;</a></p>
 <p>Finally, we will create a function to update the map with a new layer based on the selected visualization.  We&apos;ll add this function as a <code>change</code> listener on our <code>&lt;select&gt;</code> element and call it to initalize our application:</p>
-<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateVisualization</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">const</span> visualization = visualizations[visualizationSelector.selectedIndex];
-  <span class="hljs-keyword">const</span> base =
-    <span class="hljs-string">&apos;https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/21/H/UB/2021/9/S2B_21HUB_20210915_0_L2A&apos;</span>;
-
-  <span class="hljs-keyword">const</span> layer = createLayer(base, visualization);
-  map.setLayers([layer]);
-
-  map.setView(layer.getSource().getView());
-}
-
-visualizationSelector.addEventListener(<span class="hljs-string">&apos;change&apos;</span>, updateVisualization);
-updateVisualization();
-</code></pre>
+<p><a href="../../../src/en/examples/cog/visualizations.js">import:&apos;update&apos;</a></p>
 <p>Now <a href="http://localhost:1234/" target="_blank">http://localhost:1234/</a> should show a visualization chooser.</p>
-<figure id="fig1.5.6.1"><img src="visualizations.png" alt="Visualization chooser"><figcaption>Visualization chooser</figcaption></figure>
+<p><img src="visualizations.png" alt="Visualization chooser"></p>
 <p>Nice!  Now the user can choose what type of visualization to render.  But wouldn&apos;t it be nice to be able to change the imagery source too?  That&apos;s next.</p>
 
                                 
@@ -781,7 +697,7 @@ updateVisualization();
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Visualization chooser","level":"1.5.6","depth":2,"next":{"title":"Visualization chooser (continued)","level":"1.5.7","depth":2,"path":"cog/viz-plus.md","ref":"cog/viz-plus.md","articles":[]},"previous":{"title":"Color maps","level":"1.5.5","depth":2,"path":"cog/colormap.md","ref":"cog/colormap.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.6.20","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:1234","_pictures":[{"backlink":"basics/index.html#fig1.2.1","level":"1.2","list_caption":"Figure: A map of the world","alt":"A map of the world","nro":1,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of the world","attributes":{},"skip":false,"key":"1.2.1"},{"backlink":"vector/geojson.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: GeoJSON features","alt":"GeoJSON features","nro":2,"url":"geojson.png","index":1,"caption_template":"_CAPTION_","label":"GeoJSON features","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"vector/drag-n-drop.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Drag and drop","alt":"Drag and drop","nro":3,"url":"drag-n-drop.png","index":1,"caption_template":"_CAPTION_","label":"Drag and drop","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"vector/modify.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Modifying features","alt":"Modifying features","nro":4,"url":"modify.png","index":1,"caption_template":"_CAPTION_","label":"Modifying features","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"vector/draw.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: A new island nation in the Caribbean","alt":"A new island nation in the Caribbean","nro":5,"url":"draw.png","index":1,"caption_template":"_CAPTION_","label":"A new island nation in the Caribbean","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"vector/snap.html#fig1.3.5.1","level":"1.3.5","list_caption":"Figure: Uniting nations with the snap interaction","alt":"Uniting nations with the snap interaction","nro":6,"url":"snap.png","index":1,"caption_template":"_CAPTION_","label":"Uniting nations with the snap interaction","attributes":{},"skip":false,"key":"1.3.5.1"},{"backlink":"vector/download.html#fig1.3.6.1","level":"1.3.6","list_caption":"Figure: Buttons to clear and download data","alt":"Buttons to clear and download data","nro":7,"url":"download.png","index":1,"caption_template":"_CAPTION_","label":"Buttons to clear and download data","attributes":{},"skip":false,"key":"1.3.6.1"},{"backlink":"vector/style.html#fig1.3.7.1","level":"1.3.7","list_caption":"Figure: Features colored by area","alt":"Features colored by area","nro":8,"url":"style.png","index":1,"caption_template":"_CAPTION_","label":"Features colored by area","attributes":{},"skip":false,"key":"1.3.7.1"},{"backlink":"mobile/map.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Map on a smartphone","alt":"Map on a smartphone","nro":9,"url":"map.jpeg","index":1,"caption_template":"_CAPTION_","label":"Map on a smartphone","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"mobile/geolocation.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Location with accuracy polygon","alt":"Location with accuracy polygon","nro":10,"url":"geolocation.jpeg","index":1,"caption_template":"_CAPTION_","label":"Location with accuracy polygon","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"mobile/compass.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: User looking around with the navigation tool","alt":"User looking around with the navigation tool","nro":11,"url":"compass.gif","index":1,"caption_template":"_CAPTION_","label":"User looking around with the navigation tool","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"cog/true-color.html#fig1.5.1.1","level":"1.5.1","list_caption":"Figure: A true color rendering of a Setinel-2 GeoTIFF","alt":"A true color rendering of a Setinel-2 GeoTIFF","nro":12,"url":"true-color.png","index":1,"caption_template":"_CAPTION_","label":"A true color rendering of a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.1.1"},{"backlink":"cog/simplified-view.html#fig1.5.2.1","level":"1.5.2","list_caption":"Figure: A true color rendering of a Setinel-2 GeoTIFF","alt":"A true color rendering of a Setinel-2 GeoTIFF","nro":13,"url":"true-color.png","index":1,"caption_template":"_CAPTION_","label":"A true color rendering of a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.2.1"},{"backlink":"cog/false-color.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Spectral signatures of vegetation (in green), soil (red), and water (blue).","alt":"Spectral signatures of vegetation (in green), soil (red), and water (blue).","nro":14,"url":"spectra.png","index":1,"caption_template":"_CAPTION_","label":"Spectral signatures of vegetation (in green), soil (red), and water (blue).","attributes":{},"skip":false,"key":"1.5.3.1"},{"backlink":"cog/false-color.html#fig1.5.3.2","level":"1.5.3","list_caption":"Figure: A false color rendering of a Setinel-2 GeoTIFF","alt":"A false color rendering of a Setinel-2 GeoTIFF","nro":15,"url":"false-color.png","index":2,"caption_template":"_CAPTION_","label":"A false color rendering of a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.3.2"},{"backlink":"cog/ndvi.html#fig1.5.4.1","level":"1.5.4","list_caption":"Figure: NDVI generated from a Setinel-2 GeoTIFF","alt":"NDVI generated from a Setinel-2 GeoTIFF","nro":16,"url":"ndvi.png","index":1,"caption_template":"_CAPTION_","label":"NDVI generated from a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.4.1"},{"backlink":"cog/colormap.html#fig1.5.5.1","level":"1.5.5","list_caption":"Figure: NDVI generated from a Setinel-2 GeoTIFF","alt":"NDVI generated from a Setinel-2 GeoTIFF","nro":17,"url":"colormap.png","index":1,"caption_template":"_CAPTION_","label":"NDVI generated from a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.5.1"},{"backlink":"cog/visualizations.html#fig1.5.6.1","level":"1.5.6","list_caption":"Figure: Visualization chooser","alt":"Visualization chooser","nro":18,"url":"visualizations.png","index":1,"caption_template":"_CAPTION_","label":"Visualization chooser","attributes":{},"skip":false,"key":"1.5.6.1"},{"backlink":"cog/viz-plus.html#fig1.5.7.1","level":"1.5.7","list_caption":"Figure: COG explorer","alt":"COG explorer","nro":19,"url":"viz-plus.png","index":1,"caption_template":"_CAPTION_","label":"COG explorer","attributes":{},"skip":false,"key":"1.5.7.1"},{"backlink":"vectortile/map.html#fig1.6.1.1","level":"1.6.1","list_caption":"Figure: A world without style","alt":"A world without style","nro":20,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A world without style","attributes":{},"skip":false,"key":"1.6.1.1"},{"backlink":"vectortile/bright.html#fig1.6.2.1","level":"1.6.2","list_caption":"Figure: A bright map of Buenos Aires","alt":"A bright map of Buenos Aires","nro":21,"url":"bright.png","index":1,"caption_template":"_CAPTION_","label":"A bright map of Buenos Aires","attributes":{},"skip":false,"key":"1.6.2.1"},{"backlink":"vectortile/interact.html#fig1.6.3.1","level":"1.6.3","list_caption":"Figure: Hovering over the map","alt":"Hovering over the map","nro":22,"url":"interact.gif","index":1,"caption_template":"_CAPTION_","label":"Hovering over the map","attributes":{},"skip":false,"key":"1.6.3.1"},{"backlink":"webgl/meteorites.html#fig1.7.1.1","level":"1.7.1","list_caption":"Figure: Meteorite impact sites","alt":"Meteorite impact sites","nro":23,"url":"meteorites.png","index":1,"caption_template":"_CAPTION_","label":"Meteorite impact sites","attributes":{},"skip":false,"key":"1.7.1.1"},{"backlink":"webgl/points.html#fig1.7.2.1","level":"1.7.2","list_caption":"Figure: Impact sites rendered as circles","alt":"Impact sites rendered as circles","nro":24,"url":"circles.png","index":1,"caption_template":"_CAPTION_","label":"Impact sites rendered as circles","attributes":{},"skip":false,"key":"1.7.2.1"},{"backlink":"webgl/points.html#fig1.7.2.2","level":"1.7.2","list_caption":"Figure: Circle sized by meteorite mass","alt":"Circle sized by meteorite mass","nro":25,"url":"dynamic.png","index":2,"caption_template":"_CAPTION_","label":"Circle sized by meteorite mass","attributes":{},"skip":false,"key":"1.7.2.2"},{"backlink":"webgl/animated.html#fig1.7.3.1","level":"1.7.3","list_caption":"Figure: Through the years","alt":"Through the years","nro":26,"url":"years.gif","index":1,"caption_template":"_CAPTION_","label":"Through the years","attributes":{},"skip":false,"key":"1.7.3.1"},{"backlink":"webgl/animated.html#fig1.7.3.2","level":"1.7.3","list_caption":"Figure: Meteor shower","alt":"Meteor shower","nro":27,"url":"shower.gif","index":2,"caption_template":"_CAPTION_","label":"Meteor shower","attributes":{},"skip":false,"key":"1.7.3.2"},{"backlink":"data-tiles/map.html#fig2.1.1.1","level":"2.1.1","list_caption":"Figure: A map of Buenos Aires","alt":"A map of Buenos Aires","nro":28,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of Buenos Aires","attributes":{},"skip":false,"key":"2.1.1.1"},{"backlink":"data-tiles/elevation.html#fig2.1.2.1","level":"2.1.2","list_caption":"Figure: Terrain-RGB tiles rendered over a base map","alt":"Terrain-RGB tiles rendered over a base map","nro":29,"url":"elevation.png","index":1,"caption_template":"_CAPTION_","label":"Terrain-RGB tiles rendered over a base map","attributes":{},"skip":false,"key":"2.1.2.1"},{"backlink":"data-tiles/sea-level.html#fig2.1.3.1","level":"2.1.3","list_caption":"Figure: Sea level rise","alt":"Sea level rise","nro":30,"url":"sea-level.png","index":1,"caption_template":"_CAPTION_","label":"Sea level rise","attributes":{},"skip":false,"key":"2.1.3.1"}]},"language":"en","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"cog/visualizations.md","mtime":"2021-09-27T14:08:53.025Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-09-27T14:09:27.502Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Visualization chooser","level":"1.5.6","depth":2,"next":{"title":"Visualization chooser (continued)","level":"1.5.7","depth":2,"path":"cog/viz-plus.md","ref":"cog/viz-plus.md","articles":[]},"previous":{"title":"Color maps","level":"1.5.5","depth":2,"path":"cog/colormap.md","ref":"cog/colormap.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"image-captions":{"caption":"_CAPTION_"},"include-codeblock":{"unindent":true},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","honkit":"^3.6.20","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:1234"},"language":"en","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"cog/visualizations.md","mtime":"2022-02-26T04:38:07.869Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-02-26T04:38:18.240Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -833,10 +749,6 @@ updateVisualization();
     </script>
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
