@@ -1,4 +1,4 @@
 node_modules/
 build/
-_book
+doc/_book
 openlayers-workshop-*.zip

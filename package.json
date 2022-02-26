@@ -16,7 +16,7 @@
     "start": "mkdirp doc/_book && npm run doc:serve",
     "test": "npm run doc:build",
     "clean": "rm -rf doc/_book build openlayers-workshop-*.zip",
-    "doc:serve": "honkit serve doc/en",
+    "doc:serve": "honkit serve doc",
     "doc:build": "honkit build doc build/openlayers-workshop",
     "build": "npm run clean && npm run doc:build",
     "archive:en": "./archive.sh en",
@@ -28,7 +28,7 @@
     "gitbook-plugin-image-captions": "^3.1.0",
     "gitbook-plugin-include": "^0.1.0",
     "gitbook-plugin-include-codeblock": "^3.1.4",
-    "honkit": "^3.6.20",
+    "honkit": "^3.7.1",
     "mkdirp": "1.0.4"
   }
 }
