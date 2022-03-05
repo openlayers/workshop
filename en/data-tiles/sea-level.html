@@ -16,6 +16,10 @@
     
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -633,23 +637,82 @@
                                 <h1 id="render-sea-level">Render sea level</h1>
 <p>In the previous step, we rendered the Terrain-RGB tiles directly on the map.  What we want to do is render sea level on the map instead.  And we want users to be able to adjust the height above sea level and see the adjusted height rendered on the map.  We&apos;ll use a WebGL tile layer to work with the elevation data directly and get the user input from an input slider on the page.</p>
 <p>Let&apos;s add the controls to the page first.  In your <code>index.html</code>, add the following label and input slider:</p>
-<p><a href="../../../src/en/examples/data-tiles/sea-level.html">import:&apos;controls&apos;</a></p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;slider&quot;</span>&gt;</span>
+  Sea level
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;level&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;range&quot;</span> <span class="hljs-attr">min</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">max</span>=<span class="hljs-string">&quot;100&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;1&quot;</span>/&gt;</span>
+  +<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;output&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> m
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+</code></pre>
 <p>Now add some style to those controls (in the <code>&lt;style&gt;</code> of your <code>index.html</code>):</p>
-<p><a href="../../../src/en/examples/data-tiles/sea-level.html">import:&apos;style&apos;, lang:&apos;css&apos;</a></p>
+<pre><code class="lang-css"><span class="hljs-selector-id">#slider</span> {
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">bottom</span>: <span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">text-align</span>: center;
+  <span class="hljs-attribute">text-shadow</span>: <span class="hljs-number">0px</span> <span class="hljs-number">0px</span> <span class="hljs-number">4px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">1</span>);
+}
+</code></pre>
 <p>Instead of directly rendering the R, G, B, A values from the Terrain-RGB tiles, we want to manipulate the pixel values before rendering.  The WebGL tile layer allows you to manipulate pixel values in a <code>style</code> expression before rendering them.  This expression is evaluated for every pixel in the input source.</p>
 <p>First, import the <code>WebGLTile</code> layer (in <code>main.js</code>):</p>
-<p><a href="../../../src/en/examples/data-tiles/sea-level.js">import:&apos;import&apos;</a></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> TileLayer <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;ol/layer/WebGLTile.js&apos;</span>;
+</code></pre>
 <p>The elevation values in the <code>terrain-rgb</code> tiles are encoded as red, gree, and blue values (from 0-255) in the tiles according to the <a href="https://cloud.maptiler.com/tiles/terrain-rgb/" target="_blank">following formula</a>:</p>
 <pre><code>elevation = -10000 + ((R * 256 * 256 + G * 256 + B) * 0.1)
 </code></pre><p>We can use the WebGL style expression language to represent that formula.  Add the expression below to your <code>main.js</code>.  This expression decodes the input elevation data — transforming red, green, and blue values into a single elevation measure.</p>
-<p><a href="../../../src/en/examples/data-tiles/sea-level.js">import:&apos;elevation&apos;</a></p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// band math operates on normalized values from 0-1</span>
+<span class="hljs-comment">// so we scale by 255 to align with the elevation formula</span>
+<span class="hljs-comment">// from https://cloud.maptiler.com/tiles/terrain-rgb/</span>
+<span class="hljs-keyword">const</span> elevation = [
+  <span class="hljs-string">&apos;+&apos;</span>,
+  -<span class="hljs-number">10000</span>,
+  [
+    <span class="hljs-string">&apos;*&apos;</span>,
+    <span class="hljs-number">0.1</span> * <span class="hljs-number">255</span>,
+    [
+      <span class="hljs-string">&apos;+&apos;</span>,
+      [<span class="hljs-string">&apos;*&apos;</span>, <span class="hljs-number">256</span> * <span class="hljs-number">256</span>, [<span class="hljs-string">&apos;band&apos;</span>, <span class="hljs-number">1</span>]],
+      [<span class="hljs-string">&apos;+&apos;</span>, [<span class="hljs-string">&apos;*&apos;</span>, <span class="hljs-number">256</span>, [<span class="hljs-string">&apos;band&apos;</span>, <span class="hljs-number">2</span>]], [<span class="hljs-string">&apos;band&apos;</span>, <span class="hljs-number">3</span>]],
+    ],
+  ],
+];
+</code></pre>
 <p>Create a WebGL tile layer that uses the expression above:</p>
-<p><a href="../../../src/en/examples/data-tiles/sea-level.js">import:&apos;layer&apos;</a></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> layer = <span class="hljs-keyword">new</span> TileLayer({
+  <span class="hljs-attr">opacity</span>: <span class="hljs-number">0.6</span>,
+  <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> XYZ({
+    <span class="hljs-attr">url</span>:
+      <span class="hljs-string">&apos;https://api.maptiler.com/tiles/terrain-rgb/{z}/{x}/{y}.png?key=&apos;</span> + key,
+    <span class="hljs-attr">maxZoom</span>: <span class="hljs-number">10</span>,
+    <span class="hljs-attr">tileSize</span>: <span class="hljs-number">512</span>,
+    <span class="hljs-attr">crossOrigin</span>: <span class="hljs-string">&apos;anonymous&apos;</span>,
+  }),
+  <span class="hljs-attr">style</span>: {
+    <span class="hljs-attr">variables</span>: {
+      <span class="hljs-attr">level</span>: <span class="hljs-number">0</span>,
+    },
+    <span class="hljs-attr">color</span>: [
+      <span class="hljs-string">&apos;case&apos;</span>,
+      [<span class="hljs-string">&apos;&lt;=&apos;</span>, elevation, [<span class="hljs-string">&apos;var&apos;</span>, <span class="hljs-string">&apos;level&apos;</span>]],
+      [<span class="hljs-number">139</span>, <span class="hljs-number">212</span>, <span class="hljs-number">255</span>, <span class="hljs-number">1</span>],
+      [<span class="hljs-number">139</span>, <span class="hljs-number">212</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>],
+    ],
+  },
+});
+</code></pre>
 <p>The <code>color</code> expression above uses a <code>case</code> expression to color values at or below sea level as blue.  Elevation values above sea level will be transparent (with an alpha value of <code>0</code>).</p>
 <p>Next we need to listen for changes on the slider input and update the <code>seaLevel</code> style variable when the user adjusts the value.</p>
-<p><a href="../../../src/en/examples/data-tiles/sea-level.js">import:&apos;controls&apos;</a></p>
-<p>With all this in place, <a href="http://localhost:1234/" target="_blank">the map</a> should now have a slider that let&apos;s users control changes in sea level.</p>
-<p><img src="sea-level.png" alt="Sea level rise"></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> control = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;level&apos;</span>);
+<span class="hljs-keyword">const</span> output = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;output&apos;</span>);
+<span class="hljs-keyword">const</span> listener = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  output.innerText = control.value;
+  layer.updateStyleVariables({<span class="hljs-attr">level</span>: <span class="hljs-built_in">parseFloat</span>(control.value)});
+};
+control.addEventListener(<span class="hljs-string">&apos;input&apos;</span>, listener);
+control.addEventListener(<span class="hljs-string">&apos;change&apos;</span>, listener);
+output.innerText = control.value;
+</code></pre>
+<p>With all this in place, <a href="http://localhost:3000/" target="_blank">the map</a> should now have a slider that let&apos;s users control changes in sea level.</p>
+<figure id="fig2.1.3.1"><img src="sea-level.png" alt="Sea level rise"><figcaption>Sea level rise</figcaption></figure>
 
                                 
                                 </section>
@@ -689,7 +752,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Render sea level","level":"2.1.3","depth":2,"previous":{"title":"Render elevation data","level":"2.1.2","depth":2,"path":"data-tiles/elevation.md","ref":"data-tiles/elevation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"image-captions":{"caption":"_CAPTION_"},"include-codeblock":{"unindent":true},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","honkit":"^3.6.20","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:1234"},"language":"en","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"data-tiles/sea-level.md","mtime":"2022-03-04T06:37:45.548Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-04T06:37:56.817Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Render sea level","level":"2.1.3","depth":2,"previous":{"title":"Render elevation data","level":"2.1.2","depth":2,"path":"data-tiles/elevation.md","ref":"data-tiles/elevation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.7.1","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:3000","_pictures":[{"backlink":"basics/index.html#fig1.2.1","level":"1.2","list_caption":"Figure: A map of the world","alt":"A map of the world","nro":1,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of the world","attributes":{},"skip":false,"key":"1.2.1"},{"backlink":"vector/geojson.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: GeoJSON features","alt":"GeoJSON features","nro":2,"url":"geojson.png","index":1,"caption_template":"_CAPTION_","label":"GeoJSON features","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"vector/drag-n-drop.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Drag and drop","alt":"Drag and drop","nro":3,"url":"drag-n-drop.png","index":1,"caption_template":"_CAPTION_","label":"Drag and drop","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"vector/modify.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Modifying features","alt":"Modifying features","nro":4,"url":"modify.png","index":1,"caption_template":"_CAPTION_","label":"Modifying features","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"vector/draw.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: A new island nation in the Caribbean","alt":"A new island nation in the Caribbean","nro":5,"url":"draw.png","index":1,"caption_template":"_CAPTION_","label":"A new island nation in the Caribbean","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"vector/snap.html#fig1.3.5.1","level":"1.3.5","list_caption":"Figure: Uniting nations with the snap interaction","alt":"Uniting nations with the snap interaction","nro":6,"url":"snap.png","index":1,"caption_template":"_CAPTION_","label":"Uniting nations with the snap interaction","attributes":{},"skip":false,"key":"1.3.5.1"},{"backlink":"vector/download.html#fig1.3.6.1","level":"1.3.6","list_caption":"Figure: Buttons to clear and download data","alt":"Buttons to clear and download data","nro":7,"url":"download.png","index":1,"caption_template":"_CAPTION_","label":"Buttons to clear and download data","attributes":{},"skip":false,"key":"1.3.6.1"},{"backlink":"vector/style.html#fig1.3.7.1","level":"1.3.7","list_caption":"Figure: Features colored by area","alt":"Features colored by area","nro":8,"url":"style.png","index":1,"caption_template":"_CAPTION_","label":"Features colored by area","attributes":{},"skip":false,"key":"1.3.7.1"},{"backlink":"mobile/map.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Map on a smartphone","alt":"Map on a smartphone","nro":9,"url":"map.jpeg","index":1,"caption_template":"_CAPTION_","label":"Map on a smartphone","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"mobile/geolocation.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Location with accuracy polygon","alt":"Location with accuracy polygon","nro":10,"url":"geolocation.jpeg","index":1,"caption_template":"_CAPTION_","label":"Location with accuracy polygon","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"mobile/compass.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: User looking around with the navigation tool","alt":"User looking around with the navigation tool","nro":11,"url":"compass.gif","index":1,"caption_template":"_CAPTION_","label":"User looking around with the navigation tool","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"cog/true-color.html#fig1.5.1.1","level":"1.5.1","list_caption":"Figure: A true color rendering of a Setinel-2 GeoTIFF","alt":"A true color rendering of a Setinel-2 GeoTIFF","nro":12,"url":"true-color.png","index":1,"caption_template":"_CAPTION_","label":"A true color rendering of a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.1.1"},{"backlink":"cog/simplified-view.html#fig1.5.2.1","level":"1.5.2","list_caption":"Figure: A true color rendering of a Setinel-2 GeoTIFF","alt":"A true color rendering of a Setinel-2 GeoTIFF","nro":13,"url":"true-color.png","index":1,"caption_template":"_CAPTION_","label":"A true color rendering of a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.2.1"},{"backlink":"cog/false-color.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Spectral signatures of vegetation (in green), soil (red), and water (blue).","alt":"Spectral signatures of vegetation (in green), soil (red), and water (blue).","nro":14,"url":"spectra.png","index":1,"caption_template":"_CAPTION_","label":"Spectral signatures of vegetation (in green), soil (red), and water (blue).","attributes":{},"skip":false,"key":"1.5.3.1"},{"backlink":"cog/false-color.html#fig1.5.3.2","level":"1.5.3","list_caption":"Figure: A false color rendering of a Setinel-2 GeoTIFF","alt":"A false color rendering of a Setinel-2 GeoTIFF","nro":15,"url":"false-color.png","index":2,"caption_template":"_CAPTION_","label":"A false color rendering of a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.3.2"},{"backlink":"cog/ndvi.html#fig1.5.4.1","level":"1.5.4","list_caption":"Figure: NDVI generated from a Setinel-2 GeoTIFF","alt":"NDVI generated from a Setinel-2 GeoTIFF","nro":16,"url":"ndvi.png","index":1,"caption_template":"_CAPTION_","label":"NDVI generated from a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.4.1"},{"backlink":"cog/colormap.html#fig1.5.5.1","level":"1.5.5","list_caption":"Figure: NDVI generated from a Setinel-2 GeoTIFF","alt":"NDVI generated from a Setinel-2 GeoTIFF","nro":17,"url":"colormap.png","index":1,"caption_template":"_CAPTION_","label":"NDVI generated from a Setinel-2 GeoTIFF","attributes":{},"skip":false,"key":"1.5.5.1"},{"backlink":"cog/visualizations.html#fig1.5.6.1","level":"1.5.6","list_caption":"Figure: Visualization chooser","alt":"Visualization chooser","nro":18,"url":"visualizations.png","index":1,"caption_template":"_CAPTION_","label":"Visualization chooser","attributes":{},"skip":false,"key":"1.5.6.1"},{"backlink":"cog/viz-plus.html#fig1.5.7.1","level":"1.5.7","list_caption":"Figure: COG explorer","alt":"COG explorer","nro":19,"url":"viz-plus.png","index":1,"caption_template":"_CAPTION_","label":"COG explorer","attributes":{},"skip":false,"key":"1.5.7.1"},{"backlink":"vectortile/map.html#fig1.6.1.1","level":"1.6.1","list_caption":"Figure: A world without style","alt":"A world without style","nro":20,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A world without style","attributes":{},"skip":false,"key":"1.6.1.1"},{"backlink":"vectortile/bright.html#fig1.6.2.1","level":"1.6.2","list_caption":"Figure: A bright map of Buenos Aires","alt":"A bright map of Buenos Aires","nro":21,"url":"bright.png","index":1,"caption_template":"_CAPTION_","label":"A bright map of Buenos Aires","attributes":{},"skip":false,"key":"1.6.2.1"},{"backlink":"vectortile/interact.html#fig1.6.3.1","level":"1.6.3","list_caption":"Figure: Hovering over the map","alt":"Hovering over the map","nro":22,"url":"interact.gif","index":1,"caption_template":"_CAPTION_","label":"Hovering over the map","attributes":{},"skip":false,"key":"1.6.3.1"},{"backlink":"webgl/meteorites.html#fig1.7.1.1","level":"1.7.1","list_caption":"Figure: Meteorite impact sites","alt":"Meteorite impact sites","nro":23,"url":"meteorites.png","index":1,"caption_template":"_CAPTION_","label":"Meteorite impact sites","attributes":{},"skip":false,"key":"1.7.1.1"},{"backlink":"webgl/points.html#fig1.7.2.1","level":"1.7.2","list_caption":"Figure: Impact sites rendered as circles","alt":"Impact sites rendered as circles","nro":24,"url":"circles.png","index":1,"caption_template":"_CAPTION_","label":"Impact sites rendered as circles","attributes":{},"skip":false,"key":"1.7.2.1"},{"backlink":"webgl/points.html#fig1.7.2.2","level":"1.7.2","list_caption":"Figure: Circle sized by meteorite mass","alt":"Circle sized by meteorite mass","nro":25,"url":"dynamic.png","index":2,"caption_template":"_CAPTION_","label":"Circle sized by meteorite mass","attributes":{},"skip":false,"key":"1.7.2.2"},{"backlink":"webgl/animated.html#fig1.7.3.1","level":"1.7.3","list_caption":"Figure: Through the years","alt":"Through the years","nro":26,"url":"years.gif","index":1,"caption_template":"_CAPTION_","label":"Through the years","attributes":{},"skip":false,"key":"1.7.3.1"},{"backlink":"webgl/animated.html#fig1.7.3.2","level":"1.7.3","list_caption":"Figure: Meteor shower","alt":"Meteor shower","nro":27,"url":"shower.gif","index":2,"caption_template":"_CAPTION_","label":"Meteor shower","attributes":{},"skip":false,"key":"1.7.3.2"},{"backlink":"data-tiles/map.html#fig2.1.1.1","level":"2.1.1","list_caption":"Figure: A map of Buenos Aires","alt":"A map of Buenos Aires","nro":28,"url":"map.png","index":1,"caption_template":"_CAPTION_","label":"A map of Buenos Aires","attributes":{},"skip":false,"key":"2.1.1.1"},{"backlink":"data-tiles/elevation.html#fig2.1.2.1","level":"2.1.2","list_caption":"Figure: Terrain-RGB tiles rendered over a base map","alt":"Terrain-RGB tiles rendered over a base map","nro":29,"url":"elevation.png","index":1,"caption_template":"_CAPTION_","label":"Terrain-RGB tiles rendered over a base map","attributes":{},"skip":false,"key":"2.1.2.1"},{"backlink":"data-tiles/sea-level.html#fig2.1.3.1","level":"2.1.3","list_caption":"Figure: Sea level rise","alt":"Sea level rise","nro":30,"url":"sea-level.png","index":1,"caption_template":"_CAPTION_","label":"Sea level rise","attributes":{},"skip":false,"key":"2.1.3.1"}]},"language":"en","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"data-tiles/sea-level.md","mtime":"2022-03-05T03:12:33.557Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-05T03:12:40.848Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -741,6 +804,10 @@
     </script>
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
