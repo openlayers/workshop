@@ -20,17 +20,17 @@ You should now be able to see a map with country borders at {{book.workshopUrl}}
 
 ![GeoJSON features](geojson.png)
 
-Since we'll be reloading the page a lot, it would be nice if the map stayed where we left it in a reload.  We can bring in the [`ol-hashed` package](https://www.npmjs.com/package/ol-hashed) to make this work.  This package is already installed as part of the workshop dependendencies.  If it were not already included, you could install it with `npm install ol-hashed`.
+Since we'll be reloading the page a lot, it would be nice if the map stayed where we left it in a reload.  We can bring in the `Link` interaction to make this work.
 
-Then in our `main.js` we'll import the function exported by the package:
+In our `main.js` we'll import the new interaction:
 
 [import:'import'](../../../src/en/examples/vector/sync.js)
 
-Now we need to assign our map to a variable (named `map`) so we can pass that variable to the `sync` function:
+We next need to assign our map to a variable (named `map`) so we can add the interaction to it:
 
 [import:'map-const'](../../../src/en/examples/vector/drag-n-drop.js)
 
-And now we can call the `sync` function with our map:
+And now we can add a new link interaction to our map:
 
 [import:'sync'](../../../src/en/examples/vector/sync.js)
 

@@ -4,7 +4,7 @@ import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import View from 'ol/View';
 //! [import]
-import sync from 'ol-hashed';
+import Link from 'ol/interaction/Link';
 //! [import]
 
 const map = new Map({
@@ -24,5 +24,5 @@ const map = new Map({
 });
 
 //! [sync]
-sync(map);
+map.addInteraction(new Link());
 //! [sync]

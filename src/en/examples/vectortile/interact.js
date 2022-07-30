@@ -7,7 +7,7 @@ import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 //! [import-layer]
 //! [import-interaction]
-import {Feature} from 'ol';
+import Feature from 'ol/Feature';
 import {Stroke, Style} from 'ol/style';
 import {fromExtent} from 'ol/geom/Polygon';
 //! [import-interaction]

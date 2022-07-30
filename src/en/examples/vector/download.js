@@ -1,10 +1,9 @@
 import GeoJSON from 'ol/format/GeoJSON';
-import GeometryType from 'ol/geom/GeometryType';
+import Link from 'ol/interaction/Link';
 import Map from 'ol/Map';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import View from 'ol/View';
-import sync from 'ol-hashed';
 import {DragAndDrop, Draw, Modify, Snap} from 'ol/interaction';
 
 const map = new Map({
@@ -15,7 +14,7 @@ const map = new Map({
   }),
 });
 
-sync(map);
+map.addInteraction(new Link());
 
 const source = new VectorSource();
 
@@ -40,7 +39,7 @@ map.addInteraction(
 map.addInteraction(
   new Draw({
     source: source,
-    type: GeometryType.POLYGON,
+    type: 'Polygon',
   })
 );
 

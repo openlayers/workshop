@@ -1,4 +1,5 @@
 import DragAndDrop from 'ol/interaction/DragAndDrop';
+import Link from 'ol/interaction/Link';
 //! [import-draw]
 import Draw from 'ol/interaction/Draw';
 //! [import-draw]
@@ -8,7 +9,6 @@ import Modify from 'ol/interaction/Modify';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import View from 'ol/View';
-import sync from 'ol-hashed';
 
 const map = new Map({
   target: 'map-container',
@@ -18,7 +18,7 @@ const map = new Map({
   }),
 });
 
-sync(map);
+map.addInteraction(new Link());
 
 const source = new VectorSource();
 

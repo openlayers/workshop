@@ -1,6 +1,6 @@
 {
   "name": "openlayers-workshop",
-  "version": "6.8.1-en.5",
+  "version": "7.0.0-dev",
   "description": "OpenLayers workshop",
   "private": true,
   "repository": {
@@ -27,8 +27,8 @@
     "gitbook-plugin-copy-code-button": "^0.0.2",
     "gitbook-plugin-image-captions": "^3.1.0",
     "gitbook-plugin-include": "^0.1.0",
-    "gitbook-plugin-include-codeblock": "^3.1.4",
-    "honkit": "^3.7.1",
+    "gitbook-plugin-include-codeblock": "^3.2.3",
+    "honkit": "^3.7.5",
     "mkdirp": "1.0.4"
   }
 }
