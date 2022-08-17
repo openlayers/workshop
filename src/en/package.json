@@ -16,13 +16,12 @@
     "lint": "eslint main.js examples",
     "test": "npm run lint",
     "start": "vite serve",
-    "build": "vite build && shx cp -r data dist/"
+    "build": "vite build"
   },
   "devDependencies": {
     "eslint": "^8.22.0",
     "eslint-config-openlayers": "^16.2.3",
-    "serve-static": "^1.15.0",
-    "shx": "^0.3.4",
-    "vite": "^3.0.4"
+    "vite": "^3.0.8",
+    "vite-plugin-static-copy": "^0.7.0"
   }
 }
