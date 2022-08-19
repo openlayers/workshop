@@ -86,13 +86,28 @@ const style = new Style({
 layer.setStyle(style);
 //! [style]
 //! [kompas]
-if ('ondeviceorientationabsolute' in window) {
+function startCompass() {
   kompas()
     .watch()
     .on('heading', function (heading) {
       style.getImage().setRotation((Math.PI / 180) * heading);
     });
+}
+
+if (
+  window.DeviceOrientationEvent &&
+  typeof DeviceOrientationEvent.requestPermission === 'function'
+) {
+  locate.addEventListener('click', function () {
+    DeviceOrientationEvent.requestPermission()
+      .then(startCompass)
+      .catch(function (error) {
+        alert(`ERROR: ${error.message}`);
+      });
+  });
+} else if ('ondeviceorientationabsolute' in window) {
+  startCompass();
 } else {
-  alert('No absolute orientation provided by device');
+  alert('No device orientation provided by device');
 }
 //! [kompas]
