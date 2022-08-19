@@ -1,4 +1,3 @@
-import 'ol/ol.css';
 import MapboxVectorLayer from 'ol/layer/MapboxVector';
 import {Map, View} from 'ol';
 import {fromLonLat} from 'ol/proj';

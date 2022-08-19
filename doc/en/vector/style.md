@@ -17,12 +17,12 @@ const layer = new VectorLayer({
   source: source,
   style: new Style({
     fill: new Fill({
-      color: 'red'
+      color: 'red',
     }),
     stroke: new Stroke({
-      color: 'white'
-    })
-  })
+      color: 'white',
+    }),
+  }),
 });
 ```
 
@@ -39,10 +39,10 @@ Here is an example that renders features using one of two styles depending on wh
 ```js
 const layer = new VectorLayer({
   source: source,
-  style: function(feature, resolution) {
+  style: function (feature, resolution) {
     const name = feature.get('name').toUpperCase();
-    return name < "N" ? style1 : style2; // assuming these are created elsewhere
-  }
+    return name < 'N' ? style1 : style2; // assuming these are created elsewhere
+  },
 });
 ```
 

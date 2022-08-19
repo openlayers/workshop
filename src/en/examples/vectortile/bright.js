@@ -1,5 +1,4 @@
 //
-import 'ol/ol.css';
 //! [import]
 import MapboxVectorLayer from 'ol/layer/MapboxVector';
 //! [import]
