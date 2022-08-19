@@ -30,7 +30,6 @@ The Mapbox Style format was not just made for styling vector data. It was made t
 
 The [ol-mapbox-style](https://npmjs.com/package/ol-mapbox-style/) package (that is part of the workshop dependencies) adds support for the Mapbox Style format to OpenLayers. So the second way to use a vector tile layer with OpenLayers would be to let `ol-mapbox-style` create the whole map. If you want to try that, you could replace the whole code in `main.js` with this:
 ```js
-import 'ol/ol.css';
 import olms from 'ol-mapbox-style';
 olms(
   'map-container',

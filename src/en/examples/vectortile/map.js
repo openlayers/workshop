@@ -1,6 +1,5 @@
 //
 //! [imports]
-import 'ol/ol.css';
 import MVT from 'ol/format/MVT';
 import VectorTileLayer from 'ol/layer/VectorTile';
 import VectorTileSource from 'ol/source/VectorTile';
