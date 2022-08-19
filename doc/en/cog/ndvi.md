@@ -30,6 +30,6 @@ Edit your `main.js` so the layer definition looks like this:
 
 If everything worked out, you should see your NDVI visualization at {{book.workshopUrl}}/.
 
-![NDVI generated from a Setinel-2 GeoTIFF](ndvi.png)
+![NDVI generated from a Sentinel-2 GeoTIFF](ndvi.png)
 
 Choosing these stop values and colors is hard work.  Next up we will pull in a helper library to do this for us.

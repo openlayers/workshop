@@ -2,7 +2,7 @@
 
 Before getting into editing, we'll take a look at basic feature rendering with a vector source and layer.  The workshop includes a `countries.json` GeoJSON file in the `data` directory.  We'll start by just loading that data up and rendering it on a map.
 
-First, edit your `index.html` so we're ready to render a full page map:
+First, edit your `index.html` in order to add a dark background to the map:
 
 [import](../../../src/en/examples/vector/geojson.html)
 

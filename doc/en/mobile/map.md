@@ -22,7 +22,7 @@ Since a gyroscope is typically not available on desktop computers, we'll need to
 
 The easiest way to achieve that is to use https://ngrok.com. Once set up, the application can be served with the following command in a new terminal:
 
-    ./ngrok http 1234 --host-header="localhost:1234"
+    ./ngrok http 5173 --host-header="localhost:5173"
 
 When everything works, open the `https://` page indicated by ngrok's output on a mobile device:
 

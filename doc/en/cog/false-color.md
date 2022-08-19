@@ -14,4 +14,4 @@ Update your `main.js` so the source looks like the following:
 
 Reload {{book.workshopUrl}}/ to see your false color composite.
 
-![A false color rendering of a Setinel-2 GeoTIFF](false-color.png)
+![A false color rendering of a Sentinel-2 GeoTIFF](false-color.png)
