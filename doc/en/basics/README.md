@@ -10,14 +10,14 @@ OpenLayers supports different kinds of layers:
 
 * Tile layers for tiled raster tile sets
 * Image layers for static images or images that are provided on demand for the map's extent
-* Vector layers for vector data from static files for for the map's current extent
+* Vector layers for vector data from static files or for the map's current extent
 * Vector tile layers for tiled vector tile sets
 
 In addition to the layers and the view, a map can be configured with a set of controls (i.e. UI elements on top of the map) and interactions (i.e. components that react to touch or pointer gestures on the map).
 
 ## The markup
 
-First, we create an `index.html` file in the root of the workshop directory:
+There should be an existing `index.html` file at the root of the workshop directory. Let's replace it with the following code:
 
 [import](../../../src/en/examples/basics/map.html)
 

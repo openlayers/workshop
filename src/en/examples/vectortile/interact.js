@@ -5,10 +5,10 @@ import {fromLonLat} from 'ol/proj';
 //! [import-layer]
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
+import {Stroke, Style} from 'ol/style';
 //! [import-layer]
 //! [import-interaction]
 import Feature from 'ol/Feature';
-import {Stroke, Style} from 'ol/style';
 import {fromExtent} from 'ol/geom/Polygon';
 //! [import-interaction]
 

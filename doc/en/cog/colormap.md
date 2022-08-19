@@ -21,4 +21,4 @@ The layer:
 
 Reload {{book.workshopUrl}}/ to see your new color map applied to the NDVI output.
 
-![NDVI generated from a Setinel-2 GeoTIFF](colormap.png)
+![NDVI generated from a Sentinel-2 GeoTIFF](colormap.png)

@@ -12,7 +12,7 @@ import {fromLonLat} from 'ol/proj';
 import {Fill, Icon, Style} from 'ol/style';
 //! [import-style]
 //! [import-kompas]
-import Kompas from 'kompas';
+import kompas from 'kompas';
 //! [import-kompas]
 
 const map = new Map({
@@ -86,22 +86,28 @@ const style = new Style({
 layer.setStyle(style);
 //! [style]
 //! [kompas]
+function startCompass() {
+  kompas()
+    .watch()
+    .on('heading', function (heading) {
+      style.getImage().setRotation((Math.PI / 180) * heading);
+    });
+}
+
 if (
   window.DeviceOrientationEvent &&
   typeof DeviceOrientationEvent.requestPermission === 'function'
 ) {
   locate.addEventListener('click', function () {
     DeviceOrientationEvent.requestPermission()
-      .then(function () {
-        const compass = new Kompas();
-        compass.watch();
-        compass.on('heading', function (heading) {
-          style.getImage().setRotation((Math.PI / 180) * heading);
-        });
-      })
+      .then(startCompass)
       .catch(function (error) {
         alert(`ERROR: ${error.message}`);
       });
   });
+} else if ('ondeviceorientationabsolute' in window) {
+  startCompass();
+} else {
+  alert('No device orientation provided by device');
 }
 //! [kompas]

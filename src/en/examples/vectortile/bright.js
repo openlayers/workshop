@@ -1,10 +1,10 @@
 //
-//! [imports]
 import 'ol/ol.css';
+//! [import]
 import MapboxVectorLayer from 'ol/layer/MapboxVector';
+//! [import]
 import {Map, View} from 'ol';
 import {fromLonLat} from 'ol/proj';
-//! [imports]
 
 //! [map]
 const map = new Map({

@@ -26,4 +26,4 @@ Now you can remove the `projection`, `extent`, and related imports (`View`, `Pro
 
 You should find the same result as before at {{book.workshopUrl}}/ – only this time we had to write less code!
 
-![A true color rendering of a Setinel-2 GeoTIFF](true-color.png)
+![A true color rendering of a Sentinel-2 GeoTIFF](true-color.png)
