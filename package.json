@@ -28,7 +28,7 @@
     "gitbook-plugin-image-captions": "^3.1.0",
     "gitbook-plugin-include": "^0.1.0",
     "gitbook-plugin-include-codeblock": "^3.2.3",
-    "honkit": "^3.7.5",
+    "honkit": "^4.0.4",
     "mkdirp": "1.0.4"
   }
 }
