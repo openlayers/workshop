@@ -23,12 +23,12 @@
     "deploy": "npm run build && gh-pages --dist build/openlayers-workshop"
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3",
+    "gh-pages": "^6.2.0",
     "gitbook-plugin-copy-code-button": "^0.0.2",
-    "gitbook-plugin-image-captions": "^3.1.0",
     "gitbook-plugin-include": "^0.1.0",
     "gitbook-plugin-include-codeblock": "^3.2.3",
-    "honkit": "^3.7.5",
-    "mkdirp": "1.0.4"
+    "honkit": "^6.0.2",
+    "honkit-plugin-image-captions": "^3.1.1",
+    "mkdirp": "^3.0.1"
   }
 }
