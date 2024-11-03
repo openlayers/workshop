@@ -1,4 +1,4 @@
-# Add heading and make thing look nice
+# Add heading and make things look nice
 
 Most mobile devices are equipped with a gyroscope, which we are going to use as a compass to show our heading on the map.
 
