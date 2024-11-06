@@ -10,30 +10,27 @@ Mapbox finally came up with Mapbox Studio, a very user-friendly style editor, an
 
 ## Using a Mapbox Style definition
 
-There are two ways to use vector tile layers with Mapbox styles in OpenLayers. The easiest is the `MapboxVector` layer. It is configured with an url that points to a Mapbox Style document. Let's try it out.
+With the additional [ol-mapbox-style](https://npmjs.com/package/ol-mapbox-style/) library, there are several ways to use vector tile layers with Mapbox styles in OpenLayers. The easiest is the `MapboxVector` layer from the `ol-mapbox-style` import. It is configured with a url that points to a Mapbox Style document. Let's try it out.
 
 First, add the required import:
 
 [import:'import'](../../../src/en/examples/vectortile/bright.js)
 
-The tile dataset we are going to use is https://cloud.maptiler.com/maps/bright/. To add it to our example, you'll need a MapTiler account (please replace the key in the code below with yours). Alternatively, if you have a Mapbox account, you could use the original of that map from Mapbox (see comments in the code below).
+The tile dataset we are going to use is https://tiles.openfreemap.org/styles/bright. Alternatively, if you have a Mapbox account, you could use the ancestor of that map from Mapbox (see comments in the code below).
 
 [import:'layer'](../../../src/en/examples/vectortile/bright.js)
 
-The above code replaces the `VectorTileLayer` from the previous step. When everything works as expected, we can finally enjoy a nice looking world map, and zoom in to Buenos Aires!
+The above code replaces the `VectorTileLayer` from the previous step. When everything works as expected, we can finally enjoy a nice looking world map, and zoom in to Belém!
 
-![A bright map of Buenos Aires](bright.png)
+![A bright map of Belém](bright.png)
 
 ## Build a complete map from a Mapbox Style definition
 
 The Mapbox Style format was not just made for styling vector data. It was made to describe an entire map, with all its sources and layers, and its initial view configuration (e.g. center and zoom level).
 
-The [ol-mapbox-style](https://npmjs.com/package/ol-mapbox-style/) package (that is part of the workshop dependencies) adds support for the Mapbox Style format to OpenLayers. So the second way to use a vector tile layer with OpenLayers would be to let `ol-mapbox-style` create the whole map. If you want to try that, you could replace the whole code in `main.js` with this:
+With `ol-mapbox-style`'s `apply()` function, it is also possible to create a whole map from a Mapbox Style. If you want to try that, you could replace the whole code in `main.js` with this:
 ```js
-import olms from 'ol-mapbox-style';
-olms(
-  'map-container',
-  'https://api.maptiler.com/maps/bright/style.json?key=lirfd6Fegsjkvs0lshxe'
-);
+import {apply} from 'ol-mapbox-style';
+apply('map-container', 'https://tiles.openfreemap.org/styles/bright');
 ```
 After trying this, switch back to the previous code, as we will be looking into how to interact with a vector tile map.
