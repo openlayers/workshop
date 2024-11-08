@@ -1,51 +1,87 @@
-import {Map, View} from 'ol';
-import {MapboxVectorLayer} from 'ol-mapbox-style';
-import {fromLonLat} from 'ol/proj';
-//! [import-layer]
-import VectorLayer from 'ol/layer/Vector';
-import VectorSource from 'ol/source/Vector';
-import {Stroke, Style} from 'ol/style';
-//! [import-layer]
-//! [import-interaction]
 import Feature from 'ol/Feature';
-import {fromExtent} from 'ol/geom/Polygon';
-//! [import-interaction]
+import Point from 'ol/geom/Point';
+import TileLayer from 'ol/layer/Tile';
+//! [import]
+import WebGLPointsLayer from 'ol/layer/WebGLPoints';
+//! [import]
+import {Map, View} from 'ol';
+import {StadiaMaps, Vector as VectorSource} from 'ol/source';
+import {fromLonLat} from 'ol/proj';
+import {parse} from 'papaparse';
+
+const source = new VectorSource();
+parse('./data/meteorites.csv', {
+  download: true,
+  header: true,
+  complete(result) {
+    source.addFeatures(
+      result.data.map(
+        (row) =>
+          new Feature({
+            mass: parseFloat(row.mass) || 0,
+            year: parseInt(row.year) || 0,
+            geometry: new Point(
+              fromLonLat([parseFloat(row.reclong), parseFloat(row.reclat)])
+            ),
+          })
+      )
+    );
+  },
+});
+
+const minYear = 1850;
+const maxYear = 2015;
+const span = maxYear - minYear;
+const rate = 10; // years per second
+
+const start = Date.now();
+
+const styleVariables = {
+  currentYear: minYear,
+};
+
+//! [layer]
+const meteorites = new WebGLPointsLayer({
+  source: source,
+  style: {
+    variables: styleVariables,
+    //! [size]
+    'circle-radius': [
+      '+',
+      ['*', ['clamp', ['*', ['get', 'mass'], 1 / 20000], 0, 1], 9],
+      4,
+    ],
+    //! [size]
+    'circle-fill-color': 'rgba(255, 0, 0, 0.5)',
+  },
+});
+//! [layer]
 
 const map = new Map({
   target: 'map-container',
+  layers: [
+    new TileLayer({
+      source: new StadiaMaps({
+        layer: 'stamen_toner',
+      }),
+    }),
+    meteorites,
+  ],
   view: new View({
-    center: fromLonLat([0, 0]),
+    center: [0, 0],
     zoom: 2,
   }),
 });
 
-const layer = new MapboxVectorLayer({
-  styleUrl: 'https://tiles.openfreemap.org/styles/bright',
-  // or, instead of the above, try
-  // styleUrl: 'mapbox://styles/mapbox/bright-v9',
-  // accessToken: 'Your token from https://mapbox.com/'
-});
-map.addLayer(layer);
+const yearElement = document.getElementById('year');
 
-//! [layer]
-const source = new VectorSource();
-new VectorLayer({
-  map: map,
-  source: source,
-  style: new Style({
-    stroke: new Stroke({
-      color: 'red',
-      width: 4,
-    }),
-  }),
-});
-//! [layer]
-//! [interaction]
-map.on('pointermove', function (event) {
-  source.clear();
-  map.forEachFeatureAtPixel(event.pixel, function (feature) {
-    const geometry = feature.getGeometry();
-    source.addFeature(new Feature(fromExtent(geometry.getExtent())));
-  });
-});
-//! [interaction]
+function render() {
+  const elapsed = (rate * (Date.now() - start)) / 1000;
+  styleVariables.currentYear = Math.round(minYear + (elapsed % span));
+  yearElement.innerText = styleVariables.currentYear;
+
+  map.render();
+  requestAnimationFrame(render);
+}
+
+render();

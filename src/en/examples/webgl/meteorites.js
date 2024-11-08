@@ -3,52 +3,44 @@ import Point from 'ol/geom/Point';
 import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
 import {Map, View} from 'ol';
-import {Stamen, Vector as VectorSource} from 'ol/source';
+import {StadiaMaps, Vector as VectorSource} from 'ol/source';
 import {fromLonLat} from 'ol/proj';
+import {parse} from 'papaparse';
 
 const source = new VectorSource();
-
-const client = new XMLHttpRequest();
-client.open('GET', './data/meteorites.csv');
-client.onload = function () {
-  const csv = client.responseText;
-  const features = [];
-
-  let prevIndex = csv.indexOf('\n') + 1; // scan past the header line
-
-  let curIndex;
-  while ((curIndex = csv.indexOf('\n', prevIndex)) != -1) {
-    const line = csv.substr(prevIndex, curIndex - prevIndex).split(',');
-    prevIndex = curIndex + 1;
-
-    const coords = fromLonLat([parseFloat(line[4]), parseFloat(line[3])]);
-    if (isNaN(coords[0]) || isNaN(coords[1])) {
-      // guard against bad data
-      continue;
-    }
-
-    features.push(
-      new Feature({
-        mass: parseFloat(line[1]) || 0,
-        year: parseInt(line[2]) || 0,
-        geometry: new Point(coords),
-      })
+parse('./data/meteorites.csv', {
+  download: true,
+  header: true,
+  complete(result) {
+    source.addFeatures(
+      result.data.map(
+        (row) =>
+          new Feature({
+            mass: parseFloat(row.mass) || 0,
+            year: parseInt(row.year) || 0,
+            geometry: new Point(
+              fromLonLat([parseFloat(row.reclong), parseFloat(row.reclat)])
+            ),
+          })
+      )
     );
-  }
-  source.addFeatures(features);
-};
-client.send();
+  },
+});
 
 const meteorites = new VectorLayer({
   source: source,
+  style: {
+    'circle-radius': 7,
+    'circle-fill-color': 'rgba(255, 0, 0, 0.5)',
+  },
 });
 
 new Map({
   target: 'map-container',
   layers: [
     new TileLayer({
-      source: new Stamen({
-        layer: 'toner',
+      source: new StadiaMaps({
+        layer: 'stamen_toner',
       }),
     }),
     meteorites,
