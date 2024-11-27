@@ -6,14 +6,19 @@
   "dependencies": {
     "colormap": "^2.3.2",
     "kompas": "^0.0.2",
-    "ol": "^10.2.2-dev.1730987055849",
+    "ol": "^10.2.2-dev.1732723676290",
     "ol-mapbox-style": "^12.3.5",
     "papaparse": "^5.4.1"
   },
   "eslintConfig": {
     "extends": "openlayers",
     "rules": {
-      "no-unused-vars": ["error", {"varsIgnorePattern": "^map"}]
+      "no-unused-vars": [
+        "error",
+        {
+          "varsIgnorePattern": "^map"
+        }
+      ]
     }
   },
   "scripts": {

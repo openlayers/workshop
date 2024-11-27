@@ -16,17 +16,17 @@ Now, back in `main.js`, we'll declare some variables to represent the time range
 
 [import:'years'](../../../src/en/examples/webgl/animated.js)
 
-To be able to access the current year in style expressions, we need the `styleVariables` as `variables` property on the layer's `style` object:
+To be able to access the current year in style expressions, we need to use the `variables` constructor option on the meteorites layer and include the `currentYear` (whose value will start with `minYear`):
 
 [import:'variables'](../../../src/en/examples/webgl/animated.js)
 
-Variables in a style object are numeric values that are available in expressions for calculations.
+Style variables are values that are available in `var` expressions in the layer `style`.
 
 Next we need to assign our map instance to a `map` variable that we can reference later:
 
 [import:'declaration'](../../../src/en/examples/webgl/animated.js)
 
-Below the map configuration, add the following `render` function to get the animation loop started.
+Below the map configuration, add the following `render` function to get the animation loop started. In this function, we'll update the current year and call `updateStyleVariables()` on the meteorites layer to update the year used in the style expressions.
 
 [import:'animate'](../../../src/en/examples/webgl/animated.js)
 

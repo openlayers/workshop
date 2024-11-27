@@ -36,10 +36,6 @@ const span = maxYear - minYear;
 const rate = 10; // years per second
 
 const start = Date.now();
-
-const styleVariables = {
-  currentYear: minYear,
-};
 //! [years]
 
 //! [expressions]
@@ -58,10 +54,13 @@ const decay = [
 
 const meteorites = new WebGLPointsLayer({
   source: source,
+  //! [variables]
+  variables: {
+    currentYear: minYear,
+  },
+  // ...other options like `style`
+  //! [variables]
   style: {
-    //! [variables]
-    variables: styleVariables,
-    //! [variables]
     //! [filter]
     filter: ['between', ['get', 'year'], periodStart, ['var', 'currentYear']],
     //! [filter]
@@ -104,10 +103,9 @@ const yearElement = document.getElementById('year');
 
 function render() {
   const elapsed = (rate * (Date.now() - start)) / 1000;
-  styleVariables.currentYear = Math.round(minYear + (elapsed % span));
-  yearElement.innerText = styleVariables.currentYear;
-
-  map.render();
+  const currentYear = Math.round(minYear + (elapsed % span));
+  meteorites.updateStyleVariables({currentYear: currentYear});
+  yearElement.innerText = currentYear;
   requestAnimationFrame(render);
 }
 
