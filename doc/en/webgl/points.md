@@ -8,7 +8,7 @@ First, we'll import the constructor of the WebGL-enabled points layer. This laye
 
 This is a replacement for the `VectorLayer` import, which you can now remove.
 
-Replace the `const meteorites...` assignment with an instance of your `WebGLPointsLayer` using the same vector source as before.
+Replace the `const meteorites...` assignment with an instance of your `WebGLVectorLayer` using the same vector source as before.
 
 [import:'layer'](../../../src/en/examples/webgl/circles.js)
 
@@ -32,7 +32,7 @@ Let's begin by sizing our circles depending on the mass of the meteorite. To ach
 
 This expression results in a minimum radius of 4 pixels, which can grow by 9 pixels depending on the mass of the meteorite,  
 
-The `WebGLPointsLayer` class supports this kind of expression for the numerical attributes of its style (size, opacity, color components, etc.).
+The `WebGLVectorLayer` class supports this kind of expression for the numerical attributes of its style (size, opacity, color components, etc.).
 
 An expression is composed of **operators** that are expressed as *arrays* like so:
 

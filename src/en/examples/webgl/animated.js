@@ -2,7 +2,7 @@ import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
 import TileLayer from 'ol/layer/Tile';
 //! [import]
-import WebGLPointsLayer from 'ol/layer/WebGLPoints';
+import WebGLVectorLayer from 'ol/layer/WebGLVector';
 //! [import]
 import {Map, View} from 'ol';
 import {StadiaMaps, Vector as VectorSource} from 'ol/source';
@@ -52,7 +52,7 @@ const decay = [
 ];
 //! [expressions]
 
-const meteorites = new WebGLPointsLayer({
+const meteorites = new WebGLVectorLayer({
   source: source,
   //! [variables]
   variables: {
