@@ -5,12 +5,21 @@
   "private": true,
   "dependencies": {
     "colormap": "^2.3.2",
-    "kompas": "^0.0.1",
-    "ol": "^7.0.0",
-    "ol-mapbox-style": "^9.0.0"
+    "kompas": "^0.0.2",
+    "ol": "^10.3.0",
+    "ol-mapbox-style": "^12.3.5",
+    "papaparse": "^5.4.1"
   },
   "eslintConfig": {
-    "extends": "openlayers"
+    "extends": "openlayers",
+    "rules": {
+      "no-unused-vars": [
+        "error",
+        {
+          "varsIgnorePattern": "^map"
+        }
+      ]
+    }
   },
   "scripts": {
     "lint": "eslint main.js examples",

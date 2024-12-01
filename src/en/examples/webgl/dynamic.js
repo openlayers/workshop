@@ -2,68 +2,55 @@ import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
 import TileLayer from 'ol/layer/Tile';
 //! [import]
-import WebGLPointsLayer from 'ol/layer/WebGLPoints';
+import WebGLVectorLayer from 'ol/layer/WebGLVector';
 //! [import]
 import {Map, View} from 'ol';
-import {Stamen, Vector as VectorSource} from 'ol/source';
+import {StadiaMaps, Vector as VectorSource} from 'ol/source';
 import {fromLonLat} from 'ol/proj';
+import {parse} from 'papaparse';
 
 const source = new VectorSource();
-
-const client = new XMLHttpRequest();
-client.open('GET', './data/meteorites.csv');
-client.onload = function () {
-  const csv = client.responseText;
-  let curIndex;
-  let prevIndex = 0;
-  const features = [];
-
-  while ((curIndex = csv.indexOf('\n', prevIndex)) > 0) {
-    const line = csv.substr(prevIndex, curIndex - prevIndex).split(',');
-
-    prevIndex = curIndex + 1;
-    if (prevIndex === 0) {
-      continue; // skip header
-    }
-
-    const coords = fromLonLat([parseFloat(line[4]), parseFloat(line[3])]);
-
-    features.push(
-      new Feature({
-        mass: parseFloat(line[1]) || 0,
-        year: parseInt(line[2]) || 0,
-        geometry: new Point(coords),
-      })
+parse('./data/meteorites.csv', {
+  download: true,
+  header: true,
+  complete(result) {
+    source.addFeatures(
+      result.data.map(
+        (row) =>
+          new Feature({
+            mass: parseFloat(row.mass) || 0,
+            year: parseInt(row.year) || 0,
+            geometry: new Point(
+              fromLonLat([parseFloat(row.reclong), parseFloat(row.reclat)])
+            ),
+          })
+      )
     );
-  }
-  source.addFeatures(features);
-};
-client.send();
-
-const meteorites = new WebGLPointsLayer({
-  source: source,
-  style: {
-    symbol: {
-      symbolType: 'circle',
-      //! [size]
-      size: [
-        '+',
-        ['*', ['clamp', ['*', ['get', 'mass'], 1 / 20000], 0, 1], 18],
-        8,
-      ],
-      //! [size]
-      color: 'rgb(255, 0, 0)',
-      opacity: 0.5,
-    },
   },
 });
+
+//! [layer]
+const meteorites = new WebGLVectorLayer({
+  source: source,
+  style: {
+    //! [size]
+    'circle-radius': [
+      '+',
+      ['*', ['clamp', ['*', ['get', 'mass'], 1 / 20000], 0, 1], 9],
+      4,
+    ],
+    //! [size]
+    'circle-fill-color': 'rgba(255, 0, 0, 0.5)',
+  },
+});
+//! [layer]
 
 new Map({
   target: 'map-container',
   layers: [
     new TileLayer({
-      source: new Stamen({
-        layer: 'toner',
+      source: new StadiaMaps({
+        layer: 'stamen_toner',
       }),
     }),
     meteorites,
@@ -82,9 +69,9 @@ new Map({
   ['clamp', value, 0, 1]
 //! [operator2]
 //! [operator3]
-  ['*', value, 18]
+  ['*', value, 9]
 //! [operator3]
 //! [operator4]
-  ['+', value, 8]
+  ['+', value, 4]
 //! [operator4]
  */

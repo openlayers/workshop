@@ -16,17 +16,17 @@ Now, back in `main.js`, we'll declare some variables to represent the time range
 
 [import:'years'](../../../src/en/examples/webgl/animated.js)
 
-To be able to access the current year in style expressions, we need the `styleVariables` as `variables` property on the layer's `style` object:
+To be able to access the current year in style expressions, we need to use the `variables` constructor option on the meteorites layer and include the `currentYear` (whose value will start with `minYear`):
 
 [import:'variables'](../../../src/en/examples/webgl/animated.js)
 
-Variables in a style object are numeric values that are available in expressions for calculations.
+Style variables are values that are available in `var` expressions in the layer `style`.
 
 Next we need to assign our map instance to a `map` variable that we can reference later:
 
 [import:'declaration'](../../../src/en/examples/webgl/animated.js)
 
-Below the map configuration, add the following `render` function to get the animation loop started.
+Below the map configuration, add the following `render` function to get the animation loop started. In this function, we'll update the current year and call `updateStyleVariables()` on the meteorites layer to update the year used in the style expressions.
 
 [import:'animate'](../../../src/en/examples/webgl/animated.js)
 
@@ -46,15 +46,17 @@ The filter references a `periodStart` variable, which is an expression on its ow
 
 [import:'expressions'](../../../src/en/examples/webgl/animated.js)
 
-The `decay` is an expression we're going to use to fade out circles by reducing their size and opacity. It gives us a value between `0` and `1`, which we can apply as multiplier for the fade effect. To use it for reducing the size over time, we have to modify the `size` in the `style` object:
+The `decay` is an expression we're going to use to fade out circles by reducing their size and opacity. It gives us a value between `0` and `1`, which we can apply as multiplier for the fade effect. To use it for reducing the size over time, we have to modify the `circle-radius` in the `style` object:
 
 [import:'size'](../../../src/en/examples/webgl/animated.js)
 
-The existing expression is the fourth line of the new `size` expression.
+The existing expression is the fourth line of the new `circle-radius` expression.
 
-For reducing the opacity over time, we also apply the `decay` to the `opacity`:
+For reducing the opacity over time, we also apply the `decay` to the `circle-fill-color`:
 
 [import:'opacity'](../../../src/en/examples/webgl/animated.js)
+
+Previously we had an `rgba` color, now we use a `color` expression consisting of `r`, `g`, `b` and `alpha` values. The `alpha` value is now dynamic and considers the decay.
 
 ![Meteor shower](shower.gif)
 

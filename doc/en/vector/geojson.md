@@ -26,10 +26,6 @@ In our `main.js` we'll import the new interaction:
 
 [import:'import'](../../../src/en/examples/vector/sync.js)
 
-We next need to assign our map to a variable (named `map`) so we can add the interaction to it:
-
-[import:'map-const'](../../../src/en/examples/vector/drag-n-drop.js)
-
 And now we can add a new link interaction to our map:
 
 [import:'sync'](../../../src/en/examples/vector/sync.js)

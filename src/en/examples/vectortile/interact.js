@@ -1,5 +1,5 @@
-import MapboxVectorLayer from 'ol/layer/MapboxVector';
 import {Map, View} from 'ol';
+import {MapboxVectorLayer} from 'ol-mapbox-style';
 import {fromLonLat} from 'ol/proj';
 //! [import-layer]
 import VectorLayer from 'ol/layer/Vector';
@@ -20,8 +20,7 @@ const map = new Map({
 });
 
 const layer = new MapboxVectorLayer({
-  styleUrl:
-    'https://api.maptiler.com/maps/bright/style.json?key=lirfd6Fegsjkvs0lshxe',
+  styleUrl: 'https://tiles.openfreemap.org/styles/bright',
   // or, instead of the above, try
   // styleUrl: 'mapbox://styles/mapbox/bright-v9',
   // accessToken: 'Your token from https://mapbox.com/'
@@ -44,15 +43,9 @@ new VectorLayer({
 //! [interaction]
 map.on('pointermove', function (event) {
   source.clear();
-  map.forEachFeatureAtPixel(
-    event.pixel,
-    function (feature) {
-      const geometry = feature.getGeometry();
-      source.addFeature(new Feature(fromExtent(geometry.getExtent())));
-    },
-    {
-      hitTolerance: 2,
-    }
-  );
+  map.forEachFeatureAtPixel(event.pixel, function (feature) {
+    const geometry = feature.getGeometry();
+    source.addFeature(new Feature(fromExtent(geometry.getExtent())));
+  });
 });
 //! [interaction]

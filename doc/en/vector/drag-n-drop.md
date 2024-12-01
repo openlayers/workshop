@@ -2,11 +2,11 @@
 
 For our feature editor, we want users to be able to import their own data for editing.  We'll use the `DragAndDrop` interaction for this.  As before, we'll stick with the GeoJSON format for parsing features, but the interaction can be configured to work with any number of feature formats.
 
-We're going to be passing our map to a number of other components in this exercise, so make sure you have assigned the map to a variable named `map`:
+Start by editing the map configuration in your `main.js` file so that there are no layers added. We're going to be passing our map to a number of other components in this exercise, so make sure you have assigned the map to a variable named `map`.:
 
-[import:'map-const'](../../../src/en/examples/vector/drag-n-drop.js)
+[import:'map'](../../../src/en/examples/vector/drag-n-drop.js)
 
-Import the drag and drop interaction into your `main.js`:
+Next, import the drag and drop interaction into your `main.js`:
 
 [import:'import'](../../../src/en/examples/vector/drag-n-drop.js)
 
