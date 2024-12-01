@@ -6,7 +6,7 @@
         <title>Estilos · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 3.7.5">
+        <meta name="generator" content="HonKit 6.0.2">
         
         
         
@@ -16,7 +16,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                <link rel="stylesheet" href="../../gitbook/honkit-plugin-image-captions/image-captions.css">
                 
             
                 
@@ -28,7 +28,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                <link rel="stylesheet" href="../../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
                 
             
         
@@ -475,22 +475,22 @@
     <span class="hljs-attribute">border-color</span>: olive;
   }
 </code></pre>
-<p><code>.someClass</code> é um seletor (neste caso, está selecionando todos os elementos que possuem uma classe chamada <code>&apos;someClass&apos;</code>) e o bloco seguinte é um grupo de propriedades e valores, conhecido como declaração de estilos.</p>
+<p><code>.someClass</code> é um seletor (neste caso, está selecionando todos os elementos que possuem uma classe chamada <code>'someClass'</code>) e o bloco seguinte é um grupo de propriedades e valores, conhecido como declaração de estilos.</p>
 <h2 id="estilizando-camadas">Estilizando camadas</h2>
 <p>Camadas vetoriais podem ter estilos. Mais especificamente, uma camada vetorial pode ser configurada com um objeto <code>ol.style.Style</code>, um array de objetos <code>ol.style.Style</code>, ou uma função que aceita como parâmetro um objeto <code>ol.Feature</code> e uma resolução, retornando um array de objetos <code>ol.style.Style</code>.</p>
 <p>Aqui está um exemplo de camada vetorial configurada com um estilo estático:</p>
-<pre><code class="lang-js">  <span class="hljs-keyword">var</span> layer = <span class="hljs-keyword">new</span> ol.layer.Vector({
-    <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.Vector(),
-    <span class="hljs-attr">style</span>: <span class="hljs-keyword">new</span> ol.style.Style({
+<pre><code class="lang-js">  <span class="hljs-keyword">var</span> layer = <span class="hljs-keyword">new</span> ol.<span class="hljs-property">layer</span>.<span class="hljs-title class_">Vector</span>({
+    <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">source</span>.<span class="hljs-title class_">Vector</span>(),
+    <span class="hljs-attr">style</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">style</span>.<span class="hljs-title class_">Style</span>({
       <span class="hljs-comment">// ...</span>
     })
   });
 </code></pre>
-<p>E aqui um exemplo de camada vetorial configurada com uma função de estilo que aplica um estilo para todas as features que tenham um atributo chamado <code>class</code> contendo o valor <code>&apos;someClass&apos;</code>:</p>
-<pre><code class="lang-js">  <span class="hljs-keyword">var</span> layer = <span class="hljs-keyword">new</span> ol.layer.Vector({
-    <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.Vector(),
-    <span class="hljs-attr">style</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">feature, resolution</span>) </span>{
-      <span class="hljs-keyword">if</span> (feature.get(<span class="hljs-string">&apos;class&apos;</span>) === <span class="hljs-string">&apos;someClass&apos;</span>) {
+<p>E aqui um exemplo de camada vetorial configurada com uma função de estilo que aplica um estilo para todas as features que tenham um atributo chamado <code>class</code> contendo o valor <code>'someClass'</code>:</p>
+<pre><code class="lang-js">  <span class="hljs-keyword">var</span> layer = <span class="hljs-keyword">new</span> ol.<span class="hljs-property">layer</span>.<span class="hljs-title class_">Vector</span>({
+    <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">source</span>.<span class="hljs-title class_">Vector</span>(),
+    <span class="hljs-attr">style</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">feature, resolution</span>) {
+      <span class="hljs-keyword">if</span> (feature.<span class="hljs-title function_">get</span>(<span class="hljs-string">'class'</span>) === <span class="hljs-string">'someClass'</span>) {
         <span class="hljs-comment">// create styles...</span>
         <span class="hljs-keyword">return</span> styles;
       }
@@ -499,50 +499,50 @@
 </code></pre>
 <h2 id="symbolizers"><code>Symbolizers</code></h2>
 <p>O equivalente de um bloco de declaração de estilos em CSS no OpenLayers é um <code>symbolizer</code> (são geralmente instâncias de classes <code>ol.style</code>). Para desenhar um polígono com cor de fundo azul, linha na cor <code>olive</code> e 1 pixel de largura, você poderia utilizar dois <code>symbolizers</code> como a seguir:</p>
-<pre><code class="lang-js">  <span class="hljs-keyword">new</span> ol.style.Style({
-    <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({
-      <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;blue&apos;</span>
+<pre><code class="lang-js">  <span class="hljs-keyword">new</span> ol.<span class="hljs-property">style</span>.<span class="hljs-title class_">Style</span>({
+    <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">style</span>.<span class="hljs-title class_">Fill</span>({
+      <span class="hljs-attr">color</span>: <span class="hljs-string">'blue'</span>
     }),
-    <span class="hljs-attr">stroke</span>: <span class="hljs-keyword">new</span> ol.style.Stroke({
-      <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;olive&apos;</span>,
+    <span class="hljs-attr">stroke</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">style</span>.<span class="hljs-title class_">Stroke</span>({
+      <span class="hljs-attr">color</span>: <span class="hljs-string">'olive'</span>,
       <span class="hljs-attr">width</span>: <span class="hljs-number">1</span>
     })
   });
 </code></pre>
 <p>A depender do tipo de geometria, diferentes <code>symbolizers</code> podem ser aplicados. Linhas funcionam como polígonos, mas não possuem um preenchimento. Pontos podem ser estilizados com a classe <code>ol.style.Circle</code> ou <code>ol.style.Icon</code>. O primeiro é usado para renderizar formas circulares, o último para usar imagens de um arquivo (ex. arquivos png). Aqui está um exemplo do primeiro caso:</p>
-<pre><code class="lang-js">  <span class="hljs-keyword">new</span> ol.style.Circle({
+<pre><code class="lang-js">  <span class="hljs-keyword">new</span> ol.<span class="hljs-property">style</span>.<span class="hljs-title class_">Circle</span>({
     <span class="hljs-attr">radius</span>: <span class="hljs-number">20</span>,
-    <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({
-      <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;#ff9900&apos;</span>,
+    <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">style</span>.<span class="hljs-title class_">Fill</span>({
+      <span class="hljs-attr">color</span>: <span class="hljs-string">'#ff9900'</span>,
       <span class="hljs-attr">opacity</span>: <span class="hljs-number">0.6</span>
     }),
-    <span class="hljs-attr">stroke</span>: <span class="hljs-keyword">new</span> ol.style.Stroke({
-      <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;#ffcc00&apos;</span>,
+    <span class="hljs-attr">stroke</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">style</span>.<span class="hljs-title class_">Stroke</span>({
+      <span class="hljs-attr">color</span>: <span class="hljs-string">'#ffcc00'</span>,
       <span class="hljs-attr">opacity</span>: <span class="hljs-number">0.4</span>
     })
   });
 </code></pre>
 <h2 id="olstylestyle"><code>ol.style.Style</code></h2>
 <p>Um objeto <code>ol.style.Style</code> possui quatro chaves: <code>fill</code>, <code>image</code>, <code>stroke</code> and <code>text</code>. Possui, além dessas, uma propriedade opcional chamada <code>zIndex</code>. A função de estilo retornará um array de objetos <code>ol.style.Style</code>.</p>
-<p>Se você quiser que todas as features sejam vermelhas, exceto aquelas que possuem o atributo <code>class</code> com o valor <code>&quot;someClass&quot;</code> (estas você quer que fiquem na cor azul e linha <code>olive</code> com 1px de largura), você pode criar uma função de estilo dessa forma (é importante criar objetos de estilo fora da função para que eles possam ser reutilizados, mas aqui criaremos <code>inline</code> para manter o exemplo mais simples):</p>
-<pre><code class="lang-js">  <span class="hljs-keyword">var</span> primaryStyle = <span class="hljs-keyword">new</span> ol.style.Style({
-    <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({
-      <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;blue&apos;</span>
+<p>Se você quiser que todas as features sejam vermelhas, exceto aquelas que possuem o atributo <code>class</code> com o valor <code>"someClass"</code> (estas você quer que fiquem na cor azul e linha <code>olive</code> com 1px de largura), você pode criar uma função de estilo dessa forma (é importante criar objetos de estilo fora da função para que eles possam ser reutilizados, mas aqui criaremos <code>inline</code> para manter o exemplo mais simples):</p>
+<pre><code class="lang-js">  <span class="hljs-keyword">var</span> primaryStyle = <span class="hljs-keyword">new</span> ol.<span class="hljs-property">style</span>.<span class="hljs-title class_">Style</span>({
+    <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">style</span>.<span class="hljs-title class_">Fill</span>({
+      <span class="hljs-attr">color</span>: <span class="hljs-string">'blue'</span>
     }),
-    <span class="hljs-attr">stroke</span>: <span class="hljs-keyword">new</span> ol.style.Stroke({
-      <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;olive&apos;</span>,
+    <span class="hljs-attr">stroke</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">style</span>.<span class="hljs-title class_">Stroke</span>({
+      <span class="hljs-attr">color</span>: <span class="hljs-string">'olive'</span>,
       <span class="hljs-attr">width</span>: <span class="hljs-number">1</span>
     })
   });
 
-  <span class="hljs-keyword">var</span> otherStyle = <span class="hljs-keyword">new</span> ol.style.Style({
-    <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({
-      <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;red&apos;</span>
+  <span class="hljs-keyword">var</span> otherStyle = <span class="hljs-keyword">new</span> ol.<span class="hljs-property">style</span>.<span class="hljs-title class_">Style</span>({
+    <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">style</span>.<span class="hljs-title class_">Fill</span>({
+      <span class="hljs-attr">color</span>: <span class="hljs-string">'red'</span>
     })
   });
 
-  layer.setStyle(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">feature, resolution</span>) </span>{
-    <span class="hljs-keyword">if</span> (feature.get(<span class="hljs-string">&apos;class&apos;</span>) === <span class="hljs-string">&apos;someClass&apos;</span>) {
+  layer.<span class="hljs-title function_">setStyle</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">feature, resolution</span>) {
+    <span class="hljs-keyword">if</span> (feature.<span class="hljs-title function_">get</span>(<span class="hljs-string">'class'</span>) === <span class="hljs-string">'someClass'</span>) {
       <span class="hljs-keyword">return</span> primaryStyle;
     } <span class="hljs-keyword">else</span> {
       <span class="hljs-keyword">return</span> otherStyle;
@@ -554,10 +554,10 @@
 <h2 id="pseudo-classes">Pseudo-classes</h2>
 <p>O CSS permite o uso de pseudo-classes nos seletores. Elas, basicamente, limitam a aplicação das declarações de estilo a certos contextos que não são facilmente representados no seletor, como: posição do mouse, vizinhança de elementos ou histórico do navegador. No OpenLayers, existe um conceito similar com a opção <code>style</code> de uma interação <code>ol.interaction.Select</code>.</p>
 <p>Exemplo:</p>
-<pre><code class="lang-js">  <span class="hljs-keyword">var</span> select = <span class="hljs-keyword">new</span> ol.interaction.Select({
-    <span class="hljs-attr">style</span>: <span class="hljs-keyword">new</span> ol.style.Style({
-      <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.style.Fill({
-        <span class="hljs-attr">color</span>: <span class="hljs-string">&apos;rgba(255,255,255,0.5)&apos;</span>
+<pre><code class="lang-js">  <span class="hljs-keyword">var</span> select = <span class="hljs-keyword">new</span> ol.<span class="hljs-property">interaction</span>.<span class="hljs-title class_">Select</span>({
+    <span class="hljs-attr">style</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">style</span>.<span class="hljs-title class_">Style</span>({
+      <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">style</span>.<span class="hljs-title class_">Fill</span>({
+        <span class="hljs-attr">color</span>: <span class="hljs-string">'rgba(255,255,255,0.5)'</span>
       })
     })
   });
@@ -606,7 +606,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Estilos","level":"1.5.2","depth":2,"next":{"title":"Personalização de estilos","level":"1.5.3","depth":2,"path":"vector/style.md","ref":"vector/style.md","articles":[]},"previous":{"title":"Formatos","level":"1.5.1","depth":2,"path":"vector/formats.md","ref":"vector/formats.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.7.1","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:5173","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Um mapa completo exibindo uma imagem do mundo","alt":"Um mapa completo exibindo uma imagem do mundo","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa completo exibindo uma imagem do mundo","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: Um breakpoint no depurador","alt":"Um breakpoint no depurador","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"Um breakpoint no depurador","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Uma camada WMS como uma fonte de dados de imagem","alt":"Uma camada WMS como uma fonte de dados de imagem","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada WMS como uma fonte de dados de imagem","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Uma camada `tiled` com uma fonte OSM","alt":"Uma camada `tiled` com uma fonte OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada `tiled` com uma fonte OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Um mapa com uma camada Bing","alt":"Um mapa com uma camada Bing","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa com uma camada Bing","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Localizações de terremoto","alt":"Localizações de terremoto","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Localizações de terremoto","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: O controle ScaleLine na parte inferior esquerda","alt":"O controle ScaleLine na parte inferior esquerda","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"O controle ScaleLine na parte inferior esquerda","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: O controle ScaleLine fora do mapa","alt":"O controle ScaleLine fora do mapa","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"O controle ScaleLine fora do mapa","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Usando uma interação para selecionar features de uma camada vetorial","alt":"Usando uma interação para selecionar features de uma camada vetorial","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para selecionar features de uma camada vetorial","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Usando uma interação para adicionar geometrias para uma fonte vetorial","alt":"Usando uma interação para adicionar geometrias para uma fonte vetorial","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para adicionar geometrias para uma fonte vetorial","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Edifícios rotulados utilizando o atributo `key`","alt":"Edifícios rotulados utilizando o atributo `key`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Edifícios rotulados utilizando o atributo `key`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"pt","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"vector/style-intro.md","mtime":"2024-06-30T13:19:28.191Z","type":"markdown"},"gitbook":{"version":"3.7.5","time":"2024-06-30T13:19:38.994Z"},"basePath":"..","book":{"language":"pt"}});
+            gitbook.page.hasChanged({"page":{"title":"Estilos","level":"1.5.2","depth":2,"next":{"title":"Personalização de estilos","level":"1.5.3","depth":2,"path":"vector/style.md","ref":"vector/style.md","articles":[]},"previous":{"title":"Formatos","level":"1.5.1","depth":2,"path":"vector/formats.md","ref":"vector/formats.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.7.1","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:5173","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Um mapa completo exibindo uma imagem do mundo","alt":"Um mapa completo exibindo uma imagem do mundo","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa completo exibindo uma imagem do mundo","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: Um breakpoint no depurador","alt":"Um breakpoint no depurador","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"Um breakpoint no depurador","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Uma camada WMS como uma fonte de dados de imagem","alt":"Uma camada WMS como uma fonte de dados de imagem","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada WMS como uma fonte de dados de imagem","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Uma camada `tiled` com uma fonte OSM","alt":"Uma camada `tiled` com uma fonte OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada `tiled` com uma fonte OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Um mapa com uma camada Bing","alt":"Um mapa com uma camada Bing","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa com uma camada Bing","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Localizações de terremoto","alt":"Localizações de terremoto","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Localizações de terremoto","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: O controle ScaleLine na parte inferior esquerda","alt":"O controle ScaleLine na parte inferior esquerda","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"O controle ScaleLine na parte inferior esquerda","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: O controle ScaleLine fora do mapa","alt":"O controle ScaleLine fora do mapa","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"O controle ScaleLine fora do mapa","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Usando uma interação para selecionar features de uma camada vetorial","alt":"Usando uma interação para selecionar features de uma camada vetorial","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para selecionar features de uma camada vetorial","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Usando uma interação para adicionar geometrias para uma fonte vetorial","alt":"Usando uma interação para adicionar geometrias para uma fonte vetorial","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para adicionar geometrias para uma fonte vetorial","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Edifícios rotulados utilizando o atributo `key`","alt":"Edifícios rotulados utilizando o atributo `key`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Edifícios rotulados utilizando o atributo `key`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"pt","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"vector/style-intro.md","mtime":"2024-12-01T12:27:54.267Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2024-12-01T12:28:09.562Z"},"basePath":"..","book":{"language":"pt"}});
         });
     </script>
 </div>
@@ -680,7 +680,7 @@
         
     
         
-        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
         
     
 

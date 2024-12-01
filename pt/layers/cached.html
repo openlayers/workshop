@@ -6,7 +6,7 @@
         <title>Fontes de blocos de dados de imagem (tiles) · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 3.7.5">
+        <meta name="generator" content="HonKit 6.0.2">
         
         
         
@@ -16,7 +16,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                <link rel="stylesheet" href="../../gitbook/honkit-plugin-image-captions/image-captions.css">
                 
             
                 
@@ -28,7 +28,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                <link rel="stylesheet" href="../../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
                 
             
         
@@ -478,19 +478,19 @@
 <h3 id="tarefas">Tarefas</h3>
 <ol>
 <li><p>Abra o arquivo <code>map.html</code> da <a href="wms.html">seção anterior</a> num editor de texto e mude o código de inicialização do mapa conforme abaixo:</p>
-<pre><code class="lang-html"> <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-   <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.Map({
-     <span class="hljs-attr">target</span>: <span class="hljs-string">&apos;map&apos;</span>,
+<pre><code class="lang-html"> <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+   <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.<span class="hljs-title class_">Map</span>({
+     <span class="hljs-attr">target</span>: <span class="hljs-string">'map'</span>,
      <span class="hljs-attr">layers</span>: [
-       <span class="hljs-keyword">new</span> ol.layer.Tile({
-         <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.OSM()
+       <span class="hljs-keyword">new</span> ol.<span class="hljs-property">layer</span>.<span class="hljs-title class_">Tile</span>({
+         <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">source</span>.<span class="hljs-title function_">OSM</span>()
        })
      ],
-     <span class="hljs-attr">view</span>: <span class="hljs-keyword">new</span> ol.View({
-       <span class="hljs-attr">center</span>: ol.proj.fromLonLat([<span class="hljs-number">126.97</span>, <span class="hljs-number">37.56</span>]),
+     <span class="hljs-attr">view</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-title class_">View</span>({
+       <span class="hljs-attr">center</span>: ol.<span class="hljs-property">proj</span>.<span class="hljs-title function_">fromLonLat</span>([<span class="hljs-number">126.97</span>, <span class="hljs-number">37.56</span>]),
        <span class="hljs-attr">zoom</span>: <span class="hljs-number">9</span>
      }),
-     <span class="hljs-attr">controls</span>: ol.control.defaults({
+     <span class="hljs-attr">controls</span>: ol.<span class="hljs-property">control</span>.<span class="hljs-title function_">defaults</span>({
        <span class="hljs-attr">attributionOptions</span>: {
          <span class="hljs-attr">collapsible</span>: <span class="hljs-literal">false</span>
        }
@@ -500,7 +500,7 @@
 </code></pre>
 </li>
 <li><p>No <code>&lt;head&gt;</code> do mesmo documento, adicione algumas declarações de estilo para a camada:  </p>
-<pre><code class="lang-html"> <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<pre><code class="lang-html"> <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
      <span class="hljs-selector-id">#map</span> {
          <span class="hljs-attribute">width</span>: <span class="hljs-number">512px</span>;
          <span class="hljs-attribute">height</span>: <span class="hljs-number">256px</span>;
@@ -512,37 +512,37 @@
 </code></pre>
 </li>
 <li><p>Salve suas alterações e atualize a página no seu navegador: <a href="http://localhost:5173/map.html" target="_blank">http://localhost:5173/map.html</a>  </p>
-<figure id="fig1.3.2.1"><img src="cached1.png" alt="Uma camada `tiled` com uma fonte OSM"><figcaption>Uma camada `tiled` com uma fonte OSM</figcaption></figure>
+<figure id="fig1.3.2.1"><img src="cached1.png" alt="Uma camada `tiled` com uma fonte OSM"></img><figcaption>Uma camada `tiled` com uma fonte OSM</figcaption></figure>
 </li>
 </ol>
 <h2 id="olhando-mais-de-perto">Olhando mais de perto</h2>
 <h3 id="projeções">Projeções</h3>
 <p>Revise a definição de visualização do mapa:</p>
-<pre><code class="lang-js">  view: <span class="hljs-keyword">new</span> ol.View({
-    <span class="hljs-attr">center</span>: ol.proj.fromLonLat([<span class="hljs-number">126.97</span>, <span class="hljs-number">37.56</span>]),
+<pre><code class="lang-js">  <span class="hljs-attr">view</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-title class_">View</span>({
+    <span class="hljs-attr">center</span>: ol.<span class="hljs-property">proj</span>.<span class="hljs-title function_">fromLonLat</span>([<span class="hljs-number">126.97</span>, <span class="hljs-number">37.56</span>]),
     <span class="hljs-attr">zoom</span>: <span class="hljs-number">9</span>
   })
 </code></pre>
 <p>Dados geoespaciais podem vir em qualquer sistema de coordenadas. Um conjunto de dados pode usar coordenadas geográficas (longitude e latitude) em graus e outro pode usar coordenadas numa projeção local com unidades em metros. Uma discussão completa sobre sistemas de coordenadas referenciais está fora do escopo deste módulo, mas é importante entender o conceito básico.</p>
 <p>O OpenLayers precisa saber o sistema de coordenadas de seus dados. Internamente, isto é representado pelo objeto <code>ol.proj.Projection</code> mas também pode ser fornecida uma string.</p>
-<p>Os <code>tiles</code> do OpenStreetMap que você utilizará está na projeção de Mercator. Por causa disso, nós precisamos atribuir o centro do mapa utilizando coordenadas desta projeção. Considerando que é relativamente fácil encontrar coordenadas de um lugar de interesse em coordenadas geográficas, nós usamos o método <code>ol.proj.fromLonLat</code> para converter coordenadas geográficas (<code>&apos;EPSG:4326&apos;</code>) para coordenadas Mercator (<code>&apos;EPSG:3857&apos;</code>).</p>
+<p>Os <code>tiles</code> do OpenStreetMap que você utilizará está na projeção de Mercator. Por causa disso, nós precisamos atribuir o centro do mapa utilizando coordenadas desta projeção. Considerando que é relativamente fácil encontrar coordenadas de um lugar de interesse em coordenadas geográficas, nós usamos o método <code>ol.proj.fromLonLat</code> para converter coordenadas geográficas (<code>'EPSG:4326'</code>) para coordenadas Mercator (<code>'EPSG:3857'</code>).</p>
 <h3 id="projeções-alternativas">Projeções alternativas</h3>
-<p>O OpenLayers inclui transformações entre sistemas de coordenadas geográficas (<code>&apos;EPSG:4326&apos;</code>) e Web Mercator (<code>&apos;EPSG:3857&apos;</code>). Por isso, conseguimos utilizar a função <code>ol.proj.fromLonLat</code> sem qualquer esforço extra. Se você quiser trabalhar com dados em outras projeções, você precisará de algumas informações adicionais antes de usar as funções <code>ol.proj.*</code>.</p>
-<p>Por exemplo, se quiser trabalhar com dados no sistema de coordenadas <code>&apos;EPSG:21781&apos;</code>, você precisa incluir duas tags de script em sua página:</p>
-<pre><code class="lang-html">  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://epsg.io/21781-1753.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<p>O OpenLayers inclui transformações entre sistemas de coordenadas geográficas (<code>'EPSG:4326'</code>) e Web Mercator (<code>'EPSG:3857'</code>). Por isso, conseguimos utilizar a função <code>ol.proj.fromLonLat</code> sem qualquer esforço extra. Se você quiser trabalhar com dados em outras projeções, você precisará de algumas informações adicionais antes de usar as funções <code>ol.proj.*</code>.</p>
+<p>Por exemplo, se quiser trabalhar com dados no sistema de coordenadas <code>'EPSG:21781'</code>, você precisa incluir duas tags de script em sua página:</p>
+<pre><code class="lang-html">  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://epsg.io/21781-1753.js"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
 <p>Em seguida, no código de sua aplicação, você pode registrar esta projeção e atribuir sua extensão (<code>extent</code>):</p>
 <pre><code class="lang-js">  <span class="hljs-comment">// This creates a projection object for the EPSG:21781 projection</span>
-  <span class="hljs-comment">// and sets a &quot;validity extent&quot; in that projection object.</span>
-  <span class="hljs-keyword">var</span> projection = ol.proj.get(<span class="hljs-string">&apos;EPSG:21781&apos;</span>);
-  projection.setExtent([<span class="hljs-number">485869.5728</span>, <span class="hljs-number">76443.1884</span>, <span class="hljs-number">837076.5648</span>, <span class="hljs-number">299941.7864</span>]);
+  <span class="hljs-comment">// and sets a "validity extent" in that projection object.</span>
+  <span class="hljs-keyword">var</span> projection = ol.<span class="hljs-property">proj</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">'EPSG:21781'</span>);
+  projection.<span class="hljs-title function_">setExtent</span>([<span class="hljs-number">485869.5728</span>, <span class="hljs-number">76443.1884</span>, <span class="hljs-number">837076.5648</span>, <span class="hljs-number">299941.7864</span>]);
 </code></pre>
 <p>O <code>extent</code> pode ser obtido no site <a href="http://epsg.io/" target="_blank">http://epsg.io/</a> usando o código EPSG.</p>
 <h3 id="criação-da-camada">Criação da camada</h3>
-<pre><code class="lang-js">  layers: [
-    <span class="hljs-keyword">new</span> ol.layer.Tile({
-      <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.OSM()
+<pre><code class="lang-js">  <span class="hljs-attr">layers</span>: [
+    <span class="hljs-keyword">new</span> ol.<span class="hljs-property">layer</span>.<span class="hljs-title class_">Tile</span>({
+      <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">source</span>.<span class="hljs-title function_">OSM</span>()
     })
   ],
 </code></pre>
@@ -555,7 +555,7 @@
 <p>Um aprofundamento sobre os controles do mapa também está fora do escopo deste módulo, mas estas declarações fornecem uma prévia. Por padrão, um controle <code>ol.control.Attribution</code> é adicionado a todos os mapas. Isto permite que as fontes de dados possam fornecer informações de atribuição sobre a área de visualização do mapa. As declarações acima, alteram o estilo desta atribuição para o nosso mapa (note a linha de Copyright sobre a parte inferior direita do mapa).</p>
 <h3 id="configuração-do-controle-attribution">Configuração do controle <code>Attribution</code></h3>
 <p>Por padrão, o controle <code>ol.control.Attribution</code> adiciona um botão <code>i</code> (informação) que pode ser pressionado para mostrar a informação de atribuição. Para ficar em conformidade com os <a href="http://wiki.openstreetmap.org/wiki/Legal_FAQ" target="_blank">Termos de Uso do OpenStreetMap</a> e sempre mostrar a informação de atribuição, a seguinte opção é passada para o construtor do objeto <code>ol.Map</code>:</p>
-<pre><code class="lang-js">  controls: ol.control.defaults({
+<pre><code class="lang-js">  <span class="hljs-attr">controls</span>: ol.<span class="hljs-property">control</span>.<span class="hljs-title function_">defaults</span>({
     <span class="hljs-attr">attributionOptions</span>: {
       <span class="hljs-attr">collapsible</span>: <span class="hljs-literal">false</span>
     }
@@ -606,7 +606,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Fontes de blocos de dados de imagem (tiles)","level":"1.3.2","depth":2,"next":{"title":"Fornecedores proprietários de blocos de dados de imagem","level":"1.3.3","depth":2,"path":"layers/proprietary.md","ref":"layers/proprietary.md","articles":[]},"previous":{"title":"Fontes WMS","level":"1.3.1","depth":2,"path":"layers/wms.md","ref":"layers/wms.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.7.1","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:5173","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Um mapa completo exibindo uma imagem do mundo","alt":"Um mapa completo exibindo uma imagem do mundo","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa completo exibindo uma imagem do mundo","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: Um breakpoint no depurador","alt":"Um breakpoint no depurador","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"Um breakpoint no depurador","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Uma camada WMS como uma fonte de dados de imagem","alt":"Uma camada WMS como uma fonte de dados de imagem","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada WMS como uma fonte de dados de imagem","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Uma camada `tiled` com uma fonte OSM","alt":"Uma camada `tiled` com uma fonte OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada `tiled` com uma fonte OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Um mapa com uma camada Bing","alt":"Um mapa com uma camada Bing","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa com uma camada Bing","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Localizações de terremoto","alt":"Localizações de terremoto","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Localizações de terremoto","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: O controle ScaleLine na parte inferior esquerda","alt":"O controle ScaleLine na parte inferior esquerda","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"O controle ScaleLine na parte inferior esquerda","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: O controle ScaleLine fora do mapa","alt":"O controle ScaleLine fora do mapa","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"O controle ScaleLine fora do mapa","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Usando uma interação para selecionar features de uma camada vetorial","alt":"Usando uma interação para selecionar features de uma camada vetorial","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para selecionar features de uma camada vetorial","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Usando uma interação para adicionar geometrias para uma fonte vetorial","alt":"Usando uma interação para adicionar geometrias para uma fonte vetorial","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para adicionar geometrias para uma fonte vetorial","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Edifícios rotulados utilizando o atributo `key`","alt":"Edifícios rotulados utilizando o atributo `key`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Edifícios rotulados utilizando o atributo `key`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"pt","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"layers/cached.md","mtime":"2024-06-30T13:19:28.187Z","type":"markdown"},"gitbook":{"version":"3.7.5","time":"2024-06-30T13:19:38.994Z"},"basePath":"..","book":{"language":"pt"}});
+            gitbook.page.hasChanged({"page":{"title":"Fontes de blocos de dados de imagem (tiles)","level":"1.3.2","depth":2,"next":{"title":"Fornecedores proprietários de blocos de dados de imagem","level":"1.3.3","depth":2,"path":"layers/proprietary.md","ref":"layers/proprietary.md","articles":[]},"previous":{"title":"Fontes WMS","level":"1.3.1","depth":2,"path":"layers/wms.md","ref":"layers/wms.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.7.1","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:5173","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Um mapa completo exibindo uma imagem do mundo","alt":"Um mapa completo exibindo uma imagem do mundo","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa completo exibindo uma imagem do mundo","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: Um breakpoint no depurador","alt":"Um breakpoint no depurador","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"Um breakpoint no depurador","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Uma camada WMS como uma fonte de dados de imagem","alt":"Uma camada WMS como uma fonte de dados de imagem","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada WMS como uma fonte de dados de imagem","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Uma camada `tiled` com uma fonte OSM","alt":"Uma camada `tiled` com uma fonte OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada `tiled` com uma fonte OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Um mapa com uma camada Bing","alt":"Um mapa com uma camada Bing","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa com uma camada Bing","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Localizações de terremoto","alt":"Localizações de terremoto","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Localizações de terremoto","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: O controle ScaleLine na parte inferior esquerda","alt":"O controle ScaleLine na parte inferior esquerda","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"O controle ScaleLine na parte inferior esquerda","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: O controle ScaleLine fora do mapa","alt":"O controle ScaleLine fora do mapa","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"O controle ScaleLine fora do mapa","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Usando uma interação para selecionar features de uma camada vetorial","alt":"Usando uma interação para selecionar features de uma camada vetorial","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para selecionar features de uma camada vetorial","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Usando uma interação para adicionar geometrias para uma fonte vetorial","alt":"Usando uma interação para adicionar geometrias para uma fonte vetorial","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para adicionar geometrias para uma fonte vetorial","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Edifícios rotulados utilizando o atributo `key`","alt":"Edifícios rotulados utilizando o atributo `key`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Edifícios rotulados utilizando o atributo `key`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"pt","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"layers/cached.md","mtime":"2024-12-01T12:27:54.267Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2024-12-01T12:28:09.562Z"},"basePath":"..","book":{"language":"pt"}});
         });
     </script>
 </div>
@@ -680,7 +680,7 @@
         
     
         
-        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
         
     
 

@@ -6,7 +6,7 @@
         <title>Conceitos · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 3.7.5">
+        <meta name="generator" content="HonKit 6.0.2">
         
         
         
@@ -16,7 +16,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                <link rel="stylesheet" href="../../gitbook/honkit-plugin-image-captions/image-captions.css">
                 
             
                 
@@ -28,7 +28,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                <link rel="stylesheet" href="../../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
                 
             
         
@@ -476,62 +476,62 @@
 <h2 id="arquivo-de-configuração-do-build">Arquivo de configuração do <code>Build</code></h2>
 <p>Criar um <code>build</code> personalizado requer um arquivo de configuração. O formato do arquivo é JSON. Segue um exemplo de arquivo de configuração:</p>
 <pre><code class="lang-js">{
-  <span class="hljs-string">&quot;exports&quot;</span>: [
-    <span class="hljs-string">&quot;ol.Map&quot;</span>,
-    <span class="hljs-string">&quot;ol.View&quot;</span>,
-    <span class="hljs-string">&quot;ol.layer.Tile&quot;</span>,
-    <span class="hljs-string">&quot;ol.source.OSM&quot;</span>
+  <span class="hljs-string">"exports"</span>: [
+    <span class="hljs-string">"ol.Map"</span>,
+    <span class="hljs-string">"ol.View"</span>,
+    <span class="hljs-string">"ol.layer.Tile"</span>,
+    <span class="hljs-string">"ol.source.OSM"</span>
   ],
-  <span class="hljs-string">&quot;jvm&quot;</span>: [],
-  <span class="hljs-string">&quot;umd&quot;</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-string">&quot;compile&quot;</span>: {
-    <span class="hljs-string">&quot;externs&quot;</span>: [
-      <span class="hljs-string">&quot;externs/bingmaps.js&quot;</span>,
-      <span class="hljs-string">&quot;externs/closure-compiler.js&quot;</span>,
-      <span class="hljs-string">&quot;externs/esrijson.js&quot;</span>,
-      <span class="hljs-string">&quot;externs/geojson.js&quot;</span>,
-      <span class="hljs-string">&quot;externs/oli.js&quot;</span>,
-      <span class="hljs-string">&quot;externs/olx.js&quot;</span>,
-      <span class="hljs-string">&quot;externs/proj4js.js&quot;</span>,
-      <span class="hljs-string">&quot;externs/tilejson.js&quot;</span>,
-      <span class="hljs-string">&quot;externs/topojson.js&quot;</span>
+  <span class="hljs-string">"jvm"</span>: [],
+  <span class="hljs-string">"umd"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-string">"compile"</span>: {
+    <span class="hljs-string">"externs"</span>: [
+      <span class="hljs-string">"externs/bingmaps.js"</span>,
+      <span class="hljs-string">"externs/closure-compiler.js"</span>,
+      <span class="hljs-string">"externs/esrijson.js"</span>,
+      <span class="hljs-string">"externs/geojson.js"</span>,
+      <span class="hljs-string">"externs/oli.js"</span>,
+      <span class="hljs-string">"externs/olx.js"</span>,
+      <span class="hljs-string">"externs/proj4js.js"</span>,
+      <span class="hljs-string">"externs/tilejson.js"</span>,
+      <span class="hljs-string">"externs/topojson.js"</span>
     ],
-    <span class="hljs-string">&quot;define&quot;</span>: [
-      <span class="hljs-string">&quot;goog.dom.ASSUME_STANDARDS_MODE=true&quot;</span>,
-      <span class="hljs-string">&quot;goog.DEBUG=false&quot;</span>,
-      <span class="hljs-string">&quot;ol.ENABLE_DOM=false&quot;</span>,
-      <span class="hljs-string">&quot;ol.ENABLE_WEBGL=false&quot;</span>,
-      <span class="hljs-string">&quot;ol.ENABLE_PROJ4JS=false&quot;</span>,
-      <span class="hljs-string">&quot;ol.ENABLE_IMAGE=false&quot;</span>
+    <span class="hljs-string">"define"</span>: [
+      <span class="hljs-string">"goog.dom.ASSUME_STANDARDS_MODE=true"</span>,
+      <span class="hljs-string">"goog.DEBUG=false"</span>,
+      <span class="hljs-string">"ol.ENABLE_DOM=false"</span>,
+      <span class="hljs-string">"ol.ENABLE_WEBGL=false"</span>,
+      <span class="hljs-string">"ol.ENABLE_PROJ4JS=false"</span>,
+      <span class="hljs-string">"ol.ENABLE_IMAGE=false"</span>
     ],
-    <span class="hljs-string">&quot;jscomp_error&quot;</span>: [
-      <span class="hljs-string">&quot;*&quot;</span>
+    <span class="hljs-string">"jscomp_error"</span>: [
+      <span class="hljs-string">"*"</span>
     ],
-    <span class="hljs-string">&quot;jscomp_off&quot;</span>: [
-      <span class="hljs-string">&quot;analyzerChecks&quot;</span>,
-      <span class="hljs-string">&quot;lintChecks&quot;</span>,
-      <span class="hljs-string">&quot;unnecessaryCasts&quot;</span>,
-      <span class="hljs-string">&quot;useOfGoogBase&quot;</span>
+    <span class="hljs-string">"jscomp_off"</span>: [
+      <span class="hljs-string">"analyzerChecks"</span>,
+      <span class="hljs-string">"lintChecks"</span>,
+      <span class="hljs-string">"unnecessaryCasts"</span>,
+      <span class="hljs-string">"useOfGoogBase"</span>
     ],
-    <span class="hljs-string">&quot;extra_annotation_name&quot;</span>: [
-      <span class="hljs-string">&quot;api&quot;</span>, <span class="hljs-string">&quot;observable&quot;</span>
+    <span class="hljs-string">"extra_annotation_name"</span>: [
+      <span class="hljs-string">"api"</span>, <span class="hljs-string">"observable"</span>
     ],
-    <span class="hljs-string">&quot;compilation_level&quot;</span>: <span class="hljs-string">&quot;ADVANCED&quot;</span>,
-    <span class="hljs-string">&quot;warning_level&quot;</span>: <span class="hljs-string">&quot;VERBOSE&quot;</span>,
-    <span class="hljs-string">&quot;use_types_for_optimization&quot;</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-string">&quot;manage_closure_dependencies&quot;</span>: <span class="hljs-literal">true</span>
+    <span class="hljs-string">"compilation_level"</span>: <span class="hljs-string">"ADVANCED"</span>,
+    <span class="hljs-string">"warning_level"</span>: <span class="hljs-string">"VERBOSE"</span>,
+    <span class="hljs-string">"use_types_for_optimization"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">"manage_closure_dependencies"</span>: <span class="hljs-literal">true</span>
   }
 }
 </code></pre>
 <p>A parte mais relevante da configuração é o array <code>exports</code>. Nele estão declaradas as funções/construtores que você usou em seu código JavaScript. Por exemplo, a configuração acima é o que você precisará para executar o código abaixo:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.Map({
-  <span class="hljs-attr">target</span>: <span class="hljs-string">&apos;map&apos;</span>,
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.<span class="hljs-title class_">Map</span>({
+  <span class="hljs-attr">target</span>: <span class="hljs-string">'map'</span>,
   <span class="hljs-attr">layers</span>: [
-    <span class="hljs-keyword">new</span> ol.layer.Tile({
-      <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.OSM()
+    <span class="hljs-keyword">new</span> ol.<span class="hljs-property">layer</span>.<span class="hljs-title class_">Tile</span>({
+      <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">source</span>.<span class="hljs-title function_">OSM</span>()
     })
   ],
-  <span class="hljs-attr">view</span>: <span class="hljs-keyword">new</span> ol.View({
+  <span class="hljs-attr">view</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-title class_">View</span>({
     <span class="hljs-attr">center</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
     <span class="hljs-attr">zoom</span>: <span class="hljs-number">4</span>
   })
@@ -580,7 +580,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Conceitos","level":"1.6.1","depth":2,"next":{"title":"Criar builds personalizados","level":"1.6.2","depth":2,"path":"custom-builds/create.md","ref":"custom-builds/create.md","articles":[]},"previous":{"title":"Builds Personalizados","level":"1.6","depth":1,"path":"custom-builds/README.md","ref":"custom-builds/README.md","articles":[{"title":"Conceitos","level":"1.6.1","depth":2,"path":"custom-builds/concepts.md","ref":"custom-builds/concepts.md","articles":[]},{"title":"Criar builds personalizados","level":"1.6.2","depth":2,"path":"custom-builds/create.md","ref":"custom-builds/create.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.7.1","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:5173","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Um mapa completo exibindo uma imagem do mundo","alt":"Um mapa completo exibindo uma imagem do mundo","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa completo exibindo uma imagem do mundo","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: Um breakpoint no depurador","alt":"Um breakpoint no depurador","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"Um breakpoint no depurador","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Uma camada WMS como uma fonte de dados de imagem","alt":"Uma camada WMS como uma fonte de dados de imagem","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada WMS como uma fonte de dados de imagem","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Uma camada `tiled` com uma fonte OSM","alt":"Uma camada `tiled` com uma fonte OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada `tiled` com uma fonte OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Um mapa com uma camada Bing","alt":"Um mapa com uma camada Bing","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa com uma camada Bing","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Localizações de terremoto","alt":"Localizações de terremoto","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Localizações de terremoto","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: O controle ScaleLine na parte inferior esquerda","alt":"O controle ScaleLine na parte inferior esquerda","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"O controle ScaleLine na parte inferior esquerda","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: O controle ScaleLine fora do mapa","alt":"O controle ScaleLine fora do mapa","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"O controle ScaleLine fora do mapa","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Usando uma interação para selecionar features de uma camada vetorial","alt":"Usando uma interação para selecionar features de uma camada vetorial","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para selecionar features de uma camada vetorial","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Usando uma interação para adicionar geometrias para uma fonte vetorial","alt":"Usando uma interação para adicionar geometrias para uma fonte vetorial","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para adicionar geometrias para uma fonte vetorial","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Edifícios rotulados utilizando o atributo `key`","alt":"Edifícios rotulados utilizando o atributo `key`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Edifícios rotulados utilizando o atributo `key`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"pt","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"custom-builds/concepts.md","mtime":"2024-06-30T13:19:28.187Z","type":"markdown"},"gitbook":{"version":"3.7.5","time":"2024-06-30T13:19:38.994Z"},"basePath":"..","book":{"language":"pt"}});
+            gitbook.page.hasChanged({"page":{"title":"Conceitos","level":"1.6.1","depth":2,"next":{"title":"Criar builds personalizados","level":"1.6.2","depth":2,"path":"custom-builds/create.md","ref":"custom-builds/create.md","articles":[]},"previous":{"title":"Builds Personalizados","level":"1.6","depth":1,"path":"custom-builds/README.md","ref":"custom-builds/README.md","articles":[{"title":"Conceitos","level":"1.6.1","depth":2,"path":"custom-builds/concepts.md","ref":"custom-builds/concepts.md","articles":[]},{"title":"Criar builds personalizados","level":"1.6.2","depth":2,"path":"custom-builds/create.md","ref":"custom-builds/create.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.7.1","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:5173","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Um mapa completo exibindo uma imagem do mundo","alt":"Um mapa completo exibindo uma imagem do mundo","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa completo exibindo uma imagem do mundo","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: Um breakpoint no depurador","alt":"Um breakpoint no depurador","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"Um breakpoint no depurador","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Uma camada WMS como uma fonte de dados de imagem","alt":"Uma camada WMS como uma fonte de dados de imagem","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada WMS como uma fonte de dados de imagem","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Uma camada `tiled` com uma fonte OSM","alt":"Uma camada `tiled` com uma fonte OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Uma camada `tiled` com uma fonte OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Um mapa com uma camada Bing","alt":"Um mapa com uma camada Bing","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Um mapa com uma camada Bing","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Localizações de terremoto","alt":"Localizações de terremoto","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Localizações de terremoto","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: O controle ScaleLine na parte inferior esquerda","alt":"O controle ScaleLine na parte inferior esquerda","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"O controle ScaleLine na parte inferior esquerda","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: O controle ScaleLine fora do mapa","alt":"O controle ScaleLine fora do mapa","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"O controle ScaleLine fora do mapa","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Usando uma interação para selecionar features de uma camada vetorial","alt":"Usando uma interação para selecionar features de uma camada vetorial","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para selecionar features de uma camada vetorial","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Usando uma interação para adicionar geometrias para uma fonte vetorial","alt":"Usando uma interação para adicionar geometrias para uma fonte vetorial","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Usando uma interação para adicionar geometrias para uma fonte vetorial","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Edifícios rotulados utilizando o atributo `key`","alt":"Edifícios rotulados utilizando o atributo `key`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Edifícios rotulados utilizando o atributo `key`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"pt","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"custom-builds/concepts.md","mtime":"2024-12-01T12:27:54.263Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2024-12-01T12:28:09.562Z"},"basePath":"..","book":{"language":"pt"}});
         });
     </script>
 </div>
@@ -654,7 +654,7 @@
         
     
         
-        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
         
     
 

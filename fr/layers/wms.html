@@ -6,7 +6,7 @@
         <title>Sources WMS · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 3.7.5">
+        <meta name="generator" content="HonKit 6.0.2">
         
         
         
@@ -16,7 +16,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                <link rel="stylesheet" href="../../gitbook/honkit-plugin-image-captions/image-captions.css">
                 
             
                 
@@ -28,7 +28,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                <link rel="stylesheet" href="../../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
                 
             
         
@@ -467,42 +467,42 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="couches-web-map-service-wms">Couches &quot;Web Map Service&quot; (WMS)</h1>
-<p>Quand vous ajoutez une couche à votre carte, la source de la couche est responsable typiquement d&apos;appeler la donnée qui doit être affichée. La donnée demandée peut être soit raster, soit vecteur. Vous pouvez assimiler une donnée raster comme une information rendue comme une image côté serveur. La donnée vecteur est délivrée comme une information structurée depuis le serveur et peut potentiellement être calculée pour l&apos;affichage via le client (votre navigateur).</p>
-<p>Il y a  de nombreux types de services qui fournissent des données cartographiques raster. Cette section traite des fournisseurs qui se conforment à la spécification <a href="http://www.opengeospatial.org/standards/wms" target="_blank">Web Map Service (WMS)</a> de l&apos;OGC (Open Geospatial Consortium, Inc.).</p>
+                                <h1 id="couches-web-map-service-wms">Couches "Web Map Service" (WMS)</h1>
+<p>Quand vous ajoutez une couche à votre carte, la source de la couche est responsable typiquement d'appeler la donnée qui doit être affichée. La donnée demandée peut être soit raster, soit vecteur. Vous pouvez assimiler une donnée raster comme une information rendue comme une image côté serveur. La donnée vecteur est délivrée comme une information structurée depuis le serveur et peut potentiellement être calculée pour l'affichage via le client (votre navigateur).</p>
+<p>Il y a  de nombreux types de services qui fournissent des données cartographiques raster. Cette section traite des fournisseurs qui se conforment à la spécification <a href="http://www.opengeospatial.org/standards/wms" target="_blank">Web Map Service (WMS)</a> de l'OGC (Open Geospatial Consortium, Inc.).</p>
 <h2 id="créer-une-couche">Créer une couche</h2>
 <p>Nous allons commencer avec un exemple complet de carte et modifier les couches pour pour avoir la compréhension de comment elles fonctionnent.</p>
 <p>Jetez un oeil au code suivant:</p>
-<pre><code class="lang-html"><span class="hljs-meta">&lt;!doctype <span class="hljs-meta-keyword">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!doctype <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/ol.css&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/ol.css"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
       <span class="hljs-selector-id">#map</span> {
         <span class="hljs-attribute">height</span>: <span class="hljs-number">256px</span>;
         <span class="hljs-attribute">width</span>: <span class="hljs-number">512px</span>;
       }
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/loader.js&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/loader.js"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>OpenLayers example<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>My Map<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;map&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript">
-      <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.Map({
-        <span class="hljs-attr">target</span>: <span class="hljs-string">&apos;map&apos;</span>,
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"map"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="language-javascript">
+      <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> ol.<span class="hljs-title class_">Map</span>({
+        <span class="hljs-attr">target</span>: <span class="hljs-string">'map'</span>,
         <span class="hljs-attr">layers</span>: [
-          <span class="hljs-keyword">new</span> ol.layer.Tile({
-            <span class="hljs-attr">title</span>: <span class="hljs-string">&apos;Global Imagery&apos;</span>,
-            <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.TileWMS({
-              <span class="hljs-attr">url</span>: <span class="hljs-string">&apos;https://ahocevar.com/geoserver/wms&apos;</span>,
-              <span class="hljs-attr">params</span>: {<span class="hljs-attr">LAYERS</span>: <span class="hljs-string">&apos;nasa:bluemarble&apos;</span>, <span class="hljs-attr">TILED</span>: <span class="hljs-literal">true</span>}
+          <span class="hljs-keyword">new</span> ol.<span class="hljs-property">layer</span>.<span class="hljs-title class_">Tile</span>({
+            <span class="hljs-attr">title</span>: <span class="hljs-string">'Global Imagery'</span>,
+            <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">source</span>.<span class="hljs-title class_">TileWMS</span>({
+              <span class="hljs-attr">url</span>: <span class="hljs-string">'https://ahocevar.com/geoserver/wms'</span>,
+              <span class="hljs-attr">params</span>: {<span class="hljs-attr">LAYERS</span>: <span class="hljs-string">'nasa:bluemarble'</span>, <span class="hljs-attr">TILED</span>: <span class="hljs-literal">true</span>}
             })
           })
         ],
-        <span class="hljs-attr">view</span>: <span class="hljs-keyword">new</span> ol.View({
-          <span class="hljs-attr">projection</span>: <span class="hljs-string">&apos;EPSG:4326&apos;</span>,
+        <span class="hljs-attr">view</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-title class_">View</span>({
+          <span class="hljs-attr">projection</span>: <span class="hljs-string">'EPSG:4326'</span>,
           <span class="hljs-attr">center</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
           <span class="hljs-attr">zoom</span>: <span class="hljs-number">0</span>,
           <span class="hljs-attr">maxResolution</span>: <span class="hljs-number">0.703125</span>
@@ -514,7 +514,7 @@
 </code></pre>
 <h3 id="tâches">Tâches</h3>
 <ol>
-<li><p>Si vous ne l&apos;avez pas déjà fait, sauvez le texte ci-dessus comme <code>map.html</code> à la racine de votre répertoire workshop.</p>
+<li><p>Si vous ne l'avez pas déjà fait, sauvez le texte ci-dessus comme <code>map.html</code> à la racine de votre répertoire workshop.</p>
 </li>
 <li><p>Ouvrez la page dans votre navigateur pour confirmer que les choses fonctionnent: <a href="http://localhost:5173/map.html" target="_blank">http://localhost:5173/map.html</a></p>
 </li>
@@ -522,40 +522,40 @@
 <h2 id="le-constructeur-ollayertile">Le constructeur <code>ol.layer.Tile</code></h2>
 <p>Le constructeur <code>ol.layer.Tile</code> nécessite un objet littéral de type <code>olx.layer.TileOptions</code> voir: <a href="http://openlayers.org/en/latest/apidoc/ol.layer.Tile.html" target="_blank">http://openlayers.org/en/latest/apidoc/ol.layer.Tile.html</a>
 Dans ce cas, nous complétons la clé <code>source</code> des options avec une <code>ol.source.TileWMS</code>.
-Un titre lisible par les humains pour la couche peut être fournie avec la clé <code>title</code>, mais n&apos;importe quel nom pour la clé peut être utilisée ici.
-Dans OpenLayers, il y a une séparation entre les couches et les sources alors que dans Openlayers 2, l&apos;ensemble faisait partie d&apos;une couche.</p>
-<p><code>ol.layer.Tile</code> représente un grille régulière d&apos;images, <code>ol.layer.Image</code> représente une image seule. En fonction du type de couche, vous devrez ajouter une source différente (<code>ol.source.TileWMS</code> versus <code>ol.source.ImageWMS</code>) également.</p>
+Un titre lisible par les humains pour la couche peut être fournie avec la clé <code>title</code>, mais n'importe quel nom pour la clé peut être utilisée ici.
+Dans OpenLayers, il y a une séparation entre les couches et les sources alors que dans Openlayers 2, l'ensemble faisait partie d'une couche.</p>
+<p><code>ol.layer.Tile</code> représente un grille régulière d'images, <code>ol.layer.Image</code> représente une image seule. En fonction du type de couche, vous devrez ajouter une source différente (<code>ol.source.TileWMS</code> versus <code>ol.source.ImageWMS</code>) également.</p>
 <h2 id="le-constructeur-olsourcetilewms">Le constructeur <code>ol.source.TileWMS</code></h2>
 <p>Le constructeur <code>ol.source.TileWMS</code> est un argument unique qui est définit par: <a href="http://openlayers.org/en/latest/apidoc/ol.source.TileWMS.html" target="_blank">http://openlayers.org/en/latest/apidoc/ol.source.TileWMS.html</a>.
-L&apos;url est la <code>online resource</code> du service WMS, et <code>params</code> est un objet litéral avec les noms des paramètres et leurs valeurs. Seul le paramètre <code>LAYERS</code> est requis. Dans cet exemple, nous ajoutons <code>TILED: true</code>, une extension spécifique à GeoServer pour une meilleure mise en cache des couches WMS en mosaïque.</p>
-<pre><code class="lang-js">  layers: [
-    <span class="hljs-keyword">new</span> ol.layer.Tile({
-      <span class="hljs-attr">title</span>: <span class="hljs-string">&apos;Global Imagery&apos;</span>,
-      <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.TileWMS({
-        <span class="hljs-attr">url</span>: <span class="hljs-string">&apos;https://ahocevar.com/geoserver/wms&apos;</span>,
-        <span class="hljs-attr">params</span>: {<span class="hljs-attr">LAYERS</span>: <span class="hljs-string">&apos;nasa:bluemarble&apos;</span>, <span class="hljs-attr">TILED</span>: <span class="hljs-literal">true</span>}
+L'url est la <code>online resource</code> du service WMS, et <code>params</code> est un objet litéral avec les noms des paramètres et leurs valeurs. Seul le paramètre <code>LAYERS</code> est requis. Dans cet exemple, nous ajoutons <code>TILED: true</code>, une extension spécifique à GeoServer pour une meilleure mise en cache des couches WMS en mosaïque.</p>
+<pre><code class="lang-js">  <span class="hljs-attr">layers</span>: [
+    <span class="hljs-keyword">new</span> ol.<span class="hljs-property">layer</span>.<span class="hljs-title class_">Tile</span>({
+      <span class="hljs-attr">title</span>: <span class="hljs-string">'Global Imagery'</span>,
+      <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">source</span>.<span class="hljs-title class_">TileWMS</span>({
+        <span class="hljs-attr">url</span>: <span class="hljs-string">'https://ahocevar.com/geoserver/wms'</span>,
+        <span class="hljs-attr">params</span>: {<span class="hljs-attr">LAYERS</span>: <span class="hljs-string">'nasa:bluemarble'</span>, <span class="hljs-attr">TILED</span>: <span class="hljs-literal">true</span>}
       })
     })
   ]
 </code></pre>
 <h3 id="tâches">Tâches</h3>
 <ol>
-<li><p>Ce même WMS offre une couche <a href="http://www.naturalearthdata.com/" target="_blank">Natural Earth</a> nommée <code>&apos;ne:NE1_HR_LC_SR_W_DR&apos;</code>. Changez la valeur du paramètre <code>LAYERS</code> de <code>&apos;nasa:bluemarble&apos;</code> à <code>&apos;ne:NE1_HR_LC_SR_W_DR&apos;</code>.</p>
+<li><p>Ce même WMS offre une couche <a href="http://www.naturalearthdata.com/" target="_blank">Natural Earth</a> nommée <code>'ne:NE1_HR_LC_SR_W_DR'</code>. Changez la valeur du paramètre <code>LAYERS</code> de <code>'nasa:bluemarble'</code> à <code>'ne:NE1_HR_LC_SR_W_DR'</code>.</p>
 <p>Votre version mise à jour du constructeur <code>ol.layer.Tile</code> devrait ressembler à ci-dessous:</p>
-<pre><code class="lang-js"> <span class="hljs-keyword">new</span> ol.layer.Tile({
-   <span class="hljs-attr">title</span>: <span class="hljs-string">&apos;Global Imagery&apos;</span>,
-   <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.source.TileWMS({
-     <span class="hljs-attr">url</span>: <span class="hljs-string">&apos;https://ahocevar.com/geoserver/wms&apos;</span>,
-     <span class="hljs-attr">params</span>: {<span class="hljs-attr">LAYERS</span>: <span class="hljs-string">&apos;ne:NE1_HR_LC_SR_W_DR&apos;</span>, <span class="hljs-attr">TILED</span>: <span class="hljs-literal">true</span>}
+<pre><code class="lang-js"> <span class="hljs-keyword">new</span> ol.<span class="hljs-property">layer</span>.<span class="hljs-title class_">Tile</span>({
+   <span class="hljs-attr">title</span>: <span class="hljs-string">'Global Imagery'</span>,
+   <span class="hljs-attr">source</span>: <span class="hljs-keyword">new</span> ol.<span class="hljs-property">source</span>.<span class="hljs-title class_">TileWMS</span>({
+     <span class="hljs-attr">url</span>: <span class="hljs-string">'https://ahocevar.com/geoserver/wms'</span>,
+     <span class="hljs-attr">params</span>: {<span class="hljs-attr">LAYERS</span>: <span class="hljs-string">'ne:NE1_HR_LC_SR_W_DR'</span>, <span class="hljs-attr">TILED</span>: <span class="hljs-literal">true</span>}
    })
  })
 </code></pre>
 </li>
-<li><p>Changez votre couche et votre source pour avoir une image unique plutôt que des tuiles. Regardez aux pages de la documentation de l&apos;API pour avoir des indices: <a href="http://openlayers.org/en/latest/apidoc/ol.layer.Image.html" target="_blank">http://openlayers.org/en/latest/apidoc/ol.layer.Image.html</a> et <a href="http://openlayers.org/en/latest/apidoc/ol.source.ImageWMS.html" target="_blank">http://openlayers.org/en/latest/apidoc/ol.source.ImageWMS.html</a>. Utilisez l&apos;onglet <code>Réseau</code> des outils de développement de votre navigateur pour vous assurer qu&apos;une seule image est demandée et pas seulement des tuiles de 256x256 pixels.</p>
-<figure id="fig1.3.1.1"><img src="wms1.png" alt="Un WMS comme source image"><figcaption>Un WMS comme source image</figcaption></figure>
+<li><p>Changez votre couche et votre source pour avoir une image unique plutôt que des tuiles. Regardez aux pages de la documentation de l'API pour avoir des indices: <a href="http://openlayers.org/en/latest/apidoc/ol.layer.Image.html" target="_blank">http://openlayers.org/en/latest/apidoc/ol.layer.Image.html</a> et <a href="http://openlayers.org/en/latest/apidoc/ol.source.ImageWMS.html" target="_blank">http://openlayers.org/en/latest/apidoc/ol.source.ImageWMS.html</a>. Utilisez l'onglet <code>Réseau</code> des outils de développement de votre navigateur pour vous assurer qu'une seule image est demandée et pas seulement des tuiles de 256x256 pixels.</p>
+<figure id="fig1.3.1.1"><img src="wms1.png" alt="Un WMS comme source image"></img><figcaption>Un WMS comme source image</figcaption></figure>
 </li>
 </ol>
-<p>Après avoir travaillé avec une donnée rendu dynamiquement depuis un Web Map Service, passons maintenant à l&apos;utilisation des <a href="cached.html">services de tuiles mises en cache</a>.</p>
+<p>Après avoir travaillé avec une donnée rendu dynamiquement depuis un Web Map Service, passons maintenant à l'utilisation des <a href="cached.html">services de tuiles mises en cache</a>.</p>
 
                                 
                                 </section>
@@ -599,7 +599,7 @@ L&apos;url est la <code>online resource</code> du service WMS, et <code>params</
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Sources WMS","level":"1.3.1","depth":2,"next":{"title":"Sources tuilées","level":"1.3.2","depth":2,"path":"layers/cached.md","ref":"layers/cached.md","articles":[]},"previous":{"title":"Les couches et les sources","level":"1.3","depth":1,"path":"layers/README.md","ref":"layers/README.md","articles":[{"title":"Sources WMS","level":"1.3.1","depth":2,"path":"layers/wms.md","ref":"layers/wms.md","articles":[]},{"title":"Sources tuilées","level":"1.3.2","depth":2,"path":"layers/cached.md","ref":"layers/cached.md","articles":[]},{"title":"Fournisseurs de tuiles propriétaires","level":"1.3.3","depth":2,"path":"layers/proprietary.md","ref":"layers/proprietary.md","articles":[]},{"title":"Données vecteur","level":"1.3.4","depth":2,"path":"layers/vector.md","ref":"layers/vector.md","articles":[]},{"title":"Source image vecteur","level":"1.3.5","depth":2,"path":"layers/imagevector.md","ref":"layers/imagevector.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.7.1","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:5173","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Un carte fonctionnelle affichant une image du monde","alt":"Un carte fonctionnelle affichant une image du monde","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Un carte fonctionnelle affichant une image du monde","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: A un point d'arrêt dans le debugger","alt":"A un point d'arrêt dans le debugger","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"A un point d'arrêt dans le debugger","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Un WMS comme source image","alt":"Un WMS comme source image","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Un WMS comme source image","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Une couche tuilée avec une source de type OSM","alt":"Une couche tuilée avec une source de type OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Une couche tuilée avec une source de type OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Une carte avec des tuiles d'un source de Bing Maps","alt":"Une carte avec des tuiles d'un source de Bing Maps","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Une carte avec des tuiles d'un source de Bing Maps","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Emplacements de tremblements de terre","alt":"Emplacements de tremblements de terre","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Emplacements de tremblements de terre","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Une barre d'échelle par défaut dans le coin en bas à gauche","alt":"Une barre d'échelle par défaut dans le coin en bas à gauche","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"Une barre d'échelle par défaut dans le coin en bas à gauche","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","alt":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","alt":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","alt":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Bâtiments avec étiquette issue de la clé `field`","alt":"Bâtiments avec étiquette issue de la clé `field`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Bâtiments avec étiquette issue de la clé `field`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"fr","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"layers/wms.md","mtime":"2024-06-30T13:19:28.183Z","type":"markdown"},"gitbook":{"version":"3.7.5","time":"2024-06-30T13:19:38.994Z"},"basePath":"..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Sources WMS","level":"1.3.1","depth":2,"next":{"title":"Sources tuilées","level":"1.3.2","depth":2,"path":"layers/cached.md","ref":"layers/cached.md","articles":[]},"previous":{"title":"Les couches et les sources","level":"1.3","depth":1,"path":"layers/README.md","ref":"layers/README.md","articles":[{"title":"Sources WMS","level":"1.3.1","depth":2,"path":"layers/wms.md","ref":"layers/wms.md","articles":[]},{"title":"Sources tuilées","level":"1.3.2","depth":2,"path":"layers/cached.md","ref":"layers/cached.md","articles":[]},{"title":"Fournisseurs de tuiles propriétaires","level":"1.3.3","depth":2,"path":"layers/proprietary.md","ref":"layers/proprietary.md","articles":[]},{"title":"Données vecteur","level":"1.3.4","depth":2,"path":"layers/vector.md","ref":"layers/vector.md","articles":[]},{"title":"Source image vecteur","level":"1.3.5","depth":2,"path":"layers/imagevector.md","ref":"layers/imagevector.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["image-captions","include","include-codeblock","copy-code-button"],"styles":{"website":"style.css"},"pluginsConfig":{"include":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"default","theme":"chrome","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"_CAPTION_","variable_name":"_pictures"}},"theme":"default","honkit":"^3.7.1","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopUrl":"http://localhost:5173","_pictures":[{"backlink":"basics/map.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Un carte fonctionnelle affichant une image du monde","alt":"Un carte fonctionnelle affichant une image du monde","nro":1,"url":"map1.png","index":1,"caption_template":"_CAPTION_","label":"Un carte fonctionnelle affichant une image du monde","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"basics/resources.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: A un point d'arrêt dans le debugger","alt":"A un point d'arrêt dans le debugger","nro":2,"url":"debugger.png","index":1,"caption_template":"_CAPTION_","label":"A un point d'arrêt dans le debugger","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"layers/wms.html#fig1.3.1.1","level":"1.3.1","list_caption":"Figure: Un WMS comme source image","alt":"Un WMS comme source image","nro":3,"url":"wms1.png","index":1,"caption_template":"_CAPTION_","label":"Un WMS comme source image","attributes":{},"skip":false,"key":"1.3.1.1"},{"backlink":"layers/cached.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: Une couche tuilée avec une source de type OSM","alt":"Une couche tuilée avec une source de type OSM","nro":4,"url":"cached1.png","index":1,"caption_template":"_CAPTION_","label":"Une couche tuilée avec une source de type OSM","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"layers/proprietary.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: Une carte avec des tuiles d'un source de Bing Maps","alt":"Une carte avec des tuiles d'un source de Bing Maps","nro":5,"url":"proprietary1.png","index":1,"caption_template":"_CAPTION_","label":"Une carte avec des tuiles d'un source de Bing Maps","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"layers/vector.html#fig1.3.4.1","level":"1.3.4","list_caption":"Figure: Emplacements de tremblements de terre","alt":"Emplacements de tremblements de terre","nro":6,"url":"vector1.png","index":1,"caption_template":"_CAPTION_","label":"Emplacements de tremblements de terre","attributes":{},"skip":false,"key":"1.3.4.1"},{"backlink":"controls/scaleline.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: Une barre d'échelle par défaut dans le coin en bas à gauche","alt":"Une barre d'échelle par défaut dans le coin en bas à gauche","nro":7,"url":"./scaleline1.png","index":1,"caption_template":"_CAPTION_","label":"Une barre d'échelle par défaut dans le coin en bas à gauche","attributes":{},"skip":false,"key":"1.4.1.1"},{"backlink":"controls/scaleline.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","alt":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","nro":8,"url":"scaleline2.png","index":2,"caption_template":"_CAPTION_","label":"Un `control` de barre d'échelle à l'extérieur de la fenêtre d'affichage de la carte","attributes":{},"skip":false,"key":"1.4.1.2"},{"backlink":"controls/select.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","alt":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","nro":9,"url":"select1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction pour sélectionner les objets géographiques issus d'une couche vecteur","attributes":{},"skip":false,"key":"1.4.2.1"},{"backlink":"controls/draw.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","alt":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","nro":10,"url":"draw1.png","index":1,"caption_template":"_CAPTION_","label":"Utilisation d'une interaction de dessin pour ajouter un objet géographique à la source vecteur","attributes":{},"skip":false,"key":"1.4.3.1"},{"backlink":"vector/style.html#fig1.5.3.1","level":"1.5.3","list_caption":"Figure: Bâtiments avec étiquette issue de la clé `field`","alt":"Bâtiments avec étiquette issue de la clé `field`","nro":11,"url":"style2.png","index":1,"caption_template":"_CAPTION_","label":"Bâtiments avec étiquette issue de la clé `field`","attributes":{},"skip":false,"key":"1.5.3.1"}]},"language":"fr","links":{"sidebar":{"OpenLayers Workshop":"/"}},"gitbook":"*"},"file":{"path":"layers/wms.md","mtime":"2024-12-01T12:27:54.259Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2024-12-01T12:28:09.562Z"},"basePath":"..","book":{"language":"fr"}});
         });
     </script>
 </div>
@@ -673,7 +673,7 @@ L&apos;url est la <code>online resource</code> du service WMS, et <code>params</
         
     
         
-        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
         
     
 
