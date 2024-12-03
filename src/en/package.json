@@ -28,9 +28,9 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "eslint": "^8.22.0",
-    "eslint-config-openlayers": "^16.2.3",
-    "vite": "^3.0.9",
+    "eslint": "^8.57.1",
+    "eslint-config-openlayers": "^19.0.0",
+    "vite": "^3.2.11",
     "vite-plugin-static-copy": "^0.7.0"
   }
 }

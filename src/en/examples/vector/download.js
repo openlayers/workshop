@@ -27,26 +27,26 @@ map.addInteraction(
   new DragAndDrop({
     source: source,
     formatConstructors: [GeoJSON],
-  })
+  }),
 );
 
 map.addInteraction(
   new Modify({
     source: source,
-  })
+  }),
 );
 
 map.addInteraction(
   new Draw({
     source: source,
     type: 'Polygon',
-  })
+  }),
 );
 
 map.addInteraction(
   new Snap({
     source: source,
-  })
+  }),
 );
 
 //! [clear]

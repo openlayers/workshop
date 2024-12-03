@@ -30,13 +30,13 @@ map.addInteraction(
   new DragAndDrop({
     source: source,
     formatConstructors: [GeoJSON],
-  })
+  }),
 );
 
 //! [modify]
 map.addInteraction(
   new Modify({
     source: source,
-  })
+  }),
 );
 //! [modify]

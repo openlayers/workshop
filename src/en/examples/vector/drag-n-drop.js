@@ -36,6 +36,6 @@ map.addInteraction(
   new DragAndDrop({
     source: source,
     formatConstructors: [GeoJSON],
-  })
+  }),
 );
 //! [interaction]

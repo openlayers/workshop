@@ -21,10 +21,10 @@ parse('./data/meteorites.csv', {
             mass: parseFloat(row.mass) || 0,
             year: parseInt(row.year) || 0,
             geometry: new Point(
-              fromLonLat([parseFloat(row.reclong), parseFloat(row.reclat)])
+              fromLonLat([parseFloat(row.reclong), parseFloat(row.reclat)]),
             ),
-          })
-      )
+          }),
+      ),
     );
   },
 });

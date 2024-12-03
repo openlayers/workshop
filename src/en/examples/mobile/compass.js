@@ -42,8 +42,8 @@ navigator.geolocation.watchPosition(
       new Feature(
         circular(coords, pos.coords.accuracy).transform(
           'EPSG:4326',
-          map.getView().getProjection()
-        )
+          map.getView().getProjection(),
+        ),
       ),
       new Feature(new Point(fromLonLat(coords))),
     ]);
@@ -53,7 +53,7 @@ navigator.geolocation.watchPosition(
   },
   {
     enableHighAccuracy: true,
-  }
+  },
 );
 
 const locate = document.createElement('div');
@@ -70,7 +70,7 @@ locate.addEventListener('click', function () {
 map.addControl(
   new Control({
     element: locate,
-  })
+  }),
 );
 //! [style]
 const style = new Style({

@@ -31,13 +31,13 @@ map.addInteraction(
   new DragAndDrop({
     source: source,
     formatConstructors: [GeoJSON],
-  })
+  }),
 );
 
 map.addInteraction(
   new Modify({
     source: source,
-  })
+  }),
 );
 
 //! [draw]
@@ -45,6 +45,6 @@ map.addInteraction(
   new Draw({
     type: 'Polygon',
     source: source,
-  })
+  }),
 );
 //! [draw]

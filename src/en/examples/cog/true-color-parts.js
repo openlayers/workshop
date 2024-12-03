@@ -14,7 +14,7 @@ const projection = 'EPSG:32721';
 const extent = transformExtent(
   [-59.19991, -35.32718, -57.98062, -34.32183],
   'EPSG:4326',
-  projection
+  projection,
 );
 //! [extent]
 
