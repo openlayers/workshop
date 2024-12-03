@@ -17,7 +17,7 @@ Aachen,21,1880,50.775000,6.083330
 ...
 ```
 
-The first line of the file is a header line that we'll skip over when parsing.  Subsequent lines have the name of the site, the mass of the meteorite, the year of impact, the latitude, and the longitude separated by commas.  We'll use an `XMLHttpRequest` client to fetch the data and write a short function to parse lines in the file as features with point geometries.
+We're going to use the convenient `papaparse` library to parse the csv. It has already been added as dependency to the workshop, so we can import its `parse` function without the need to run `npm install`. We only need to write a short `complete` handler function that creates OpenLayers `Feature`s from the rows in the csv, with `mass` and `year` being numbers, not strings, and `Point` geometries representing the latitude ( `reclat`) and longitude (`reclong`) of the meteorite impact.
 
 Update your `main.js` to load and render a local CSV file with data representing meteorite impacts:
 
