@@ -79,7 +79,6 @@ const style = new Style({
   }),
   image: new Icon({
     src: './data/location-heading.svg',
-    imgSize: [27, 55],
     rotateWithView: true,
   }),
 });
