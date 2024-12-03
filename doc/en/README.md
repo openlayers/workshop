@@ -4,7 +4,7 @@ Welcome to the **OpenLayers Workshop**. This workshop is designed to give you a 
 
 ## Setup
 
-These instructions assume that you are starting with an `openlayers-workshop-en.zip` archive from the latest [workshop release](https://github.com/openlayers/workshop/releases).  In addition, you'll need [Node](https://nodejs.org/) v16 or higher installed to run a development server for the workshop.
+These instructions assume that you are starting with an `openlayers-workshop-en.zip` archive from the latest [workshop release](https://github.com/openlayers/workshop/releases).  In addition, you'll need [Node](https://nodejs.org/) v20 or higher installed to run a development server for the workshop.
 
 After extracting the zip, change into the `openlayers-workshop-en` directory and install some additional dependencies:
 
